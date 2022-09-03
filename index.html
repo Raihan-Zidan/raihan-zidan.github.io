@@ -16,6 +16,7 @@
 
 <body>
 
+<div class="div-wrapper">
 <div class="inersoft">
   <img src="https://inersoft.github.io/inersoft.png" width="230">
 </div>
@@ -28,6 +29,7 @@
       <i class="fa fa-search" aria-hidden="true"></i>
     </div>
   </div>
+</div>
 </div>
 
 </body>
@@ -95,7 +97,15 @@ html, body {
 }
 
 @media (min-width: 700px) {
+  .div-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%; top 50%;
+  }
   .search-field {
+    width: 350px;
+  }
+  .inersoft img {
     width: 250px;
   }
 }
