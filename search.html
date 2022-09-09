@@ -195,8 +195,6 @@ searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
 
 window.addEventListener('load', ()=> {
-  var urlsearch = window.location.toString();
-  window.location = urlsearch.replace(/%20/, '+');
   var url_string = window.location.href;
   var url = new URL(url_string);
   var c = url.searchParams.get("q");
