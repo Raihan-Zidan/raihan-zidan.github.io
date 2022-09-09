@@ -61,9 +61,6 @@ html, body {
   justify-content: center;
 }
 
-.tab-link {
-}
-
 .tab-result {
   width: 100%;
   border: 1px solid #EDEDED;
@@ -92,7 +89,7 @@ html, body {
 
 .tab-result a {
   text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,.10);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tab-result .link {
@@ -111,9 +108,13 @@ html, body {
   text-overflow: ellipsis;
 }
 
+.tab-link {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,.10);
+}
+
 .result-stats {
   display: none;
-
 }
 
 .search-wrapper {
@@ -180,6 +181,9 @@ html, body {
   }
   .search-field {
     width: 500px;
+  }
+  .tab-link {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
