@@ -256,7 +256,7 @@ function hndlr(res) {
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
-        description.innerHTML = `There is no information on this page.<br><div class="tab-link"><a class="snippet" href="https://raihan-zidan.github.io/support/why-the-page-doesnt-have-information">Learn why</a></a>`;
+        description.innerHTML = `There is no information on this page.<br><a class="snippet" href="https://raihan-zidan.github.io/support/why-the-page-doesnt-have-information">Learn why</a>`;
       }
     });
   } catch(error) {
