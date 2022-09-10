@@ -214,11 +214,26 @@ searchInput.addEventListener('keyup', ()=> {
   }
 });
 
+apiKey = [
+  "AIzaSyBhu31ydLu6PpG2T-rNalRWQV28kZrgGWo",
+  "AIzaSyBFspDiPSyDa2DTExG0wyA8d_GsV7jD5Z8',
+  "AIzaSyD69KZdQRASdg0QxpOA74adD4HeFRgHwx8",
+  "AIzaSyD6za5QvIJXXnGKH-NyQVmolQJWw29penk",
+  "AIzaSyDhzi6vGeMmnzsZCKAmisFAOKTph6oGTHc",
+  "AIzaSyCLJWedN2hKtUCIVDBn07-zuUL25De7X5w",
+  "AIzaSyAQGSWClTiXhFS4WZDBJR0u98UGACrwSU8",
+  "AIzaSyAB8NLsHdYuRrLyU8UMUuCqXQRC9Ig27iI",
+  "AIzaSyCX9KljtrLnBp0FLiRkBQT1dtU8-BanrWU",
+  "AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU"
+];
+
+searchApi = apiKey[Math.floor(Math.random() * apiKey.length)];
+
 function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
   var newElement = document.createElement('script');
-  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
+  newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
 }
