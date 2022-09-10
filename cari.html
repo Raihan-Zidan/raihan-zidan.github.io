@@ -18,7 +18,7 @@
 <div class="search-wrapper">
   <div class="search-box">
     <div class="search-field">
-      <input type="text" class="search-input" placeholder="Type to search...">
+      <input type="text" class="search-input" placeholder="Type to search..." autocapitalize="none">
     </div>
     <div class="search-toggle">
       <i class="fa fa-search" aria-hidden="true"></i>
@@ -198,15 +198,14 @@ startIndex = 1;
 window.addEventListener('load', ()=> {
   var url_string = window.location.href;
   var url = new URL(url_string);
-  var c = url.searchParams.get("q");
-  searchInput.value = c;
+  var q = url.searchParams.get("q");
+  searchInput.value = q;
   submit();
-  hasil = document.getElementById("hasil").innerHTML = "";
 });
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
-    window.location.href = `https://raihan-zidan.github.io/cari.html?q=${searchInput.value}`;
+    window.location.href = `https://raihan-zidan.github.io/search.html?q=${searchInput.value}`;
   }
 });
 
@@ -219,9 +218,10 @@ searchInput.addEventListener('keyup', ()=> {
 function submit() {
   var val = searchInput.value;
   var newElement = document.createElement('script');
-  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyADuPTQVZiIxHyjuUoYAs3D3UMa1Um5XJ4&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
+  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyD_-tEN5WFwTdqHeMomlv-lT1ECao5goK0&cx=e5dbd697a8e464044&start=${startIndex}&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
+  showhasil();
 }
 
 function hndlr(res) {
@@ -230,8 +230,6 @@ function hndlr(res) {
     for (var i = 0; i < res.items.length; i++) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].title}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
-    startIndex += 10;
-    submmit();
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
@@ -242,5 +240,10 @@ function hndlr(res) {
     
   }
 }
+  
+  function showhasil() {
+    startIndex += 10;
+    submit();
+  }
 
 </script>
