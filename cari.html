@@ -219,7 +219,7 @@ function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
   var newElement = document.createElement('script');
-  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
+  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyADuPTQVZiIxHyjuUoYAs3D3UMa1Um5XJ4&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
 }
