@@ -236,10 +236,8 @@ function hndlr(res) {
         description.innerHTML = "There is no information on this page.";
       }
     });
-    if (startIndex < 60) {
-      startIndex += 10;
-      submmit();
-    }
+    startIndex += 10;
+    submmit();
   } catch(error) {
     
   }
