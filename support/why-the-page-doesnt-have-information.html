@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,22 @@
 </head>
 
 <body>
-  <h2>No page information in search results</h2>
-  <p>If the search results state that no information is available for the page, like this:</p>
-  <img src="//lh3.googleusercontent.com/OM7TnuxwWMNnBPw3fclrys-7Oocml6ERRxbu9uU1VPY3-X1vEEcmEitt1LwfuQmVVw=w280" width="350px" alt="Hasil penelusuran tidak memiliki cuplikan: Tidak tersedia informasi untuk halaman ini" class="shadow" data-mime-type="image/png" data-alt-src="//lh3.googleusercontent.com/OM7TnuxwWMNnBPw3fclrys-7Oocml6ERRxbu9uU1VPY3-X1vEEcmEitt1LwfuQmVVw" data-outlined="true">
-  <p>That means the site doesn't allow Search Engines to create page descriptions, but doesn't hide the page from Search.</p>
-  <p><strong>If you are the owner of this site</strong>, you can improve the quality of these search results by allowing search engines to read the page to create a good description, or hide the page completely from search results.</p>
+
+<div class="support">
+  <div class="title">No page information in search results</div>
+  <div class="text">If the search results state that no information is available for the page, like this:</div>
+  <img src="https://lh3.googleusercontent.com/OM7TnuxwWMNnBPw3fclrys-7Oocml6ERRxbu9uU1VPY3-X1vEEcmEitt1LwfuQmVVw=w280" width="320px" alt="Search results have no snippet: No information available for this page" class="shadow" data-mime-type="image/png" data-alt-src="//lh3.googleusercontent.com/OM7TnuxwWMNnBPw3fclrys-7Oocml6ERRxbu9uU1VPY3-X1vEEcmEitt1LwfuQmVVw" data-outlined="true">
+  <div class="text">That means the site doesn't allow Search Engines to create page descriptions, but doesn't hide the page from Search.</div>
+  <div class="text"><strong>If you are the owner of this site</strong>, you can improve the quality of these search results by allowing search engines to read the page to create a good description, or hide the page completely from search results.</div>
+  <div class="question">
+    <div class="text">Does this help?</div>
+    <div class="answer">
+      <button id="yes">Yes</button>
+      <button id="not">Not</button>
+    </div>
+  </div>
+</div>
+
 </body>
   
 <style>
@@ -30,3 +42,93 @@ html, body {
   font-family: Google Sans, Arial;
   font-size: 14px;
 }
+
+.support {
+  width: 100%;
+  padding: 20px;
+}
+
+.support .title {
+  font-size: 25px;
+  font-weight: 405;
+  margin: 8px 0;
+  margin-top: 0;
+}
+
+.support .text {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.support strong {
+  font-weight: 450;
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.question:not(:disabled) {
+  padding-top: 30px;
+  margin-top: 50px;
+  border-top: 1px solid gray;
+}
+
+.answer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.answer button {
+  padding: 10px 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 0 5px;
+  background: none;
+}
+
+@media (min-width: 700px) {
+  body {
+    padding: 20px;
+  }
+  .shadow {
+    width: 400px;
+  }
+  .support {
+    max-width: 800px;
+    border: 1px solid gray;
+    border-radius: 20px;
+  }
+}
+
+</style>
+
+<script>
+
+answer = document.querySelector(".answer");
+submit = document.querySelectorAll(".answer button");
+question = document.querySelector(".question .text");
+
+submit.forEach(option => {
+  option.addEventListener('click', ()=> {
+    if (option.id === "yes") {
+      answer.style.display = "none";
+      question.innerHTML = "Thanks for your feedback!";
+      question.style.fontSize = "16px";
+    }
+    if (option.id === "not") {
+      answer.style.display = "none";
+      question.innerHTML = "Sorry about that";
+      question.style.fontSize = "16px";
+    }
+  });
+});
+
+</script>
