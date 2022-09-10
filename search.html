@@ -197,8 +197,8 @@ searchToggle = document.querySelector(".search-toggle");
 window.addEventListener('load', ()=> {
   var url_string = window.location.href;
   var url = new URL(url_string);
-  var c = url.searchParams.get("q");
-  searchInput.value = c;
+  var q = url.searchParams.get("q");
+  searchInput.value = q;
   submit();
 });
 
