@@ -196,6 +196,7 @@ html, body {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
+startIndex = 1;
 
 window.addEventListener('load', ()=> {
   var url_string = window.location.href;
@@ -236,9 +237,10 @@ function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
   var newElement = document.createElement('script');
-  newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
+  newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&start=${startIndex}&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
+  showmoreresult(newElement, val);
 }
 
 function hndlr(res) {
@@ -255,6 +257,13 @@ function hndlr(res) {
     });
   } catch(error) {
     
+  }
+}
+
+function showmoreresult() {
+  if (startIndex < 100) {
+    startIndex += 20;
+    submit();
   }
 }
 
