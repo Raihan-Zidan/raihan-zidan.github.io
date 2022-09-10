@@ -119,10 +119,6 @@ html, body {
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
 
-window.addEventListener('load', ()=> {
-  searchInput.value = '';
-}):
-
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
     window.location.href = `https://raihan-zidan.github.io/search.html?q=${searchInput.value}`;
