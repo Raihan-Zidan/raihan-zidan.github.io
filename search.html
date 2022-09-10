@@ -254,6 +254,9 @@ function hndlr(res) {
       if (description.innerHTML === "undefined") {
         description.innerHTML = "There is no information on this page.";
       }
+    resultStats = document.querySelectorAll(".result-stats");
+    resultStats.forEach(totals => {
+      totals.id = "1";
     });
   } catch(error) {
     alert("error");
