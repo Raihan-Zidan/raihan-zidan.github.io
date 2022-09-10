@@ -26,6 +26,7 @@
   </div>
 </div>
 <div id="hasil"></div>
+<button class="showhasil" style="display:none" onclick="showhasil()">Show more</button>
 
 </body>
 </html>
@@ -193,6 +194,7 @@ html, body {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
+showhasil = document.querySelector(".showhasil");
 startIndex = 1;
 
 window.addEventListener('load', ()=> {
@@ -221,7 +223,7 @@ function submit() {
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyD_-tEN5WFwTdqHeMomlv-lT1ECao5goK0&cx=e5dbd697a8e464044&start=${startIndex}&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
-  showhasil();
+  showhasil.style.display = "block";
 }
 
 function hndlr(res) {
@@ -241,9 +243,13 @@ function hndlr(res) {
   }
 }
   
-  function showhasil() {
+function showhasil() {
+  if (startIndex < 60) {
     startIndex += 10;
     submit();
+  } else {
+    showhasil.style.display = "none";
   }
+}
 
 </script>
