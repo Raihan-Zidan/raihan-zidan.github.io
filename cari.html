@@ -193,6 +193,7 @@ html, body {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
+startIndex = 1;
 
 window.addEventListener('load', ()=> {
   var url_string = window.location.href;
@@ -218,7 +219,7 @@ function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
   var newElement = document.createElement('script');
-  newElement.src = `shorturl.at/kmy36`;
+  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
 }
@@ -235,6 +236,10 @@ function hndlr(res) {
         description.innerHTML = "There is no information on this page.";
       }
     });
+    if (startIndex < 60) {
+      startIndex += 10;
+      submmit();
+    }
   } catch(error) {
     
   }
