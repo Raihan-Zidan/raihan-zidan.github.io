@@ -240,7 +240,7 @@ function submit() {
   var newElement = document.createElement('script');
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&start=${startIndex}&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
-  document.body.appendChild(newElement);
+  document.head.appendChild(newElement);
   showmoreresult(newElement, val);
 }
 
