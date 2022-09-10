@@ -201,6 +201,7 @@ window.addEventListener('load', ()=> {
   var c = url.searchParams.get("q");
   searchInput.value = c;
   submit();
+  hasil = document.getElementById("hasil").innerHTML = "";
 });
 
 searchToggle.addEventListener('click', ()=> {
@@ -216,7 +217,6 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 function submit() {
-  hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
   var newElement = document.createElement('script');
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyADuPTQVZiIxHyjuUoYAs3D3UMa1Um5XJ4&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
