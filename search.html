@@ -27,10 +27,10 @@
 </div>
 <div class="search-navigation">
   <div class="search-menu">
-    <div class="search-item">All</div>
-    <div class="search-item">Images</div>
-    <div class="search-item">Videos</div>
-    <div class="search-item">Maps</div>
+    <div class="search-item" id="all">All</div>
+    <div class="search-item" id="image">Images</div>
+    <div class="search-item" id="videos">Videos</div>
+    <div class="search-item" id="maps">Maps</div>
   </div>
 </div>
 <div id="hasil"></div>
@@ -226,6 +226,7 @@ html, body {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
+searchItem = document.querySelectorAll(".search-item");
 startIndex = 1;
 
 window.addEventListener('load', ()=> {
@@ -248,6 +249,19 @@ searchInput.addEventListener('keyup', ()=> {
   }
 });
 
+searchItem.forEach(tab => {
+  tab.addEventListener('click', ()=> {
+    if (tab.id === "all") {
+      window.location.href = `/search?q=${searchInput.value}`;
+    } else if (tab.id === "images") {
+      window.location.href = `/images?q=${searchInput.value}`;
+    } else if (tab.id === "videos") {
+      window.location.href = `/videos?q=${searchInput.value}`;
+    } else {
+      window.location.href = `https://google.com/maps/search/${searchInput.value}`;
+    }
+  });
+});
 apiKey = [
   "AIzaSyBhu31ydLu6PpG2T-rNalRWQV28kZrgGWo",
   "AIzaSyBFspDiPSyDa2DTExG0wyA8d_GsV7jD5Z8",
