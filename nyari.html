@@ -295,16 +295,18 @@ searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 
 searchItem.forEach(tab => {
-  tab.addEventListener('click', ()=> {
-    if (tab.id === "all") {
-      tab.href = `/search?q=${searchInput.value}`;
-    } else if (tab.id === "images") {
-      tab.href = `/images?q=${searchInput.value}`;
-    } else if (tab.id === "videos") {
-      tab.href = `/videos?q=${searchInput.value}`;
-    } else if (tab.id === "maps") {
-      tab.href = `https://google.com/maps/search/${searchInput.value}`;
-    }
+  window.addEventListener('load', ()=> {
+    setTimeout(()=> {
+      if (tab.id === "all") {
+        tab.href = `/search?q=${searchInput.value}`;
+      } else if (tab.id === "images") {
+        tab.href = `/images?q=${searchInput.value}`;
+      } else if (tab.id === "videos") {
+        tab.href = `/videos?q=${searchInput.value}`;
+      } else if (tab.id === "maps") {
+        tab.href = `https://google.com/maps/search/${searchInput.value}`;
+      }
+    },1000);
   });
 });
 
