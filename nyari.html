@@ -296,8 +296,7 @@ cleartext = document.querySelector(".cleartext");
 
 searchItem.forEach(tab => {
   window.addEventListener('load', ()=> {
-    if (document.getElementById("hasil").innerHTML != '') {
-    setTimeout(()=> {
+    setInterval(()=> {
       if (tab.id === "all") {
         tab.href = `/search?q=${searchInput.value}`;
       } else if (tab.id === "images") {
@@ -307,8 +306,7 @@ searchItem.forEach(tab => {
       } else if (tab.id === "maps") {
         tab.href = `https://google.com/maps/search/${searchInput.value}`;
       }
-    },1000);
-    }
+    },0);
   });
 });
 
