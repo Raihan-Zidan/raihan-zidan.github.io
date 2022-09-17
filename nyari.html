@@ -325,8 +325,7 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 window.addEventListener('load', ()=> {
-  var url_string = window.location.href;
-  var url = new URL(url_string);
+  var url = new URL(window.location.href);
   var q = url.searchParams.get("q");
   searchInput.value = q;
   submit();
