@@ -99,17 +99,10 @@ strong, b {
 <script>
 
 searchInput = document.querySelector(".search-input");
-searchToggle = document.querySelector(".search-toggle");
-
-searchToggle.addEventListener('click', ()=> {
-  if (searchInput.value != '') {
-    submit();
-  }
-});
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13) {
-    searchToggle.click();
+    submit();
   }
 });
 
