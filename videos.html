@@ -139,6 +139,12 @@ window.addEventListener('load', ()=> {
   });
 });
 
+cleartext.addEventListener('click', ()=> {
+  searchInput.value = '';
+  cleartext.style.display = "none";
+  searchInput.focus();
+});
+
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13 && searchInput.value != '') {
     window.location.href = `/videos?q=${searchInput.value}`;
