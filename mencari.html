@@ -327,9 +327,6 @@ window.addEventListener('load', ()=> {
   var q = url.searchParams.get("q");
   searchInput.value = q;
   submit();
-  if (q != '') {
-     window.location.href = "/";
-  }
   if (searchInput.value != '') {
     cleartext.style.display = "block";
   } else {
