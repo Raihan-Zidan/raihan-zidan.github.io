@@ -355,12 +355,15 @@ $(".search-input").autocomplete({
 searchInput = document.querySelector(".search-input");
 suggestion = document.querySelector("ul");
 
-searchInput.addEventListener('keyup', ()=> {
+setInterval(()=> {
   if (suggestion.style.display === "none") {
     searchInput.style.borderRadius = "22px";
   } else {
     searchInput.style.borderRadius = "22px 22px 0 0";
   }
-});
+  if (searchInput.value === '') {
+    searchInput.style.borderRadius = "22px";
+  }
+},0);
   
 </script>
