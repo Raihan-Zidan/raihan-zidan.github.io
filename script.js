@@ -2,7 +2,7 @@ searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 
-searchInput.addEventListener('input', ()=> {
+searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
   } else {
