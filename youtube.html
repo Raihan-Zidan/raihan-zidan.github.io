@@ -57,7 +57,7 @@
 
 .tab-result {
   position: relative;
-  width: 49%;
+  width: 42%;
   border: 1px solid #EDEDED;
   padding: 13px;
   margin: 2px 2px;
@@ -70,6 +70,12 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 400px) {
+  .tab-result {
+    width: 49%;
+  }
 }
 
 @media (min-width: 700px) {
