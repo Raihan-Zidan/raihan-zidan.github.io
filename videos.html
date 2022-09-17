@@ -7,7 +7,6 @@
   <meta name="keywords" content="inersoft, search engine, search">
   <meta name="description" content="Look for all information in the world, and get the most relevant results">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" async></script>
 </head>
 
 <body>
@@ -20,10 +19,10 @@
     </div>
   </div>
   <div class="search-menu">
-    <div class="search-item selected">
+    <a href="" class="tab-wrapper" id="videos">
       <div class="tab-wrapper" id="all">
         <span>All</span>
-      </div>
+      </a>
     </div>
     <div class="search-item">
       <a href="" class="tab-wrapper" id="images">
@@ -31,9 +30,9 @@
       </a>
     </div>
     <div class="search-item">
-      <a href="" class="tab-wrapper" id="videos">
+      <div class="search-item selected">
         <span>Videos</span>
-      </a>
+      </div>
     </div>
     <div class="search-item">
       <a href="" class="tab-wrapper" id="maps">
@@ -106,10 +105,43 @@
 <script>
 
 searchInput = document.querySelector(".search-input");
+searchItem = document.querySelectorAll(".tab-wrapper");
+cleartext = document.querySelector(".cleartext");
+
+searchInput.addEventListener('keyup', ()=> {
+  if (searchInput.value != '') {
+    cleartext.style.display = "block";
+  } else {
+    cleartext.style.display = "none";
+  }
+});
+
+window.addEventListener('load', ()=> {
+  var url = new URL(window.location.href);
+  var q = url.searchParams.get("q");
+  searchInput.value = q;
+  submit();
+  if (searchInput.value != '') {
+    cleartext.style.display = "block";
+  } else {
+    cleartext.style.display = "none";
+  }
+  searchItem.forEach(tab => {
+    if (tab.id === "all") {
+      tab.href = `/search?q=${q}`;
+    } else if (tab.id === "images") {
+      tab.href = `/images?q=${q}`;
+    } else if (tab.id === "videos") {
+      tab.href = `/videos?q=${q}`;
+    } else if (tab.id === "maps") {
+      tab.href = `https://google.com/maps/search/${q}`;
+    }
+  });
+});
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13) {
-    submit();
+    window.location.href = `/videos?q=${searchInput.value}`;
   }
 });
 
