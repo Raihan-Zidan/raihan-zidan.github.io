@@ -300,20 +300,6 @@ searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 
-searchItem.forEach(tab => {
-  window.addEventListener('load', ()=> {
-      if (tab.id === "all") {
-        tab.href = `/search?q=${searchInput.value}`;
-      } else if (tab.id === "images") {
-        tab.href = `/images?q=${searchInput.value}`;
-      } else if (tab.id === "videos") {
-        tab.href = `/videos?q=${searchInput.value}`;
-      } else if (tab.id === "maps") {
-        tab.href = `https://google.com/maps/search/${searchInput.value}`;
-      }
-  });
-});
-
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
@@ -332,6 +318,17 @@ window.addEventListener('load', ()=> {
   } else {
     cleartext.style.display = "none";
   }
+  searchItem.forEach(tab => {
+    if (tab.id === "all") {
+      tab.href = `/search?q=${q}`;
+    } else if (tab.id === "images") {
+      tab.href = `/images?q=${q}`;
+    } else if (tab.id === "videos") {
+      tab.href = `/videos?q=${q}`;
+    } else if (tab.id === "maps") {
+      tab.href = `https://google.com/maps/search/${q}`;
+    }
+  });
 });
 
 cleartext.addEventListener('click', ()=> {
