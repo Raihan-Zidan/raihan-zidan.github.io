@@ -154,7 +154,6 @@ div[role=status] {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
-suggestion = document.querySelector("ul");
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
@@ -167,30 +166,5 @@ searchInput.addEventListener('keyup', ()=> {
     searchToggle.click();
   }
 });
-
-$(".search-input").autocomplete({
-    source: function (request, response) {
-        $.ajax({
-            url: 'https://suggestqueries.google.com/complete/search?client=chrome&hl=tr&q=' + request.term,
-            type: 'GET',
-            dataType: 'jsonp',
-            success: function (data) {
-                response(data[1]);
-            }
-        });
-    },
-    minLength: 2
-});
-
-setInterval(()=> {
-  if (suggestion.style.display === "none") {
-    searchInput.style.borderRadius = "22px";
-  } else {
-    searchInput.style.borderRadius = "22px 22px 0 0";
-  }
-  if (searchInput.value === '') {
-    searchInput.style.borderRadius = "22px";
-  }
-},0);
 
 </script>
