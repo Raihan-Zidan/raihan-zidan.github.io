@@ -172,24 +172,6 @@
   color: #101518;
 }
 
-@media (min-width: 700px) {
-  .search-box,
-  .search-menu {
-    padding-left: 130px;
-    box-shadow: none;
-  }
-  .search-box {
-    margin-top: 13px;
-  }
-  .search-input {
-    width: 600px;
-    border: 0.1px solid #F8F8F8;
-  }
-  .cleartext {
-    opacity: 0;
-  }
-}
-
 strong, b {
   font-weight: normal;
 }
@@ -293,6 +275,21 @@ strong, b {
   .tab-link {
     -webkit-tap-highlight-color: transparent;
   }
+  .search-box,
+  .search-menu {
+    padding-left: 130px;
+    box-shadow: none;
+  }
+  .search-box {
+    margin-top: 13px;
+  }
+  .search-input {
+    width: 600px;
+    border: 0.1px solid #F8F8F8;
+  }
+  .cleartext {
+    opacity: 0;
+  }
 }
 
 </style>
@@ -328,6 +325,11 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 window.addEventListener('load', ()=> {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var q = url.searchParams.get("q");
+  searchInput.value = q;
+  submit();
   if (searchInput.value != '') {
     cleartext.style.display = "block";
   } else {
@@ -343,15 +345,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13) {
-    // disable window.location.href = `/search?q=${searchInput.value}`;
-  }
-});
-
-// result script
-
-searchInput.addEventListener('keyup', ()=> {
-  if (event.keyCode === 13) {
-    submit();
+    window.location.href = `/search?q=${searchInput.value}`;
   }
 });
 
