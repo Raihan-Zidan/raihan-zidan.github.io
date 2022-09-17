@@ -356,10 +356,10 @@ searchInput = document.querySelector(".search-input");
 suggestion = document.querySelector("ul");
 
 searchInput.addEventListener('keyup', ()=> {
-  if (searchInput.value != '') {
-    searchInput.style.borderRadius = "22px 22px 0 0";
-  } else {
+  if (suggestion.stye.display === "none") {
     searchInput.style.borderRadius = "22px";
+  } else {
+    searchInput.style.borderRadius = "22px 22px 0 0";
   }
 });
   
