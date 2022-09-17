@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="inersoft, search engine, search">
+  <meta name="keywords" content="inersoft, search engine, search, privacy, privacy search">
   <meta name="description" content="Look for all information in the world, and get the most relevant results">
-  <meta property="og:url" content="https://raihan-zidan.github.io/" />
-  <meta property="og:site_name" content="Inersoft" />
-  <meta property="og:image" content="https://image.png">
-  <meta property="og:title" content="Inersoft - Search" />
   <title>Inersoft - Search</title>
+  <meta name="referrer" content="origin">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6711994125818466" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <Script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 
 <body>
@@ -94,6 +93,40 @@ html, body {
   pointer-events: none;
 }
 
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+  background: white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.1);
+  border-radius: 0 0 22px 22px;
+}
+
+.ui-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+	outline: 0;
+	padding-bottom: 10px;
+}
+
+.ui-menu .ui-menu {
+	position: absolute;
+}
+
+.ui-menu .ui-menu-item {
+	margin: 0;
+	cursor: pointer;
+	margin: 5px 10px;
+	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+
+div[role=status] {
+  display: none;
+}
+
 @media (min-width: 700px) {
   .div-wrapper {
     position: absolute;
@@ -121,6 +154,7 @@ html, body {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
+suggestion = document.querySelector("ul");
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
@@ -133,5 +167,30 @@ searchInput.addEventListener('keyup', ()=> {
     searchToggle.click();
   }
 });
+
+$(".search-input").autocomplete({
+    source: function (request, response) {
+        $.ajax({
+            url: 'https://suggestqueries.google.com/complete/search?client=chrome&hl=tr&q=' + request.term,
+            type: 'GET',
+            dataType: 'jsonp',
+            success: function (data) {
+                response(data[1]);
+            }
+        });
+    },
+    minLength: 2
+});
+
+setInterval(()=> {
+  if (suggestion.style.display === "none") {
+    searchInput.style.borderRadius = "22px";
+  } else {
+    searchInput.style.borderRadius = "22px 22px 0 0";
+  }
+  if (searchInput.value === '') {
+    searchInput.style.borderRadius = "22px";
+  }
+},0);
 
 </script>
