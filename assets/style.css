@@ -239,4 +239,11 @@ strong, b {
   .cleartext {
     opacity: 0;
   }
+  .search-item.selected {
+    color: #1558d6;
+  }
+  .selected span:before {
+    background: #1558d6;
+    bottom: -15px;
+  }
 }
