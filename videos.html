@@ -140,7 +140,7 @@ window.addEventListener('load', ()=> {
 });
 
 searchInput.addEventListener('keyup', ()=> {
-  if (event.keyCode === 13) {
+  if (event.keyCode === 13 && searchInput.value != '') {
     window.location.href = `/videos?q=${searchInput.value}`;
   }
 });
