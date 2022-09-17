@@ -2,20 +2,6 @@ searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 
-searchItem.forEach(tab => {
-  window.addEventListener('load', ()=> {
-      if (tab.id === "all") {
-        tab.href = `/search?q=${searchInput.value}`;
-      } else if (tab.id === "images") {
-        tab.href = `/images?q=${searchInput.value}`;
-      } else if (tab.id === "videos") {
-        tab.href = `/videos?q=${searchInput.value}`;
-      } else if (tab.id === "maps") {
-        tab.href = `https://google.com/maps/search/${searchInput.value}`;
-      }
-  });
-});
-
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
@@ -33,8 +19,18 @@ window.addEventListener('load', ()=> {
     cleartext.style.display = "block";
   } else {
     cleartext.style.display = "none";
-    window.location.href = "/';
   }
+  searchItem.forEach(tab => {
+    if (tab.id === "all") {
+      tab.href = `/search?q=${q}`;
+    } else if (tab.id === "images") {
+      tab.href = `/images?q=${q}`;
+    } else if (tab.id === "videos") {
+      tab.href = `/videos?q=${q}`;
+    } else if (tab.id === "maps") {
+      tab.href = `https://google.com/maps/search/${q}`;
+    }
+  });
 });
 
 cleartext.addEventListener('click', ()=> {
@@ -45,7 +41,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13) {
-    window.location.href = `/nyari?q=${searchInput.value}`;
+    window.location.href = `/search?q=${searchInput.value}`;
   }
 });
 
@@ -53,7 +49,7 @@ function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
   var newElement = document.createElement('script');
-  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
+  newElement.src = `https://www.googleapis.com/customsearch/v1?key=AIzaSyDKPUq-VyTWsEA6PTozWnMEwNes3fu3CSY&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.head.appendChild(newElement);
 }
