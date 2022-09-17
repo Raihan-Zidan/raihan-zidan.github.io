@@ -1,4 +1,5 @@
 Decompile: https://codebeautify.org/jsviewer
+Encode: https://utf-8.jp/public/jjencode.html
 
 // autocomplete //
 
