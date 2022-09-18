@@ -35,8 +35,6 @@ var map = new mapboxgl.Map({
   center: [4.899, 52.372]
 });
 
-var layerList = document.getElementById("menu");
-
 function switchLayer(layer) {
   var layerId = layer.target.id;
   map.setStyle("mapbox://styles/mapbox/" + layerId);
@@ -44,11 +42,6 @@ function switchLayer(layer) {
 
 var popup = new mapboxgl.Popup()
 .setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
-
-var marker = new mapboxgl.Marker()
-.setLngLat([4.899, 52.372])
-.setPopup(popup)
-.addTo(map);
 
 var geojson = {
   type: 'FeatureCollection',
