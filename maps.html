@@ -41,18 +41,15 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: apiKey
 }).addTo(mymap);
 
- L.control.scale().addTo(mymap);
+    const provider = new window.GeoSearch.OpenStreetMapProvider();
+    const search = new GeoSearch.GeoSearchControl({
+      provider: provider,
+      style: 'bar',
+      updateMap: true,
+      autoClose: true,
+    }); // Include the search box with usefull params. Autoclose and updateMap in my case. Provider is a compulsory parameter.
 
-        // Control 3: This add a Search bar
-            var searchControl = new L.esri.Controls.Geosearch().addTo(map);
-
-            var results = new L.LayerGroup().addTo(map);
-
-              searchControl.on('results', function(data){
-                results.clearLayers();
-                for (var i = data.results.length - 1; i >= 0; i--) {
-                  results.addLayer(L.marker(data.results[i].latlng));
-                }
-              });
+    L.marker([51.0, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.'); //Creates a marker at [latitude, longitude] coordinates.
+  });
 
 </script>
