@@ -32,11 +32,15 @@
 
 const apiKey = 'pk.eyJ1IjoiYWxmcmVkMjAxNiIsImEiOiJja2RoMHkyd2wwdnZjMnJ0MTJwbnVmeng5In0.E4QbAFjiWLY8k3AFhDtErA';
 
+
+var map = L.map('map').setView([0, 60], 4);
+
 map.options.minZoom = 3;
-var map = L.map('map').setView([0, 0], 2);
-L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 14,
+
 }).addTo(map);
+
 L.Control.geocoder().addTo(map);
 
    
