@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <title>Maps Project</title>
 
     <style>
@@ -23,6 +24,7 @@
      
     <div id="map"></div> 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </body>
 </html>
 
@@ -41,14 +43,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: apiKey
 }).addTo(mymap);
 
-map.addControl(search);
-const provider = new window.GeoSearch.OpenStreetMapProvider();
-const search = new GeoSearch.GeoSearchControl({
-   provider: provider,
-   style: 'bar',
-   updateMap: true,
-   autoClose: true,
- });
-L.marker([51.0, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.'); //Creates a marker at [latitude, longitude] coordinates.
+L.Control.geocoder().addTo(map);
     
 </script>
