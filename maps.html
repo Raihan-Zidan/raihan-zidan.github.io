@@ -8,6 +8,19 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
   <title>Google Maps Clone</title>
+  <script>
+    document.onkeydown = function(e){
+    if(e.KeyboardEvent == 123){
+        return false;
+    }else if (e.ctrlKey && e.shiftKey && e.KeyboardEvent == 'I'.charCodeAt(0)) { 
+        return false;
+    }else if (e.ctrlKey && e.shiftKey && e.KeyboardEvent == 'J'.charCodeAt(0)){
+        return false;
+    }else if (e.ctrlKey && e.KeyboardEvent && 'U'.charCodeAt(0)){
+        return false;
+    }
+    }
+  </script>
   <style>
     body {
       margin: 0;
