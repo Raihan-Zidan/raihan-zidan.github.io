@@ -7,6 +7,11 @@
     <title>Maps Project</title>
 
     <style>
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
         #map{
             height: 800px;
             width: 800px;
@@ -37,10 +42,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     accessToken: apiKey
 }).addTo(mymap);
-
-// Adding Marker
-
-const marker = L.marker([40.748708, -73.985433]).addTo(mymap);
 
 
 </script>
