@@ -14,9 +14,9 @@ window.addEventListener('load', ()=> {
   var url = new URL(window.location.href);
   var q = url.searchParams.get("q");
   searchInput.value = q;
-  submit();
   if (searchInput.value != '') {
     cleartext.style.display = "block";
+    submit();
   } else {
     cleartext.style.display = "none";
   }
@@ -28,7 +28,7 @@ window.addEventListener('load', ()=> {
     } else if (tab.id === "videos") {
       tab.href = `/videos?q=${q}`;
     } else if (tab.id === "maps") {
-      tab.href = `https://google.com/maps/search/${q}`;
+      tab.href = `/maps`;
     }
   });
 });
@@ -40,7 +40,7 @@ cleartext.addEventListener('click', ()=> {
 });
 
 searchInput.addEventListener('keyup', ()=> {
-  if (event.keyCode === 13) {
+  if (event.keyCode === 13 && searchInput.value != '') {
     window.location.href = `/search?q=${searchInput.value}`;
   }
 });
