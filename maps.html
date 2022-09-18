@@ -7,18 +7,22 @@
   <script src='mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
-  <title>Google Maps Clone</title>
+  <title>Inersoft - Maps</title>
   <script>
-    document.onkeydown = function(e){
-    if(e.KeyboardEvent == 123){
-        return false;
-    }else if (e.ctrlKey && e.shiftKey && e.KeyboardEvent == 'I'.charCodeAt(0)) { 
-        return false;
-    }else if (e.ctrlKey && e.shiftKey && e.KeyboardEvent == 'J'.charCodeAt(0)){
-        return false;
-    }else if (e.ctrlKey && e.KeyboardEvent && 'U'.charCodeAt(0)){
-        return false;
-    }
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function (e) {
+        if(e.keyCode == 123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
     }
   </script>
   <style>
@@ -31,7 +35,6 @@
       width: 100vw;
     }
   </style>
-  <script src="script.js" defer></script>
 </head>
 <body>
   <div id='map'></div>
@@ -47,58 +50,6 @@ var map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/outdoors-v10?optimize=true",
   zoom: 1,
   center: [4.899, 52.372]
-});
-
-function switchLayer(layer) {
-  var layerId = layer.target.id;
-  map.setStyle("mapbox://styles/mapbox/" + layerId);
-}
-
-var popup = new mapboxgl.Popup()
-.setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
-
-var geojson = {
-  type: 'FeatureCollection',
-  features: [{
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-77.032, 38.913]
-    },
-    properties: {
-      title: 'Mapbox',
-      description: 'Washington, D.C.'
-    }
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-122.414, 37.776]
-    },
-    properties: {
-      title: 'Mapbox',
-      description: 'San Francisco, California'
-    }
-  }]
-};
-
-
-geojson.features.forEach(function(marker) {
-
-  // create a HTML element for each feature
-  var el = document.createElement('div');
-  // el.className = 'marker';
-  el.style = "  background-image: url('http://i5.chuimg.com/1c40c838813011e5a82877654de970d2.jpg@2o_50sh_1pr_1l_60w_60h_1c_1e_90q_1wh');  background-size: cover;  width: 50px;  height: 50px;  border-radius: 50%;  cursor: pointer;"
-
-  // make a marker for each feature and add to the map
-  var popup = new mapboxgl.Popup()
-.setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
-
-  new mapboxgl.Marker(el)
-    .setLngLat(marker.geometry.coordinates)
-    .setPopup(popup)
-    .addTo(map);
 });
   
   const geocoder = new MapboxGeocoder({
