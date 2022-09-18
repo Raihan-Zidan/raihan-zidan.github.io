@@ -4,14 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-  <link
-    rel="stylesheet"
-    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
-    type="text/css"
-  />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
   <title>Google Maps Clone</title>
   <style>
     body {
@@ -33,36 +27,71 @@
 <script>
   
 mapboxgl.accessToken =
-  "pk.eyJ1Ijoid2ViZGV2c2ltcGxpZmllZCIsImEiOiJja2d1c2x2djAwODE1MnltaGNzeHljcWN4In0.4u6YymF-wOIYpDoUTMcNOQ"
+  "pk.eyJ1IjoidGltZXNwYWNlZ3VpZGUiLCJhIjoiY2s0MGlkbjFkMDBhZzNlbDE4ODNpcDJyeCJ9.6Ur81nnpTOySNhpjO26oiw";
+var map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v11",
+  zoom: 1,
+  center: [4.899, 52.372]
+});
 
-navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
-  enableHighAccuracy: true
-})
+var layerList = document.getElementById("menu");
 
-function successLocation(position) {
-  setupMap([position.coords.longitude, position.coords.latitude])
+function switchLayer(layer) {
+  var layerId = layer.target.id;
+  map.setStyle("mapbox://styles/mapbox/" + layerId);
 }
 
-function errorLocation() {
-  setupMap([-2.24, 53.48])
-}
+var popup = new mapboxgl.Popup()
+.setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
 
-function setupMap(center) {
-  const map = new mapboxgl.Map({
-    container: "map",
-    style: "mapbox://styles/mapbox/streets-v11",
-    center: center,
-    zoom: 15
-  })
+var marker = new mapboxgl.Marker()
+.setLngLat([4.899, 52.372])
+.setPopup(popup)
+.addTo(map);
 
-  const nav = new mapboxgl.NavigationControl()
-  map.addControl(nav)
+var geojson = {
+  type: 'FeatureCollection',
+  features: [{
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-77.032, 38.913]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'Washington, D.C.'
+    }
+  },
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-122.414, 37.776]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'San Francisco, California'
+    }
+  }]
+};
 
-  var directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken
-  })
 
-  map.addControl(directions, "top-left")
-}
+geojson.features.forEach(function(marker) {
+
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  // el.className = 'marker';
+  el.style = "  background-image: url('http://i5.chuimg.com/1c40c838813011e5a82877654de970d2.jpg@2o_50sh_1pr_1l_60w_60h_1c_1e_90q_1wh');  background-size: cover;  width: 50px;  height: 50px;  border-radius: 50%;  cursor: pointer;"
+
+  // make a marker for each feature and add to the map
+  var popup = new mapboxgl.Popup()
+.setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
+
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(popup)
+    .addTo(map);
+});
   
 </script>
