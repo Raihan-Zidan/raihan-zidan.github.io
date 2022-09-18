@@ -41,15 +41,14 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: apiKey
 }).addTo(mymap);
 
-    const provider = new window.GeoSearch.OpenStreetMapProvider();
-    const search = new GeoSearch.GeoSearchControl({
-      provider: provider,
-      style: 'bar',
-      updateMap: true,
-      autoClose: true,
-    }); // Include the search box with usefull params. Autoclose and updateMap in my case. Provider is a compulsory parameter.
-
-    L.marker([51.0, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.'); //Creates a marker at [latitude, longitude] coordinates.
 map.addControl(search);
+const provider = new window.GeoSearch.OpenStreetMapProvider();
+const search = new GeoSearch.GeoSearchControl({
+   provider: provider,
+   style: 'bar',
+   updateMap: true,
+   autoClose: true,
+ });
+L.marker([51.0, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.'); //Creates a marker at [latitude, longitude] coordinates.
     
 </script>
