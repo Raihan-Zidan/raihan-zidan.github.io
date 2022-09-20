@@ -51,8 +51,10 @@
 </body>
 <script>
 
-if (window.location.indexOf("%20")) {
-  location.href = location.href.replace('%20', '+')
-}
+window.addEventListener('load', ()=> {
+  if (window.location.href.indexOf("%20")) {
+    location.href = location.href.replace('%20', '+')
+  }
+});
 
 </script>
