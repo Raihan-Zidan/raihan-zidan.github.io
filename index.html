@@ -158,7 +158,7 @@ searchToggle = document.querySelector(".search-toggle");
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
-    window.location.href = `https://raihan-zidan.github.io/search?q=${searchInput.value.replace(' ','+').replace('%20', '%2520')}`;
+    window.location.href = `https://raihan-zidan.github.io/search?q=${searchInput.value.replace(/\ /g,'+').replace(/\%20/g, '%2520')}`;
   }
 });
 
