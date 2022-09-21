@@ -22,11 +22,11 @@ window.addEventListener('load', ()=> {
   }
   searchItem.forEach(tab => {
     if (tab.id === "all") {
-      tab.href = `/search?q=${q.replace(' ','+').replace('%20', '%2520')}`;
+      tab.href = `/search?q=${q.replace(/\ /g,'+').replace(/\%20/g, '%2520')}`;
     } else if (tab.id === "images") {
-      tab.href = `/images?q=${q.replace(' ','+').replace('%20', '%2520')}`;
+      tab.href = `/images?q=${q.replace(/\ /g,'+').replace(/\%20/g, '%2520')}`;
     } else if (tab.id === "videos") {
-      tab.href = `/videos?q=${q.replace(' ','+').replace('%20', '%2520')}`;
+      tab.href = `/videos?q=${q.replace(/\ /g,'+').replace(/\%20/g, '%2520')}`;
     } else if (tab.id === "maps") {
       tab.href = `/maps`;
     }
@@ -41,7 +41,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13 && searchInput.value != '') {
-    window.location.href = `/search?q=${searchInput.value.replace(' ','+').replace('%20', '%2520')}`;
+    window.location.href = `/search?q=${searchInput.value.replace(/\ /g,'+').replace(/\%20/g, '%2520')}`;
   }
 });
 
