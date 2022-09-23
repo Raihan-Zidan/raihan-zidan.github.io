@@ -31,8 +31,7 @@
     </div>
   </div>
   <div class="logo-bangga">
-    <span></span>
-  <img src="bangga-buatan-indonesia.png" width="100px">
+    <img src="bangga-buatan-indonesia.png" width="100px">
   </div>
 </div>
 
@@ -107,16 +106,14 @@ html, body {
 
 .logo-bangga {
   width: 100%;
+  align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
-.logo-bangga span {
-  width: 200px;
-  height: 80px;
-  background-image: url('bangga-buatan-indonesia.png');
-  background-size: cover;
+.logo-bangga img {
+  pointer-events: none;
 }
 
 .ui-autocomplete {
