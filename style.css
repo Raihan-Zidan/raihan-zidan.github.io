@@ -242,7 +242,7 @@ strong, b {
   .search-input {
     border: 0.1px solid #F8F8F8;
   }
-  .cleartext {
+  .search-box .cleartext{
     right: 17px;
   }
   .search-item.selected {
