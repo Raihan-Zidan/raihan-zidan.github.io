@@ -26,7 +26,7 @@
         <input type="text" class="search-input" placeholder="Type to search..." autocapitalize="none">
       </div>
       <div class="search-toggle">
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <i></i>
       </div>
     </div>
   </div>
@@ -82,7 +82,13 @@ html, body {
   padding: 8px 20px;
   cursor: pointer;
   font-size: 20px;
-  -webkit-tap-highlight-radius: 5px;
+}
+
+.search-toggle i {
+  width: 18px;
+  height: 18px;
+  background-image: url("images/mag-glass-grey@3x-202105180812.png");
+  background-size: cover;
 }
 
 .search-input {
