@@ -230,7 +230,7 @@ strong, b {
     box-shadow: none;
   }
   .search-field:before {
-    left: none;
+    left: auto;
     right: 13px;
   }
   .search-box {
