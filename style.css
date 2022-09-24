@@ -241,10 +241,10 @@ strong, b {
   }
   .search-input {
     border: 0.1px solid #F8F8F8;
-    padding-left: 10px;
+    padding-left: 20px;
   }
   .search-box .cleartext{
-    right: 37px;
+    right: 40px;
   }
   .search-item.selected {
     color: #1558d6;
