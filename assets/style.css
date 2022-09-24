@@ -232,12 +232,11 @@ strong, b {
   .search-box {
     margin-top: 13px;
   }
-  .search-input {
+  .search-field {
     width: 600px;
-    border: 0.1px solid #F8F8F8;
   }
-  .cleartext {
-    opacity: 0;
+  .search-input {
+    border: 0.1px solid #F8F8F8;
   }
   .search-item.selected {
     color: #1558d6;
