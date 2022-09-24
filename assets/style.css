@@ -229,6 +229,10 @@ strong, b {
     padding-left: 130px;
     box-shadow: none;
   }
+  .search-field:before {
+    left: none;
+    right: 13px;
+  }
   .search-box {
     margin-top: 13px;
   }
