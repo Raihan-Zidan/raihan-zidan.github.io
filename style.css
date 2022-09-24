@@ -225,7 +225,7 @@ strong, b {
     -webkit-tap-highlight-color: transparent;
   }
   .tab-wrapper {
-    padding: 8px 16px 12px 16px;
+    padding: 10px 16px 14px 16px;
   }
   .search-box,
   .search-menu {
@@ -254,6 +254,6 @@ strong, b {
   }
   .selected span:before {
     background: #1558d6;
-    bottom: -15px;
+    bottom: -10px;
   }
 }
