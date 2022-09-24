@@ -254,6 +254,6 @@ strong, b {
   }
   .selected span:before {
     background: #1558d6;
-    bottom: -13px;
+    bottom: -11px;
   }
 }
