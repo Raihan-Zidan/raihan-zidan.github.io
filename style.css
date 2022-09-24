@@ -224,6 +224,9 @@ strong, b {
   .tab-link {
     -webkit-tap-highlight-color: transparent;
   }
+  .tab-wrapper {
+    padding: 12px 13px 16px 13px;
+  }
   .search-box,
   .search-menu {
     padding-left: 130px;
