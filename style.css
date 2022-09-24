@@ -242,6 +242,9 @@ strong, b {
   .search-input {
     border: 0.1px solid #F8F8F8;
   }
+  .cleartext {
+    right: 17px;
+  }
   .search-item.selected {
     color: #1558d6;
   }
