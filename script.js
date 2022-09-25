@@ -41,7 +41,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13 && searchInput.value != '') {
-    window.location.href = `/search?q=${searchInput.value}`;
+    window.location.href = `/search?q=${encodeURIComponent(searchInput.value)}`;
   }
 });
 
