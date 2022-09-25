@@ -147,7 +147,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13 && searchInput.value != '') {
-    window.location.href = `/videos?q=${searchInput.value}`;
+    window.location.href = `/videos?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
   }
 });
 
