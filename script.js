@@ -3,6 +3,7 @@ searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
+searchInput.value = q;
 
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
@@ -13,7 +14,6 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 window.addEventListener('load', ()=> {
-  searchInput.value = q;
   if (searchInput.value != '') {
     cleartext.style.display = "block";
     submit();
