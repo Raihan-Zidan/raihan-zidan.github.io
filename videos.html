@@ -128,11 +128,11 @@ window.addEventListener('load', ()=> {
   }
   searchItem.forEach(tab => {
     if (tab.id === "all") {
-      tab.href = `/search?q=${q}`;
+      tab.href = `/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "images") {
-      tab.href = `/images?q=${q}`;
+      tab.href = `/images?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "videos") {
-      tab.href = `/videos?q=${q}`;
+      tab.href = `/videos?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "maps") {
       tab.href = `/maps`;
     }
