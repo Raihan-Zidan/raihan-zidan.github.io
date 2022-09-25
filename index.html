@@ -23,10 +23,8 @@
   <div class="search-wrapper">
     <div class="search-box">
       <div class="search-field">
-        <input type="text" class="search-input" placeholder="Type to search..." autocapitalize="none">
-      </div>
-      <div class="search-toggle">
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search...">
+        <div class="search-toggle"></div>
       </div>
     </div>
   </div>
@@ -64,33 +62,41 @@ html, body {
 }
 
 .search-box {
-  display: flex;
-  align-items: center;
-  color: #A2A5AD;
-  background: white;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
-  border-radius: 22px;
+  margin-top: 7px;
+  padding: 5px 15px;
 }
 
 .search-field {
-  width: 215px;
-  overflow: hidden;
-  padding-left: 25px;
+  position: relative;
+  width: 280px;
 }
 
 .search-toggle {
-  padding: 8px 20px;
   cursor: pointer;
-  font-size: 20px;
-}
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 0;
+  right: 0;
+  background-image: url("https://raihan-zidan.github.io/images/mag-glass-grey@3x-202105180812.png");
+  -webkit-background-size: 20px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
 
+}
+.b{
+  -webkit-tap-highlight-color: transparent;
+}
 .search-input {
   width: 100%;
-  height: 100%;
-  padding: 0;
-  border: none;
+  height: 44px;
   outline: none;
+  border: none;
+  border-radius: 22px;
   font-size: 16px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.1);
+  padding: 0 40px 0 20px;
 }
 
 .inersoft {
@@ -143,10 +149,6 @@ div[role=status] {
   }
   .search-toggle {
     padding: 10px 20px;
-  }
-  .search-box {
-    border: 1px solid #fdfdfd;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.1);
   }
   .search-field {
     width: 350px;
