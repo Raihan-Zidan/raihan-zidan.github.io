@@ -1,6 +1,7 @@
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
+var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
@@ -78,7 +79,9 @@ function submit() {
 
 function hndlr(res) {
   try {
-    document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
+    if (windowWidth > 700) {
+      document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
+    }
     if (res.spelling) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
     }
