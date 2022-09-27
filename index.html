@@ -10,7 +10,7 @@
   <meta name="referrer" content="origin">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6711994125818466" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <Script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <link rel="icon" type="image/png" href="images/mag-glass-grey@3x-202105180812.png">
 </head>
 
@@ -85,9 +85,7 @@ html, body {
   background-position: center;
 
 }
-.b{
-  -webkit-tap-highlight-color: transparent;
-}
+
 .search-input {
   width: 100%;
   height: 44px;
@@ -105,40 +103,6 @@ html, body {
   display: flex;
   justify-content: center;
   pointer-events: none;
-}
-
-.ui-autocomplete {
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: default;
-  background: white;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.1);
-  border-radius: 0 0 22px 22px;
-}
-
-.ui-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: block;
-  outline: 0;
-  padding-bottom: 10px;
-}
-
-.ui-menu .ui-menu {
-  position: absolute;
-}
-
-.ui-menu .ui-menu-item {
-  margin: 0;
-  cursor: pointer;
-  margin: 5px 10px;
-  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-}
-
-div[role=status] {
-  display: none;
 }
 
 @media (min-width: 700px) {
@@ -164,7 +128,11 @@ div[role=status] {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
-searchInput.focus();
+var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+if (windowWidth > 700) {
+  searchInput.focus();
+}
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
