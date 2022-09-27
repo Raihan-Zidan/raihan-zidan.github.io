@@ -164,6 +164,7 @@ div[role=status] {
 
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
+searchInput.focus();
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value != '') {
