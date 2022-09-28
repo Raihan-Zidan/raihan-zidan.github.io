@@ -44,10 +44,12 @@ var fileid = url.searchParams.get("id");
 video = document.querySelector("video");
 sources = video.querySelector("source");
 
-if (fileid === '' || fileid === null) {
+if (!fileid) {
   document.querySelector("body").innerHTML = "File id not detected";
 } else if (fileid === "hEiqGn4s") {
   sources.src = "https://drive.google.com/uc?export=view&id=1etO-BxXeyn_PGcSmkRE4xhgOPgl19CFI";
+} else {
+  document.querySelector("body").innerHTML = "File ID does not match any document";
 }
 
 video.load();
