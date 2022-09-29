@@ -143,6 +143,7 @@ strong, b {
   border: 1px solid #EDEDED;
   padding: 13px;
   margin: 4px 0;
+  margin-top: 0;
   background: white;
 }
 
