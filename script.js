@@ -5,13 +5,7 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
-
-function disableBack() {
-  window.history.forward();
-}
-setTimeout("disableBack()", 0);
-window.onunload = null;
-window.beforeunload = null;
+window.history.forward();
 
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
