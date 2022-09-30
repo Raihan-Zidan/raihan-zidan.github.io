@@ -11,6 +11,7 @@ function disableBack() {
 }
 setTimeout("disableBack()", 0);
 window.onunload = null;
+window.beforeunload = null;
 
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
