@@ -6,9 +6,9 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
 
-function disableBack() { window.history.forward(); }
-setTimeout("disableBack()", 0);
-window.onunload = function () { null };
+if (!q || q === null) {
+  window.location.href = "/";
+}
 
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
@@ -24,9 +24,6 @@ window.addEventListener('load', ()=> {
     submit();
   } else {
     cleartext.style.display = "none";
-  }
-  if (!q || q === null || !searchInput.value) {
-    window.location.href = "/";
   }
   searchItem.forEach(tab => {
     if (tab.id === "all") {
