@@ -7,6 +7,10 @@ var q = url.searchParams.get("q");
 searchInput.value = q;
 window.history.forward();
 
+window.addEventListener('unload', ()=> {
+  alert("ganti");
+});
+
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
