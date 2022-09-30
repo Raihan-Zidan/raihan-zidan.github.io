@@ -6,9 +6,11 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
 
-function disableBack() { window.history.forward(); }
+function disableBack() {
+  window.history.forward();
+}
 setTimeout("disableBack()", 0);
-window.onunload = function () { null };
+window.onunload = null;
 
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
