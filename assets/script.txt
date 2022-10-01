@@ -67,7 +67,14 @@ apikey = [
   "AIzaSyCmS3naxRClDgCH_ugTbn6dSqtArX0xj2o",
   "AIzaSyBtnDuoWCx30xG2gmUgRdB_pqGUzdr7s-A",
   "AIzaSyD69KZdQRASdg0QxpOA74adD4HeFRgHwx8",
-  "AIzaSyDKPUq-VyTWsEA6PTozWnMEwNes3fu3CSY"
+  "AIzaSyDKPUq-VyTWsEA6PTozWnMEwNes3fu3CSY",
+  "AIzaSyA-ZFRhlpU4PBS10Kp5Ipp6UD4xK--M-j8",
+  "AIzaSyAB3o1QppoePI655jiTC3ArSBfQs_SuGyw",
+  "AIzaSyAIyON_dQEybmn0HVilGHnPG2Hz0kheatk",
+  "AIzaSyBIWWb7muhPm7yo4QPq1vcqi4XWaNtIJOY",
+  "AIzaSyBm9AN4slsELMKW8fL401ZNC6ahIzWHjuc",
+  "AIzaSyA8uJOYnA1ohf_7qIKJ15Evpyldq3CVl9M",
+  "AIzaSyDgDhEyznphPnYHWQzIqiVJfkgwrxo2-2A"
 ];
 
 searchApi = apikey[Math.floor(Math.random() * apikey.length)];
