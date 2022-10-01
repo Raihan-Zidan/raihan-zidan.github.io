@@ -97,8 +97,8 @@ function hndlr(res) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.promotions.length; i++) {
-      for (var e = 0; e < res.promotions.bodyLines.length; e++) {
-        document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.promotions[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.promotions[i].link}&size=64" class="favicon"><div class="link">${res.promotions[i].displayLink}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines[e].title}</div></div>`;
+      for (var j = 0; j < res.promotions.bodyLines.length; j++) {
+        document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.promotions[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.promotions[i].link}&size=64" class="favicon"><div class="link">${res.promotions[i].displayLink}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines[j].title}</div></div>`;
       }
     }
     for (var i = 0; i < res.items.length; i++) {
