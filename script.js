@@ -7,11 +7,11 @@ var q = url.searchParams.get("q");
 searchInput.value = q;
 
 function DisableBackButton() {
-window.history.forward()
+  window.history.forward()
 }
 DisableBackButton();
 window.onload = DisableBackButton;
-window.onpageshow = function(evt) { if (evt.persisted) DisableBackButton() }
+window.onpageshow = DisableBackButton;
 window.onunload = function() { void (0) }
 
 if (!q || q === null) {
