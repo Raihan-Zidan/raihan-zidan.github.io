@@ -6,14 +6,6 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
 
-function DisableBackButton() {
-  window.history.forward()
-}
-DisableBackButton();
-window.onload = DisableBackButton;
-window.onpageshow = DisableBackButton;
-window.onunload = function() { void (0) }
-
 if (!q || q === null) {
   window.location.href = "/";
 }
@@ -103,6 +95,9 @@ function hndlr(res) {
     }
     if (res.spelling) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
+    }
+    for (var i = 0; i < res.promotions.length; i++) {
+      document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.promotions[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.promotions[i].link}&size=64" class="favicon"><div class="link">${res.promotions[i].displayLink}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines.title}</div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].title}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
