@@ -46,7 +46,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13 && searchInput.value != '') {
-    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
+    window.location.href = `https://raihan-zidan.github.io/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
   }
 });
 
