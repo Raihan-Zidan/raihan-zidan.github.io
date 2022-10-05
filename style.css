@@ -160,6 +160,9 @@
 .tab-result .favicon {
   width: 17px;
   height: 17px;
+}
+
+.favicon:not(:disabled) {
   margin-right: 5px;
 }
 
