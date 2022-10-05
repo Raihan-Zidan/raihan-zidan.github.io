@@ -160,6 +160,7 @@
 .tab-result .favicon {
   width: 17px;
   height: 17px;
+  margin-right: 5px;
 }
 
 .tab-result a {
@@ -170,7 +171,6 @@
 .tab-result .link {
   color: #222222;
   font-size: 14px;
-  margin-left: 5px;
 }
 
 .tab-result .snippet {
