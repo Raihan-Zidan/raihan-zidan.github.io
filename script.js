@@ -94,8 +94,9 @@ function submit() {
 
 function jawaban(res) {
   try {
-    if (res.Abstract) {
-      document.getElementById("hasil").innerHTML = `<div class="tab-result" style="position:relative"><div style="width:100%;display:flex;"><div class="title" style="color:black;font-size:22px;">${res.Heading}</div><img src="https://duckduckgo.com${res.Image}" width="90" style="position:absolute;right:10px;padding:20px 0;"></div><div class="snippet">${res.Abstract}</div><div class="snippet"><a href="${res.AbstractURL}">${res.AbstractSource}</a></div><br><div class="snippet">${res.Infobox.content[0].label}: ${res.Infobox.content[0].value}<br>${res.Infobox.content[1].label}: ${res.Infobox.content[1].value}<br>${res.Infobox.content[2].label}: ${res.Infobox.content[2].value}</div>`;
+    document.getElementById("hasil").innerHTML = `<div class="instant-answer"><div><div class="wrapper"><div class="title">${res.Heading}</div><div class="snippet">${res.Abstract}</div><div class="snippet"></div><a href="${res.AbstractURL}">${res.AbstractSource}</a><br><br><div class="snippet">${res.Infobox.content[0].label}: ${res.Infobox.content[0].value}<br>${res.Infobox.content[1].label}: ${res.Infobox.content[1].value}<br>${res.Infobox.content[2].label}: ${res.Infobox.content[2].value}</div></div>`;
+    if (res.Image) {
+      document.querySelector(".instant-answer .wrapper").innerHTML += `<div class="logo-wrapper"><img class="logo" src="https://duckduckgo.com${res.Image}"></div>`;
     }
   } catch(error) {
       
