@@ -86,7 +86,7 @@ function submit() {
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   var instantAnswer = document.createElement('script');
-  instantAnswer.src = `https://duckduckgo.com/?q=Minecraft&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=jawaban`;
+  instantAnswer.src = `https://duckduckgo.com/?q=${val}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=jawaban`;
   document.head.appendChild(instantAnswer);
   document.head.appendChild(newElement);
 
