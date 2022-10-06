@@ -94,7 +94,9 @@ function submit() {
 
 function jawaban(res) {
   try {
-    document.getElementById("hasil").innerHTML = `<div class="instant-answer"><div><div class="wrapper"><div class="title">${res.Heading}</div><div class="snippet">${res.Abstract}</div><div class="snippet"></div><a href="${res.AbstractURL}">${res.AbstractSource}</a><br><br><div class="snippet">${res.Infobox.content[0].label}: ${res.Infobox.content[0].value}<br>${res.Infobox.content[1].label}: ${res.Infobox.content[1].value}<br>${res.Infobox.content[2].label}: ${res.Infobox.content[2].value}</div></div>`;
+    if (res.Abstract) {
+      document.getElementById("hasil").innerHTML = `<div class="instant-answer"><div class="wrapper"><div><div class="title">${res.Heading}</div><div class="snippet">${res.Abstract}</div><div class="snippet"></div><a href="${res.AbstractURL}">${res.AbstractSource}</a><br><br><div class="snippet">${res.Infobox.content[0].label}: ${res.Infobox.content[0].value}<br>${res.Infobox.content[1].label}: ${res.Infobox.content[1].value}<br>${res.Infobox.content[2].label}: ${res.Infobox.content[2].value}</div></div></div>`;
+    }
     if (res.Image) {
       document.querySelector(".instant-answer .wrapper").innerHTML += `<div class="logo-wrapper"><img class="logo" src="https://duckduckgo.com${res.Image}"></div>`;
     }
