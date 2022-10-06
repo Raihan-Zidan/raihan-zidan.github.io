@@ -85,24 +85,7 @@ function submit() {
   var newElement = document.createElement('script');
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
-  var instantAnswer = document.createElement('script');
-  instantAnswer.src = `https://duckduckgo.com/?q=${val}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=jawaban`;
-  document.head.appendChild(instantAnswer);
   document.head.appendChild(newElement);
-
-}
-
-function jawaban(res) {
-  try {
-    if (res.Abstract) {
-      document.getElementById("hasil").innerHTML = `<div class="instant-answer"><div class="wrapper"><div><div class="title">${res.Heading}</div><div class="snippet">${res.Abstract}</div><div class="snippet"></div><a href="${res.AbstractURL}">${res.AbstractSource}</a><br><br><div class="snippet">${res.Infobox.content[0].label}: ${res.Infobox.content[0].value}<br>${res.Infobox.content[1].label}: ${res.Infobox.content[1].value}<br>${res.Infobox.content[2].label}: ${res.Infobox.content[2].value}</div></div></div>`;
-    }
-    if (res.Image) {
-      document.querySelector(".instant-answer .wrapper").innerHTML += `<div class="logo-wrapper"><img class="logo" src="https://duckduckgo.com${res.Image}"></div>`;
-    }
-  } catch(error) {
-      
-  }
 }
 
 function hndlr(res) {
