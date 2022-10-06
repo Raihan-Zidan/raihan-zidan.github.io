@@ -200,6 +200,49 @@
   display: none;
 }
 
+.instant-answer {
+  width: 100%;
+  border: 1px solid #EDEDED;
+  border-style: solid none;
+  padding: 13px;
+  margin: 4px 0;
+  position: relative;
+  background: white;
+}
+
+.instant-answer .wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.instant-answer .logo-wrapper {
+  padding: 0 50px;
+}
+
+.instant-answer .logo {
+  margin: 10px 0;
+  width: 100px;
+  position: absolute;
+  right: 10px;
+}
+
+.instant-answer .title {
+  font-size: 22px;
+  margin: 5px 0;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.instant-answer .snippet {
+  color: #494949;
+  font-size: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (min-width: 700px) {
   #hasil {
     background: #fff;
