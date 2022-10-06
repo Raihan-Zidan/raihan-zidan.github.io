@@ -85,7 +85,21 @@ function submit() {
   var newElement = document.createElement('script');
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
+  var instantAnswer = document.createElement('script');
+  instantAnswer.src = `https://duckduckgo.com/?q=Minecraft&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=jawaban`;
+  document.head.appendChild(instantAnswer);
   document.head.appendChild(newElement);
+
+}
+
+function jawaban(res) {
+  try {
+    if (res.Abstract) {
+      document.getElementById("hasil").innerHTML = `<div class="tab-result" style="position:relative"><div style="width:100%;display:flex;"><div class="title" style="color:black;font-size:22px;">${res.Heading}</div><img src="https://duckduckgo.com${res.Image}" width="90" style="position:absolute;right:10px;padding:20px 0;"></div><div class="snippet">${res.Abstract}</div><div class="snippet"><a href="${res.AbstractURL}">${res.AbstractSource}</a></div><br><div class="snippet">${res.Infobox.content[0].label}: ${res.Infobox.content[0].value}<br>${res.Infobox.content[1].label}: ${res.Infobox.content[1].value}<br>${res.Infobox.content[2].label}: ${res.Infobox.content[2].value}</div>`;
+    }
+  } catch(error) {
+      
+  }
 }
 
 function hndlr(res) {
