@@ -87,22 +87,22 @@ function submit() {
   newElement.id = "mainscript";
   document.head.appendChild(newElement);
   var instantAnswer = document.createElement('script');
-  instantAnswer.src = `https://duckduckgo.com/?q=${val}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=instanth`;
+  instantAnswer.src = `https://duckduckgo.com/?q=${val}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=instant`;
   document.head.appendChild(instantAnswer);
 }
 
 
-const TrimMyString = (string, maxLength, start = 0) => {
+const TrimString = (string, maxLength, start = 0) => {
   if (string.length > maxLength) {
     let trimmedString = string.substr(start, maxLength)
     return (trimmedString.substr(start, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))+"... ")
   }
 }
 
-function instanth(res) {
+function instant(res) {
   try {
     if (res.Abstract) {
-      document.getElementById("hasil").innerHTML = `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimMyString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
+      document.getElementById("hasil").innerHTML = `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 200)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       }
