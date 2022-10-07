@@ -87,7 +87,7 @@ function submit() {
   newElement.id = "mainscript";
   document.head.appendChild(newElement);
   var instantAnswer = document.createElement('script');
-  instantAnswer.src = `https://duckduckgo.com/?q=google&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=instant`;
+  instantAnswer.src = `https://duckduckgo.com/?q=google&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=instanth`;
   document.head.appendChild(instantAnswer);
 }
 
@@ -124,9 +124,10 @@ function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
-function instant(res) {
+function instanth(res) {
   try {
     tabresult = document.querySelectorAll(".tab-result");
+    setTimeout(()=> {
     if (tabresult[2]) {
      if (res.Abstract) {
      jawaban = `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimMyString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
@@ -141,6 +142,7 @@ function instant(res) {
       }
      }
     }
+},1000)
   } catch(error) {
       
   }
