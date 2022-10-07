@@ -144,9 +144,7 @@ function instant(res) {
       }
       if (res.Infobox.content) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-          if (res.Infobox.content.value) {
-            document.querySelector(".infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
-          }
+          document.querySelector(".infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value.replace(/\object/g, " ")}</span>`;
         }
       }
      },1000);
