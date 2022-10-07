@@ -128,10 +128,11 @@ function hndlr(res) {
 function instant(res) {
   try {
     if (res.Heading && res.Abstract && res.AbstractURL) {
-      tabresult = document.querySelectorAll(".tab-result");
+      setTimeout(()=> {
+      tabresult = document.querySelectorAll(".tab-result")[2];
       instantbox = document.createElement("div");
       instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
-      insertAfter(tabresult[2], instantbox);
+      insertAfter(tabresult, instantbox);
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       } else {
@@ -144,6 +145,7 @@ function instant(res) {
           }
         }
       }
+     },1000);
     }
   } catch(error) {
       
