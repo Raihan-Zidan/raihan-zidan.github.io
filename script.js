@@ -134,14 +134,9 @@ function instant(res) {
     if (res.Heading && res.Abstract && res.AbstractURL) {
       setTimeout(()=> {
       tabresult = document.querySelectorAll(".tab-result");
-      resultstats = document.querySelector(".result-stats");
       instantbox = document.createElement("div");
       instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
-      if (resultstats) {
-        insertBefore(tabresult[1], instantbox);
-      } else {
-        insertBefore(tabresult[0], instantbox);
-      }
+      insertBefore(tabresult[1], instantbox);
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       } else {
