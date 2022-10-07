@@ -134,9 +134,14 @@ function instant(res) {
     if (res.Heading && res.Abstract && res.AbstractURL) {
       setTimeout(()=> {
       tabresult = document.querySelectorAll(".tab-result")[0];
+      resultstats = document.querySelector(".result-stats");
       instantbox = document.createElement("div");
       instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
-      insertBefore(tabresult, instantbox);
+      if (resultstats) {
+        inserAfter(resultstats, instantbox);
+      } else {
+        insertBefore(tabresult, instantbox);
+      }
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       } else {
@@ -144,7 +149,7 @@ function instant(res) {
       }
       if (res.Infobox.content) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-          document.querySelector(".infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value.replace(/\object/g, " ")}</span>`;
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value.replace(/\object/g, " ")}</span>`;
         }
       }
      },1000);
