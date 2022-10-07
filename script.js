@@ -91,6 +91,32 @@ function submit() {
   document.head.appendChild(instantAnswer);
 }
 
+
+const TrimMyString = (string, maxLength, start = 0) => {
+  if (string.length > maxLength) {
+    let trimmedString = string.substr(start, maxLength)
+    return (trimmedString.substr(start, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))+"... ")
+  }
+}
+
+function instanth(res) {
+  try {
+    if (res.Abstract) {
+      document.getElementById("hasil").innerHTML = `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimMyString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
+      if (res.Image) {
+        document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
+      }
+      if (res.Infobox.content) {
+        for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
+        }
+      }
+    }
+  } catch(error) {
+      
+  }
+}
+
 function hndlr(res) {
   try {
     if (windowWidth > 700) {
@@ -108,41 +134,6 @@ function hndlr(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
-  } catch(error) {
-      
-  }
-}
-
-const TrimMyString = (string, maxLength, start = 0) => {
-  if (string.length > maxLength) {
-    let trimmedString = string.substr(start, maxLength)
-    return (trimmedString.substr(start, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))+"... ")
-  }
-}
-
-function insertAfter(referenceNode, newNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-
-function instanth(res) {
-  try {
-    tabresult = document.querySelectorAll(".tab-result");
-    setTimeout(()=> {
-    if (tabresult[2]) {
-     if (res.Abstract) {
-     jawaban = `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimMyString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
-     insertAfter(tabresult[2], jawaban);
-     if (res.Image) {
-        document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
-      }
-      if (res.Infobox.content) {
-        for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
-        }
-      }
-     }
-    }
-},1000)
   } catch(error) {
       
   }
