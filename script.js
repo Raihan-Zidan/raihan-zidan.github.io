@@ -145,7 +145,7 @@ function instant(res) {
           }
         }
       }
-     },100);
+     },1000);
     }
   } catch(error) {
       
