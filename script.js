@@ -87,7 +87,7 @@ function submit() {
   newElement.id = "mainscript";
   document.head.appendChild(newElement);
   var instantAnswer = document.createElement('script');
-  instantAnswer.src = `https://duckduckgo.com/?q=google&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=instanth`;
+  instantAnswer.src = `https://duckduckgo.com/?q=${val}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&callback=instanth`;
   document.head.appendChild(instantAnswer);
 }
 
