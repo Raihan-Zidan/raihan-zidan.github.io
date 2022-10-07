@@ -197,6 +197,64 @@
   display: none;
 }
 
+.instant-answer {
+  width: 100%;
+  border: 1px solid #EDEDED;
+  border-style: solid none;
+  padding: 13px;
+  margin: 4px 0;
+  background: white;
+}
+
+.instant-answer .logo {
+  max-width: 120px;
+  max-height: 160px;
+  border-radius: 4px;
+  padding: 0 !important;
+  margin: 5px 0 25px 25px;
+}
+
+.instant-answer .title {
+  font-size: 22px;
+  margin: 5px 0;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.instant-answer .subtitle {
+  font-size: 15px;
+  color: #494949;
+  margin: -5px 0 8px 0;
+}
+
+.instant-answer .wikipedia {
+  color: #1558d6;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.instant-answer .wikipedia:hover {
+  opacity: .5;
+}
+
+.instant-answer .infobox {
+  color: #494949;
+  font-size: 15px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.instant-answer span {
+  margin: 4px 0;
+}
+
+.instant-answer .snippet {
+  color: #494949;
+  font-size: 15px;
+  word-wrap: break-word;
+}
+
 @media (min-width: 700px) {
   #hasil {
     background: #fff;
