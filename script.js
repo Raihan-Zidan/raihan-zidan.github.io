@@ -103,6 +103,10 @@ function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+function insertBefore(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode);
+}
+
 function hndlr(res) {
   try {
     if (windowWidth > 700) {
@@ -132,7 +136,7 @@ function instant(res) {
       tabresult = document.querySelectorAll(".tab-result")[0];
       instantbox = document.createElement("div");
       instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
-      insertAfter(tabresult, instantbox);
+      insertBefore(tabresult, instantbox);
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       } else {
