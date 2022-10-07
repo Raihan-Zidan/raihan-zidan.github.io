@@ -253,7 +253,7 @@
 .instant-answer .snippet {
   color: #494949;
   font-size: 14px;
-  line-height: 0.5;
+  line-height: 0.3;
 }
 
 @media (min-width: 700px) {
