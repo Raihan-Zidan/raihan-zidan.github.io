@@ -136,7 +136,7 @@ function instant(res) {
       tabresult = document.querySelectorAll(".tab-result");
       spellingText = document.querySelector(".spelling");
       instantbox = document.createElement("div");
-      instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
+      instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${res.Abstract}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
       if (spellingText) {
         insertBefore(tabresult[1], instantbox);
       } else {
@@ -149,7 +149,7 @@ function instant(res) {
       }
       if (res.Infobox.content) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span></span>`;
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
         }
       }
      },1000);
