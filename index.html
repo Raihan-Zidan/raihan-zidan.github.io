@@ -29,7 +29,6 @@
     </div>
   </div>
 </div>
-<div class="date"></div>
 
 </body>
 </html>
@@ -105,12 +104,6 @@ body {
   pointer-events: none;
 }
 
-.date {
-  position: absolute;
-  bottom: 2px;
-  left: 2px;
-}
-
 @media (min-width: 700px) {
   .search-header {
     position: absolute;
@@ -127,7 +120,9 @@ body {
     width: 260px;
   }
   .date {
-    display: none;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
   }
 }
 
@@ -175,7 +170,9 @@ function showTime (){
   var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
   var monthlist = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   date = (date < 10) ? "0" + date : date;
-  document.querySelector(".tanggal").innerHTML = daylist[day] + ', ' + date + ' ' + monthlist[month];
+  if (windowWidth > 700) {
+    document.querySelector("body").innerHTML += "<div class='date'>" + daylist[day] + ', ' + date + ' ' + monthlist[month] + "</div>";
+  }
 }
 
 showTime();
