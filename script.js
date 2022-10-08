@@ -131,12 +131,18 @@ function hndlr(res) {
 
 function instant(res) {
   try {
-    if (res.Heading && res.Abstract && res.AbstractText && res.AbstractURL) {
+    if (res.Heading && res.Abstract && res.AbstractURL) {
       setTimeout(()=> {
+      maxvalue = 248;
+      if (maxvalue > 100) {
+        maxvalue = 248;
+      } else {
+        maxvalue = 70;
+      }
       tabresult = document.querySelectorAll(".tab-result");
       spellingText = document.querySelector(".spelling");
       instantbox = document.createElement("div");
-      instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
+      instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, maxvalue)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
       if (spellingText) {
         insertBefore(tabresult[1], instantbox);
       } else {
