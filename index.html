@@ -29,6 +29,7 @@
     </div>
   </div>
 </div>
+<div class="date"></div>
 
 </body>
 </html>
@@ -104,6 +105,12 @@ body {
   pointer-events: none;
 }
 
+.date {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
 @media (min-width: 700px) {
   .search-header {
     position: absolute;
@@ -156,5 +163,18 @@ searchInput.addEventListener('keyup', ()=> {
     searchToggle.click();
   }
 });
+
+function showTime (){
+  var date = new Date();
+  var day = date.getDay();
+  var date = date.getDate();
+  var month = date.getMonth()
+  var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+  var monthlist = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  date = (date < 10) ? "0" + date : date;
+  document.querySelector(".date").innerHTML = daylist[day] + ', ' + date.getDate() + ' ' + monthlist[month];
+}
+
+showTime();
 
 </script>
