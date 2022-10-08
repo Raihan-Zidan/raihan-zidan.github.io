@@ -151,10 +151,11 @@ function instant(res) {
       if (instantSnippet.innerHTML === "undefined") {
         document.querySelector(".instant-answer").remove();
       }
-      if (res.Infobox.content.value) {
+      if (res.Infobox.content) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
+        if (res.Infobox.content[0].value) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
-        }
+        }}
       }
      },1000);
     }
