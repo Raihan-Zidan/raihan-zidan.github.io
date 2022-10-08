@@ -147,6 +147,10 @@ function instant(res) {
       } else {
         document.querySelector(".instant-answer .logo").remove();
       }
+      instantSnippet = document.querySelector(".instant-answer .snippet");
+      if (instantSnippet.innerHTML === "undefined") {
+        document.querySelector(".instant-answer").remove();
+      }
       if (res.Infobox.content) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
