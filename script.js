@@ -151,7 +151,7 @@ function instant(res) {
       if (instantSnippet.innerHTML === "undefined") {
         document.querySelector(".instant-answer").remove();
       }
-      if (res.Infobox.content) {
+      if (res.Infobox.content.value) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
         }
