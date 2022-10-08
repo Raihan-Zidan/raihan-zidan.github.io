@@ -151,6 +151,8 @@ function instant(res) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value.replace(/\object/g, " ")}</span>`;
         }
+      } else {
+         alert(window.location.href);
       }
      },1000);
     }
