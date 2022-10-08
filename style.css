@@ -268,10 +268,19 @@
   .tab-result .title {
     font-size: 19px;
   }
+  .tab-result .link {
+    font-size: 16px;
+  }
+  .tab-result .snippet {
+    font-size: 16px;
+  }
+  .tab-result .favicon {
+    display: none;
+  }
   .result-stats {
     display: block;
     color: #70757a;
-    font-size: 15px;
+    font-size: 16px;
     margin-left: 15px;
     margin-top: 10px;
   }
@@ -312,5 +321,10 @@
   .selected span:before {
     background: #1558d6;
     bottom: -12px;
+  }
+  .instant-answer {
+    width: 380px;
+    border-style: solid;
+    border-radius: 5px;
   }
 }
