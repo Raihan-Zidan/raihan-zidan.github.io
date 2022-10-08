@@ -153,7 +153,7 @@ function instant(res) {
       }
       if (res.Infobox.content) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-        if (res.Infobox.content[0].value) {
+        if (!res.Infobox.content[0].value.amount) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
         }}
       }
