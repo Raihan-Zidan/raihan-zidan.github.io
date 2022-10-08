@@ -131,7 +131,7 @@ function hndlr(res) {
 
 function instant(res) {
   try {
-    if (res.Heading && !res.Abstract.length < 100 && res.AbstractURL) {
+    if (res.Abstract.length > 100) {
       setTimeout(()=> {
       tabresult = document.querySelectorAll(".tab-result");
       spellingText = document.querySelector(".spelling");
