@@ -29,7 +29,7 @@
     </div>
   </div>
 </div>
-<div class="date"></div>
+<div class="tanggal"></div>
 
 </body>
 </html>
@@ -165,14 +165,14 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 function showTime (){
-  var date = new Date();
-  var day = date.getDay();
-  var date = date.getDate();
-  var month = date.getMonth()
+  var time = new Date();
+  var day = time.getDay();
+  var date = time.getDate();
+  var month = time.getMonth()
   var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
   var monthlist = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   date = (date < 10) ? "0" + date : date;
-  document.querySelector(".date").innerHTML = daylist[day] + ', ' + date.getDate() + ' ' + monthlist[month];
+  document.querySelector(".tanggal").innerHTML = daylist[day] + ', ' + date + ' ' + monthlist[month];
 }
 
 showTime();
