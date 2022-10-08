@@ -275,7 +275,8 @@
     font-size: 16px;
   }
   .tab-result .favicon {
-    display: none;
+    width: 18px;
+    height: 18px;
   }
   .result-stats {
     display: block;
@@ -325,6 +326,6 @@
   .instant-answer {
     width: 380px;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 8px;
   }
 }
