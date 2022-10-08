@@ -131,7 +131,7 @@ function hndlr(res) {
 
 function instant(res) {
   try {
-    if (res.Heading && res.Abstract && res.AbstractURL) {
+    if (res.Heading && res.Abstract.length > 100 && res.AbstractURL) {
       setTimeout(()=> {
       tabresult = document.querySelectorAll(".tab-result");
       spellingText = document.querySelector(".spelling");
@@ -151,8 +151,6 @@ function instant(res) {
         for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value.replace(/\object/g, " ")}</span>`;
         }
-      } else {
-         document.querySelector(".instant-answer .infobox").remove();
       }
      },1000);
     }
