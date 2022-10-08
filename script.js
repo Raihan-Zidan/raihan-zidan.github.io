@@ -109,14 +109,22 @@ function insertBefore(referenceNode, newNode) {
 
 function hndlr(res) {
   try {
-    if (windowWidth > 700) {
+    if (!windowWidth > 700) {
       document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
-    }
     if (res.spelling) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].title}</div></a></div><div class="snippet">${res.items[i].snippet}</div></div>`;
+    }
+    } else {
+      document.querySelector("web").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
+    if (res.spelling) {
+      document.querySelector("web").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
+    }
+    for (var i = 0; i < res.items.length; i++) {
+      document.querySelector("web").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].title}</div></a></div><div class="snippet">${res.items[i].snippet}</div></div>`;
+    }
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -131,7 +139,7 @@ function hndlr(res) {
 
 function instant(res) {
   try {
-    if (!res.Abstract.length < 100) {
+    if (!res.Abstract.length < 100 && !windowWidth > 700) {
       setTimeout(()=> {
       tabresult = document.querySelectorAll(".tab-result");
       spellingText = document.querySelector(".spelling");
@@ -142,6 +150,29 @@ function instant(res) {
       } else {
         insertBefore(tabresult[0], instantbox);
       }
+      if (res.Image) {
+        document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
+      } else {
+        document.querySelector(".instant-answer .logo").remove();
+      }
+      instantSnippet = document.querySelector(".instant-answer .snippet");
+      if (instantSnippet.innerHTML === "undefined") {
+        document.querySelector(".instant-answer").remove();
+      }
+      if (res.Infobox.content) {
+        for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
+        if (!res.Infobox.content[0].value.amount) {
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
+        }}
+      }
+     },1000);
+    } else {
+      setTimeout(()=> {
+      tabresult = document.querySelectorAll(".tab-result");
+      spellingText = document.querySelector(".spelling");
+      instantbox = document.createElement("div");
+      instantbox.innerHTML = `<div class="instant-answer"><img src="" alt="Icon" align="right" class="logo"><div class="title">${res.Heading}</div><div class="subtitle">${res.Entity}</div><div class="about"><span class="snippet">${TrimString(res.Abstract, 248)}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div></div>`;
+      document.querySelector("ins").innerHTML = instantbox;
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       } else {
