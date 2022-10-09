@@ -11,18 +11,15 @@
 
 <script>
 
+function isValidURL(string) {
+  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  return (res !== null)
+};
+
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-function isURL(str) {
-  if (/(http(s)?:\/\/.)?(www\.)/g.test(str)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-if (isURL(link)) {
+if (isValidURL(link)) {
   location.replace(link);
 } else if (!link) {
   window.location.href = "/";
