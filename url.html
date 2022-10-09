@@ -19,7 +19,9 @@ function isValidURL(string) {
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (isValidURL(link)) {
+if (!isValidURL(link)) {
+  location.replace(`https://${link}`);
+} else {
   location.replace(link);
 }
 
