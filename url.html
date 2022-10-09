@@ -11,7 +11,10 @@
 
 <script>
 
-function isValidURL(string) {
+var url = new URL(window.location.href);
+var link = url.searchParams.get("url");
+
+function redirect(string) {
   var res = /(http(s)?:\/\/.)?(www\.)/g;
   if (string.match(res)) {
     location.replace(link);
@@ -20,11 +23,8 @@ function isValidURL(string) {
   }
 };
 
-var url = new URL(window.location.href);
-var link = url.searchParams.get("url");
-
-if (link) {
-  isValidURL(link)
+if (link || link != "") {
+  redirect(link)
 } else {
   location.replace("https://raihan-zidan.github.io");
 }
