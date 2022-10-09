@@ -20,7 +20,7 @@ function redirect(string) {
     location.replace(link);
   } else if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
     location.replace("https://" + link);
-  } else if (!regex.test(string)) {
+  } else if (!/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
     location.replace("https://raihan-zidan.github.io");
   }
 }
