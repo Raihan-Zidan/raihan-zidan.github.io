@@ -18,9 +18,13 @@ function isURL(str) {
   return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(str); 
 }
 
+function isDomain(str) {
+  return ^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$.test(str);
+}
+
 if (isURL(link)) {
   location.replace(link);
-} else of (!isURL(link)) {
+} else of (isDomain(link)) {
   alert("lain kali masukin protocol!");
 } else if (!link) {
   window.location.href = "/";
