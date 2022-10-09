@@ -260,6 +260,10 @@
   line-height: 0.3;
 }
 
+.suggestion {
+  margin: 5px 0 7px;
+}
+
 @media (min-width: 700px) {
   #hasil {
     background: #fff;
