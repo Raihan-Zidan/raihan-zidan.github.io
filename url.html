@@ -12,8 +12,12 @@
 <script>
 
 function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)/g);
-  return (res !== null)
+  var res = /(http(s)?:\/\/.)?(www\.)/g;
+  if (string.match(res)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 function isValidDomain(string) {
@@ -26,7 +30,7 @@ var link = url.searchParams.get("url");
 
 if (isValidURL(link)) {
   location.replace(link);
-} else if (isValidDomain(link) {
+} else if (!isValidURL(link) {
   location.replace("https://" + link);
 } else if (!link) {
   window.location.href = "/";
