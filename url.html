@@ -24,8 +24,6 @@ function isURL(str) {
 
 if (isURL(link)) {
   location.replace(link);
-} else if (!isURL(link) {
-  location.replace(`https://${link}`);
 } else if (!link) {
   window.location.href = "/";
 }
