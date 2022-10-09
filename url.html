@@ -15,16 +15,15 @@ var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
 function isURL(str) {
-  return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(str); 
-}
-
-function isDomain(str) {
-  return ^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$.test(str);
+  if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(str)) {
+  } else {
+    return false;
+  }
 }
 
 if (isURL(link)) {
   location.replace(link);
-} else of (isDomain(link)) {
+} else of (!isURL(link)) {
   alert("lain kali masukin protocol!");
 } else if (!link) {
   window.location.href = "/";
