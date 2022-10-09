@@ -14,26 +14,19 @@
 function isValidURL(string) {
   var res = /(http(s)?:\/\/.)?(www\.)/g;
   if (string.match(res)) {
-    return true;
+    location.replace(link);
   } else {
-    return false;
+    location.replace("https://" + link);
   }
-};
-
-function isValidDomain(string) {
-  var res = string.match(/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-  return (res !== null)
 };
 
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (isValidURL(link)) {
-  location.replace(link);
-} else if (!isValidURL(link) {
-  location.replace("https://" + link);
-} else if (!link) {
-  window.location.href = "/";
+if (link) {
+  isValidURL(link)
+} else {
+  location.replace("https://raihan-zidan.github.io");
 }
 
 </script>
