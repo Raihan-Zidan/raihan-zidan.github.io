@@ -14,7 +14,7 @@
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (link.protocol)
+if (link.protocol) {
   location.replace(link);
 } else if (!link.protocol) {
   location.replace(`https://${link}`);
