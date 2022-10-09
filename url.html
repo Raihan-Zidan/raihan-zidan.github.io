@@ -20,9 +20,9 @@ var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
 if (isValidURL(link)) {
-  window.location.href = link;
-} else {
-  window.location.href = `https://${link}`;
+  location.replace(link);
+} else if (!isValidURL(link)) {
+  location.replace("https://" + link);
 }
 
 </script>
