@@ -21,10 +21,8 @@ var link = url.searchParams.get("url");
 
 if (isValidURL(link)) {
   window.location.href = link;
-} else if (link) {
-  window.location.href = `https://${link}`;
 } else {
-  window.location.href = "/";
+  window.location.href = `https://${link}`;
 }
 
 </script>
