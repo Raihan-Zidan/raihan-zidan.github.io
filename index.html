@@ -75,8 +75,8 @@ body {
 .search-toggle {
   cursor: pointer;
   position: absolute;
-  width: 45px;
-  height: 45px;
+  width: 43px;
+  height: 43px;
   right: 0;
   background-image: url("https://raihan-zidan.github.io/images/mag-glass-grey@3x-202105180812.png");
   -webkit-background-size: 20px;
@@ -141,6 +141,9 @@ body {
   .search-toggle {
     background-size: 20px;
   }
+  .inersoft img {
+    width: 280px;
+  }
 }
 
 </style>
@@ -166,20 +169,5 @@ searchInput.addEventListener('keyup', ()=> {
     searchToggle.click();
   }
 });
-
-function showTime () {
-  var time = new Date();
-  var day = time.getDay();
-  var date = time.getDate();
-  var month = time.getMonth()
-  var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
-  var monthlist = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  date = (date < 10) ? "0" + date : date;
-  if (windowWidth > 700) {
-    document.body.innerHTML += `<div class="date">${daylist[day]}, ${date} ${monthlist[month]}</div>`;
-  }
-}
-
-showTime();
 
 </script>
