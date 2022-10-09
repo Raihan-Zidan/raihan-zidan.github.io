@@ -15,8 +15,8 @@ var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
 function redirect(string) {
-  var res = /(http(s)?:\/\/.)?(www\.)/g;
-  if (string.match(res)) {
+  var regex = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+  if (regex.test(str)) {
     location.replace(link);
   } else {
     location.replace("https://" + link);
