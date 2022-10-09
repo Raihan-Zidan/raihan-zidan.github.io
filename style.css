@@ -152,6 +152,10 @@
   font-weight: 400;
 }
 
+.title.black {
+  color: black;
+}
+
 .tab-result .top {
   width: 100%;
   display: flex;
