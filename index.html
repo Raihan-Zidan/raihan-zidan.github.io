@@ -175,6 +175,8 @@ function showTime () {
   var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
   var monthlist = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   date = (date < 10) ? "0" + date : date;
+  if (windowWidth > 700) {
+    document.body.innerHTML += `<div class="date">${daylist[day]}, ${date} ${monthlist[month]}</div>`;
 }
 
 showTime();
