@@ -12,7 +12,12 @@
 <script>
 
 function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  var res = string.match(/(http(s)?:\/\/.)?(www\.)/g);
+  return (res !== null)
+};
+
+function isValidDomain(string) {
+  var res = string.match(/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
   return (res !== null)
 };
 
@@ -21,6 +26,8 @@ var link = url.searchParams.get("url");
 
 if (isValidURL(link)) {
   location.replace(link);
+} else if (isValidDomain(link) {
+  location.replace("https://" + link);
 } else if (!link) {
   window.location.href = "/";
 }
