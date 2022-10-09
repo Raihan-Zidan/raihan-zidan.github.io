@@ -11,18 +11,13 @@
 
 <script>
 
-function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-  return (res !== null)
-};
-
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (!isValidURL(link)) {
-  location.replace(`https://${link}`);
-} else {
+if (link.indexOf("https" || "http") > -1) {
   location.replace(link);
+} else {
+  location.replace(`https://${link}`);
 }
 
 </script>
