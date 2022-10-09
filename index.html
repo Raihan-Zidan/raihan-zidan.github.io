@@ -177,6 +177,7 @@ function showTime () {
   date = (date < 10) ? "0" + date : date;
   if (windowWidth > 700) {
     document.body.innerHTML += `<div class="date">${daylist[day]}, ${date} ${monthlist[month]}</div>`;
+  }
 }
 
 showTime();
