@@ -21,8 +21,6 @@ var link = url.searchParams.get("url");
 
 if (isValidURL(link)) {
   location.replace(link);
-} else if (!isValidURL(link)) {
-  location.replace("https://" + link);
 }
 
 </script>
