@@ -14,7 +14,7 @@
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (link.indexOf("https" || "http") > -1) {
+if (link.indexOf("https") > -1) {
   location.replace(link);
 } else {
   location.replace(`https://${link}`);
