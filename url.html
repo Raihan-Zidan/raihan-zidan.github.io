@@ -14,9 +14,13 @@
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (link.indedOf(protocol) > -1) {
+function isURL(str) {
+  return /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/.test(str); 
+}
+
+if (isURL(link)) > -1) {
   location.replace(link);
-} else if (!link.domain) {
+} else if (!link) {
   window.location.href = "/";
 }
 
