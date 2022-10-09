@@ -19,8 +19,12 @@ function isValidURL(string) {
 var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
-if (link) {
+if (isValidURL(link)) {
   window.location.href = link;
+} else if (link) {
+  window.location.href = `https://${link}`;
+} else {
+  window.location.href = "/";
 }
 
 </script>
