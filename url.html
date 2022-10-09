@@ -15,7 +15,7 @@ var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
 function isURL(str) {
-  if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(str)) {
+  if (/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g.test(str)) {
     alert("Valid Domain Name");
     return true;
   } else {
