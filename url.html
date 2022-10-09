@@ -15,12 +15,11 @@ var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
 function redirect(string) {
-  regex = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/;
   if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(string)) {
     location.replace(link);
   } else if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
     location.replace("https://" + link);
-  } else if (!/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
+  } else {
     location.replace("https://raihan-zidan.github.io");
   }
 }
