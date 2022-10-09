@@ -18,7 +18,7 @@ if (link.indexOf("https") > -1 || link.indexOf("http") > -1) {
   location.replace(link);
 } else if (link) {
   location.replace(`https://${link}`);
-} else {
+} else if (!link) {
   window.location.href = "/";
 }
 
