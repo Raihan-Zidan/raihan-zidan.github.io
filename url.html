@@ -20,6 +20,8 @@ function isURL(str) {
 
 if (isURL(link)) {
   location.replace(link);
+} else of (!isURL(link)) {
+  alert("lain kali masukin protocol!");
 } else if (!link) {
   window.location.href = "/";
 }
