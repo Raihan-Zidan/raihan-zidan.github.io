@@ -108,6 +108,6 @@ function hndlr(res) {
       });
     }
   } catch(error) {
-    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">${error} No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
