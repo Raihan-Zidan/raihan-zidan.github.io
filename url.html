@@ -25,7 +25,7 @@ function isURL(str) {
 }
 
 function isDomain(str) {
-  if (/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g.test(str)) {
+  if (((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|/g.test(str)) {
     alert("Valid Domain Name");
     return true;
   } else {
