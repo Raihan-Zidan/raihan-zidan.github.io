@@ -15,9 +15,11 @@ var url = new URL(window.location.href);
 var link = url.searchParams.get("url");
 
 function isURL(str) {
-  if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(str)) {
+  if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(str)) {
+    alert("Valid Domain Name");
     return true;
   } else {
+    alert("Enter Valid Domain Name");
     return false;
   }
 }
