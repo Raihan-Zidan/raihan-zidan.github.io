@@ -16,8 +16,11 @@ function isValidURL(string) {
   return (res !== null)
 };
 
-if (isValidURL(location.pathname)) {
-  window.location.href = location.pathname;
+var url = new URL(window.location.href);
+var link = url.searchParams.get("url");
+
+if (link) {
+  window.location.href = link;
 }
 
 </script>
