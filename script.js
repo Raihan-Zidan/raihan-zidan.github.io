@@ -90,7 +90,7 @@ function submit() {
 
 function hndlr(res) {
   try {
-    
+    if (res.items) {
       if (windowWidth > 700) {
         document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
       }
@@ -106,8 +106,8 @@ function hndlr(res) {
           description.innerHTML = `There is no information on this page.`;
         }
       });
-    
+    }
   } catch(error) {
-      document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">${error} No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
