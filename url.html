@@ -16,6 +16,7 @@ var link = url.searchParams.get("url");
 
 function isURL(str) {
   if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(str)) {
+    return true;
   } else {
     return false;
   }
