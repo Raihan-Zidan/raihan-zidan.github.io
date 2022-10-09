@@ -16,12 +16,12 @@ var link = url.searchParams.get("url");
 
 function redirect(string) {
   var regex = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-  if (regex.test(str)) {
+  if (regex.test(string)) {
     location.replace(link);
   } else {
     location.replace("https://" + link);
   }
-};
+}
 
 if (link || link != "") {
   redirect(link)
