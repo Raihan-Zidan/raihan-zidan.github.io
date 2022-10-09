@@ -25,19 +25,20 @@ function isURL(str) {
 }
 
 function isDomain(str) {
-  if (((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|/g.test(str)) {
-    alert("Valid Domain Name");
+  var pattern = new RegExp('^(https?:\\/\\/)?';
+  if (pattern.test(str)) {
     return true;
+    alert("domain");
   } else {
-    alert("Enter Valid Domain Name");
     return false;
+    alert("appa");
   }
 }
 
 if (isURL(link)) {
   location.replace(link);
 } else if (isDomain(link) {
-  alert("tapi ini domain");
+  location.replace(link);
 } else if (!link) {
   window.location.href = "/";
 }
