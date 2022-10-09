@@ -90,10 +90,10 @@ function submit() {
 
 function hndlr(res) {
   try {
-    if (windowWidth > 700 && res.items) {
+    if (windowWidth > 700) {
       document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
-    if (res.spelling && res.items) {
+    if (res.spelling) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
@@ -106,6 +106,6 @@ function hndlr(res) {
       }
     });
   } catch(error) {
-    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+      
   }
 }
