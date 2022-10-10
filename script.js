@@ -97,8 +97,7 @@ function hndlr(res) {
       document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
-      hal = res.items[i].htmlSnippet.replace(/\<\/?b.*?\/?\>/g, "");
-      document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\<\/?b.*?\/?\>/gi, "").replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${hal}</div></div>`;
+      document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\<\/?b.*?\/?\>/gi, "").replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -106,6 +105,7 @@ function hndlr(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
+    document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
   } catch(error) {
     document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
