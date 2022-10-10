@@ -90,7 +90,7 @@ function submit() {
 
 function hndlr(res) {
   try {
-    regex = /\<\/?b.*?\/?\>/gi;
+    regex = /\<\/?b.*?\/?\>/g;
     if (res.items && windowWidth > 700) {
       document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
