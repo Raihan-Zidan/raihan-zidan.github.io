@@ -46,8 +46,7 @@ cleartext.addEventListener('click', ()=> {
 
 searchInput.addEventListener('keyup', ()=> {
   if (event.keyCode === 13 && searchInput.value != '') {
-    
-    history.pushState({},"Results for `Cats`",'/searchq?q=cats');
+    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
   }
 });
 
