@@ -74,7 +74,9 @@ map.addControl(
 );
 
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {});
+  navigator.geolocation.getCurrentPosition(function(position) {
+  alert(position.coords.latitude);
+});
 }
 
 </script>
