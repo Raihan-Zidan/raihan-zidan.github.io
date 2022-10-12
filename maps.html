@@ -43,17 +43,14 @@
 
 <script>
 
+if ("geolocation" in navigator) {
 mapboxgl.accessToken =
   "pk.eyJ1IjoidGltZXNwYWNlZ3VpZGUiLCJhIjoiY2s0MGlkbjFkMDBhZzNlbDE4ODNpcDJyeCJ9.6Ur81nnpTOySNhpjO26oiw";
   var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/outdoors-v10?optimize=true",
   zoom: 2,
-  if ("geolocation" in navigator) {
-    center: [position.coords.longitude, position.coords.latitude]
-  } else {
-    center: [4.900, 52.372]
-  }
+  center: [position.coords.longitude, position.coords.latitude]
 });
   
 const geocoder = new MapboxGeocoder({
