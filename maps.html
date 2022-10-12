@@ -52,7 +52,9 @@ mapboxgl.accessToken =
   zoom: 2,
   center: [4.899, 52.372]
 });
-  
+
+map.getSource('source-id').tiles = [ `http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png` ];
+
 const geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
   mapboxgl: mapboxgl,
