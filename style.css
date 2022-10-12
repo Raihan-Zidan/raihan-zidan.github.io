@@ -175,6 +175,7 @@
 .tab-result .link {
   color: #222222;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .tab-result .snippet {
