@@ -75,7 +75,7 @@ map.addControl(
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
-    map.flyTo({center:[position.coords.latitude, position.coords.longitude]});
+    map.flyTo({center:[0, 0]});
   });
 }
 
