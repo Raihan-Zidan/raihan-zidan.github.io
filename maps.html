@@ -76,7 +76,9 @@ map.addControl(
 map.on('load', function() {
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
-    map.setCenter([position.coords.latitude, position.coords.longitude]);
+    userposition = [position.coords.latitude, position.coords.longitude];
+    addMarker(userposition,'load');
+    map.setCenter([userposition]);
   });
 }
 });
