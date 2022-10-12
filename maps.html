@@ -43,9 +43,10 @@
 
 <script>
 
-if ("geolocation" in navigator) {
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoidGltZXNwYWNlZ3VpZGUiLCJhIjoiY2s0MGlkbjFkMDBhZzNlbDE4ODNpcDJyeCJ9.6Ur81nnpTOySNhpjO26oiw";
+if (navigator.geolocation) {
   var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/outdoors-v10?optimize=true",
