@@ -73,10 +73,12 @@ map.addControl(
   })
 );
 
+map.on('load', function() {
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
-    
+    map.flyTo({center: [position.coords.latitude, position.coords.longitude]});
   });
 }
+});
 
 </script>
