@@ -126,7 +126,6 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
 pageToken = "";
-callresult = 0;
 
 if (!q || q === null) {
   window.location.href = "/";
@@ -188,10 +187,7 @@ function hndlr(res) {
     }
     if (res.nextPageToken) {
       pageToken = res.nextPageToken;
-    }
-    if (callresult = 0) {
       submit();
-      callresult = 1;
     }
   } catch(error) {
     
