@@ -70,13 +70,13 @@
   opacity: .5;
 }
 
-.tab-result img {
+.tab-result .thumbnail {
   width: 100%;
   border-radius: 8px 8px 0 0;
 }
 
 .tab-result .title {
-  margin: 4px 5px 10px 5px;
+  margin: 4px 5px 8px 5px;
   font-size: 17px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -180,7 +180,7 @@ function submit() {
 function hndlr(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
-      document.getElementById("hasil").innerHTML += `<div class="tab-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><img src="${res.items[i].snippet.thumbnails.medium.url}" width="100%"><div class="title">${res.items[i].snippet.title}</div></a><div class="source"><div class="info"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.youtube.com&size=64" class="favicon"><div>www.youtube.com</div></div></div></div>`;
+      document.getElementById("hasil").innerHTML += `<div class="tab-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.youtube.com&size=64" class="favicon"><div>www.youtube.com</div></div></div></a></div>`;
     }
   } catch(error) {
     
