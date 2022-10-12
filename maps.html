@@ -42,17 +42,21 @@
 </html>
 
 <script>
-  
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoidGltZXNwYWNlZ3VpZGUiLCJhIjoiY2s0MGlkbjFkMDBhZzNlbDE4ODNpcDJyeCJ9.6Ur81nnpTOySNhpjO26oiw";
   var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/outdoors-v10?optimize=true",
   zoom: 2,
-  center: [4.900, 52.372]
+  if ("geolocation" in navigator) {
+    center: [position.coords.longitude, position.coords.latitude]
+  } else {
+    center: [4.900, 52.372]
+  }
 });
   
-  const geocoder = new MapboxGeocoder({
+const geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
   mapboxgl: mapboxgl,
   marker: true
@@ -61,15 +65,15 @@ mapboxgl.accessToken =
 map.addControl(geocoder);
   
 map.addControl(
-new mapboxgl.GeolocateControl({
-positionOptions: {
-enableHighAccuracy: true
-},
-// When active the map will receive updates to the device's location as it changes.
-trackUserLocation: true,
-// Draw an arrow next to the location dot to indicate which direction the device is heading.
-showUserHeading: true
-})
+  new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    // When active the map will receive updates to the device's location as it changes.
+    trackUserLocation: true,
+    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    showUserHeading: true
+  })
 );
   
 </script>
