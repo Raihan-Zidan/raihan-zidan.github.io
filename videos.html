@@ -74,7 +74,6 @@
 
 .video-result a:active > * {
   opacity: .5;
-  text-decoration: none;
 }
 
 .video-result .thumbnail {
@@ -90,6 +89,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-decoration: none;
 }
 
 .video-result .source {
@@ -102,6 +102,12 @@
   display: flex;
   position: absolute;
   bottom: 4px;
+}
+
+.video-result .favicon {
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
 }
 
 @media (min-width: 700px) {
