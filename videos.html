@@ -182,7 +182,7 @@ function submit() {
   newElement.src = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
-  document.getElementById("mainscript").src = "https://raihan-zidan.github.io/main.js";
+  document.getElementById("mainscript").remove();
 }
 
 function hndlr(res) {
