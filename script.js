@@ -86,6 +86,7 @@ function submit() {
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
   document.head.appendChild(newElement);
+  document.getElementById("mainscript").src = "https://raihan-zidan.github.io/main.js";
 }
 
 function hndlr(res) {
