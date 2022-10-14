@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="inersoft, search engine, search">
   <meta name="description" content="Look for all information in the world, and get the most relevant results">
+  <title>Inersoft - Search</title>
+  <meta name="referrer" content="origin">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/mag-glass-grey@3x-202105180812.png">
   <noscript>
     <meta http-equiv="refresh" content="0;url=/nojs">
   </noscript>
@@ -179,6 +182,7 @@ function submit() {
   newElement.src = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE&callback=hndlr`;
   newElement.id = "mainscript";
   document.body.appendChild(newElement);
+  document.getElementById("mainscript").src = "https://raihan-zidan.github.io/main.js";
 }
 
 function hndlr(res) {
