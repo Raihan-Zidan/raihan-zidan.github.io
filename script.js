@@ -5,6 +5,18 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
+iconImage = document.querySelectorAll("img");
+
+function convertImage(imageUrl, imageFile) {
+  fetch(imageUrl).then(function(response) {
+    return response.blob();
+  }).then(function(blobImage) {
+    var objectURL = URL.createObjectURL(blobImage);
+    imageFile.src = objectURL;
+  });
+}
+
+
 
 if (!q || q === null) {
   window.location.href = "/";
@@ -107,22 +119,12 @@ function hndlr(res) {
       }
     });
     document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+    setTimeout(()=> {
+      iconImage.forEach(icon => {
+        convertImage(icon.src, icon);
+      });
+    },1000);
   } catch(error) {
     document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
-
-iconImage = document.querySelectorAll("img");
-
-function convertImage(imageUrl, imageFile) {
-  fetch(imageUrl).then(function(response) {
-    return response.blob();
-  }).then(function(blobImage) {
-    var objectURL = URL.createObjectURL(blobImage);
-    imageFile.src = objectURL;
-  });
-}
-
-iconImage.forEach(icon => {
-  convertImage(icon.src, icon);
-});
