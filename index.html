@@ -154,7 +154,7 @@ if (windowWidth > 700) {
 }
 
 searchToggle.addEventListener('click', ()=> {
-  if (searchInput.value != '') {
+  if (searchInput.value != '' && searchInput.value.trim()) {
     window.location.href = `https://raihan-zidan.github.io/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
   }
 });
