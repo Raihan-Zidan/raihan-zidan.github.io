@@ -22,6 +22,7 @@
 
 .video-result a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .video-result .thumbnail {
