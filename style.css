@@ -396,6 +396,7 @@
   .related-search {
     border: none;
     max-width: 500px;
+    border-style: none;
   }
   .search-list .related {
     width: calc(50% - 10px);
