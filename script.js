@@ -5,6 +5,7 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
+document.title.innerHTML = `${q} - Search`;
 
 if (!q || q === null) {
   window.location.href = "/";
