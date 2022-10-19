@@ -46,7 +46,7 @@ cleartext.addEventListener('click', ()=> {
 });
 
 searchInput.addEventListener('keyup', ()=> {
-  if (event.keyCode === 13 && searchInput.value != '' && searchInput.trim()) {
+  if (event.keyCode === 13 && searchInput.value != '' && searchInput.value.trim()) {
     window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
   }
 });
