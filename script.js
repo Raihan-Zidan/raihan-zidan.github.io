@@ -126,7 +126,7 @@ function relatedsearch(res) {
       document.querySelector(".search-list").innerHTML += `<a class="related" href="/search?q=${encodeURIComponent(res[1][i]).replace(/\%20/g,'+')}">${res[1][i]}</a>`;
       related = document.querySelectorAll(".related");
       related.forEach(option => {
-        if (option.innerHTML.length > 50) {
+        if (option.innerHTML.length > 40) {
           option.remove();
         }
       });
