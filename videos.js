@@ -4,6 +4,7 @@ cleartext = document.querySelector(".cleartext");
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
+document.title.innerHTML = `${q} - Search`;
 
 if (!q || q === null) {
   window.location.href = "/";
