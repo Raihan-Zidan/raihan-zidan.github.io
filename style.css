@@ -270,9 +270,54 @@
   margin: 5px 0 7px;
 }
 
+.related-search {
+  width: 100%;
+  border: 1px solid #EDEDED;
+  padding: 13px 13px 0;
+  margin: 4px 0;
+  position: relative;
+  background: white;
+}
+
+.related-search .title {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: 400;
+}
+
+.search-list {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #222222;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-list .related {
+  display: flex;
+  padding: 13px;
+  color: black;
+  text-decoration: none;
+  border-top: 1px solid #EDEDED;
+  -webkit-tap-highlight-color: rgba(0,0,0,.10);
+}
+
+.related:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  background-image: url("images/mag-glass-grey@3x-202105180812.png");
+  background-size: 18px;
+}
+
 @media (max-width: 700px) {
  .tab-wrapper img {
    display: none;
+  }
+  .search-list {
+    flex-direction: column;
   }
 }
 
@@ -347,5 +392,15 @@
     width: 380px;
     border-style: solid;
     border-radius: 8px;
+  }
+  .related-search {
+    max-width: 500px;
+  }
+  .search-list .related {
+    width: calc(50% - 10px);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 3px 4px 0 0;
+    border: 1px solid #EDEDED;
   }
 }
