@@ -119,14 +119,14 @@ function hndlr(res) {
 
 
 function relatedsearch(res) {
-  if (res[1].length > 4) {
+  if (res[1] && res[1].length > 4) {
     setTimeout(()=> {
     document.getElementById("hasil").innerHTML += `<div class="related-search"><div class="title">Related searches</div><div class="search-list"></div></div>`;
     for (var i = 0; i < res[1].length; i++) {
       document.querySelector(".search-list").innerHTML += `<a class="related" href="/search?q=${encodeURIComponent(res[1][i]).replace(/\%20/g,'+')}">${res[1][i]}</a>`;
       related = document.querySelectorAll(".related");
       related.forEach(option => {
-        if (option.innerHTML.length > 20) {
+        if (option.innerHTML.length > 30) {
           option.remove();
         }
       });
