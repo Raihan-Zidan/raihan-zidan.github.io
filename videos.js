@@ -53,11 +53,10 @@ searchInput.addEventListener('keyup', ()=> {
 function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
-  var newElement = document.createElement('script');
-  newElement.src = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE&callback=hndlr`;
-  newElement.id = "mainscript";
-  document.head.appendChild(newElement);
-  document.getElementById("mainscript").remove();
+  fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
+    .then(response => response.json()).then(response => {
+      hndlr(response);
+  })
 }
 
 function hndlr(res) {
