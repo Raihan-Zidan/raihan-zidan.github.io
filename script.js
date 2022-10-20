@@ -86,13 +86,6 @@ function submit() {
   var newElement = document.createElement('script');
   newElement.src = `https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}&callback=hndlr`;
   newElement.id = "mainscript";
-  var relatedscript = document.createElement('script');
-  relatedscript.src = `https://google.com/complete/search?output=json&client=chrome&q=${val}&callback=relatedsearch`;
-  relatedscript.id = "relatedscript";
-  document.head.appendChild(newElement);
-  document.head.appendChild(relatedscript);
-  document.getElementById("mainscript").remove();
-  document.getElementById("relatedscript").remove();
 }
 
 function hndlr(res) {
@@ -115,23 +108,5 @@ function hndlr(res) {
     document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
   } catch(error) {
     document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
-  }
-}
-
-
-function relatedsearch(res) {
-  if (res[1] && res[1].length > 4) {
-    setTimeout(()=> {
-    document.getElementById("hasil").innerHTML += `<div class="related-search"><div class="title">Related searches</div><div class="search-list"></div></div>`;
-    for (var i = 0; i < res[1].length; i++) {
-      document.querySelector(".search-list").innerHTML += `<a class="related" href="/search?q=${encodeURIComponent(res[1][i]).replace(/\%20/g,'+')}">${res[1][i]}</a>`;
-      related = document.querySelectorAll(".related");
-      related.forEach(option => {
-        if (option.innerHTML.length > 40) {
-          option.remove();
-        }
-      });
-    }
-    },1000);
   }
 }
