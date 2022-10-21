@@ -79,7 +79,7 @@ function hndlr(res) {
     setTimeout(()=> {
       var iconImage = document.querySelectorAll(".thumbnail");
       iconImage.forEach(icon => {
-        alert(icon.src);
+        convertImage(icon.src, icon);
       });
     },2000);
   } catch(error) {
