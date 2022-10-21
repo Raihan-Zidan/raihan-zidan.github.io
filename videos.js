@@ -67,7 +67,7 @@ function convertImage(imageUrl, imageFile) {
     reader.onerror = reject
     reader.readAsDataURL(blob)
   })).then(dataUrl => {
-    imageFile.src = dataUrl;
+    alert(dataUrl);
   })
 }
 
