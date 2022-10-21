@@ -32,7 +32,6 @@
 
 .video-result .title {
   color: #1558d6;
-  margin: 5px;
   font-size: 17px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -40,7 +39,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-decoration: none;
 }
 
 .video-result .source {
