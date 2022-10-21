@@ -32,7 +32,7 @@
 
 .video-result .title {
   color: #1558d6;
-  margin: 0 5px 5px;
+  margin: 0 5px 6px;
   font-size: 17px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -44,7 +44,7 @@
 
 .video-result .source {
   color: black;
-  padding: 10px 7px;
+  padding: 10px 8px;
   font-size: 13px;
 }
 
