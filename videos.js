@@ -60,15 +60,7 @@ function submit() {
 }
 
 function convertImage(imageUrl, imageFile) {
-  fetch(imageUrl).then(response => response.blob())
-  .then(blob => new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onloadend = () => resolve(reader.result)
-    reader.onerror = reject
-    reader.readAsDataURL(blob)
-  })).then(dataUrl => {
-    alert(dataUrl);
-  })
+  alert(imageUrl);
 }
 
 function hndlr(res) {
