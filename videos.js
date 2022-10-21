@@ -60,7 +60,14 @@ function submit() {
 }
 
 function convertImage(imageUrl, imageFile) {
-  alert(imageUrl);
+  fetch(imageUrl).then(response => response.blob())
+  .then(blob => new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result)
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+    alert(reader.result);
+  }))
 }
 
 function hndlr(res) {
