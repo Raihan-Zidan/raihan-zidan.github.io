@@ -321,6 +321,7 @@ noscript {
   height: 100vh;
   position: fixed;
   z-index: 999;
+  left: 0; top: 0;
   background: white;
 }
 
