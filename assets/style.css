@@ -29,6 +29,8 @@
   height: 18px;
   top: 13px;
   left: 13px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   background-image: url("images/mag-glass-grey@3x-202105180812.png");
   background-size: cover;
 }
@@ -47,6 +49,12 @@
 
 .tab-wrapper {
   padding: 12px 16px 16px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-wrapper img {
+  margin-right: 5px;
 }
 
 .search-box .cleartext {
@@ -57,6 +65,8 @@
   padding: 0;
   top: 4px;
   right: 4px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   background-image: url("images/close@3x-202105180822.png");
   -webkit-background-size: 20px;
   background-size: 20px;
@@ -152,6 +162,10 @@
   font-weight: 400;
 }
 
+.tab-result .black {
+  color: black;
+}
+
 .tab-result .top {
   width: 100%;
   display: flex;
@@ -197,6 +211,130 @@
   display: none;
 }
 
+.instant-answer {
+  width: 100%;
+  border: 1px solid #EDEDED;
+  border-style: solid none;
+  padding: 13px;
+  margin: 4px 0;
+  background: white;
+}
+
+.instant-answer .logo {
+  max-width: 120px;
+  max-height: 160px;
+  border-radius: 4px;
+  padding: 0 !important;
+  margin: 5px 0 25px 25px;
+}
+
+.instant-answer .title {
+  font-size: 22px;
+  margin: 5px 0;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.instant-answer .subtitle {
+  font-size: 14px;
+  color: #494949;
+  margin: -5px 0 8px 0;
+}
+
+.instant-answer .wikipedia {
+  font-size: 14px;
+  color: #1558d6;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.instant-answer .wikipedia:hover {
+  opacity: .5;
+}
+
+.instant-answer .infobox {
+  color: #494949;
+  font-size: 14px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.instant-answer span {
+  margin: 4px 0;
+}
+
+.instant-answer .snippet {
+  color: #494949;
+  font-size: 14px;
+  line-height: 0.3;
+}
+
+.suggestion {
+  margin: 5px 0 7px;
+}
+
+.related-search {
+  width: 100%;
+  border: 1px solid #EDEDED;
+  padding: 13px 13px 0;
+  margin: 4px 0;
+  position: relative;
+  background: white;
+}
+
+.related-search .title {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: 400;
+}
+
+.search-list {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #222222;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-list .related {
+  display: flex;
+  padding: 13px;
+  color: black;
+  text-decoration: none;
+  border-top: 1px solid #EDEDED;
+  -webkit-tap-highlight-color: rgba(0,0,0,.10);
+}
+
+.related:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  background-image: url("images/mag-glass-grey@3x-202105180812.png");
+  background-size: 18px;
+}
+
+.noscript {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0; top: 0;
+  padding: 5px;
+  z-index: 999;
+  background: #fff;
+}
+
+@media (max-width: 700px) {
+ .tab-wrapper img {
+   display: none;
+  }
+  .search-list {
+    flex-direction: column;
+  }
+}
+
 @media (min-width: 700px) {
   #hasil {
     background: #fff;
@@ -209,10 +347,20 @@
   .tab-result .title {
     font-size: 19px;
   }
+  .tab-result .link {
+    font-size: 16px;
+  }
+  .tab-result .snippet {
+    font-size: 16px;
+  }
+  .tab-result .favicon {
+    width: 18px;
+    height: 18px;
+  }
   .result-stats {
     display: block;
     color: #70757a;
-    font-size: 15px;
+    font-size: 16px;
     margin-left: 15px;
     margin-top: 10px;
   }
@@ -253,5 +401,22 @@
   .selected span:before {
     background: #1558d6;
     bottom: -12px;
+  }
+  .instant-answer {
+    width: 380px;
+    border-style: solid;
+    border-radius: 8px;
+  }
+  .related-search {
+    border: none;
+    max-width: 600px;
+    border-style: none;
+  }
+  .search-list .related {
+    width: calc(50% - 10px);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 3px 4px 0 0;
+    border: 1px solid #EDEDED;
   }
 }
