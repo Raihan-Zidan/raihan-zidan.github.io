@@ -65,7 +65,7 @@
 @media (min-width: 700px) {
   #hasil {
     justify-content: left;
-    padding: 0 5px;
+    padding: 10px 5px;
   }
   .video-result {
     width: calc(157px + 0.5px);
