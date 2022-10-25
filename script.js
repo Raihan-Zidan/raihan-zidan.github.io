@@ -8,11 +8,11 @@ searchInput.value = q;
 document.title = `${q} - Search`;
 var pagenumber = url.searchParams.get("p");
 var startIndex = 1;
-if (p === 1) {
+if (pagenumber === 1) {
   startIndex = 1;
-} else if (p === 2) {
+} else if (pagenumber === 2) {
   startIndex = 21;
-} else if (p === 3) {
+} else if (pagenumber === 3) {
   startIndex = 31;
 }
 
