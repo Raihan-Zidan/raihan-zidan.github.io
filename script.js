@@ -6,6 +6,15 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
 document.title = `${q} - Search`;
+var pagenumber = url.searchParams.get("p");
+var startIndex = 1;
+if (p === 1) {
+  startIndex = 1;
+} else if (p === 2) {
+  startIndex = 21;
+} else if (p === 3) {
+  startIndex = 31;
+}
 
 if (!q || q === null) {
   window.location.href = "/";
@@ -83,7 +92,7 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
-  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}`)
+  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
