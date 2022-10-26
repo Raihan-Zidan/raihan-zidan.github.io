@@ -9,7 +9,7 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 if (p === 2) {
-  startIndex = 21;
+  alert(p);
 } else if (p === 3) {
   startIndex = 31;
 } else if (p === 4) {
