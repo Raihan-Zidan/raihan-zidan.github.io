@@ -6,17 +6,6 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 searchInput.value = q;
 document.title = `${q} - Search`;
-var p = url.searchParams.get("p");
-var startIndex = 1;
-setTimeout(()=> {
-  if (p = 2) {
-    startIndex = 21;
-  } else if (p = 3) {
-    startIndex = 31;
-  } else if (p = 4) {
-    startIndex = 41;
-  }
-},50);
 
 if (!q || q === null) {
   window.location.href = "/";
@@ -33,7 +22,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    setTimeout(()=> { submit(); },100);
+    submit();
   } else {
     cleartext.style.display = "none";
   }
@@ -94,7 +83,7 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 function submit() {
   hasil = document.getElementById("hasil").innerHTML = "";
   var val = searchInput.value;
-  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
+  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
