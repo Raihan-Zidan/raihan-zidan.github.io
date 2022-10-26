@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images - search</title>
+</head>
+<body>
+  <div>You will be redirected to yahoo image search.</div>
+</body>
+<script>
+var url = new URL(window.location.href);
+var q = url.searchParams.get("q");
+setTimeout(()=> {
+  window.location.replace(`https://images.search.yahoo.com/search/images?q=${q}`);
+},1000);
+
+</script>
+</html>
