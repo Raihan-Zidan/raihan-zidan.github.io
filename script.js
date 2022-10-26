@@ -7,6 +7,9 @@ var q = url.searchParams.get("q");
 searchInput.value = q;
 document.title = `${q} - Search`;
 document.body.style.display = "none";
+setTimeout(()=> {
+  document.body.style.display = "block";
+},500);
 
 if (!q || q === null) {
   window.location.href = "/";
