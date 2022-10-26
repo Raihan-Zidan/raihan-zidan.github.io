@@ -8,6 +8,7 @@ searchInput.value = q;
 document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
+setTimeout(()=> {
 if (p === 2) {
   alert(p);
 } else if (p === 3) {
@@ -15,6 +16,7 @@ if (p === 2) {
 } else if (p === 4) {
   startIndex = 41;
 }
+},300);
 
 if (!q || q === null) {
   window.location.href = "/";
