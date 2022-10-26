@@ -9,10 +9,10 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
-if (p = 2) {
-  alert(p);
-}
-},300);
+  if (p = 2) {
+    alert(p);
+  }
+},50);
 
 if (!q || q === null) {
   window.location.href = "/";
