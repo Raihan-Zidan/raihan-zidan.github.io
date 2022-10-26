@@ -10,7 +10,11 @@ var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
   if (p = 2) {
-    alert(p);
+    startIndex = 21;
+  } else if (p = 3) {
+    startIndex = 31;
+  } else if (p = 4) {
+    startIndex = 41;
   }
 },50);
 
@@ -29,7 +33,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    setTimeout(()=> { submite(); },500);
+    setTimeout(()=> { submit(); },100);
   } else {
     cleartext.style.display = "none";
   }
