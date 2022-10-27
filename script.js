@@ -8,13 +8,13 @@ searchInput.value = q;
 document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
-for (var i = 0; i < p; i++) {
 setTimeout(()=> {
-  if (p > 1) {
-    startIndex = i + 10;
+  for (var i = 0; i < p; i++) {
+    if (p > 1) {
+      startIndex = i + 20;
+    }
   }
 },50);
-}
 
 if (!q || q === null) {
   window.location.href = "/";
