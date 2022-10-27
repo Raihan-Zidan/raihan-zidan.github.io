@@ -1,4 +1,4 @@
-MisearchInput = document.querySelector(".search-input");
+searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
