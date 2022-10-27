@@ -21,6 +21,7 @@ var number = [
   10
 ];
 var startIndex = 1;
+var b = number[p];
 setTimeout(()=> {
   if (p) {
     startIndex = p;
@@ -28,7 +29,7 @@ setTimeout(()=> {
   if (p > 1) {
     startIndex += 10;
   }
-  alert(startIndex);
+  alert(b);
 },50);
 
 if (!q || q === null) {
