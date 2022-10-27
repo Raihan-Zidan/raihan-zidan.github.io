@@ -113,7 +113,7 @@ function hndlr(res) {
   }
 }
 
-function moreresult() {
+function moreresults() {
     setTimeout(()=> {
       if (startIndex < 50) {
         startIndex += 10;
