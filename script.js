@@ -23,7 +23,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    submit(searchInput.value);
+    submit();
     hasil = document.getElementById("hasil").innerHTML = "";
   } else {
     cleartext.style.display = "none";
@@ -82,7 +82,8 @@ apikey = [
 
 searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
-function submit(val) {
+function submit() {
+  var val = searchInput.value;
   fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       hndlr(response);
@@ -92,7 +93,7 @@ function submit(val) {
 
 function hndlr(res) {
   try {
-    if (res.items && windowWidth > 700) {
+    if (res.items && windowWidth > 700 && startIndex = 1) {
       document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling) {
@@ -113,11 +114,9 @@ function hndlr(res) {
   }
 }
 
-function moreresults() {
-    setTimeout(()=> {
-      if (startIndex < 50) {
-        startIndex += 10;
-        submit();
-      }
-    },1000);
+function moreresult() {
+  if (startIndex < 50) {
+    startIndex += 10;
+    submit();
+  }
 }
