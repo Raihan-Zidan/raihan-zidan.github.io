@@ -23,7 +23,8 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    submit(startIndex);
+    submit(searchInput.value);
+    hasil = document.getElementById("hasil").innerHTML = "";
   } else {
     cleartext.style.display = "none";
   }
@@ -81,10 +82,8 @@ apikey = [
 
 searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
-function submit(number) {
-  hasil = document.getElementById("hasil").innerHTML = "";
-  var val = searchInput.value;
-  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${number}&cx=e5dbd697a8e464044&q=${val}`)
+function submit(val) {
+  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
@@ -111,7 +110,7 @@ function hndlr(res) {
     setTimeout(()=> {
       if (startIndex < 80) {
         startIndex += 10;
-        submit(startIndex);
+        submit();
       }
     },1000);
   } catch(error) {
