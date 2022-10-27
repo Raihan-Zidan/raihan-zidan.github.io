@@ -13,7 +13,7 @@ if (tbm === "web" || !tbm) {
 } else if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 }
-if (!q || q === null) {
+if (!q) {
   window.location.href = "/";
 }
 
@@ -90,7 +90,7 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
   var val = searchInput.value;
-  if (tbm === "web" || tbm === null) {
+  if (tbm === "web" || !tbm) {
   fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       webresult(response);
