@@ -44,7 +44,7 @@ window.addEventListener('load', ()=> {
       tab.href = `/maps`;
     }
   });
-  document.querySelector(".search-item.selected").disabled = true;
+  document.querySelector(".selected").disabled = true;
 });
 
 cleartext.addEventListener('click', ()=> {
