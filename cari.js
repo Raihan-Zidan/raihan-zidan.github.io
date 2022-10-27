@@ -8,7 +8,7 @@ searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 var tbm = url.searchParams.get("tbm");
-if (tbm === "web" || tbm === null) {
+if (tbm === "web" || !tbm) {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
 } else if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
@@ -35,15 +35,16 @@ window.addEventListener('load', ()=> {
   }
   searchItem.forEach(tab => {
     if (tab.id === "all") {
-      tab.href = `/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
+      tab.href = `/cari?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "images") {
       tab.href = `/images?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "videos") {
-      tab.href = `/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=vid`;
+      tab.href = `/cari?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=vid`;
     } else if (tab.id === "maps") {
       tab.href = `/maps`;
     }
   });
+  document.querySelector(".search-item.selected").disabled = true;
 });
 
 cleartext.addEventListener('click', ()=> {
