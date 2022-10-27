@@ -10,9 +10,9 @@ var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
   if (p > 1) {
-    startIndex += p + 0;
-    alert(startIndex);
+    startIndex = p + 1;
   }
+  alert(startIndex);
 },50);
 
 if (!q || q === null) {
