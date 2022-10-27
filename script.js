@@ -9,7 +9,7 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
-  startIndex += p + 0;
+  startIndex += `${p}0`;
 },50);
 
 if (!q || q === null) {
