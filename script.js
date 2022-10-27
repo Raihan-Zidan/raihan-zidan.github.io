@@ -7,6 +7,19 @@ var q = url.searchParams.get("q");
 searchInput.value = q;
 document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
+var number = [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+];
 var startIndex = 1;
 setTimeout(()=> {
   if (p) {
