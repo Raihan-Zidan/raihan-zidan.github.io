@@ -85,12 +85,12 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
   var val = searchInput.value;
-  if (tbm = "web" || tbm = null) {
+  if (tbm === "web" || tbm === null) {
   fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       webresult(response);
   })
-  } else if (tbm = "vid") {
+  } else if (tbm === "vid") {
   fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
     .then(response => response.json()).then(response => {
       videoresult(response);
