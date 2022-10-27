@@ -10,7 +10,7 @@ var p = url.searchParams.get("p");
 var number = [
   0,
   1,
-  25,
+  2,
   3,
   4,
   5,
@@ -23,13 +23,10 @@ var number = [
 var startIndex = 1;
 var b = number[p];
 setTimeout(()=> {
-  if (p) {
-    startIndex = p;
-  }
   if (p > 1) {
-    startIndex += 10;
+    startIndex = b + 10;
   }
-  alert(b);
+  alert(startIndex);
 },50);
 
 if (!q || q === null) {
