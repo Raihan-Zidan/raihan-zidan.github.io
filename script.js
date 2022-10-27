@@ -12,7 +12,6 @@ setTimeout(()=> {
   if (p > 1) {
     startIndex = p + 1;
   }
-  alert(startIndex);
 },50);
 
 if (!q || q === null) {
@@ -30,7 +29,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    setTimeout(()=> { submite(); },100);
+    setTimeout(()=> { submit(); },100);
   } else {
     cleartext.style.display = "none";
   }
