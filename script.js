@@ -87,6 +87,7 @@ function submit(val) {
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
+  moreresult();
 }
 
 function hndlr(res) {
@@ -107,13 +108,16 @@ function hndlr(res) {
       }
     });
     document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+  } catch(error) {
+    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+  }
+}
+
+function moreresult() {
     setTimeout(()=> {
       if (startIndex < 50) {
         startIndex += 10;
         submit();
       }
     },1000);
-  } catch(error) {
-    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
-  }
 }
