@@ -9,9 +9,14 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
-  if (p > 1) {
-    startIndex = p + 1;
+  var countNormal = 10;
+  if (p > 1 && p < 10) {
+    startIndex = p + countNormal;
   }
+  if (p > 10) {
+    startIndex = p + countNormal;
+  }
+  alert(startIndex);
 },50);
 
 if (!q || q === null) {
@@ -29,7 +34,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    setTimeout(()=> { submit(); },100);
+    setTimeout(()=> { submite(); },100);
   } else {
     cleartext.style.display = "none";
   }
