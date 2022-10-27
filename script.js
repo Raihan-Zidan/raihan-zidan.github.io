@@ -9,11 +9,9 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
-  if (p > 1 && p < 10) {
+  if (p > 1) {
+    startIndex = p;
     startIndex += 10;
-  }
-  if (p > 10) {
-    startIndex += 10;;
   }
   alert(startIndex);
 },50);
