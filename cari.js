@@ -3,12 +3,16 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 document.title = `${q} - Search`;
 var startIndex = 1;
-document.body.innerHTML += `<div class="header"><div class="search-box"><div class="search-field"><input class="search-input" value="${q}" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..."><div role="button" class="cleartext"></div></div></div><div class="search-menu"><div class="search-item selected"><div class="tab-wrapper" id="all"><img src="images/search.svg"><span>All</span></div></div><div class="search-item"><a href="" class="tab-wrapper" id="images"><img src="images/image.svg"><span>Images</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="videos"><img src="images/video.svg"><span>Videos</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="maps"><img src="images/maps.svg"><span>Maps</span></a></div></div></div><div id="hasil"></div>`;
+document.body.innerHTML += `<div class="header"><div class="search-box"><div class="search-field"><input class="search-input" value="${q}" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..."><div role="button" class="cleartext"></div></div></div><div class="search-menu"><div class="search-item"><a href="" class="tab-wrapper" id="all"><img src="images/search.svg"><span>All</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="images"><img src="images/image.svg"><span>Images</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="videos"><img src="images/video.svg"><span>Videos</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="maps"><img src="images/maps.svg"><span>Maps</span></a></div></div></div><div id="hasil"></div>`;
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 var tbm = url.searchParams.get("tbm");
-
+if (tbm === "web" || tbm === null) {
+  document.querySelectorAll(".search-item")[0].classList.add("selected");
+} else if (tbm === "vid") {
+  document.querySelectorAll(".search-item")[2].classList.add("selected");
+}
 if (!q || q === null) {
   window.location.href = "/";
 }
@@ -35,7 +39,7 @@ window.addEventListener('load', ()=> {
     } else if (tab.id === "images") {
       tab.href = `/images?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "videos") {
-      tab.href = `/videos?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
+      tab.href = `/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=vid`;
     } else if (tab.id === "maps") {
       tab.href = `/maps`;
     }
