@@ -14,6 +14,8 @@ cleartext = document.querySelector(".cleartext");
 var tbm = url.searchParams.get("tbm");
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
+} else if (tbm === "isch") {
+  window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
 }
@@ -38,7 +40,7 @@ window.addEventListener('load', ()=> {
     if (tab.id === "all") {
       tab.href = `/cari?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
     } else if (tab.id === "images") {
-      tab.href = `/images?q=${encodeURIComponent(q).replace(/\%20/g,'+')}`;
+      tab.href = `/cari?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=isch`;
     } else if (tab.id === "videos") {
       tab.href = `/cari?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=vid`;
     } else if (tab.id === "maps") {
