@@ -7,6 +7,7 @@ var q = url.searchParams.get("q");
 searchInput.value = q;
 document.title = `${q} - Search`;
 var startIndex = 1;
+document.getElementById("hasil").innerHTML = `<div id="web-result"></div>`;
 
 if (!q || q === null) {
   window.location.href = "/";
@@ -24,7 +25,7 @@ window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
     submit();
-    hasil = document.getElementById("hasil").innerHTML = "";
+    hasil = document.getElementById("web-result").innerHTML = "";
   } else {
     cleartext.style.display = "none";
   }
@@ -93,13 +94,13 @@ function submit() {
 function hndlr(res) {
   try {
     if (res.items && windowWidth > 700 && startIndex === 1) {
-      document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
+      document.getElementById("web-result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling) {
-      document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.getElementById("web-result").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${res.spelling.correctedQuery}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
-      document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
+      document.getElementById("web-result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -107,10 +108,10 @@ function hndlr(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
-    document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+    document.getElementById("web-result").innerHTML = document.getElementById("web-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     moreresult()
   } catch(error) {
-    document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+    document.getElementById("web-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
 
