@@ -8,7 +8,7 @@ searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 var tbm = url.searchParams.get("tbm");
-if (tbm === "web" || !tbm) {
+if (tbm != vid) {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
 } else if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
@@ -90,12 +90,12 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
   var val = searchInput.value;
-  if (tbm === "web" || !tbm) {
+  if (tbm != vid) {
   fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       webresult(response);
   })
-  } else if (tbm === "vid") {
+  } else {
   vidstyle = document.createElement("link");
   vidstyle.rel = "stylesheet";
   vidstyle.href = "m2095.css";
