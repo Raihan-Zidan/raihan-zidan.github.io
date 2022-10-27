@@ -9,12 +9,12 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
-  var countNormal = 10;
+  var countNormal = 10 + p;
   if (p > 1 && p < 10) {
-    startIndex = p + countNormal;
+    startIndex = countNormal;
   }
   if (p > 10) {
-    startIndex = p + countNormal;
+    startIndex = countNormal;
   }
   alert(startIndex);
 },50);
