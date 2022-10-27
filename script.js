@@ -13,6 +13,7 @@ setTimeout(()=> {
     startIndex = p;
   }
   if (p > 1) {
+    startIndex += 10;
   }
   alert(startIndex);
 },50);
