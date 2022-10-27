@@ -10,7 +10,7 @@ var p = url.searchParams.get("p");
 var number = [
   0,
   1,
-  2,
+  25,
   3,
   4,
   5,
