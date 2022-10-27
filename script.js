@@ -7,27 +7,15 @@ var q = url.searchParams.get("q");
 searchInput.value = q;
 document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
-var number = [
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10
-];
 var startIndex = 1;
-var b = number[p];
+for (var i = 0; i < p; i++) {
 setTimeout(()=> {
   if (p > 1) {
-    startIndex = b + 10;
+    startIndex = i + 10;
   }
   alert(startIndex);
 },50);
+}
 
 if (!q || q === null) {
   window.location.href = "/";
