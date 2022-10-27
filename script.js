@@ -112,16 +112,11 @@ function hndlr(res) {
       }
     });
     document.getElementById("web-result").innerHTML = document.getElementById("web-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+    setTimeout(()=> { moreresult() }, 2000);
   } catch(error) {
     document.getElementById("web-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
-
-window.addEventListener('scroll', ()=> {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    setTimeout(()=> { moreresult() }, 2000);
-  }
-});
 
 function moreresult() {
   if (startIndex < 50) {
