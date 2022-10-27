@@ -56,7 +56,7 @@ cleartext.addEventListener('click', ()=> {
 searchInput.addEventListener('keyup', ()=> {
   var searchdata = "";
   if (tbm === "vid") {
-    searchdata = "tbm=vid";
+    searchdata = "&tbm=vid";
   } else {
     searchdata = "";
   }
