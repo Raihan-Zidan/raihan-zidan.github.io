@@ -108,7 +108,7 @@ function hndlr(res) {
     });
     document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     setTimeout(()=> {
-      if (res.items && startIndex < 80) {
+      if (startIndex < 50) {
         startIndex += 10;
         submit();
       }
