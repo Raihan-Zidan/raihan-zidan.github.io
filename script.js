@@ -10,7 +10,7 @@ var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
   if (p > 1) {
-    startIndex += 10;
+    startIndex += p;
   }
   alert(startIndex);
 },50);
