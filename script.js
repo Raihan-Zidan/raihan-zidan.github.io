@@ -26,6 +26,9 @@ window.addEventListener('load', ()=> {
     cleartext.style.display = "block";
     submit();
     hasil = document.getElementById("web-result").innerHTML = "";
+    setTimeout(()=> {
+      document.getElementById("hasil").innerHTML += `<div class="loading"><div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div></div>`;
+    },1000);
   } else {
     cleartext.style.display = "none";
   }
@@ -89,7 +92,6 @@ function submit() {
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
-  document.getElementById("hasil").innerHTML += `<div class="loading"><div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div></div>`;
 }
 
 function hndlr(res) {
@@ -110,7 +112,7 @@ function hndlr(res) {
       }
     });
     document.getElementById("web-result").innerHTML = document.getElementById("web-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
-    moreresult()
+    setTimeout(()=> { moreresult() }, 2000);
   } catch(error) {
     document.getElementById("web-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
