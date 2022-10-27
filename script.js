@@ -93,7 +93,7 @@ function submit() {
 
 function hndlr(res) {
   try {
-    if (res.items && windowWidth > 700) {
+    if (res.items && windowWidth > 700 && !startIndex > 1) {
       document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling) {
