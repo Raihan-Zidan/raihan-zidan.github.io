@@ -9,7 +9,10 @@ document.title = `${q} - Search`;
 var p = url.searchParams.get("p");
 var startIndex = 1;
 setTimeout(()=> {
-  startIndex += p;
+  if (p > 1) {
+    startIndex += p + 0;
+    alert(startIndex);
+  }
 },50);
 
 if (!q || q === null) {
@@ -27,7 +30,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    setTimeout(()=> { submit(); },100);
+    setTimeout(()=> { submite(); },100);
   } else {
     cleartext.style.display = "none";
   }
