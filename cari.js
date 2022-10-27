@@ -91,6 +91,10 @@ function submit() {
       webresult(response);
   })
   } else if (tbm === "vid") {
+  vidstyle = document.createElement("link");
+  vidstyle.rel = "stylesheet";
+  vidstyle.href = "m2095.css";
+  document.head.appendChild(vidstyle);
   fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
     .then(response => response.json()).then(response => {
       videoresult(response);
@@ -135,7 +139,7 @@ function webresult(res) {
 }
 
 function moreresult() {
-  if (startIndex < 30) {
+  if (startIndex < 20) {
     startIndex += 10;
     submit();
   }
