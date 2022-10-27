@@ -88,7 +88,7 @@ function submit() {
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
-  moreresult();
+  moreresult()
 }
 
 function hndlr(res) {
