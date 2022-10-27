@@ -54,8 +54,14 @@ cleartext.addEventListener('click', ()=> {
 });
 
 searchInput.addEventListener('keyup', ()=> {
+  var searchdata = "";
+  if (tbm === "vid") {
+    searchdata = "tbm=vid";
+  } else {
+    searchdata = "";
+  }
   if (event.keyCode === 13 && searchInput.value != '' && searchInput.value.trim()) {
-    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
+    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`;
   }
 });
 
