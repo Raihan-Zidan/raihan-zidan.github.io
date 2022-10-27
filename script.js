@@ -89,6 +89,7 @@ function submit() {
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
+  document.getElementById("hasil").innerHTML += `<div class="loading"><div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div></div>`;
 }
 
 function hndlr(res) {
@@ -119,5 +120,7 @@ function moreresult() {
   if (startIndex < 50) {
     startIndex += 10;
     submit();
+  } else {
+    document.querySelector("#hasil .loading").remove();
   }
 }
