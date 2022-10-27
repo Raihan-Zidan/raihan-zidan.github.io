@@ -1,4 +1,4 @@
-searchInput = document.querySelector(".search-input");
+MisearchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -88,12 +88,11 @@ function submit() {
     .then(response => response.json()).then(response => {
       hndlr(response);
   })
-  moreresult()
 }
 
 function hndlr(res) {
   try {
-    if (res.items && windowWidth > 700 && !startIndex > 1) {
+    if (res.items && windowWidth > 700 && startIndex = 1) {
       document.getElementById("hasil").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling) {
@@ -109,6 +108,7 @@ function hndlr(res) {
       }
     });
     document.getElementById("hasil").innerHTML = document.getElementById("hasil").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+    moreresult()
   } catch(error) {
     document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
