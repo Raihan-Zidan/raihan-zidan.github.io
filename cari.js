@@ -154,7 +154,7 @@ function webresult(res) {
 }
 
 function moreresult() {
-  if (startIndex < 20) {
+  if (startIndex < 10) {
     startIndex += 10;
     submit();
   }
