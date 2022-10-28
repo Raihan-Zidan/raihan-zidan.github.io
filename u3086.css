@@ -128,7 +128,7 @@
   opacity: .5;
 }
 
-.search-item.selected {
+.selected span {
   color: #101518;
 }
 
