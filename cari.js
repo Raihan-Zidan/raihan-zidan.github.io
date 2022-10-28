@@ -15,6 +15,7 @@ var tbm = url.searchParams.get("tbm");
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
+  document.querySelectorAll(".search-item")[1].classList.add("selected");
   window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
