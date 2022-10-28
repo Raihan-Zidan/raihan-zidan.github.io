@@ -186,6 +186,7 @@
   color: #222222;
   font-size: 14px;
   white-space: nowrap;
+  max-width: 300px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
