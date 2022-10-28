@@ -395,7 +395,7 @@
   .search-box .cleartext{
     right: 40px;
   }
-  .search-item.selected {
+  .selected span {
     color: #1558d6;
   }
   .selected span:before {
