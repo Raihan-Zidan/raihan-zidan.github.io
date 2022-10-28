@@ -186,6 +186,11 @@
   color: #222222;
   font-size: 14px;
   white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tab-result .snippet {
