@@ -109,7 +109,7 @@ function submit() {
     .then(response => response.json()).then(response => {
       videoresult(response);
   })
-  } else {
+  } else if (tbm != "vid" && tbm != "isch") {
   fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
       webresult(response);
