@@ -339,6 +339,11 @@
   background: #fff;
 }
 
+@keyframes roll {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
 @media (max-width: 700px) {
  .tab-wrapper img {
    display: none;
