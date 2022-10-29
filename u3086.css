@@ -9,6 +9,10 @@
   text-size-adjust: none;
 }
 
+body {
+  height: 100%;
+}
+
 .header {
   font-family: HelveticaNeue, arial;
 }
