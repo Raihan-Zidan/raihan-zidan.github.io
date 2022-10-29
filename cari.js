@@ -115,7 +115,7 @@ function submit() {
       webresult(response);
   })
   if (searchInput.value.indexOf("rolling") > -1) {
-    document.body.style.animation = "roll 4s";
+    setTimeout(()=> { document.body.style.animation = "roll 4s"; },1000);
   }
   }
 }
