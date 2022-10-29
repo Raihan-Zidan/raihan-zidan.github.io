@@ -161,6 +161,7 @@
   text-decoration: none;
   font-weight: 400;
   display: -webkit-box;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
