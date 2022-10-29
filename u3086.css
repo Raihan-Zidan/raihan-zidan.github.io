@@ -156,6 +156,7 @@
 
 .tab-result .title {
   color: #1558d6;
+  max-width: 300px;
   font-size: 19px;
   margin: 5px 0;
   text-decoration: none;
