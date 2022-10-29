@@ -266,14 +266,14 @@
 }
 
 .instant-answer span {
-  margin: 4px 0;
+  margin: 1px 0;
 }
 
 .instant-answer .snippet {
   color: #494949;
   font-size: 14px;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
