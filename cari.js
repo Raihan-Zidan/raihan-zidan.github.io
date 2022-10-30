@@ -5,14 +5,17 @@ document.title = `${q} - Search`;
 var startIndex = 1;
 if (q) {
   document.body.innerHTML += `<div class="header"><div class="search-box"><div class="search-field"><input class="search-input" value="${q}" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..."><div role="button" class="cleartext"></div></div></div><div class="search-menu"><div class="search-item"><a href="" class="tab-wrapper" id="all"><img src="images/search.svg"><span>All</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="images"><img src="images/image.svg"><span>Images</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="videos"><img src="images/video.svg"><span>Videos</span></a></div><div class="search-item"><a href="" class="tab-wrapper" id="maps"><img src="images/maps.svg"><span>Maps</span></a></div></div></div><div id="hasil"></div>`;
+  submit();
 } else {
   window.location.href = "/";
 }
 
-var translate = document.createElement("meta");
-translate.name = "google";
-translate.content = "notranslate";
-document.head.appendChild(translate);
+window.addEventListener('load', ()=> {
+  var translate = document.createElement("meta");
+  translate.name = "google";
+  translate.content = "notranslate";
+  document.head.appendChild(translate);
+});
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
@@ -38,8 +41,6 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    submit();
-    hasil = document.getElementById("hasil").innerHTML = "";
   } else {
     cleartext.style.display = "none";
   }
