@@ -8,9 +8,7 @@ if (q) {
 } else {
   window.location.href = "/";
 }
-if (!window.location.href.indexOf("raihan-zidan") > -1) {
-  location.replace("https://raihan-zidan.github.io");
-}
+
 var translate = document.createElement("meta");
 translate.name = "google";
 translate.content = "notranslate";
