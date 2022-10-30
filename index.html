@@ -38,6 +38,8 @@
 searchInput = document.querySelector(".search-input");
 searchToggle = document.querySelector(".search-toggle");
 var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+var url = new URL(window.location.href);
+var q = url.searchParams.get("q");
 
 if (windowWidth > 700) {
   searchInput.focus();
@@ -54,5 +56,14 @@ searchInput.addEventListener('keyup', ()=> {
     searchToggle.click();
   }
 });
+
+if (q) {
+  searchInput.value = q;
+}
+
+var translate = document.createElement("meta");
+translate.name = "google";
+translate.content = "notranslate";
+document.head.appendChild(translate);
 
 </script>
