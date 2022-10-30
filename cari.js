@@ -9,6 +9,11 @@ if (q) {
   window.location.href = "/";
 }
 
+var translate = document.createElement("meta");
+translate.name = "google";
+translate.content = "notranslate";
+document.head.appendChild(translate);
+
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
