@@ -114,9 +114,6 @@ function submit() {
     .then(response => response.json()).then(response => {
       webresult(response);
   })
-  if (searchInput.value.indexOf("rolling") > -1) {
-    setTimeout(()=> { document.body.style.animation = "roll 4s"; },1000);
-  }
   }
 }
 
