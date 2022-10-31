@@ -59,7 +59,7 @@ window.addEventListener('load', ()=> {
     }
   });
   setTimeout(()=> {
-    document.getElementById("hasil").innerHTML ++ `<div class="footer notranslate">
+    document.getElementById("hasil").innerHTML += `<div class="footer notranslate">
   <div class="area"><div class="country"></div></div>
   <div class="area">Copyright ©2022 All rights reserved.</div>
 </div>`;
