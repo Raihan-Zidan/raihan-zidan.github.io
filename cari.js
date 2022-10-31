@@ -1,6 +1,7 @@
 var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
+var p = url.searchParams.get("p");
 document.title = `${q} - Search`;
 var startIndex = 1;
 if (q) {
@@ -8,6 +9,14 @@ if (q) {
 } else {
   window.location.href = "/";
 }
+setTimeout(()=> {
+  if (p) {
+  for (var i = 0; i < p; i++) {
+    startIndex = i + 10;
+    alert(startIndex);
+  }
+  }
+},50);
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
@@ -33,7 +42,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    submit();
+    submits();
   } else {
     cleartext.style.display = "none";
   }
