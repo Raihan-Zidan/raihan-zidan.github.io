@@ -97,11 +97,15 @@ body {
   display: none;
 }
 
-.selected span {
+.selected .label {
   position: relative;
 }
 
-.selected span:before {
+.seacrh-menu .selected {
+  pointer-events: none;
+}
+
+.selected .label:before {
   position: absolute;
   content: "";
   background: #101518;
@@ -132,7 +136,7 @@ body {
   opacity: .5;
 }
 
-.selected span {
+.selected .label {
   color: #101518;
 }
 
@@ -415,7 +419,7 @@ body {
   .selected span {
     color: #1558d6;
   }
-  .selected span:before {
+  .selected .label:before {
     background: #1558d6;
     bottom: -12px;
   }
