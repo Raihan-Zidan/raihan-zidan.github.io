@@ -57,7 +57,7 @@ body {
   justify-content: center;
 }
 
-.tab-wrapper img {
+.tab-wrapper svg {
   margin-right: 5px;
 }
 
@@ -429,7 +429,7 @@ body {
     color: #1558d6;
   }
   .selected .label svg {
-    stroke: #1558d6;
+    fill: #1558d6;
   }
   .selected .label:before {
     background: #1558d6;
