@@ -428,7 +428,7 @@ body {
   .selected span {
     color: #1558d6;
   }
-  .selected .label svg {
+  .selected .label svg path {
     fill: #1558d6;
   }
   .selected .label:before {
