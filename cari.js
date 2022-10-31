@@ -11,7 +11,9 @@ if (q) {
 }
 setTimeout(()=> {
   if (p > 1) {
-  for (var i = 0; i < p; i++) {
+  var i = 0;
+  if (i < p) {
+    i++;
     startIndex = `${i}0`;
     alert(startIndex);
   }
