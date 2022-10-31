@@ -10,9 +10,9 @@ if (q) {
   window.location.href = "/";
 }
 setTimeout(()=> {
-  if (p) {
+  if (p > 1) {
   for (var i = 0; i < p; i++) {
-    startIndex = i + 10;
+    startIndex = `${i}0`;
     alert(startIndex);
   }
   }
