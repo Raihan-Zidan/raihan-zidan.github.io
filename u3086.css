@@ -213,6 +213,11 @@ body {
 .tab-result .snippet {
   color: #494949;
   font-size: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tab-result .spelling {
