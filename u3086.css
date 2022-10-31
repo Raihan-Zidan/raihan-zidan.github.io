@@ -366,6 +366,7 @@ body {
   #hasil {
     background: #fff;
     padding-left: 130px;
+    padding-top: 5px;
   }
   .tab-result {
     width: 650px;
