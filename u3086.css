@@ -350,11 +350,7 @@ body {
 
 @media (max-width: 780px) {
   .tab-result .snippet {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
   }
   .tab-wrapper img {
     display: none;
