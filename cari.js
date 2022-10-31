@@ -58,6 +58,12 @@ window.addEventListener('load', ()=> {
       tab.href = `/maps`;
     }
   });
+  setTimeout(()=> {
+    document.getElementById("hasil").innerHTML ++ `<div class="footer notranslate">
+  <div class="area"><div class="country"></div></div>
+  <div class="area">Copyright ©2022 All rights reserved.</div>
+</div>`;
+  },1000);
 });
 
 cleartext.addEventListener('click', ()=> {
