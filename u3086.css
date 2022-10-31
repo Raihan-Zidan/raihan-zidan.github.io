@@ -354,10 +354,7 @@ body {
 }
 
 @media (max-width: 780px) {
-  .tab-result .snippet {
-
-  }
-  .tab-wrapper img {
+  .tab-wrapper svg {
     display: none;
   }
   .search-list {
