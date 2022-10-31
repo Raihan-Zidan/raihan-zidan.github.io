@@ -9,12 +9,6 @@ if (q) {
 } else {
   window.location.href = "/";
 }
-setTimeout(()=> {
-  if (p > 1) {
-    startIndex = `${p}0`;
-    alert(startIndex);
-  }
-},50);
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
@@ -40,7 +34,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    submits();
+    submit();
   } else {
     cleartext.style.display = "none";
   }
