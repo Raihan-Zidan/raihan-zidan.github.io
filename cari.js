@@ -14,6 +14,9 @@ if (q) {
 } else {
   window.location.href = "/";
 }
+if (p > 1) {
+  startIndex = p;
+}
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
@@ -40,7 +43,7 @@ searchInput.addEventListener('keyup', ()=> {
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
-    submit();
+    setTimeout(()=> { submit(); },50);
   } else {
     cleartext.style.display = "none";
   }
