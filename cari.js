@@ -19,8 +19,7 @@ if (p > 1) {
   startIndex = p;
 }
 if (preload) {
-  var newreload = url.searchParams.delete("preload");
-  alert(newreload);
+  alert(url.searchParams.delete("preload"));
 }
 
 searchInput = document.querySelector(".search-input");
