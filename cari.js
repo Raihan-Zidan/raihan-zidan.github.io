@@ -2,6 +2,7 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
+var preload = url.searchParams.get("preload");
 document.title = `${q} - Search`;
 var startIndex = 1;
 if (q) {
@@ -16,6 +17,10 @@ if (q) {
 }
 if (p > 1) {
   startIndex = p;
+}
+if (preload) {
+  var newreload = url.searchParams.delete("preload");
+  window.location.href = newreload;
 }
 
 searchInput = document.querySelector(".search-input");
@@ -41,7 +46,7 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 window.addEventListener('load', ()=> {
-  if (searchInput.value != '') {
+  if (searchInput.value != '' && !preload) {
     cleartext.style.display = "block";
     setTimeout(()=> { submit(); },50);
   } else {
