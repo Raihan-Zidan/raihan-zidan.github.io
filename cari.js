@@ -20,7 +20,7 @@ if (p > 1) {
 }
 if (preload) {
   var newreload = url.searchParams.delete("preload");
-  window.location.href = newreload;
+  window.location.href = window.location.href + newreload;
 }
 
 searchInput = document.querySelector(".search-input");
