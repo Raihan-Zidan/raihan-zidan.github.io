@@ -3,7 +3,6 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
 var tbm = url.searchParams.get("tbm");
-var preload = url.searchParams.get("preload");
 document.title = `${q} - Search`;
 var startIndex = 1;
 if (q) {
@@ -18,11 +17,6 @@ if (q) {
 }
 if (p > 1) {
   startIndex = p;
-}
-if (preload && tbm) {
-  window.location.href = `/search?q=${q}&tbm=${tbm}`;
-} else if (preload && !tbm) {
-  window.location.href = `/search?q=${q}`;
 }
 
 searchInput = document.querySelector(".search-input");
@@ -47,7 +41,7 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 window.addEventListener('load', ()=> {
-  if (searchInput.value != '' && !preload) {
+  if (searchInput.value != '') {
     cleartext.style.display = "block";
     setTimeout(()=> { submit(); },50);
   } else {
