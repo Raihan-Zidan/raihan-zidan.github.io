@@ -2,6 +2,7 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
+var tbm = url.searchParams.get("tbm");
 var preload = url.searchParams.get("preload");
 document.title = `${q} - Search`;
 var startIndex = 1;
@@ -18,15 +19,16 @@ if (q) {
 if (p > 1) {
   startIndex = p;
 }
-if (preload) {
-  alert(url.searchParams.delete("preload"));
+if (preload && tbm) {
+  window.location.href = `/search?q=${q}&tbm=${tbm}`;
+} else if (preload && !tbm) {
+  window.location.href = `/search?q=${q}`;
 }
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 cleartext.style.display = "block";
-var tbm = url.searchParams.get("tbm");
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
