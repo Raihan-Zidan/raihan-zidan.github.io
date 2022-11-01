@@ -442,6 +442,7 @@ body {
     text-decoration: underline;
   }
   .tab-link {
+    display: inline-block;
     -webkit-tap-highlight-color: transparent;
   }
   .tab-wrapper {
