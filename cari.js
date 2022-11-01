@@ -130,7 +130,7 @@ function videoresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       document.getElementById("hasil").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.youtube.com&size=64" class="favicon"><div>www.youtube.com</div></div></div></a></div>`;
     }
-    if (!res.items.length > 0) searcherror();
+    if (!res.items.length > 0) throw "empty";
   } catch(error) {
     document.getElementById("hasil").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
