@@ -60,7 +60,6 @@ body {
 }
 
 .search-box .cleartext {
-  display: none;
   position: absolute;
   width: 35px;
   height: 35px;
