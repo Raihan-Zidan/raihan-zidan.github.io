@@ -122,6 +122,9 @@ function submit() {
     .then(response => response.json()).then(response => {
       webresult(response);
   })
+  if (searchInput.toLowerCase().indexOf("do a flip") > -1) {
+    document.body.classList.add("flip");
+  }
   }
 }
 
