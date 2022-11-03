@@ -123,7 +123,7 @@ function submit() {
       webresult(response);
   })
   if (searchInput.toLowerCase().indexOf("do a flip") > -1) {
-    document.body.classList.add("flip");
+    document.body.style.animation = "flip 2s ease";
   }
   }
 }
