@@ -498,3 +498,10 @@ body {
     border: 1px solid #EDEDED;
   }
 }
+
+@media (min-width: 992px) {
+  .tab-result,
+  .search-field {
+    width: 650px;
+  }
+}
