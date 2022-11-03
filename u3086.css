@@ -389,11 +389,7 @@ body {
   margin: 3px 0;
 }
 
-.flip {
-  animation: do-a-flip 2s ease;
-}
-
-@keyframes do-a-flip {
+@keyframes flip {
   0% {
     transform: rotateY(0deg);
   }
