@@ -73,13 +73,11 @@ map.addControl(
     showUserHeading: true
   })
 );
-
-setInterval(()=> {
-  window.history.replaceState("", "", `/maps?x=${JSON.stringify(e.point.x)}&y=${JSON.stringify(e.point.y)}&lon=${JSON.stringify(e.lngLat.wrap().lng)}&lat=${JSON.stringify(e.lngLat.wrap().lat)}`);
-},0);
-
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {});
+  
+  if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    window.history.replaceState("", "", `/maps?lat=${position.coords.latitude}&lon=${position.coords.longitude}`);
+  });
 }
 
 </script>
