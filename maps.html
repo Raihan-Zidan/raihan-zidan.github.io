@@ -75,7 +75,7 @@ map.addControl(
 );
 
 map.on('mousemove', (e) => {
-  window.history.replaceState("", "", `/maps?x=${JSON.stringify(e.point.x)}&y=${JSON.stringify(e.point.y)}&lon${JSON.stringify(e.lngLat.wrap().lat)}`);
+  window.history.replaceState("", "", `/maps?x=${JSON.stringify(e.point.x)}&y=${JSON.stringify(e.point.y)}&lon=${JSON.stringify(e.lngLat.wrap())}`);
 });
 
 if (navigator.geolocation) {
