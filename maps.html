@@ -50,7 +50,7 @@ mapboxgl.accessToken =
 var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/outdoors-v10?optimize=true",
-  zoom: 1.3,
+  zoom: 2,
   center: [115.899, 0.372]
 });
 
@@ -75,7 +75,7 @@ map.addControl(
 );
 
 map.on('mousemove', (e) => {
-  window.history.replaceState("", "", `/maps?x=${JSON.stringify(e.point.x)}&y=${JSON.stringify(e.point.y)}&lon=${JSON.stringify(e.lngLat.wrap())}`);
+  window.history.replaceState("", "", `/maps?x=${JSON.stringify(e.point.x)}&y=${JSON.stringify(e.point.y)}&lon=${JSON.stringify(e.lngLat.wrap().lng)}&lat=${JSON.stringify(e.lngLat.wrap().lat)}`);
 });
 
 if (navigator.geolocation) {
