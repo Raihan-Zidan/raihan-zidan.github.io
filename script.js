@@ -122,7 +122,7 @@ function submit() {
     .then(response => response.json()).then(response => {
       webresult(response);
   })
-  if (searchInput.value.search(new RegExp("do a flip", "i")) === -1) {
+  if (searchInput.value.toLowerCase().indexOf("do a flip") > -1) {
     document.body.style.animation = "flip 2s ease";
   }
   }
