@@ -41,10 +41,7 @@ searchInput.addEventListener('keyup', ()=> {
 
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
-    cleartext.style.display = "block";
-    setTimeout(()=> { submit(); },50);
-  } else {
-    cleartext.style.display = "none";
+    submit();
   }
   searchItem.forEach(tab => {
     if (tab.getAttribute("tab-id") === "all") {
