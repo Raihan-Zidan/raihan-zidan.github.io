@@ -108,7 +108,8 @@ body {
   left: 0; right: 0;
 }
 
-.seacrh-menu .selected {
+.seacrh-menu .selected,
+.selected a {
   pointer-events: none;
 }
 
