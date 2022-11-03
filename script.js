@@ -122,9 +122,6 @@ function submit() {
     .then(response => response.json()).then(response => {
       webresult(response);
   })
-  if (searchInput.value.test("do a flip")) {
-    document.body.style.animation = "flip 2s ease";
-  }
   }
 }
 
