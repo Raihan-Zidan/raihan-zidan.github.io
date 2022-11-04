@@ -140,8 +140,8 @@
   color: #101518;
 }
 
-#hasil {
-  font-family: Google Sans, Arial;
+.result-wrapper {
+  font-family: Google Sans;
   background: #f5f8fa;
 }
 
@@ -406,7 +406,7 @@
 }
 
 @media (min-width: 780px) {
-  #hasil {
+  .result-wrapper {
     background: #fff;
     padding-left: 130px;
     padding-top: 5px;
