@@ -7,6 +7,10 @@
   text-size-adjust: none;
 }
 
+html, body {
+  width: 100%;
+}
+
 .header {
   font-family: HelveticaNeue, arial;
 }
@@ -141,6 +145,7 @@
 }
 
 .result-wrapper {
+  width: 100%;
   font-family: Google Sans, arial;
   background: #f5f8fa;
 }
