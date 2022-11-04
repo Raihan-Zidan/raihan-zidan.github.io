@@ -31,6 +31,10 @@ if (tbm === "vid") {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
 }
 
+var search = {
+  "paramater": ""
+};
+
 searchInput.addEventListener('keyup', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
