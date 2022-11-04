@@ -7,11 +7,6 @@
   text-size-adjust: none;
 }
 
-body {
-  height: 100%;
-  font-size: 14px;
-}
-
 .header {
   font-family: HelveticaNeue, arial;
 }
