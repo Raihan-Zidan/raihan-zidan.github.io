@@ -155,6 +155,9 @@ function webresult(res) {
       }
     });
     document.querySelector(".main-result").innerHTML = document.querySelector(".main-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+    setTimeout(()=> {
+      document.querySelector(".main-result").innerHTML += `<div class="more-wrapper"><button class="more">Show more</button></div>`;
+    }
   } catch(error) {
     document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
