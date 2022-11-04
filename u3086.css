@@ -357,9 +357,14 @@ html, body {
   border: 1px solid #E0E4E9;
   border-radius: 22px;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   position: relative;
   background: white;
+}
+
+.show-wrapper .more:hover {
+
 }
 
 .show-wrapper .more:before {
