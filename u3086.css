@@ -141,7 +141,7 @@
 }
 
 .result-wrapper {
-  font-family: Google Sans !important;
+  font-family: Google Sans, Arial;
   background: #f5f8fa;
 }
 
@@ -407,12 +407,12 @@
 
 @media (min-width: 780px) {
   .result-wrapper {
+    max-width: 620px;
     background: #fff;
     padding-left: 130px;
     padding-top: 5px;
   }
   .tab-result {
-    width: 620px;
     border: none;
   }
   .tab-result .title {
@@ -497,7 +497,7 @@
 }
 
 @media (min-width: 992px) {
-  .tab-result,
+  ..result-wrapper,
   .search-field {
     width: 650px;
   }
