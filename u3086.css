@@ -407,7 +407,6 @@
 
 @media (min-width: 780px) {
   .result-wrapper {
-    width: 680px;
     background: #fff;
     padding-left: 130px;
     padding-top: 5px;
@@ -498,7 +497,7 @@
 
 @media (min-width: 992px) {
   .result-wrapper {
-    width: 700px;
+    max-width: 700px;
   }
   .search-field {
     width: 650px;
