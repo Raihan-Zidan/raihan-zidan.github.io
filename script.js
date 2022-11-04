@@ -35,7 +35,7 @@ var search = {
   "paramater": ""
 };
 
-searchInput.addEventListener('keyup', ()=> {
+searchInput.addEventListener('input', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
   } else {
