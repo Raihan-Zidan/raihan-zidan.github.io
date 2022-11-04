@@ -411,6 +411,9 @@
     padding-left: 130px;
     padding-top: 5px;
   }
+  .main-result {
+    max-width: 620px;
+  }
   .tab-result {
     border: none;
   }
@@ -496,9 +499,7 @@
 }
 
 @media (min-width: 992px) {
-  .result-wrapper {
-    max-width: 700px;
-  }
+  .main-result,
   .search-field {
     width: 650px;
   }
