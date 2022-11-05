@@ -16,18 +16,18 @@ var link = url.searchParams.get("url");
 
 function redirect(string) {
   if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(string)) {
-    location.replace(encodeURIComponent(link).replace(/\%20/g,'+'));
+    location.replace(link);
   } else if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
-    location.replace("https://" + encodeURIComponent(link).replace(/\%20/g,'+'));
+    location.replace("https://" + link);
   } else {
-    location.replace("https://raihan-zidan.github.io");
+    location.replace(link);
   }
 }
 
 if (link) {
   redirect(link)
 } else {
-  location.replace("https://raihan-zidan.github.io");
+  location.replace("/");
 }
 
 </script>
