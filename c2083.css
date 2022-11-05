@@ -1,1 +1,121 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);*{padding:0;margin:0;box-sizing:border-box;text-size-adjust:none}body{height:100%;background:#f5f8fa;}.search-wrapper{width:100%;margin:30px 0;display:flex;justify-content:center;font-family:HelveticaNeue,arial}.search-box{margin-top:7px;padding:5px 15px}.search-field{width:280px;display:flex;align-items:center;position:relative}.search-toggle{cursor:pointer;position:absolute;width:calc(45px - 1px);height:calc(45px - 1px);right:0;background-image:url("images/mag-glass-grey@3x-202105180812.png");-webkit-background-size:20px;background-size:18px;background-repeat:no-repeat;background-position:center}.search-input{width:100%;height:44px;outline:0;border:none;border-radius:22px;font-size:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.08),0 0 1px 0 rgba(0,0,0,.1);padding:0 40px 0 20px; background:white;}.inersoft{width:100%;margin-top:60px;display:flex;justify-content:center;pointer-events:none}.inersoft img{width:230px}.noscript{width:100%;height:100vh;position:fixed;left:0;top:0;z-index:999;background:#fff}@media (min-width:780px){.search-header{position:absolute;transform:translate(-50%,-50%);left:50%;top:35%}.search-toggle{padding:10px 20px}.search-field{width:380px}.inersoft img{width:260px}}@media (min-width:1000px){.search-field{width:450px}.search-input{height:48px;border:1px solid #e8e8e8}.search-toggle{background-size:20px}.inersoft img{width:280px}}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-size-adjust: none
+}
+
+body {
+  height: 100%;
+  background: #f5f8fa;
+}
+
+.search-wrapper {
+  width: 100%;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  font-family: HelveticaNeue,arial
+}
+
+.search-box {
+  margin-top: 7px;
+  padding: 5px 15px
+}
+
+.search-field {
+  width: 280px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-toggle {
+  cursor: pointer;
+  position: absolute;
+  width: calc(45px - 1px);
+  height: calc(45px - 1px);
+  right: 0;
+  background-image: url("images/mag-glass-grey@3x-202105180812.png");
+  -webkit-background-size: 20px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center
+}
+
+.search-input {
+  width: 100%;
+  height: 44px;
+  outline: 0;
+  border: none;
+  border-radius: 22px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08),0 0 1px 0 rgba(0,0,0,.1);
+  padding: 0 40px 0 20px;
+  background: white;
+}
+
+.logo-wrapper {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none
+}
+
+.logo-wrapper logo {
+  width: 230px;
+  min-height: 58px;
+  background-image: url("https://raihan-zidan.github.io/images/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.noscript {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: #fff
+}
+
+@media (min-width: 780px) {
+  .search-header {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 35%
+  }
+  .search-toggle {
+    padding: 10px 20px
+  }
+  .search-field {
+    width: 380px
+  }
+  .logo-wrapper logo {
+    width: 260px
+    height: 88px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .search-field {
+    width: 450px
+  }
+  .search-input {
+    height: 48px;
+    border: 1px solid #e8e8e8
+  }
+  .search-toggle {
+    background-size: 20px
+  }
+  .logo-wrapper logo {
+    width: 280px
+    height: 102px;
+  }
+}
