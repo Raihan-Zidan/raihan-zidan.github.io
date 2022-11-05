@@ -164,9 +164,24 @@ function webresult(res) {
   }
 }
 
+var showmore = document.querySelector(".show-wrapper .more");
+
+showmore.addEventListener('click', ()=> {
+  moreresult();
+});
+
 function moreresult() {
-  if (startIndex < 10) {
-    startIndex += 10;
-    submit();
-  }
+  startIndex += 10;
+  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
+    .then(response => response.json()).then(response => {
+      for (var i = 0; i < response.items.length; i++) {
+        document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${response.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${response.items[i].link}&size=64" class="favicon"><div class="link">${response.items[i].displayLink}</div></div><div class="title">${response.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${response.items[i].htmlSnippet}</div></div>`;
+      }
+      snippet = document.querySelectorAll(".snippet");
+      snippet.forEach(description => {
+        if (description.innerHTML === "undefined") {
+          description.innerHTML = `There is no information on this page.`;
+        }
+    });
+  })
 }
