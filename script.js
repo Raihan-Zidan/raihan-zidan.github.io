@@ -172,8 +172,7 @@ function moreresult() {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
     setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },1800);
-  }
-  if (startIndex > 20) {
+  } else {
     document.querySelector(".show-wrapper").remove();
   }
 }
