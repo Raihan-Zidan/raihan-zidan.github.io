@@ -143,7 +143,7 @@ function webresult(res) {
     if (res.items && windowWidth > 700 && startIndex === 1) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
-    if (res.items && res.spelling) {
+    if (res.items && res.spelling && startIndex === 1) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">Corrected word: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
@@ -156,7 +156,7 @@ function webresult(res) {
       }
     });
     document.querySelector(".main-result").innerHTML = document.querySelector(".main-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
-    if (res.queries.nextPage) {
+    if (res.queries.nextPage && startIndex === 1) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult()">Show more</button></div>`;
     }
   } catch(error) {
@@ -165,18 +165,6 @@ function webresult(res) {
 }
 
 function moreresult() {
-  alert("ba");
   startIndex += 10;
-  fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
-    .then(response => response.json()).then(response => {
-      for (var i = 0; i < response.items.length; i++) {
-        document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${response.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${response.items[i].link}&size=64" class="favicon"><div class="link">${response.items[i].displayLink}</div></div><div class="title">${response.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${response.items[i].htmlSnippet}</div></div>`;
-      }
-      snippet = document.querySelectorAll(".snippet");
-      snippet.forEach(description => {
-        if (description.innerHTML === "undefined") {
-          description.innerHTML = `There is no information on this page.`;
-        }
-    });
-  })
+  submit();
 }
