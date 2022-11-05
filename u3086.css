@@ -344,7 +344,7 @@ html, body {
 
 .show-wrapper {
   width: 100%;
-  padding: 8px 10px;
+  padding: 8px 15px;
   display: flex;
   font-size: 15px;
   position: relative;
