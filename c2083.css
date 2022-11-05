@@ -62,7 +62,6 @@ body {
   margin-top: 60px;
   display: flex;
   justify-content: center;
-  pointer-events: none
 }
 
 .logo-wrapper logo {
