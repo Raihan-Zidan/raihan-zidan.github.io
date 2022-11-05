@@ -165,6 +165,10 @@ function webresult(res) {
 }
 
 function moreresult() {
-  startIndex += 10;
-  submit();
+  if (startIndex < 10) {
+    startIndex += 10;
+    submit();
+  } else {
+    document.querySelector(".show-wrapper").remove();
+  }
 }
