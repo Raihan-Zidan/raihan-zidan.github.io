@@ -155,7 +155,7 @@ function webresult(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
-    document.querySelector(".main-result").innerHTML = document.querySelector(".main-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+
     if (res.queries.nextPage && startIndex === 1) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult()">Show more</button></div>`;
     }
