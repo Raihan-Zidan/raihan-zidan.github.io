@@ -173,6 +173,6 @@ function moreresult() {
     setTimeout(()=> { submit(); }, 500);
     setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },1800);
   } else {
-    document.querySelector(".show-wrapper").remove();
+    setTimeout(()=> { document.querySelector(".show-wrapper").remove(); }, 500);
   }
 }
