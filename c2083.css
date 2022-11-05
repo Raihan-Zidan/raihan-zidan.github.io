@@ -68,7 +68,7 @@ body {
   width: 230px;
   min-height: 58px;
   background-image: url("https://raihan-zidan.github.io/images/logo.png");
-  background-size: calc(100% - 10px);
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
