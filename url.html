@@ -16,9 +16,9 @@ var link = url.searchParams.get("url");
 
 function redirect(string) {
   if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(string)) {
-    location.replace(link);
+    location.replace(encodeURIComponent(link).replace(/\%20/g,'+'));
   } else if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
-    location.replace("https://" + link);
+    location.replace("https://" + encodeURIComponent(link).replace(/\%20/g,'+'));
   } else {
     location.replace("https://raihan-zidan.github.io");
   }
