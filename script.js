@@ -165,6 +165,7 @@ function webresult(res) {
 }
 
 function moreresult() {
+  alert("ba");
   startIndex += 10;
   fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
     .then(response => response.json()).then(response => {
