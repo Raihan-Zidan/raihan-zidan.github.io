@@ -166,8 +166,10 @@ function webresult(res) {
 
 function moreresult() {
   if (startIndex < 20) {
+    document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/></svg></div>`;
     startIndex += 10;
-    submit();
+    setTimeout(()=> { submit(); }, 500);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },600);
   } else {
     document.querySelector(".show-wrapper").remove();
   }
