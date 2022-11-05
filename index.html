@@ -17,8 +17,8 @@
 <body>
 
 <div class="search-header">
-  <div class="inersoft">
-    <img src="images/logo.png">
+  <div class="logo-wrapper">
+    <logo></logo>
   </div>
   <div class="search-wrapper">
     <div class="search-box">
@@ -57,6 +57,6 @@ searchInput.addEventListener('keyup', ()=> {
   }
 });
 
-document.querySelector("img").src = doodle.image;
+document.querySelector("logo").style.backgroundImage = `url(${doodle.image})`;
 
 </script>
