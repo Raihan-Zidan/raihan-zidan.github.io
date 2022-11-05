@@ -29,10 +29,11 @@ if (tbm === "vid") {
   window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
+  document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
 var search = {
-  "paramater": ""
+  "paramater": "";
 };
 
 searchInput.addEventListener('input', ()=> {
@@ -140,13 +141,13 @@ function videoresult(res) {
 function webresult(res) {
   try {
     if (res.items && windowWidth > 700 && startIndex === 1) {
-      document.querySelector(".main-result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling) {
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="snippet">Corrected word: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">Corrected word: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -155,9 +156,9 @@ function webresult(res) {
       }
     });
     document.querySelector(".main-result").innerHTML = document.querySelector(".main-result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
-    setTimeout(()=> {
+    if (res.queries.nextPage) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more">Show more</button></div>`;
-    },1000);
+    }
   } catch(error) {
     document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
