@@ -66,11 +66,7 @@ searchInput.addEventListener('keyup', ()=> {
 
 searchToggle.addEventListener('click', ()=> {
   var searchdata = "";
-  if (tbm === "vid") {
-    searchdata = "&tbm=vid";
-  } else {
-    searchdata = "";
-  }
+  searchdata = (tbm === "vid") ? "&tbm=vid" : searchdata;
   if (searchInput.value.trim()) {
     window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`;
   }
