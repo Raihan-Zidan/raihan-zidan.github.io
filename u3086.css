@@ -142,7 +142,7 @@
 .result-wrapper {
   width: 100%;
   background: #f5f8fa;
-  border-width: 0px;
+  border: 1px solid transparent;
   font-family: Google Sans, arial;
 }
 
