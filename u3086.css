@@ -344,7 +344,7 @@ html, body {
 
 .show-wrapper {
   width: 100%;
-  padding: 8px 15px;
+  padding: 8px 18px;
   display: flex;
   font-size: 15px;
   position: relative;
@@ -354,10 +354,10 @@ html, body {
 
 .show-wrapper .more {
   width: 100%;
-  padding: 13px 0;
+  padding: 12px 0;
   border: 1px solid #E0E4E9;
   border-radius: 22px;
-  color: white;
+  color: black;
   display: flex;
   cursor: pointer;
   justify-content: center;
