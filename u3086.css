@@ -501,7 +501,7 @@ html, body {
     padding-left: 130px;
     box-shadow: none;
   }
-  .search-field:before {
+  .search-box .search-toggle {
     left: auto;
     right: 13px;
   }
