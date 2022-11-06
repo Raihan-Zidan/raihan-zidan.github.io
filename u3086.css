@@ -354,9 +354,10 @@ html, body {
 
 .show-wrapper .more {
   width: 100%;
-  padding: 12px 0;
+  padding: 13px 0;
   border: 1px solid #E0E4E9;
   border-radius: 22px;
+  color: white;
   display: flex;
   cursor: pointer;
   justify-content: center;
