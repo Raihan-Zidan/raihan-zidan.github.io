@@ -83,6 +83,7 @@
   overflow-x: scroll;
   -webkit-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.1);
 }
 
 .search-menu::-webkit-scrollbar {
@@ -164,7 +165,6 @@
 
 .tab-result:first-child {
   margin-top: 0;
-  border-top: none;
 }
 
 .tab-result .title {
