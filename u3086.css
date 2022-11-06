@@ -163,7 +163,7 @@
 }
 
 .tab-result:first-child {
-  margin-top: 0;
+  background: green;
 }
 
 .tab-result .title {
