@@ -163,6 +163,6 @@ function moreresult() {
     setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },1800);
   }
   if (startIndex > 20) {
-    setTimeout(()=> { document.querySelector(".show-wrapper").remove(); }, 1000);
+    setTimeout(()=> { document.querySelector(".show-wrapper").remove(); }, 1800);
   }
 }
