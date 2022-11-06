@@ -24,7 +24,7 @@ html, body {
   position: relative;
 }
 
-.search-field:before {
+.search-box .search-toggle {
   content: '';
   position: absolute;
   width: 18px;
