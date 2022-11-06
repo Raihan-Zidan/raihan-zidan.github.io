@@ -69,8 +69,8 @@ html, body {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   background-image: url("images/close.svg");
-  -webkit-background-size: 18px;
-  background-size: 18px;
+  -webkit-background-size: 16px;
+  background-size: 16px;
   background-repeat: no-repeat;
   background-position: center;
 }
