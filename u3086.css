@@ -33,7 +33,7 @@ html, body {
   left: 13px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  background-image: url("images/mag-glass-grey@3x-202105180812.png");
+  background-image: url("images/search.svg");
   background-size: cover;
 }
 
