@@ -8,7 +8,7 @@
 }
 
 html, body {
-  width: 100%;
+  
 }
 
 .header {
@@ -145,8 +145,8 @@ html, body {
 
 .result-wrapper {
   width: 100%;
+  background: green;
   font-family: Google Sans, arial;
-  background: #f5f8fa;
 }
 
 .search-result {
