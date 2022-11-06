@@ -22,6 +22,8 @@ if (p > 1) {
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
+searchToggle = document.querySelector(".search-toggle");
+
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
@@ -57,6 +59,10 @@ cleartext.addEventListener('click', ()=> {
 });
 
 searchInput.addEventListener('keyup', ()=> {
+  searchToggle.click();
+});
+
+searchToggle.addEventListener('click', ()=> {
   var searchdata = "";
   if (tbm === "vid") {
     searchdata = "&tbm=vid";
