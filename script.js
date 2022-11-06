@@ -59,7 +59,9 @@ cleartext.addEventListener('click', ()=> {
 });
 
 searchInput.addEventListener('keyup', ()=> {
-  searchToggle.click();
+  if (event.keyCode === 13) {
+    searchToggle.click();
+  }
 });
 
 searchToggle.addEventListener('click', ()=> {
@@ -69,7 +71,7 @@ searchToggle.addEventListener('click', ()=> {
   } else {
     searchdata = "";
   }
-  if (event.keyCode === 13 && searchInput.value != '' && searchInput.value.trim()) {
+  if (searchInput.value.trim()) {
     window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`;
   }
 });
