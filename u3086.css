@@ -350,7 +350,7 @@
 .show-wrapper .more {
   width: 100%;
   padding: 12px 0;
-  border: 1px solid #E0E4E9;
+  border: 1px solid #ccc;
   border-radius: 22px;
   color: black;
   display: flex;
@@ -460,7 +460,7 @@
     padding-top: 5px;
   }
   .main-result {
-    width: 630px;
+    width: 610px;
   }
   .tab-result {
     border: none;
@@ -551,7 +551,7 @@
 
 @media (min-width: 992px) {
   .main-result {
-    width: 650px;
+    width: 640px;
   }
   .search-field {
     width: 630px;
