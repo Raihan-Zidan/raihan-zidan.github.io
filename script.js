@@ -19,7 +19,14 @@ if (p > 1) {
   startIndex = p;
 }
 
-console.log.apply(this, arguments);
+(function (original) {
+    console.enableLogging = function () {
+        console.log = original;
+    };
+    console.disableLogging = function () {
+        console.log = function () {};
+    };
+})(console.log);
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
