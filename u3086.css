@@ -246,7 +246,7 @@
 }
 
 .instant-answer .title {
-  font-size: 22px;
+  font-size: 20px;
   margin: 5px 0;
   text-decoration: none;
   font-weight: 400;
@@ -283,7 +283,7 @@
 
 .instant-answer .snippet {
   color: #494949;
-  font-size: 14px;
+  font-size: 15px;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
