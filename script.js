@@ -19,11 +19,7 @@ if (p > 1) {
   startIndex = p;
 }
 
-if(!window.console) window.console = {};
-    var methods = ["log", "debug", "warn", "info"];
-    for(var i=0;i<methods.length;i++){
-        console[methods[i]] = function(){};
-    }
+console.log.apply(this, arguments);
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
