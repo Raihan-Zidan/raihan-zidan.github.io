@@ -8,11 +8,11 @@
 }
 
 .header {
+  padding: 8px 0 0;
   font-family: HelveticaNeue, arial;
 }
 
 .search-box {
-  margin-top: 7px;
   padding: 5px 15px;
 }
 
