@@ -19,15 +19,6 @@ if (p > 1) {
   startIndex = p;
 }
 
-(function (original) {
-    console.enableLogging = function () {
-        console.log = original;
-    };
-    console.disableLogging = function () {
-        console.log = function () {};
-    };
-})(console.log);
-
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
