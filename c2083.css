@@ -100,6 +100,9 @@ body {
     width: 260px;
     height: 88px;
   }
+  .search-wrapper {
+    margin: 0;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -114,7 +117,7 @@ body {
     background-size: 20px
   }
   .logo-wrapper logo {
-    width: 280px;
-    height: 102px;
+    width: 300px;
+    height: 122px;
   }
 }
