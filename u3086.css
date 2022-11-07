@@ -508,7 +508,7 @@
     margin-top: 13px;
   }
   .search-field {
-    width: 620px;
+    width: 600px;
   }
   .search-input {
     border: 0.1px solid #F8F8F8;
@@ -550,8 +550,10 @@
 }
 
 @media (min-width: 992px) {
-  .main-result,
-  .search-field {
+  .main-result {
     width: 650px;
+  }
+  .search-field {
+    width: 630px;
   }
 }
