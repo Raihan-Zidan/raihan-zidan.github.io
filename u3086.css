@@ -460,7 +460,7 @@
     padding-top: 5px;
   }
   .main-result {
-    max-width: 620px;
+    max-width: 630px;
   }
   .tab-result {
     border: none;
@@ -551,7 +551,7 @@
 
 @media (min-width: 992px) {
   .main-result {
-    width: 650px;
+    width: 660px;
   }
   .search-field {
     width: 630px;
