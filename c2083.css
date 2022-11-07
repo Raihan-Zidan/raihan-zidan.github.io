@@ -97,7 +97,7 @@ body {
     width: 380px
   }
   .logo-wrapper logo {
-    width: 260px
+    width: 260px;
     height: 88px;
   }
 }
@@ -114,7 +114,7 @@ body {
     background-size: 20px
   }
   .logo-wrapper logo {
-    width: 280px
+    width: 280px;
     height: 102px;
   }
 }
