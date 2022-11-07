@@ -65,7 +65,7 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   background-image: url("images/close.svg");
-  background-size: 16px;
+  background-size: 15px;
   background-repeat: no-repeat;
   background-position: center;
 }
