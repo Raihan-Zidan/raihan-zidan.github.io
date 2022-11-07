@@ -162,12 +162,8 @@
   background: white;
 }
 
-.tab-result:first-child {
-
-}
-
 .tab-result .title {
-  color: #1558d6;
+  color: #1558D6;
   font-size: 20px;
   margin: 5px 0;
   text-decoration: none;
@@ -547,6 +543,9 @@
     padding: 10px;
     margin: 3px 4px 0 0;
     border: 1px solid #EDEDED;
+  }
+  .tab-result .title {
+    color: #1A0DAB;
   }
 }
 
