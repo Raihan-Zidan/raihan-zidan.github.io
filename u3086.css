@@ -28,8 +28,8 @@
   left: 4px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  background-image: url("images/search.svg");
-  background-size: 18px;
+  background-image: url("images/search.png");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -64,8 +64,8 @@
   right: 4px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  background-image: url("images/close.svg");
-  background-size: 15px;
+  background-image: url("images/close.png");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
