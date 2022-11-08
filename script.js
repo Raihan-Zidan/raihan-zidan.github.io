@@ -169,6 +169,6 @@ function moreresult() {
     setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },1800);
   }
   if (startIndex > 20) {
-    setTimeout(()=> { document.querySelector(".show-wrapper").remove(); }, 1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").remove(); document.body.innerHTML += `<div class="footer"><div class="content"><div class="section"><a href="/privacy">Privacy Policy</a><div>•</div><a href="/privacy#license">User license</a></div><div class="section"><div>Copyright ©2022</div></div></div></div>`;}, 1800);
   }
 }
