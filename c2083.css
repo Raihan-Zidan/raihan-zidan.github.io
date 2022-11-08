@@ -8,7 +8,7 @@
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   background: #f5f8fa;
   font-family: HelveticaNeue, arial;
 }
@@ -88,7 +88,7 @@ body {
   border-top: 1px solid #ccc;
   background: white;
   align-self: flex-end;
-  margin-top: auto;
+  justify-self: flex-end;
 }
 
 .footer .content {
