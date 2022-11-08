@@ -33,13 +33,12 @@ body {
 }
 
 .search-toggle {
-  cursor: pointer;
   position: absolute;
-  width: calc(45px - 1px);
-  height: calc(45px - 1px);
+  width: 35px;
+  height: 35px;
   right: 0;
-  background-image: url("images/search.svg");
-  -webkit-background-size: 20px;
+  cursor: pointer;
+  background-image: url("images/search.png");
   background-size: 18px;
   background-repeat: no-repeat;
   background-position: center
