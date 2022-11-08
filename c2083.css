@@ -87,9 +87,7 @@ body {
   padding: 5px;
   border-top: 1px solid #ccc;
   background: white;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50% top: 100%;
+  align-self: flex-end;
 }
 
 .footer .content {
