@@ -24,6 +24,7 @@ searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
 
+searchInput.value = q;
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
