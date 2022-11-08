@@ -34,8 +34,8 @@ body {
 
 .search-toggle {
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   right: 0;
   cursor: pointer;
   background-image: url("images/search.png");
