@@ -108,13 +108,29 @@ body {
 
 .footer {
   width: 100%;
-  margin: 18px 0 0;
+  margin-top: 18px;
   display: flex;
-  padding: 13px 0;
+  padding: 10px 0;
   text-align: center;
   aling-items: center;
   justify-content: center;
   border-top: 1px solid #ccc;
+}
+
+#cookie:target, #search-filter:target, #license:target, #permission:target {
+  animation: selected 5s ease;
+  transition: all 0.5s ease;
+}
+
+@keyframes selected {
+  0% {
+    outline: 1px solid #1558D6;
+    outline-offset: 10px;
+  }
+  100% {
+    outline: none;
+    outline-offset: 10px;
+  }
 }
 
 @media (min-width: 780px) {
