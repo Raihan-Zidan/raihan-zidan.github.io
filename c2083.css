@@ -10,6 +10,7 @@
 body {
   height: 100%;
   background: #f5f8fa;
+  position: relative;
   font-family: HelveticaNeue, arial;
 }
 
