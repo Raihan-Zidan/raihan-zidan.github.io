@@ -24,7 +24,7 @@ searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
 
-searchInput.value = q;
+searchInput.setAttribute("value", q);
 document.querySelector(".search-field").innerHTML = document.querySelector(".search-field").innerHTML;
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
