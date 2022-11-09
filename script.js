@@ -18,9 +18,16 @@ if (q) {
   window.location.href = "/";
 }
 
-if (window.location.pathname.indexOf(".html") > -1) {
-  alert("ok deh");
+function correcturl() {
+  if (location.pathname.indexOf(".html") > -1) {
+    window.location.href = "/";
+    return false;
+  } else {
+    return true;
+  }
 }
+
+correcturl();
 
 if (p > 1) {
   startIndex = p;
@@ -54,7 +61,7 @@ searchInput.addEventListener('input', ()=> {
 });
 
 window.addEventListener('load', ()=> {
-  if (searchInput.value != '') {
+  if (searchInput.value != '' && correcturl()) {
     submit();
   }
 });
