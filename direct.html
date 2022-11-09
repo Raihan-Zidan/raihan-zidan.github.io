@@ -11,7 +11,7 @@
 <script>
 
 var url = new URL(window.location.href);
-var q = url.searchParams.get("url");
+var q = url.searchParams.get("q");
 
 if (q) {
   location.replace(`/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`);
