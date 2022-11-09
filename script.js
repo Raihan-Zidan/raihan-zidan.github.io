@@ -31,7 +31,6 @@ if (tbm === "vid") {
 } else if (tbm === "isch") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
   window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
-} else if (tbm === "bks") {
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
@@ -115,12 +114,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
-  } else if (tbm === "bks") {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${val}&startIndex=${startIndex}`)
-    .then(response => response.json()).then(response => {
-      bksresult(response);
-    })
-  } else if (tbm != "vid" && tbm != "isch" && tbm != "bks") {
+  } else if (tbm != "vid" && tbm != "isch") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
       .then(response => response.json()).then(response => {
         webresult(response);
@@ -164,25 +158,6 @@ function webresult(res) {
     if (startIndex === 1) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
     }
-  }
-}
-
-function bksresult(res) {
-  try {
-    for (var i = 0; i < res.items.length; i++) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="book-result"><div class="tab-link"><div class="thumbnail"><img alt="Thumbnail" src="${res.items[i].volumeInfo.imageLinks.thumbnail}"></div><div class="infobook"><a href="https://books.google.co.id/books?id=${res.items[i].id}&pg=PA221&newbks=1&source=gb_mobile_search#v=onepage"><div class="title">${res.items[i].volumeInfo.title}</div></a><div class="snippet">${res.items[i].volumeInfo.description}</div></div></div></div>`;
-    }
-    var snippet = document.querySelectorAll(".snippet");
-    snippet.forEach(option => {
-      if (option.innerHTML === 'undefined') {
-        option.innerHTML = "This book has no description";
-      }
-    });
-    if (startIndex === 1) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
-    }
-  } catch(error) {
-    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
 
