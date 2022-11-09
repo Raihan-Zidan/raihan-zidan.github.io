@@ -17,9 +17,7 @@ if (q) {
 } else {
   window.location.href = "/";
 }
-if (location.parameter.indexOf(".html") > -1) {
-  alert("ok");
-}
+
 if (p > 1) {
   startIndex = p;
 }
