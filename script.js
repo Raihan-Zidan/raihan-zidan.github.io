@@ -17,7 +17,7 @@ if (q) {
 } else {
   window.location.href = "/";
 }
-if (url.parameter.indexOf(".html")) {
+if (url.parameter.indexOf(".html") > -1) {
   alert("ok");
 }
 if (p > 1) {
