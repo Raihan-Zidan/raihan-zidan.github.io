@@ -168,17 +168,22 @@ function webresult(res) {
 }
 
 function bksresult(res) {
-  for (var i = 0; i < res.items.length; i++) {
-    document.getElementById("hasil").innerHTML += `<div class="book-result"><div class="tab-link"><div class="thumbnail"><img alt="Thumbnail" src="${res.items[i].volumeInfo.imageLinks.thumbnail}"></div><div class="infobook"><a href="https://books.google.co.id/books?id=${res.items[i].id}&pg=PA221&newbks=1&source=gb_mobile_search#v=onepage"><div class="title">${res.items[i].volumeInfo.title}</div></a><div class="snippet">${res.items[i].volumeInfo.description}</div></div></div></div>`;
-  }
-  var snippet = document.querySelectorAll(".snippet");
-  snippet.forEach(option => {
-    if (option.innerHTML === 'undefined') {
-      option.innerHTML = "This book has no description";
+  try {
+    for (var i = 0; i < res.items.length; i++) {
+      document.querySelector(".main-result .result").innerHTML += `<div class="book-result"><div class="tab-link"><div class="thumbnail"><img alt="Thumbnail" src="${res.items[i].volumeInfo.imageLinks.thumbnail}"></div><div class="infobook"><a href="https://books.google.co.id/books?id=${res.items[i].id}&pg=PA221&newbks=1&source=gb_mobile_search#v=onepage"><div class="title">${res.items[i].volumeInfo.title}</div></a><div class="snippet">${res.items[i].volumeInfo.description}</div></div></div></div>`;
     }
-  });
-  if (startIndex === 1) {
-    document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
+    var snippet = document.querySelectorAll(".snippet");
+    snippet.forEach(option => {
+      if (option.innerHTML === 'undefined') {
+        option.innerHTML = "This book has no description";
+      }
+    });
+    if (startIndex === 1) {
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
+    }
+    if (!res.items.length > 0) throw "empty";
+  } catch(error) {
+    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
   }
 }
 
