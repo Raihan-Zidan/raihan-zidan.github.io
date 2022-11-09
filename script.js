@@ -18,6 +18,10 @@ if (q) {
   window.location.href = "/";
 }
 
+if (window.location.pathname.indexOf(".html") > -1) {
+  alert("ok deh");
+}
+
 if (p > 1) {
   startIndex = p;
 }
