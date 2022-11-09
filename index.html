@@ -49,7 +49,7 @@ if (windowWidth > 700) {
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value.trim()) {
     if (windowWidth > 780) {
-      window.location.href = `/url?url=https://raihan-zidan.github.io/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
+      window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
     } else {
       window.location.href = `/direct?q=${searchInput.value}`;
     }
