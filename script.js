@@ -18,17 +18,6 @@ if (q) {
   window.location.href = "/";
 }
 
-function correcturl() {
-  if (location.pathname.indexOf(".html") > -1) {
-    window.location.href = "/";
-    return false;
-  } else {
-    return true;
-  }
-}
-
-correcturl();
-
 if (p > 1) {
   startIndex = p;
 }
@@ -48,10 +37,6 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
-var search = {
-  "paramater": ""
-};
-
 searchInput.addEventListener('input', ()=> {
   if (searchInput.value != '') {
     cleartext.style.display = "block";
@@ -61,7 +46,7 @@ searchInput.addEventListener('input', ()=> {
 });
 
 window.addEventListener('load', ()=> {
-  if (searchInput.value != '' && correcturl()) {
+  if (searchInput.value != '') {
     submit();
   }
 });
