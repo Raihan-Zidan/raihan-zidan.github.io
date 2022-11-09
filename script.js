@@ -116,7 +116,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm === "bks") {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${val}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${val}&startIndex=${startIndex}`)
     .then(response => response.json()).then(response => {
       bksresult(response);
     })
@@ -177,6 +177,9 @@ function bksresult(res) {
       option.innerHTML = "This book has no description";
     }
   });
+  if (startIndex === 1) {
+    document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
+  }
 }
 
 function moreresult() {
