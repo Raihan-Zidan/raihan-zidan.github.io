@@ -431,12 +431,12 @@
 }
 
 .book-result .thumbnail {
-  width: 80px;
+  width: 100px;
   margin-right: 10px;
 }
 
 .thumbnail img {
-  width: 80px;
+  width: 100px;
 }
 
 .book-result .tab-link {
