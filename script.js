@@ -119,7 +119,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         bksresult(response);
     })
-  } else if (tbm != "vid" && tbm != "isch" tbm != "bks") {
+  } else if (tbm != "vid" && tbm != "isch" && tbm != "bks") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
       .then(response => response.json()).then(response => {
         webresult(response);
@@ -166,7 +166,17 @@ function webresult(res) {
   }
 }
 
-
+function bksresult(res) {
+  for (var i = 0; i < res.items.length; i++) {
+    document.querySelector(".main-result").innerHTML += `<div class="book-result"><div class="tab-link"><div class="thumbnail"><img alt="Thumbnail" src="${res.items[i].volumeInfo.imageLinks.thumbnail}"></div><div class="infobook"><a href="https://books.google.co.id/books?id=${res.items[i].id}&pg=PA221&newbks=1&source=gb_mobile_search#v=onepage"><div class="title">${res.items[i].volumeInfo.title}</div></a><div class="snippet">${res.items[i].volumeInfo.description}</div></div></div></div>`;
+  }
+  var snippet = document.querySelectorAll(".snippet");
+  snippet.forEach(option => {
+    if (option.innerHTML === 'undefined') {
+      option.innerHTML = "This book has no description";
+    }
+  });
+}
 
 function moreresult() {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
