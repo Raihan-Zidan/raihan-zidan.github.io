@@ -159,8 +159,7 @@ function moreresult() {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
     setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },1800);
-  }
-  if (startIndex > 20) {
+  } else if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
   }
 }
