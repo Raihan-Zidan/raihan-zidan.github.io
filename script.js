@@ -23,7 +23,7 @@ if (p > 1) {
 }
 
 setInterval(()=> {
-  document.body.innerHTML = document.body.innerHTML.replaceAll("Gambar-gambar", "Gambar");
+  document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML = document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML.replaceAll("Gambar-gambar", "Gambar");
 },0);
 
 searchInput = document.querySelector(".search-input");
