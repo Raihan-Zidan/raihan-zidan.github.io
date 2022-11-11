@@ -22,9 +22,11 @@ if (p > 1) {
   startIndex = p;
 }
 
-setTimeout(()=> {
-  document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML = document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML.replaceAll("Gambar-gambar", "Gambar");
-},1000);
+setInterval(()=> {
+  if (document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML === "Gambar-gambar") {
+    document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML = document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML.replaceAll("Gambar-gambar", "Gambar");
+  }
+},0);
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
