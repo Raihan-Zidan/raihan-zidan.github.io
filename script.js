@@ -22,9 +22,9 @@ if (p > 1) {
   startIndex = p;
 }
 
-setInterval(()=> {
+setTimeout(()=> {
   document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML = document.querySelectorAll(".tab-wrapper")[1].querySelector("span").innerHTML.replaceAll("Gambar-gambar", "Gambar");
-},0);
+},1000);
 
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
