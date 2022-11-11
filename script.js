@@ -135,7 +135,7 @@ function webresult(res) {
     }
     for (var i = 0; i < res.items.length; i++) {
       var urlfix = new URL(res.items[i].link);
-      var urlparam = (urlfix.pathname.length > 1) ? urlfix.pathname.slice("/", -1).replaceAll("/", " › ") : "";
+      var urlparam = (urlfix.pathname.length > 1) ? urlfix.pathname.split("/")[2].replaceAll("/", " › ") : "";
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${urlfix.origin}${urlparam}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
     snippet = document.querySelectorAll(".snippet");
