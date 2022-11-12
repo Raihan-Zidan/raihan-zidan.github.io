@@ -184,6 +184,9 @@
 .tab-result .favicon {
   width: 17px;
   height: 17px;
+}
+
+.tab-resuly .favicon {
   margin-right: 5px;
 }
 
@@ -331,7 +334,7 @@
   width: 18px;
   height: 18px;
   margin-right: 10px;
-  background-image: url("images/mag-glass-grey@3x-202105180812.png");
+  background-image: url("images/search.png");
   background-size: 18px;
 }
 
