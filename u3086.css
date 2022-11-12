@@ -614,6 +614,9 @@
   .tab-result .title {
     color: #1A0DAB;
   }
+  .search-menu {
+    margin: 8px 0;
+  }
 }
 
 @media (min-width: 992px) {
