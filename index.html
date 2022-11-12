@@ -65,7 +65,7 @@ if (userAgent.match(/chrome|chromium|crios/i)){
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value.trim()) {
-    var sclient = (browserName) ? `&client=${browserName}` : "";
+    var sclient = (browserName) ? `client=${browserName}` : "";
     window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}&${sclient}`;
   }
 });
