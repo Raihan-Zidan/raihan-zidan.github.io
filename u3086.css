@@ -540,7 +540,7 @@
     padding-top: 5px;
   }
   .main-result {
-    width: 610px;
+    width: 600px;
   }
   .tab-result {
     border: none;
@@ -605,7 +605,7 @@
     border-style: none;
   }
   .search-list .related {
-    width: calc(50% - 10px);
+    width: 50%;
     border-radius: 8px;
     padding: 10px;
     margin: 3px 4px 0 0;
@@ -616,11 +616,3 @@
   }
 }
 
-@media (min-width: 992px) {
-  .main-result {
-    width: 640px;
-  }
-  .search-field {
-    width: 630px;
-  }
-}
