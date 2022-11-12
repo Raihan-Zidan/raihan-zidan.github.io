@@ -614,6 +614,17 @@
   .tab-result .title {
     color: #1A0DAB;
   }
+
+
+  .tab-result .title {
+    font-size: 19px;
+  }
+  .tab-result .link {
+    font-size: 16px;
+  }
+  .tab-result .snippet {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 992px) {
