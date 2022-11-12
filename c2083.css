@@ -92,6 +92,7 @@ body {
   .site-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-top: 40%;
   }
   .search-toggle {
