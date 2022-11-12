@@ -49,7 +49,7 @@ if (windowWidth > 700) {
 var clientName;
 if (navigator.userAgent.match(/edg|edge/i)) {
   clientName = "edge";
-} else if (navigator.userAgent.match(/chrome|chromium|crios/i) && window.chrome) {
+} else if (navigator.userAgent.match(/chrome|chromium|crios/i) && navigator.vendor.match(/Google Inc/i)) {
   clientName = "chrome";
 } else if (navigator.userAgent.match(/firefox|fxios/i)) {
   clientName = "firefox";
