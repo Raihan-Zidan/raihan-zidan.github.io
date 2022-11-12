@@ -545,19 +545,6 @@
   .tab-result {
     border: none;
   }
-  .tab-result .title {
-    font-size: 19px;
-  }
-  .tab-result .link {
-    font-size: 16px;
-  }
-  .tab-result .snippet {
-    font-size: 16px;
-  }
-  .tab-result .favicon {
-    width: 18px;
-    height: 18px;
-  }
   .result-stats {
     display: block;
     color: #70757a;
