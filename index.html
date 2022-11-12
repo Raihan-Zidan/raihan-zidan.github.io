@@ -46,24 +46,22 @@ if (windowWidth > 700) {
   searchInput.focus();
 }
 
-let userAgent = navigator.userAgent;
-let browserName;
-
-if (userAgent.match(/edg|edge/i)) {
-  browserName = "edge";
-} else if (userAgent.match(/chrome|chromium|crios/i)) {
-  browserName = "chrome";
-} else if(userAgent.match(/firefox|fxios/i)) {
-  browserName = "firefox";
-} else if(userAgent.match(/safari/i)) {
-  browserName = "safari";
-} else if(userAgent.match(/opr\//i)) {
-  browserName = "opera";
+var clientName;
+if (navigator.userAgent.match(/edg|edge/i)) {
+  clientName = "edge";
+} else if (navigator.userAgent.match(/chrome|chromium|crios/i)) {
+  clientName = "chrome";
+} else if (navigator.userAgent.match(/firefox|fxios/i)) {
+  clientName = "firefox";
+} else if (navigator.userAgent.match(/safari/i)) {
+  clientName = "safari";
+} else if (navigator.userAgent.match(/opr\//i)) {
+  clientName = "opera";
 }
 
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value.trim()) {
-    var sclient = (browserName) ? `client=${browserName}` : "";
+    var sclient = (clientName) ? `client=${clientName}` : "";
     window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}&${sclient}`;
   }
 });
