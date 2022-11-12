@@ -46,23 +46,9 @@ if (windowWidth > 700) {
   searchInput.focus();
 }
 
-var clientName;
-if (navigator.userAgent.match(/edg|edge/i)) {
-  clientName = "edge";
-} else if (navigator.userAgent.match(/chrome|chromium|crios/i) && navigator.vendor.match(/Google Inc/i)) {
-  clientName = "chrome";
-} else if (navigator.userAgent.match(/firefox|fxios/i)) {
-  clientName = "firefox";
-} else if (navigator.userAgent.match(/safari/i)) {
-  clientName = "safari";
-} else if (navigator.userAgent.match(/opr\//i)) {
-  clientName = "opera";
-}
-
 searchToggle.addEventListener('click', ()=> {
   if (searchInput.value.trim()) {
-    var sclient = (clientName) ? `client=${clientName}` : "";
-    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}&${sclient}`;
+    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}`;
   }
 });
 
