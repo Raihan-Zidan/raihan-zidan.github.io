@@ -13,7 +13,7 @@ body {
   font-family: HelveticaNeue, arial;
 }
 
-.site-wrapper {
+.search-header {
   width: 100%;
   height: 100%;
 }
@@ -89,7 +89,7 @@ body {
 }
 
 @media (min-width: 780px) {
-  .site-wrapper {
+  .search-header {
     display: flex;
     align-items: center;
     padding-top: 40%;
