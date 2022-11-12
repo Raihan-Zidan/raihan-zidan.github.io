@@ -616,3 +616,11 @@
   }
 }
 
+@media (min-width: 992px) {
+  .main-result {
+    width: 640px;
+  }
+  .search-field {
+    width: 640px;
+  }
+}
