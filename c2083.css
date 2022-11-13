@@ -12,9 +12,7 @@ html, body {
 
 .site-wrapper {
   height: 100%;
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
+  padding-top: 50%;
 }
 
 .search-toggle {
