@@ -88,9 +88,9 @@ noscript {
 
 @media (min-width: 780px) {
   .search-field {
-    width: 380px;
+    width: 400px;
   }
   .search-input {
-    padding: 15px 45px 15px 20px;
+    padding: 18px 45px 18px 20px;
   }
 }
