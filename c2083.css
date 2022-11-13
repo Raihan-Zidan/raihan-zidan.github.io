@@ -87,6 +87,9 @@ noscript {
 }
 
 @media (min-width: 780px) {
+  .logo-homepage {
+    transform: scale(1.2);
+  }
   .search-field {
     width: 450px;
   }
