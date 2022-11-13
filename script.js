@@ -67,6 +67,7 @@ searchToggle.addEventListener('click', ()=> {
 });
 
 function post_data(url) {
+  alert(url);
   var form = document.createElement("form");
   form.action = url;
   document.body.appendChild(form);
