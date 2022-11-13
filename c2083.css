@@ -13,7 +13,7 @@ html, body {
 .site-wrapper {
   height: 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .content-wrap-home {
@@ -43,7 +43,8 @@ html, body {
 }
 
 .content-home {
-  margin-top: -100px;
+  transform: translate(-50%, 0);
+  margin-top: 50%;
 }
 
 .search-box {
