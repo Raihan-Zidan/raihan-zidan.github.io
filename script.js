@@ -68,7 +68,6 @@ searchToggle.addEventListener('click', ()=> {
 
 function post_data(url) {
   var form = document.createElement("form");
-  form.method = "get";
   form.action = url;
   form.submit();
 }
