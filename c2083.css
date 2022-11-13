@@ -91,6 +91,7 @@ noscript {
     width: 400px;
   }
   .search-input {
+    border-radius: 50px;
     padding: 15px 45px 15px 20px;
   }
 }
