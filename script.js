@@ -62,9 +62,16 @@ searchInput.addEventListener('keyup', ()=> {
 searchToggle.addEventListener('click', ()=> {
   var searchdata = (tbm === "vid") ? "&tbm=vid" : "";
   if (searchInput.value.trim()) {
-    window.location.href = `/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`;
+    post_data(`/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`);
   }
 });
+
+function post_data(url) {
+  var form = document.createElement("form");
+  form.method = "get";
+  form.action = url;
+  form.submit();
+}
 
 apikey = [
   "AIzaSyCJ3RgcZOxOm_V1hq-UXCJwPsWquHggQrg",
