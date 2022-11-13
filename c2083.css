@@ -12,14 +12,15 @@ html, body {
 
 .site-wrapper {
   height: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .content-wrap-home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: auto;
+  position: absolute;
+}
+
+.content-wrap-home {
+  top: 20%;
 }
 
 .search-toggle {
@@ -32,6 +33,10 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.content-wrap-home {
+  top: 30%;
 }
 
 .logo-homepage {
