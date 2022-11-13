@@ -14,16 +14,14 @@ html, body {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-top: 50%;
+  justify-content: center;
+  flex-direction: column;
+  padding: -100px 0 0;
 }
 
 .search-toggle {
   border: none;
   background: transparent;
-}
-
-.content-wrap-home {
-  margin-top: -100px;
 }
 
 .logo-wrap-home {
