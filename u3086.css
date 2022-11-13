@@ -7,8 +7,8 @@
   text-size-adjust: none;
 }
 
-body {
-  
+html, body {
+  font-family: "Google Sans", arial;
 }
 
 .header {
@@ -145,8 +145,8 @@ body {
 
 .result-wrapper {
   width: 100%;
+  border: none;
   background: #f5f8fa;
-  font-family: Google Sans, arial;
 }
 
 .search-result {
