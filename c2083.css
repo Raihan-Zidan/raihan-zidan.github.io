@@ -12,6 +12,8 @@ html, body {
 
 .site-wrapper {
   height: 100%;
+  display: flex;
+  align-items: center;
   padding-top: 50%;
 }
 
