@@ -137,7 +137,7 @@ function webresult(res) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling && startIndex === 1) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">Word fix: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
