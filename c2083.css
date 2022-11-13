@@ -16,7 +16,11 @@ html, body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: -200px 0 0;
+}
+
+.content-wrap-home {
+  display: flex;
+  align-items: center;
 }
 
 .search-toggle {
@@ -25,7 +29,7 @@ html, body {
 }
 
 .logo-wrap-home {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +45,7 @@ html, body {
 }
 
 .content-home {
-
+  margin-top: -100px;
 }
 
 .search-box {
