@@ -18,7 +18,7 @@ html, body {
 
 .content-wrap-home {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .search-toggle {
