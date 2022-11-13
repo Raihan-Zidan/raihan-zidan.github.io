@@ -12,8 +12,9 @@ body {
 }
 
 .header {
-  padding: 6px 0 0;
+  padding-top: 6px;
   font-family: HelveticaNeue, arial;
+  background: #ffffff;
 }
 
 .search-box {
@@ -75,7 +76,6 @@ body {
 }
 
 .search-menu {
-  background: #fff;
   padding: 0 13px;
   margin: 0;
   border-bottom: 1px solid #E0E4E9;
