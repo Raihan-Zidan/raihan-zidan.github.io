@@ -157,10 +157,6 @@ html, body {
   justify-content: center;
 }
 
-.tab-result:first-child {
-  margin-top: 0;
-}
-
 .tab-result {
   width: 100%;
   border: 1px solid #EDEDED;
