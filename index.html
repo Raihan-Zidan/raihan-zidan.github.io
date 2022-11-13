@@ -10,31 +10,33 @@
   <title>Inersoft - Search</title>
   <meta name="referrer" content="origin">
   <link rel="icon" type="image/png" href="images/search.png">
-  <link rel="stylesheet" href="/c2083.css">
-  <noscript><div class="noscript">Javascript is required for the site to work</div></noscript>
 </head>
 
 <body>
-  
-<div class="search-header">
-  <div class="logo-wrapper">
-    <logo></logo>
-  </div>
-  <div class="search-wrapper">
-    <div class="search-box">
-      <div class="search-field">
-        <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search...">
-        <div class="search-toggle"></div>
+
+<div class="site-wrapper">
+  <div class="content-wrap-home">
+    <div id="content-homepage" class="content-home">
+      <div class="logo-wrap-home">
+        <a class="logo-homepage" href="/about"></a>
+      </div>
+      <div class="search-wrap-home">
+        <form method="get" class="search-home" action="https://raihan-zidan.github.io/search">
+          <div class="search-box">
+            <div class="search-field">
+              <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..." name="q">
+              <button type="submit" class="search-toggle"></button>
+            </div>
+          </div>
+          <noscript>Javascript is required for the site to work</noscript>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
-<script src="/doodle.js"></script>
-
 </body>
 </html>
-
 <script>
 
 searchInput = document.querySelector(".search-input");
