@@ -43,7 +43,7 @@ html, body {
 }
 
 .content-home {
-  transform: translate(-50%, 0);
+  transform: translate(0, -50%);
   margin-top: 50%;
 }
 
