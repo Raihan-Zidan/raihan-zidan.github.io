@@ -17,9 +17,7 @@ html, body {
 }
 
 .content-wrap-home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: auto;
 }
 
 .search-toggle {
