@@ -68,9 +68,9 @@ searchToggle.addEventListener('click', ()=> {
 
 function post_data(url) {
   var a = document.createElement("a");
-  form.href = url;
-  document.body.appendChild(form);
-  form.click();
+  a.href = url;
+  document.body.appendChild(a);
+  a.click();
 }
 
 apikey = [
