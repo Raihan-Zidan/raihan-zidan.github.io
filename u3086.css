@@ -7,6 +7,10 @@
   text-size-adjust: none;
 }
 
+body {
+  background: #f5f8fa;
+}
+
 .header {
   padding: 6px 0 0;
   font-family: HelveticaNeue, arial;
