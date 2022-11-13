@@ -145,7 +145,6 @@ html, body {
 
 .result-wrapper {
   width: 100%;
-  border: none;
   background: #f5f8fa;
 }
 
@@ -155,6 +154,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.tab-result:first-child {
+  margin-top: 0;
 }
 
 .tab-result {
