@@ -67,11 +67,10 @@ searchToggle.addEventListener('click', ()=> {
 });
 
 function post_data(url) {
-  alert(url);
-  var form = document.createElement("form");
-  form.action = url;
+  var a = document.createElement("a");
+  form.href = url;
   document.body.appendChild(form);
-  form.submit();
+  form.click();
 }
 
 apikey = [
