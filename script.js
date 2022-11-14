@@ -122,9 +122,6 @@ function submit() {
 
 function videoresult(res) {
   try {
-    if (res.items && windowWidth > 700) {
-      document.querySelector(".main-result").innerHTML += `<div class="result-stats">Approximately ${res.pageInfo.totalResults} result</div>`;
-    }
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".main-result").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"  data-number="1"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="images/youtube.png" class="favicon"><div>www.youtube.com</div></div></div></a></div>`;
     }
@@ -136,10 +133,11 @@ function videoresult(res) {
 
 function webresult(res) {
   try {
-    if (res.items && windowWidth > 700 && startIndex === 1) {
+    var pageone = (startIndex  == 1) ? true : false;
+    if (res.items && windowWidth > 700 && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
-    if (res.items && res.spelling && startIndex === 1) {
+    if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
@@ -156,11 +154,11 @@ function webresult(res) {
       }
     });
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
-    if (res.queries.nextPage && startIndex === 1) {
+    if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
     }
   } catch(error) {
-    if (startIndex === 1) {
+    if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
     }
   }
