@@ -87,14 +87,16 @@ noscript {
 }
 
 @media (min-width: 780px) {
+  .logo-wrap-home {
+    padding: 40px 0;
+  }
   .logo-homepage {
     transform: scale(1.2);
   }
   .search-field {
-    width: 450px;
+    width: 430px;
   }
   .search-input {
-    border-radius: 50px;
-    padding: 15px 45px 15px 20px;
+    border-radius: 50%;
   }
 }
