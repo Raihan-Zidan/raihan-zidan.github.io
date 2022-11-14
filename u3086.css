@@ -542,6 +542,7 @@ html, body {
     padding-left: 130px;
     padding-top: 5px;
   }
+  .search-field,
   .main-result {
     width: 600px;
   }
@@ -574,14 +575,11 @@ html, body {
     left: auto;
     right: 8px;
   }
-  .search-box {
-    margin-top: 13px;
-  }
-  .search-field {
-    width: 600px;
+  .header {
+    padding-top: 13px;
   }
   .search-input {
-    border: 0.1px solid #F8F8F8;
+    border: 1px solid #F8F8F8;
     padding-left: 20px;
   }
   .search-box .cleartext{
@@ -623,10 +621,8 @@ html, body {
 }
 
 @media (min-width: 992px) {
+  .search-field,
   .main-result {
-    width: 640px;
-  }
-  .search-field {
     width: 640px;
   }
 }
