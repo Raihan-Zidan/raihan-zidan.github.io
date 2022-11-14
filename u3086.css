@@ -12,13 +12,13 @@ html, body {
 }
 
 .header {
-  padding-top: 0.4375em;
-  font-family: HelveticaNeue, arial;
+  padding-top: 5px;
   background: #ffffff;
+  font-family: "Helvetica Neue";
 }
 
 .search-box {
-  padding: 6px 15px;
+  padding: 5px 15px;
 }
 
 .search-field {
