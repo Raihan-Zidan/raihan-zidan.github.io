@@ -183,6 +183,10 @@ html, body {
   color: black;
 }
 
+.tab-result.tab-error .title {
+  display: none;
+}
+
 .tab-result .top {
   width: 100%;
   display: flex;
