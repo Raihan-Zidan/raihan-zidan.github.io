@@ -166,7 +166,7 @@ html, body {
 }
 
 .tab-error .title {
-  background: green;
+  display: none;
 }
 
 .tab-result .title {
