@@ -142,8 +142,8 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  var tabres = document.querySelectorAll(".tab-result");
   setTimeout(()=> {
+    var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
     insertAfter(tabres[2], nwsres);
