@@ -621,6 +621,9 @@ html, body {
   .footer .content {
     flex-direction: column;
   }
+  .news-list::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (min-width: 780px) {
