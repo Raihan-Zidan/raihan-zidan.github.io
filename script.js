@@ -143,10 +143,12 @@ function videoresult(res) {
 
 function nwsresult(res) {
   var tabres = document.querySelectorAll(".tab-result");
+  var nun = ["1","2","3"];
+  var nswpos = num[Math.floor(Math.random() * num.length)];
   setTimeout(()=> {
     var nwsres = document.createElement("div");
     nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
-    insertAfter(tabres[Math.floor(Math.random() * (1 * 3))], nwsres);
+    insertAfter(tabres[num], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div></a></div>`;
     }
