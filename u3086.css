@@ -187,7 +187,6 @@ html, body {
 .flexwrap {
   width: 100%;
   display: flex;
-  margin: 3px 0;
 }
 
 .flexwrap .link {
@@ -551,6 +550,7 @@ html, body {
 .news-result .news-list {
   display: -webkit-box;
   overflow-x: scroll;
+  overflow-y: hidden;
   -webkit-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
 }
