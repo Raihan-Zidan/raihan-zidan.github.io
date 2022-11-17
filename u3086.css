@@ -542,7 +542,7 @@ html, body {
   width: 150px;
   height: 160px;
   border: 1px solid #ccc;
-  margin: 5px;
+  margin: 2px 5px;
   position: relative;
   border-radius: 8px;
 }
