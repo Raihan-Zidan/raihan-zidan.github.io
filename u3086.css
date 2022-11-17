@@ -296,7 +296,7 @@ html, body {
 }
 
 .suggestion {
-  margin: 5px 0 7px;
+  margin: 5px 0 8px;
 }
 
 .related-search {
@@ -528,7 +528,7 @@ html, body {
 
 .news-result .title {
   font-size: 20px;
-  margin: 0 0 8px;
+  margin-bottom: 10px;
 }
 
 .news-result .news-list {
