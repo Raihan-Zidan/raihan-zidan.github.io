@@ -184,40 +184,11 @@ html, body {
   display: flex;
 }
 
-.flexwrap {
-  width: 100%;
-  display: flex;
-  padding: 8px;
-  position: absolute;
-  bottom: -5px;
-}
-
-.flexwrap a {
-  text-decoration: none;
-}
-
-.flexwrap .link {
-  font-size: 14px;
-  color: black;
-  text-decoration: none;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.flexwrap .favicon {
-  width: 15px;
-  height: 15px;
-}
-
 .tab-result .favicon {
   width: 18px;
   height: 18px;
 }
 
-.flexwrap .favicon,
 .tab-result .favicon {
   margin-right: 5px;
 }
@@ -607,6 +578,30 @@ html, body {
   text-overflow: ellipsis;
 }
 
+.news-tab .flexwrap {
+  width: 100%;
+  display: flex;
+  padding: 8px;
+  position: absolute;
+  bottom: -5px;
+}
+
+.news-tab .flexwrap .link {
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-tab .flexwrap .favicon {
+  width: 15px;
+  height: 15px;
+}
+
 @media (max-width: 780px) {
   .book-result .infobook {
     max-width: 230px;
@@ -635,6 +630,7 @@ html, body {
   .main-result {
     width: 600px;
   }
+  .news-result,
   .tab-result {
     border: none;
   }
