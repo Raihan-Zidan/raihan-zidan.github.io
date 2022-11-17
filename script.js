@@ -148,7 +148,7 @@ function nwsresult(res) {
   setTimeout(()=> {
     var nwsres = document.createElement("div");
     nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
-    insertAfter(tabres[num], nwsres);
+    insertAfter(tabres[nwspos], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div></a></div>`;
     }
