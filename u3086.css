@@ -184,6 +184,11 @@ html, body {
   display: flex;
 }
 
+.flexwrap {
+  display: flex;
+}
+
+.flexwrap .favicon,
 .tab-result .favicon {
   width: 18px;
   height: 18px;
