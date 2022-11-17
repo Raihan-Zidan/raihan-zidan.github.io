@@ -584,7 +584,7 @@ html, body {
   display: flex;
   padding: 8px;
   position: absolute;
-  bottom: -5px;
+  bottom: -3px;
   align-items: center;
 }
 
