@@ -187,10 +187,10 @@ html, body {
 .flexwrap {
   width: 100%;
   display: flex;
-  margin: 5px 0;
+  margin: 5px 0 0;
   padding: 8px;
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
 }
 
 .flexwrap a {
