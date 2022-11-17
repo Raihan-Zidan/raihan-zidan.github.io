@@ -185,7 +185,19 @@ html, body {
 }
 
 .flexwrap {
+  width: 100%;
   display: flex;
+  margin: 3px 0;
+}
+
+.flexwrap .link {
+  font-size: 14px;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .flexwrap .favicon,
@@ -545,7 +557,7 @@ html, body {
 
 .news-list .news-tab {
   width: 150px;
-  height: 160px;
+  height: 180px;
   border: 1px solid #ccc;
   margin: 2px 5px;
   position: relative;
