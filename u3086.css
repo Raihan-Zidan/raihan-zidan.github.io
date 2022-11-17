@@ -550,6 +550,7 @@ html, body {
 
 .news-tab a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .news-list .news-tab:first-child {
