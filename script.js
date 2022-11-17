@@ -146,7 +146,8 @@ function nwsresult(res) {
     setTimeout(()=> {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
-    nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
+    nwsres.class = "news-result";
+    nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
     insertAfter(tabres[2], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
