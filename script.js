@@ -156,7 +156,7 @@ function nwsresult(res) {
     if (!document.querySelectorAll(".news-tab")[0]) {
       document.querySelector(".news-result").remove();
     }
-    },500);
+    },100);
   }
 }
 
