@@ -14,7 +14,7 @@ html, body {
 .header {
   padding-top: 8px;
   background: #ffffff;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", arial;
 }
 
 .search-box {
