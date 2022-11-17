@@ -187,6 +187,7 @@ html, body {
 .flexwrap {
   width: 100%;
   display: flex;
+  margin: 5px 0;
   padding: 5px 8px;
 }
 
