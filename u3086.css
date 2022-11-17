@@ -600,6 +600,7 @@ html, body {
 .news-tab .flexwrap .favicon {
   width: 15px;
   height: 15px;
+  margin-right: 3px;
 }
 
 @media (max-width: 780px) {
