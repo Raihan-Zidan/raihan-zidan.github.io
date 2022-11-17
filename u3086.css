@@ -543,7 +543,7 @@ html, body {
   width: 150px;
   height: 200px;
   border: 1px solid #ccc;
-  margin: 2px;
+  margin: 0 3px;
   position: relative;
   border-radius: 8px;
 }
