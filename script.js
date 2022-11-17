@@ -103,6 +103,7 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
   var val = searchInput.value;
+  showbtmfooter();
   if (tbm === "vid") {
     vidstyle = document.createElement("link");
     vidstyle.rel = "stylesheet";
@@ -191,6 +192,10 @@ function webresult(res) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
     }
   }
+}
+
+function showbtmfooter() {
+  setTimeout(()=> { document.body.innerHTML += `<div class="footer"><div class="wrapper"><div class="section"><a href="">Share</a><a href="javascript:void(0)">About</a></div></div></div>`; }, 500);
 }
 
 function moreresult() {
