@@ -5,6 +5,7 @@ var p = url.searchParams.get("p");
 var tbm = url.searchParams.get("tbm");
 document.title = `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
+var pageone = (startIndex  == 1) ? true : false;
 if (q && !url.pathname.match(".html")) {
   document.body.innerHTML = `<div class="header"><div class="search-box"><div class="search-field"><input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..."><div role="button" class="search-toggle"></div><div role="button" class="cleartext"></div></div></div><div class="search-menu"><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}" class="tab-wrapper" tab-id="all"><div class="label"><svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 1C2.68629 1 0 3.68629 0 7C0 10.3137 2.68629 13 6 13C7.64669 13 9.13845 12.3366 10.2226 11.2626L14.7873 14.8403C15.1133 15.0959 15.5848 15.0387 15.8403 14.7127C16.0958 14.3867 16.0387 13.9153 15.7126 13.6597L11.1487 10.0826C11.6892 9.18164 12 8.12711 12 7C12 3.68629 9.31371 1 6 1ZM1.5 7C1.5 4.51472 3.51472 2.5 6 2.5C8.48528 2.5 10.5 4.51472 10.5 7C10.5 9.48528 8.48528 11.5 6 11.5C3.51472 11.5 1.5 9.48528 1.5 7Z"></path></svg><span>All</span></div></a></div><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=isch" class="tab-wrapper" tab-id="images"><div class="label">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 1C1.45507 1 0 2.45507 0 4.25V11.75C0 13.5449 1.45507 15 3.25 15H12.75C14.5449 15 16 13.5449 16 11.75V10.2593C16.0001 10.2531 16.0001 10.2469 16 10.2407V4.25C16 2.45507 14.5449 1 12.75 1H3.25ZM14.5 8.43928V4.25C14.5 3.2835 13.7165 2.5 12.75 2.5H3.25C2.2835 2.5 1.5 3.2835 1.5 4.25V11.75C1.5 11.9563 1.5357 12.1543 1.60126 12.3381L5.96967 7.96967C6.26256 7.67678 6.73744 7.67678 7.03033 7.96967L8.00003 8.93937L10.9697 5.96967C11.2626 5.67678 11.7375 5.67678 12.0304 5.96967L14.5 8.43928ZM9.06069 10L10.0303 10.9697C10.3232 11.2626 10.3232 11.7374 10.0303 12.0303C9.73744 12.3232 9.26256 12.3232 8.96967 12.0303L6.5 9.56066L2.66192 13.3987C2.84572 13.4643 3.04369 13.5 3.25 13.5H12.75C13.7165 13.5 14.5 12.7165 14.5 11.75V10.5606L11.5001 7.56066L9.06069 10Z"></path></svg><span>Images</span></div></a></div><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=vid" class="tab-wrapper" tab-id="videos"><div class="label">
@@ -117,11 +118,17 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
+    if (pageone) {
     fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsresult(response);
     })
+    }
   }
+}
+
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
 function videoresult(res) {
@@ -136,15 +143,19 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  document.querySelector(".main-result .result").innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
-  for (var i = 0; i < res.items.length; i++) {
-    document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div></a></div>`;
-  }
+  var tabres = document.querySelectorAll(".tab-result")[3];
+  setImeout(()=> {
+    var nwsres = document.createElement("div");
+    nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
+    insertAfter(tabres, nwsres);
+    for (var i = 0; i < res.items.length; i++) {
+      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div></a></div>`;
+    }
+  },1000);
 }
 
 function webresult(res) {
   try {
-    var pageone = (startIndex  == 1) ? true : false;
     if (res.items && windowWidth > 700 && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
