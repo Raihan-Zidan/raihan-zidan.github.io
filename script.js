@@ -111,7 +111,7 @@ function submit() {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
       .then(response => response.json()).then(response => {
         videoresult(response);
-    })
+    });
     fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=google`)
       .then(response => response.json()).then(response => {
         nwsresult(response);
