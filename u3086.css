@@ -206,7 +206,11 @@ html, body {
   text-overflow: ellipsis;
 }
 
-.flexwrap .favicon,
+.flexwrap .favicon {
+  width: 15px;
+  height: 15px;
+}
+
 .tab-result .favicon {
   width: 18px;
   height: 18px;
