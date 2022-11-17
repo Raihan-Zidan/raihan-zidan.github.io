@@ -111,15 +111,15 @@ function submit() {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
       .then(response => response.json()).then(response => {
         videoresult(response);
-    });
-    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=${val}`)
-      .then(response => response.json()).then(response => {
-        nwsresult(response);
     })
   } else if (tbm != "vid" && tbm != "isch") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=e5dbd697a8e464044&q=${val}`)
       .then(response => response.json()).then(response => {
         webresult(response);
+    })
+    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=${val}`)
+      .then(response => response.json()).then(response => {
+        nwsresult(response);
     })
   }
 }
@@ -136,7 +136,10 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  alert(res);
+  document.querySelector(".main-result .result").innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
+  for (var i = 0; i < res.items.length; i++) {
+    document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div></a></div>`;
+  }
 }
 
 function webresult(res) {
