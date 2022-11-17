@@ -142,6 +142,7 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
+  try {
   if (res.items) {
     setTimeout(()=> {
     var tabres = document.querySelectorAll(".tab-result");
@@ -155,6 +156,7 @@ function nwsresult(res) {
       document.querySelector(".news-result").remove();
     }
     },500);
+  }
   }
 }
 
