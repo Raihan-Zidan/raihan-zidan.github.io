@@ -146,7 +146,7 @@ function nwsresult(res) {
     setTimeout(()=> {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
-    nwsres.class = "news-result";
+    nwsres.classList.add("news-result");
     nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
     insertAfter(tabres[2], nwsres);
     for (var i = 0; i < res.items.length; i++) {
