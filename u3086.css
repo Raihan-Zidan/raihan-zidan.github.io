@@ -189,6 +189,8 @@ html, body {
   display: flex;
   margin: 5px 0;
   padding: 8px;
+  position: absolute;
+  bottom: 0;
 }
 
 .flexwrap a {
