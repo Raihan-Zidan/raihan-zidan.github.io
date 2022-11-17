@@ -584,6 +584,7 @@ html, body {
   padding: 8px;
   position: absolute;
   bottom: -5px;
+  align-items: center;
 }
 
 .news-tab .flexwrap .link {
@@ -600,7 +601,7 @@ html, body {
 .news-tab .flexwrap .favicon {
   width: 15px;
   height: 15px;
-  margin-right: 3px;
+  margin-right: 5px;
 }
 
 @media (max-width: 780px) {
