@@ -150,6 +150,12 @@ function nwsresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div></a></div>`;
     }
+    var nswtitle = document.querySelectorAll(".news-tab .title");
+    nwstitle.forEach(tit => {
+      if (tit.innerHTML.length < 10) {
+        tit.parentNode.parentNode.remove();
+      }
+    });
   },1000);
 }
 
