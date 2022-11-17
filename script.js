@@ -142,7 +142,6 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  try {
   if (res.items) {
     setTimeout(()=> {
     var tabres = document.querySelectorAll(".tab-result");
@@ -150,13 +149,13 @@ function nwsresult(res) {
     nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
     insertAfter(tabres[2], nwsres);
     for (var i = 0; i < res.items.length; i++) {
-      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
+      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "";
+      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
     }
     if (!document.querySelectorAll(".news-tab")[0]) {
       document.querySelector(".news-result").remove();
     }
     },500);
-  }
   }
 }
 
