@@ -142,7 +142,7 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  if (res.items.length > 1) {
+  if (res.items) {
     setTimeout(()=> {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
