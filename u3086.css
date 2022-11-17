@@ -188,7 +188,7 @@ html, body {
   width: 100%;
   display: flex;
   margin: 5px 0;
-  padding: 5px 8px;
+  padding: 8px;
 }
 
 .flexwrap a {
@@ -582,6 +582,10 @@ html, body {
 
 .news-list .news-tab:first-child {
   margin-left: 0;
+}
+
+.news-list .news-tab:last-child {
+  margin-right: 0;
 }
 
 .news-tab .thumbnail {
