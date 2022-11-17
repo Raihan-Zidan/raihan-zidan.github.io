@@ -118,7 +118,7 @@ function submit() {
         webresult(response);
     })
     if (startIndex == 1) {
-    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=${searchApi}&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsresult(response);
     })
