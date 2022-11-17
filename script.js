@@ -117,6 +117,12 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
+    if (startIndex == 1) {
+    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=${val}`)
+      .then(response => response.json()).then(response => {
+        nwsresult(response);
+    })
+    }
   }
 }
 
@@ -137,6 +143,7 @@ function videoresult(res) {
 
 function nwsresult(res) {
   if (res.items.length > 1) {
+    setTimeout(()=> {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.innerHTML += `<div class="news-result"><div class="title">News result</div><div class="news-list"></div></div>`;
@@ -144,6 +151,7 @@ function nwsresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
     }
+    },1000);
   }
 }
 
@@ -173,10 +181,6 @@ function webresult(res) {
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
     }
-    fetch(`https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyDuIn-pwoV73m4x2GA-07j-xbEkmXoFhDU&cx=c0eb0b8c9dc2143c9&q=${val}`)
-      .then(response => response.json()).then(response => {
-        nwsresult(response);
-    })
   } catch(error) {
     if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
