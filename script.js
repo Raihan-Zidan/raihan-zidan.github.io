@@ -40,17 +40,25 @@ HTMLInputElement.prototype.reset = function() {
   this.value = "";
 }
 
+HTMLElement.prototype.hide = function() {
+  this.style.display = "none";
+}
+
+HTMLElement.prototype.show = function() {
+  this.style.display = "block";
+}
+
 if (windowWidth < 780) {
-  document.querySelectorAll(".label svg").forEach(i => {
-    i.remove();
+  document.querySelectorAll(".label svg").forEach(elm => {
+    elm.remove();
   });
 }
 
 searchInput.addEventListener('input', ()=> {
   if (searchInput.value != '') {
-    cleartext.style.display = "block";
+    cleartext.show();
   } else {
-    cleartext.style.display = "none";
+    cleartext.hide();
   }
 });
 
