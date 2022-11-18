@@ -615,7 +615,7 @@ html, body {
     max-width: 230px;
   }
   .tab-wrapper svg {
-    display: block;
+    display: none;
   }
   .search-list {
     flex-direction: column;
