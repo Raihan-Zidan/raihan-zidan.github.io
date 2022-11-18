@@ -37,7 +37,10 @@ if (tbm === "vid") {
 }
 
 if (windowWidth < 780) {
-  document.querySelectorAll(".label svg").remove();
+  var tbic = document.querySelectorAll(".label svg");
+  tbic.forEach(tic => {
+    tic.remove();
+  }
 }
 
 searchInput.addEventListener('input', ()=> {
