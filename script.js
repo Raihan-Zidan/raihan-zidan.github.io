@@ -22,7 +22,7 @@ searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
-alert(cleartext);
+cleartext.innerHTML = "BABON";
 if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
