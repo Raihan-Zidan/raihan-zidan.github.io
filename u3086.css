@@ -539,6 +539,10 @@ html, body {
   scroll-snap-type: x mandatory;
 }
 
+.news-list::-webkit-scrollbar {
+  display: none;
+}
+
 .news-list .news-tab {
   width: 150px;
   height: 200px;
@@ -620,9 +624,6 @@ html, body {
   }
   .footer .content {
     flex-direction: column;
-  }
-  .news-list::-webkit-scrollbar {
-    display: none;
   }
 }
 
@@ -715,5 +716,8 @@ html, body {
   .search-field,
   .main-result {
     width: 640px;
+  }
+  ..news-list::-webkit-scrollbar {
+    display: block;
   }
 }
