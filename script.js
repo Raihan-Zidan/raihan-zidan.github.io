@@ -188,7 +188,7 @@ function webresult(res) {
     }
     if (pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="related-search"><div class="title">Popular searches</div><div class="search-list"><a href="/search?q=Facebook" class="related">Facebook</a><a href="/search?q=YouTube" class="related">YouTube</a><a href="/search?q=Amazom" class="related">Amazon</a></div></div>`;
-      document.body.innerHTML += `<div class="footer"><div class="wrapper"><div class="section"><a href="javascript:void(0)" onclick="share()">Share</a><a href="privacy"></a></div><div class="section"><div>Copyright ©2022</div></div></div>`;
+      document.body.innerHTML += `<div class="footer"><div class="wrapper"><div class="section"><a href="javascript:void(0)" onclick="share()">Share</a><a href="privacy">Privacy</a></div><div class="section"><div>Copyright ©2022</div></div></div>`;
     }
   } catch(error) {
     if (pageone) {
