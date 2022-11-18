@@ -187,7 +187,7 @@ function webresult(res) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
     }
     if (pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="related-search"><div class="title">Popular searches</div><div class="search-list"><div class="related">Facebook</div><div class="related">YouTube</div><div class="related">Amazon</div></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="related-search"><div class="title">Popular searches</div><div class="search-list"><a href="/search?q=Facebook" class="related">Facebook</a><a href="/search?q=YouTube" class="related">YouTube</a><a href="/search?q=Amazom" class="related">Amazon</a></div></div>`;
     }
   } catch(error) {
     if (pageone) {
