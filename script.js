@@ -23,6 +23,10 @@ cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
 
 if (tbm === "vid") {
+  vidstyle = document.createElement("link");
+  vidstyle.rel = "stylesheet";
+  vidstyle.href = "m2095.css";
+  document.head.appendChild(vidstyle);
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
@@ -103,10 +107,6 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 function submit() {
   var val = searchInput.value;
   if (tbm === "vid") {
-    vidstyle = document.createElement("link");
-    vidstyle.rel = "stylesheet";
-    vidstyle.href = "m2095.css";
-    document.head.appendChild(vidstyle);
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
       .then(response => response.json()).then(response => {
         videoresult(response);
