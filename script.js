@@ -36,6 +36,7 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
+
 if (windowWidth < 780) {
   document.querySelectorAll(".label svg").forEach(i => {
     i.remove();
@@ -57,7 +58,7 @@ window.addEventListener('load', ()=> {
 });
 
 cleartext.addEventListener('click', ()=> {
-  searchInput.value = '';
+  searchInput.reset();
   cleartext.style.display = "none";
   searchInput.focus();
 });
