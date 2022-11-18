@@ -717,7 +717,7 @@ html, body {
   .main-result {
     width: 640px;
   }
-  ..news-list::-webkit-scrollbar {
+  .news-list::-webkit-scrollbar {
     display: block;
   }
 }
