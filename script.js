@@ -122,9 +122,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    var nws = ["0","1","2"];
-    var nwa = nws[Math.floor(Math.random() * nws.length)];
-    if (nwa == 1) {
+    if (Math.floor(Math.random() * 5) == 1) {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=c0eb0b8c9dc2143c9&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsresult(response);
