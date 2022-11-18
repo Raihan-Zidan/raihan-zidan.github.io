@@ -698,7 +698,7 @@ html, body {
     border-style: none;
   }
   .search-list .related {
-    width: 50%;
+    width: calc(50% - 100px);
     border-radius: 8px;
     padding: 10px;
     margin: 3px 4px 0 0;
