@@ -186,6 +186,9 @@ function webresult(res) {
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
     }
+    if (pageone) {
+      document.querySelector(".main-result .result").innerHTML += `<div class="related-search"><div class="title">Popular searches</div><div class="search-list"><div class="related">Facebook</div><div class="related">YouTube</div><div class="related">Amazon</div></div></div>`;
+    }
   } catch(error) {
     if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
