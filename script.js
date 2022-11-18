@@ -188,11 +188,21 @@ function webresult(res) {
     }
     if (pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="related-search"><div class="title">Popular searches</div><div class="search-list"><a href="/search?q=Facebook" class="related">Facebook</a><a href="/search?q=YouTube" class="related">YouTube</a><a href="/search?q=Amazom" class="related">Amazon</a></div></div>`;
+      document.body.innerHTML += `<be><div class="footer"><div class="wrapper"><div class="section"></div><div class="section"><a href="javascript:void(0)" onclick="share()">Share</a><a href="privacy"></a><div>Copyright ©2022</div></div></div>`;
     }
   } catch(error) {
     if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
     }
+  }
+}
+
+function share() {
+  if (navigator.share) {
+    navigator.share({
+      title: "",
+      url: window.location.href
+    })
   }
 }
 
