@@ -36,6 +36,9 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
+HTMLInputElement.prototype.reset = function() {
+  this.value = "";
+}
 
 if (windowWidth < 780) {
   document.querySelectorAll(".label svg").forEach(i => {
