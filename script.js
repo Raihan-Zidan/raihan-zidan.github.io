@@ -62,7 +62,7 @@ window.addEventListener('load', ()=> {
 
 cleartext.addEventListener('click', ()=> {
   searchInput.reset();
-  cleartext.style.display = "none";
+  cleartext.hide();
   searchInput.focus();
 });
 
