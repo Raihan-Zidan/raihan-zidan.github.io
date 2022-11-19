@@ -74,11 +74,19 @@ windowWidth = (function () {
 </script>
 <script>
 
+form = document.querySelector("form");
 searchInput = document.querySelector(".search-input");
 
 if (windowWidth > 780) {
   searchInput.focus();
 }
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if (searchInput.value != "") {
+    form.submit();
+  }
+});
 
 </script>
 </body>
