@@ -81,7 +81,7 @@ const $ = elm => {
 if (windowWidth > 780) $(".search-input")[0].focus();
 
 $("form")[0].addEventListener('submit', e => {
-  if (searchInput.value == "") e.preventDefault();
+  if ($(".search-input")[0].value == "") e.preventDefault();
 });
 
 </script>
