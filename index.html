@@ -75,6 +75,20 @@ const $ = elm => {
   return document.querySelectorAll(elm);
 };
 
+postData = (function (url, data) {
+  if (url && data) {
+    return [url, data]
+  } else {
+    console.log("Data not found");
+  }
+})();
+
+const searchData = {
+  searchPage: "search",
+  searchQuery: "q",
+  searchTab: "tbm"
+};
+
 </script>
 <script>
 
