@@ -11,11 +11,12 @@ html, body {
 
 .site-wrapper {
   height: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .content-wrap-home {
+  margin-top: 50%;
   transform: translateY(-50%);
 }
 
