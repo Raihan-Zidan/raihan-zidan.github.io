@@ -71,17 +71,16 @@ windowWidth = (function () {
   return str;
 }};
 
+const $ = elm => {
+  return document.querySelectorAll(elm);
+};
+
 </script>
 <script>
 
-form = document.querySelector("form");
-searchInput = document.querySelector(".search-input");
+if (windowWidth > 780) $(".search-input")[0].focus();
 
-if (windowWidth > 780) {
-  searchInput.focus();
-}
-
-form.addEventListener('submit', e => {
+$("form")[0].addEventListener('submit', e => {
   if (searchInput.value == "") e.preventDefault();
 });
 
