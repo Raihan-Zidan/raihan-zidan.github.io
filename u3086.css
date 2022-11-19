@@ -540,10 +540,6 @@ html, body {
   scroll-snap-type: x mandatory;
 }
 
-.news-list::-webkit-scrollbar {
-  display: none;
-}
-
 .news-list .news-tab {
   width: 150px;
   height: 200px;
@@ -710,6 +706,12 @@ html, body {
   }
   .search-menu {
     margin: 8px 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .news-list::-webkit-scrollbar {
+    display: none;
   }
 }
 
