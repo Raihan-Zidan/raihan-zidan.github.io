@@ -51,6 +51,14 @@ html, body {
   background: #ffffff;
 }
 
+.cleartext {
+  display: none;
+}
+
+.search-input:valid ~ .cleartext {
+  display: block;
+}
+
 .tab-wrapper {
   padding: 12px 16px 16px 16px;
   display: flex;
