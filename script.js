@@ -62,11 +62,9 @@ if (windowWidth < 780) {
   });
 }
 
-
-  if (searchInput.value != '') {
-    submit();
-  }
-
+window.addEventListener('load', ()=> {
+  if (searchInput.value != '') submit();
+});
 
 cleartext.addEventListener('click', ()=> {
   searchInput.reset();
