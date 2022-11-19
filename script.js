@@ -54,13 +54,7 @@ if (windowWidth < 780) {
   });
 }
 
-searchInput.addEventListener('input', ()=> {
-  if (searchInput.value != '') {
-    cleartext.show();
-  } else {
-    cleartext.hide();
-  }
-});
+
 
 window.addEventListener('load', ()=> {
   if (searchInput.value != '') {
