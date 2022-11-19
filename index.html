@@ -82,10 +82,7 @@ if (windowWidth > 780) {
 }
 
 form.addEventListener('submit', e => {
-  e.preventDefault();
-  if (searchInput.value != "") {
-    form.submit();
-  }
+  if (searchInput.value == "") e.preventDefault();
 });
 
 </script>
