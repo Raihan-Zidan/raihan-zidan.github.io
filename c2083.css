@@ -12,11 +12,12 @@ html, body {
 .site-wrapper {
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .content-wrap-home {
-  margin-top: 50%;
+  margin: auto;
 }
 
 .content-home {
@@ -88,7 +89,7 @@ noscript {
 
 @media (max-height: 450px) {
   .content-wrap-home {
-    margin-top: 10px;
+    
   }
 } 
 
