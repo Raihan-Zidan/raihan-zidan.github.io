@@ -86,6 +86,12 @@ noscript {
   font-family: "Times new roman";
 }
 
+@media (orientation:landscape) and (max-height: 450px) {
+  .content-wrap-home {
+    margin-top: 20px;
+  }
+}
+
 @media (min-width: 780px) {
   .logo-wrap-home {
     padding: 40px 0;
