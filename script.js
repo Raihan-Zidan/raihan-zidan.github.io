@@ -132,11 +132,18 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm == "nws") {
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || startIndex == 1 && tbm == "nws") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=c0eb0b8c9dc2143c9&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsresult(response);
     })
+    }
+    if (startIndex == 1) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", `https://duckduckgo.com/?q=${value}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.responseType = "json";
+      xhr.onload = hndlr;
+      xhr.send();
     }
   }
 }
@@ -173,6 +180,26 @@ function nwsresult(res) {
     }
     },500);
   }
+}
+
+function instant(e) {
+  setTimeout(()=> {
+    var res = this.response;
+    var tabres = document.querySelectorAll(".tab-result");
+    var instanswer = document.createElement("div");
+    instanswer.classList.add("instant-answer");
+    if (res.Abstract) {
+      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
+      if (res.Image) {
+        document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
+      }
+      for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
+        if (res.Infobox.content[i].value.trim()) {
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
+        }
+      }
+    }
+  },500);
 }
 
 function webresult(res) {
