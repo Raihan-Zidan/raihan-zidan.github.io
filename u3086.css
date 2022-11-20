@@ -715,6 +715,9 @@ html, body {
   .search-menu {
     margin: 8px 0;
   }
+  .main-result .instant-answer {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
