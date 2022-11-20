@@ -37,7 +37,7 @@ if (tbm === "vid") {
 }
 
 setInterval(()=> {
-  if (document.querySelectorAll(".search-item")[1].querySelector(".label").querySelector("span").innerHTML == "Gambar-gambar") {
+  if (document.getElementsByTagName('html')[0].getAttribute('lang') == "id") {
     alert("ya");
   }
 },0);
