@@ -635,7 +635,10 @@ html, body {
   }
   .search-field,
   .main-result {
-    width: 630px;
+    width: 600px;
+  }
+  .main-result {
+    width: calc(600px + 10px);
   }
   .news-result,
   .tab-result {
