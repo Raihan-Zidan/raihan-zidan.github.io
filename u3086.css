@@ -696,6 +696,7 @@ html, body {
     width: 320px;
     border-style: solid;
     border-radius: 8px;
+    border-color: #ccc;
   }
   .related-search {
     border: none;
