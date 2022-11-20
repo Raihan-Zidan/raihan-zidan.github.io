@@ -665,7 +665,7 @@ html, body {
   }
   .search-box,
   .search-menu {
-    padding-left: 130px;
+    padding-left: 50px;
     box-shadow: none;
   }
   .search-box .search-toggle {
@@ -724,5 +724,9 @@ html, body {
   }
   .news-list::-webkit-scrollbar {
     display: block;
+  }
+  .search-box,
+  .search-menu {
+    padding-left: 130px;
   }
 }
