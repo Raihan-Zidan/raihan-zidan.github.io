@@ -632,7 +632,6 @@ html, body {
   .result-wrapper {
     display: flex;
     background: #fff;
-    padding-left: 130px;
     padding-top: 5px;
   }
   .search-field,
@@ -664,7 +663,8 @@ html, body {
     padding: 8px 16px 12px 16px;
   }
   .search-box,
-  .search-menu {
+  .search-menu,
+  .result-wrapper {
     padding-left: 50px;
     box-shadow: none;
   }
@@ -726,7 +726,8 @@ html, body {
     display: block;
   }
   .search-box,
-  .search-menu {
+  .search-menu,
+  .result-wrapper {
     padding-left: 130px;
   }
 }
