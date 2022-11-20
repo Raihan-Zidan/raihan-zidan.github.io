@@ -188,8 +188,8 @@ function instant(e) {
     var tabres = document.querySelectorAll(".tab-result");
     var instanswer = document.createElement("div");
     instanswer.classList.add("instant-answer");
-    insertAfter(tabres[0], instanswer);
     if (res.Abstract) {
+      insertAfter(tabres[0], instanswer);
       document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
@@ -200,7 +200,7 @@ function instant(e) {
         }
       }
     }
-  },1000);
+  },800);
 }
 
 function webresult(res) {
