@@ -192,7 +192,7 @@ function instant(e) {
     var tabres = document.querySelectorAll(".tab-result");
     var instanswer = document.createElement("div");
     instanswer.classList.add("instant-answer");
-    if (res.Abstract) {
+    if (res.Abstract.length > 100) {
       if (windowWidth > 780) {
         document.querySelector(".sidebar-panel").appendChild(instanswer);
       } else {
