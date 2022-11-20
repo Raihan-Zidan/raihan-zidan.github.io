@@ -142,7 +142,7 @@ function submit() {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${value}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
       xhr.responseType = "json";
-      xhr.onload = hndlr;
+      xhr.onload = instant;
       xhr.send();
     }
   }
