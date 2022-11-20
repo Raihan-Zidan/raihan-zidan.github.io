@@ -623,9 +623,6 @@ html, body {
   .footer .content {
     flex-direction: column;
   }
-  .news-list::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @media (min-width: 780px) {
@@ -724,9 +721,6 @@ html, body {
   .search-field,
   .main-result {
     width: 650px;
-  }
-  .news-list::-webkit-scrollbar {
-    display: block;
   }
   .search-box,
   .search-menu,
