@@ -36,7 +36,11 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
-alert(document.querySelectorAll(".search-item")[1].querySelector(".label").querySelector("span").innerHTML);
+setInterval(()=> {
+  if (document.querySelectorAll(".search-item")[1].querySelector(".label").querySelector("span").innerHTML == "Gambar-gambar") {
+    alert("ya");
+  }
+},0);
 
 HTMLInputElement.prototype.reset = function() {
   this.value = "";
