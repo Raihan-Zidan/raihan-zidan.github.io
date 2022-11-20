@@ -665,7 +665,7 @@ html, body {
   .search-box,
   .search-menu,
   .result-wrapper {
-    padding-left: 20px;
+    padding-left: 130px;
     box-shadow: none;
   }
   .search-box .search-toggle {
@@ -725,11 +725,6 @@ html, body {
   .search-field,
   .main-result {
     width: 650px;
-  }
-  .search-box,
-  .search-menu,
-  .result-wrapper {
-    padding-left: 130px;
   }
   .instant-answer {
     width: 380px;
