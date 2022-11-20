@@ -17,7 +17,7 @@ html, body {
 }
 
 .content-wrap-home {
-  margin: auto;
+  margin-top: 50%;
 }
 
 .content-home {
@@ -89,7 +89,7 @@ noscript {
 
 @media (max-height: 450px) {
   .content-wrap-home {
-    
+    margin-top: 20px;
   }
 } 
 
