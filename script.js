@@ -36,14 +36,6 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
-setInterval(()=> {
-  if (document.getElementsByTagName('html')[0].getAttribute('lang') == "id") {
-    document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
-  } else {
-    document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
-  }
-},0);
-
 HTMLInputElement.prototype.reset = function() {
   this.value = "";
 }
