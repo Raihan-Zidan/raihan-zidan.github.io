@@ -608,6 +608,9 @@ html, body {
 }
 
 @media (max-width: 780px) {
+  .news-list::-webkit-scrollbar {
+    display: none
+  }
   .book-result .infobook {
     max-width: 230px;
   }
