@@ -637,9 +637,6 @@ html, body {
   .main-result {
     width: 600px;
   }
-  .main-result {
-    width: calc(+ 10px);
-  }
   .news-result,
   .tab-result {
     border: none;
