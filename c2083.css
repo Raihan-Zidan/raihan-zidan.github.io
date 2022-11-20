@@ -92,6 +92,12 @@ noscript {
   }
 }
 
+@media (max-height: 700px) {
+  .content-wrap-home {
+    margin-top: 200px;
+  }
+}
+
 @media (min-width: 780px) {
   .logo-wrap-home {
     padding: 40px 0;
