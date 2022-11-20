@@ -79,7 +79,7 @@ searchInput.addEventListener('keyup', ()=> {
 });
 
 searchToggle.addEventListener('click', ()=> {
-  var searchdata = (tbm === "vid") ? "&tbm=vid" : "";
+  var searchdata = (tbm) ? `&tbm=${tbm}` : "";
   if (searchInput.value.trim()) {
     post_data(`/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`);
   }
