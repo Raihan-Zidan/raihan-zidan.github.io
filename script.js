@@ -194,7 +194,7 @@ function instant(e) {
     instanswer.classList.add("instant-answer");
     if (res.Abstract) {
       if (windowWidth > 780) {
-        document.querySelector(".sidebar-panel").innerHTML = instanswer;
+        document.querySelector(".sidebar-panel").appendChild(instanswer);
       } else {
         insertAfter(tabres[0], instanswer);
       }
