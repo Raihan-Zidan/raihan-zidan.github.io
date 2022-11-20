@@ -39,6 +39,8 @@ if (tbm === "vid") {
 setInterval(()=> {
   if (document.getElementsByTagName('html')[0].getAttribute('lang') == "id") {
     document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
+  } else {
+    document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
   }
 },0);
 
