@@ -185,6 +185,7 @@ function nwsresult(res) {
 function instant(e) {
   setTimeout(()=> {
     var res = this.response;
+    alert(res);
     var tabres = document.querySelectorAll(".tab-result");
     var instanswer = document.createElement("div");
     instanswer.classList.add("instant-answer");
