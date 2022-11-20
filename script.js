@@ -36,10 +36,6 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
-if (windowWidth > 780) {
-  document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
-}
-
 HTMLInputElement.prototype.reset = function() {
   this.value = "";
 }
@@ -137,10 +133,10 @@ function submit() {
         webresult(response);
     })
     if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || startIndex == 1 && tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=c0eb0b8c9dc2143c9&q=${val}`)
-      .then(response => response.json()).then(response => {
-        nwsresult(response);
-    })
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=c0eb0b8c9dc2143c9&q=${val}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
     }
     if (startIndex == 1) {
       var xhr = new XMLHttpRequest();
@@ -170,18 +166,15 @@ function videoresult(res) {
 function nwsresult(res) {
   if (res.items.length > 1) {
     setTimeout(()=> {
-    var tabres = document.querySelectorAll(".tab-result");
-    var nwsres = document.createElement("div");
-    nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
-    insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
-    for (var i = 0; i < res.items.length; i++) {
-      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
-      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
-    }
-    if (!document.querySelectorAll(".news-tab")[0]) {
-      document.querySelector(".news-result").remove();
-    }
+      var tabres = document.querySelectorAll(".tab-result");
+      var nwsres = document.createElement("div");
+      nwsres.classList.add("news-result");
+      nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
+      insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
+      for (var i = 0; i < res.items.length; i++) {
+        var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
+        document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
+      }
     },500);
   }
 }
@@ -189,11 +182,12 @@ function nwsresult(res) {
 function instant(e) {
   setTimeout(()=> {
     var res = this.response;
-    var tabres = document.querySelectorAll(".tab-result");
-    var instanswer = document.createElement("div");
-    instanswer.classList.add("instant-answer");
     if (res.Abstract.length > 100) {
+      var tabres = document.querySelectorAll(".tab-result");
+      var instanswer = document.createElement("div");
+      instanswer.classList.add("instant-answer");
       if (windowWidth > 780) {
+        document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
       } else {
         insertAfter(tabres[0], instanswer);
@@ -246,10 +240,7 @@ function webresult(res) {
 
 function share() {
   if (navigator.share) {
-    navigator.share({
-      title: "",
-      url: window.location.href
-    })
+    navigator.share({title: "", url: window.location.href})
   }
 }
 
