@@ -665,7 +665,7 @@ html, body {
   .search-box,
   .search-menu,
   .result-wrapper {
-    padding-left: 30px;
+    padding-left: 20px;
     box-shadow: none;
   }
   .search-box .search-toggle {
