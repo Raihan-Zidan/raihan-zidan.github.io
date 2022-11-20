@@ -630,6 +630,7 @@ html, body {
 
 @media (min-width: 780px) {
   .result-wrapper {
+    display: flex;
     background: #fff;
     padding-left: 130px;
     padding-top: 5px;
