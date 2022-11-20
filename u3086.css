@@ -638,7 +638,7 @@ html, body {
     width: 600px;
   }
   .main-result {
-    width: calc(+10px);
+    width: calc(+ 10px);
   }
   .news-result,
   .tab-result {
