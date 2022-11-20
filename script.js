@@ -36,6 +36,8 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
+alert(document.querySelectorAll(".search-item")[1].querySelector(".label").querySelector("span").innerHTML);
+
 HTMLInputElement.prototype.reset = function() {
   this.value = "";
 }
