@@ -36,6 +36,10 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
+if (windowWidth > 780) {
+  document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
+}
+
 HTMLInputElement.prototype.reset = function() {
   this.value = "";
 }
@@ -189,7 +193,11 @@ function instant(e) {
     var instanswer = document.createElement("div");
     instanswer.classList.add("instant-answer");
     if (res.Abstract) {
-      insertAfter(tabres[0], instanswer);
+      if (windowWidth > 780) {
+        document.querySelector(".sidebar-panel").innerHTML = instanswer;
+      } else {
+        insertAfter(tabres[0], instanswer);
+      }
       document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
