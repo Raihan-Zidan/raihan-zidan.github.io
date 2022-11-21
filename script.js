@@ -133,7 +133,7 @@ function submit() {
         webresult(response);
     })
     if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=c0eb0b8c9dc2143c9&q=${val}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&q=${val}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
