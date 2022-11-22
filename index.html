@@ -101,15 +101,6 @@ $("form")[0].addEventListener('submit', e => {
   if ($(".search-input")[0].value == "") e.preventDefault();
 });
 
-if (windowWidth < 780) {
-  $(".search-input")[0].addEventListener('focus', ()=> {
-    window.history.pushState('', '', '#st=1');
-  });
-  $(".search-input")[0].addEventListener('blur', ()=> {
-    window.history.pushState('', '', '/');
-  });
-}
-
 </script>
 </body>
 </html>
