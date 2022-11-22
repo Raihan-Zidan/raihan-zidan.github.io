@@ -156,10 +156,6 @@ html, body {
   justify-content: center;
 }
 
-.corrected-word {
-  padding: 15px 15px 0;
-}
-
 .tab-result {
   width: 100%;
   border: 1px solid #EDEDED;
@@ -722,6 +718,9 @@ html, body {
   }
   .main-result .instant-answer {
     display: none;
+  }
+  .corrected-word {
+    padding-bottom: -15px;
   }
 }
 
