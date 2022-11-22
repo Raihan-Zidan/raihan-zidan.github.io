@@ -719,9 +719,6 @@ html, body {
   .main-result .instant-answer {
     display: none;
   }
-  .corrected-word {
-    padding-bottom: -15px;
-  }
 }
 
 @media (min-width: 992px) {
