@@ -157,12 +157,7 @@ html, body {
 }
 
 .corrected-word {
-  width: 100%;
-  border: 1px solid #EDEDED;
-  border-style: solid none;
   padding: 15px 15px 0;
-  margin: 4px 0;
-  background: white;
 }
 
 .tab-result {
@@ -648,8 +643,7 @@ html, body {
     width: 630px;
   }
   .news-result,
-  .tab-result,
-  .corrected-word {
+  .tab-result {
     border: none;
   }
   .result-stats {
