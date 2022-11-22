@@ -182,7 +182,7 @@ function webresult(res) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
     }
     if (res.items && res.spelling && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">Did you mean: <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
