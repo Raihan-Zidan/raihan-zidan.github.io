@@ -156,6 +156,10 @@ html, body {
   justify-content: center;
 }
 
+.tab-result.corrected {
+  margin-bottom: 0px;
+}
+
 .tab-result {
   width: 100%;
   border: 1px solid #EDEDED;
