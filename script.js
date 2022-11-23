@@ -190,13 +190,15 @@ function nwsresult(res) {
   }
 }
 
+var didtext = (idlang) ? "Apakah yang kamu maksud:" : "Did you mean:";
+var shwtext = (idlang) ? "Lihat lainnya" : "Show more";
+
 function webresult(res) {
   try {
-    var didtext = (idlang) ? "Apakah yang kamu maksud:" : "Did you mean:";
-    var shwtext = (idlang) ? "Lihat lainnya" : "Show more";
+    var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
     var pageone = (startIndex  == 1) ? true : false;
     if (res.items && windowWidth > 700 && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">${rsltsta}</div>`;
     }
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${didtext} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
@@ -239,7 +241,7 @@ function moreresult() {
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">Show more</button>`; },1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">${shwtext}</button>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
