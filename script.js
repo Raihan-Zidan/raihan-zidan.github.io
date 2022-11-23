@@ -138,13 +138,14 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
   var val = searchInput.value;
+  var geo = (idlang) ? `&gl=${hl}` : "";
   if (tbm === "vid") {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
   } else if (tbm != "vid" && tbm != "isch") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}`)
       .then(response => response.json()).then(response => {
         webresult(response);
     })
