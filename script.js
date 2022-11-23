@@ -2,7 +2,7 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
-var hl = url.searchParams.get("hl");
+var hl = (url.searchParams.get("hl")) ? url.searchParams.get("hl") : "en";
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
@@ -51,6 +51,17 @@ if (idlang) {
   document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
   document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = "Peta";
 }
+
+var language = {
+  "en": {
+    "news": "News result",
+    "more": "Show more",
+  },
+  "id": {
+    "news": "Hasil berita"
+    "more": "Lihat lainnya",
+  }
+};
 
 HTMLInputElement.prototype.reset = function() {
   this.value = "";
@@ -175,7 +186,7 @@ function nwsresult(res) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
+    nwsres.innerHTML += `<div class="title">${language["${hl}"].news}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
