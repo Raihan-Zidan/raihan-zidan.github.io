@@ -47,8 +47,8 @@ if (hl == "id") {
   searchInput.placeholder = "Ketik untuk mencari...";
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
   document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
-  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Video";
-  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Peta";
+  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
+  document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = "Peta";
 }
 
 HTMLInputElement.prototype.reset = function() {
