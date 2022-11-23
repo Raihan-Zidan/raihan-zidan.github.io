@@ -48,8 +48,6 @@ if (hl == "id") {
   document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
   document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
   document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = "Peta";
-} else if (!hl) {
-  document.querySelectorAll("html")[0].setAttribute("lang", "en");
 }
 
 HTMLInputElement.prototype.reset = function() {
