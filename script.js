@@ -48,7 +48,7 @@ var language = {
   "id": {
     "news.title": "Hasil berita",
     "button.more": "Lihat lainnya"
-  }
+  },
   "en": {
     "news.title": "News result",
     "button.more": "Show more"
