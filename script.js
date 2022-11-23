@@ -17,16 +17,21 @@ if (q && !url.pathname.match(".html")) {
   window.location.href = "/";
 }
 
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
 
 if (tbm === "vid") {
+  defstyle = document.querySelector("link[rel='stylesheet']");
   vidstyle = document.createElement("link");
   vidstyle.rel = "stylesheet";
   vidstyle.href = "m2095.css";
-  document.head.appendChild(vidstyle);
+  insertAfter(defstyle, vidstyle);
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
@@ -139,10 +144,6 @@ function submit() {
       })
     }
   }
-}
-
-function insertAfter(referenceNode, newNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
 function videoresult(res) {
