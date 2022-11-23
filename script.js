@@ -59,7 +59,7 @@ var language = {
     "more": "Show more",
   },
   "id": {
-    "news": "Hasil berita"
+    "news": "Hasil berita",
     "more": "Lihat lainnya",
   }
 };
