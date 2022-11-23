@@ -96,8 +96,6 @@ const searchData = {
 if (windowWidth > 780) $(".search-input")[0].focus();
 
 $("form")[0].addEventListener('submit', e => {
-  searchLang = (window.navigator.language || window.navigator.userLanguage == "id-ID") ? `&hl=id` : "";
-  $("form")[0].action = $("form")[0].action + searchLang;
   if ($(".search-input")[0].value == "") e.preventDefault();
 });
 
