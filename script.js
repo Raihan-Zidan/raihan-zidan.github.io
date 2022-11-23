@@ -187,7 +187,7 @@ function nwsresult(res) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">${language["${weblang}"].news}</div><div class="news-list"></div>`;
+    nwsres.innerHTML += `<div class="title">${language["${weblang}"]["news"]}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
