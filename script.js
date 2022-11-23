@@ -95,8 +95,9 @@ searchInput.addEventListener('keyup', ()=> {
 
 searchToggle.addEventListener('click', ()=> {
   var searchdata = (tbm) ? `&tbm=${tbm}` : "";
+  var searchlang = (hl) ? `&hl=${hl}` : "";
   if (searchInput.value.trim()) {
-    post_data(`/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}`);
+    post_data(`/search?q=${encodeURIComponent(searchInput.value).replace(/\%20/g,'+')}${searchdata}${searchlang}`);
   }
 });
 
