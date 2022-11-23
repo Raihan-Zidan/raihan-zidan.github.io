@@ -27,10 +27,10 @@ cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
 
 if (tbm === "vid") {
-  defstyle = document.querySelector("link[rel='stylesheet']");
+  defstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
   vidstyle = document.createElement("link");
   vidstyle.rel = "stylesheet";
-  vidstyle.href = "m2095.css";
+  vidstyle.href = "/m2095.css";
   insertAfter(defstyle, vidstyle);
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
