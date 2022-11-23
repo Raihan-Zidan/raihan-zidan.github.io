@@ -50,7 +50,7 @@ if (hl == "id") {
   document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
   document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = "Peta";
 } else if (!hl) {
-  document.querySelectorAll("meta[content='notranslare']")[0].remove();
+  document.querySelector("meta[content='notranslate']").remove();
 }
 
 HTMLInputElement.prototype.reset = function() {
