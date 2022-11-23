@@ -192,8 +192,8 @@ function nwsresult(res) {
 
 function webresult(res) {
   try {
-    var didtext = (idlang) ? "Did you mean:" : "Apakah yang kamu maksud:";
-    var shwtext = (idlang) ? "Show more" : "Lihat lainnya";
+    var didtext = (idlang) ? "Apakah yang kamu maksud:" : "Did you mean:";
+    var shwtext = (idlang) ? "Lihat lainnya" : "Show more";
     var pageone = (startIndex  == 1) ? true : false;
     if (res.items && windowWidth > 700 && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)</div>`;
