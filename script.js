@@ -2,10 +2,11 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
-var hl = url.searchParams.get("hl");
+var hl = (url.searchParams.get("hl")) ? url.searchParams.get("hl") : "en";
 var tbm = url.searchParams.get("tbm");
-var searchlang = (hl == "id") ? `&hl=${hl}` : "";
-document.title = (hl == "id") ? `${q} - Penelusuran` : `${q} - Search`;
+var idlang = (hl == "id") ? true : false;
+var searchlang = (idlang) ? `&hl=${hl}` : "";
+document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
 if (q && !url.pathname.match(".html")) {
   document.body.innerHTML = `<div class="header"><div class="search-box"><div class="search-field"><input value="" class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..."><div role="button" class="search-toggle"></div><div role="button" class="cleartext"></div></div></div><div class="search-menu"><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}${searchlang}" class="tab-wrapper" tab-id="all"><div class="label"><svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 1C2.68629 1 0 3.68629 0 7C0 10.3137 2.68629 13 6 13C7.64669 13 9.13845 12.3366 10.2226 11.2626L14.7873 14.8403C15.1133 15.0959 15.5848 15.0387 15.8403 14.7127C16.0958 14.3867 16.0387 13.9153 15.7126 13.6597L11.1487 10.0826C11.6892 9.18164 12 8.12711 12 7C12 3.68629 9.31371 1 6 1ZM1.5 7C1.5 4.51472 3.51472 2.5 6 2.5C8.48528 2.5 10.5 4.51472 10.5 7C10.5 9.48528 8.48528 11.5 6 11.5C3.51472 11.5 1.5 9.48528 1.5 7Z"></path></svg><span>All</span></div></a></div><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=isch${searchlang}" class="tab-wrapper" tab-id="images"><div class="label">
@@ -43,7 +44,18 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
-if (hl == "id") {
+var language = {
+  "id": {
+    "news.title": "Hasil berita",
+    "button.more": "Lihat lainnya"
+  }
+  "en": {
+    "news.title": "News result",
+    "button.more": "Show more"
+  }
+};
+
+if (idlang) {
   searchInput.placeholder = "Ketik untuk mencari...";
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
   document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
@@ -173,7 +185,7 @@ function nwsresult(res) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
+    nwsres.innerHTML += `<div class="title">${language["${hl}"]["news.title"]}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
@@ -210,7 +222,7 @@ function webresult(res) {
     });
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${language["${hl}"]["button.more"]}</button></div>`;
     }
   } catch(error) {
     if (pageone) {
