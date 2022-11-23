@@ -44,17 +44,6 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
-var language = {
-  "id": {
-    "news.title": "Hasil berita",
-    "button.more": "Lihat lainnya"
-  },
-  "en": {
-    "news.title": "News result",
-    "button.more": "Show more"
-  }
-};
-
 if (idlang) {
   searchInput.placeholder = "Ketik untuk mencari...";
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
@@ -185,7 +174,7 @@ function nwsresult(res) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">${language["${hl}"]["news.title"]}</div><div class="news-list"></div>`;
+    nwsres.innerHTML += `<div class="title">News result</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
@@ -222,7 +211,7 @@ function webresult(res) {
     });
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${language["${hl}"]["button.more"]}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">Show more</button></div>`;
     }
   } catch(error) {
     if (pageone) {
