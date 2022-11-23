@@ -2,6 +2,7 @@ var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
+var hl = url.searchParams.get("hl");
 var tbm = url.searchParams.get("tbm");
 document.title = `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
@@ -39,6 +40,15 @@ if (tbm === "vid") {
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
+}
+
+if (hl == "id") {
+  document.querySelectorAll("html")[0].setAttribute("lang", "id");
+  searchInput.placeholder = "Ketik untuk mencari...";
+  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
+  document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
+  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Video";
+  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Peta";
 }
 
 HTMLInputElement.prototype.reset = function() {
