@@ -50,7 +50,7 @@ var language = {
     news: "News result",
     more: "Show more",
     correct: "Did you mean:",
-    noresult: "No matching results";
+    noresult: "No matching results",
     suggtext: "Search suggestion:",
     noresultsug: "<li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li>",
     tab: ["All","Images","Videos","Maps"],
