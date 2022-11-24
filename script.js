@@ -261,7 +261,7 @@ function moreresult() {
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">${shwtext}</button>`; },1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">${langtext("more")}</button>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
