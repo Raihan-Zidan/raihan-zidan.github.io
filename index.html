@@ -96,11 +96,13 @@ const searchData = {
 
 if (windowWidth > 780) $(".search-input")[0].focus();
 
+window.addEventListener('load', ()=> {
 if (navigator.language == "id-ID") {
   $("input[name='hl']").setAttribute("value", "id");
 } else {
   $("input[name='hl']").remove();
 }
+});
 
 $("form")[0].addEventListener('submit', e => {
   if ($(".search-input")[0].value == "") e.preventDefault();
