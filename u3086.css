@@ -165,7 +165,8 @@ html, body {
   background: white;
 }
 
-.tab-result .title {
+.tab-result .title,
+.tab-result .title-black {
   color: #1558D6;
   font-size: 20px;
   margin: 5px 0;
@@ -175,7 +176,7 @@ html, body {
   text-overflow: ellipsis;
 }
 
-.tab-result .black {
+.tab-result .title-black {
   color: black;
 }
 
