@@ -60,13 +60,13 @@ var language = {
   },
 };
 
-var langtext = string => {
+function langtext(string) {
   if (idlang) {
-    return language["id"][`${string}`]
+    return language["id"][`${string}`];
   } else {
-    return language["en"][`${string}`]
+    return language["en"][`${string}`];
   }
-};
+}
 
 if (idlang) {
   searchInput.placeholder = "Ketik untuk mencari...";
