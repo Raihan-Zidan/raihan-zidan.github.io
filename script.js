@@ -50,12 +50,18 @@ var language = {
     news: "News result",
     more: "Show more",
     correct: "Did you mean:",
+    noresult: "No matching results";
+    suggtext: "Search suggestion:",
+    noresultsug: `<li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li>`,
     tab: ["All","Images","Videos","Maps"],
   },
   id: {
     news: "Hasil berita",
     more: "Lihat lainnya",
     correct: "Apakah yang kamu maksud:",
+    noresult: "Tidak ditemukan hasil",
+    suggtext: "Saran pencarian:",
+    noresultsug: `<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>`,
     tab: ["Semua","Gambar","Video","Peta"],
   },
 };
@@ -189,7 +195,7 @@ function videoresult(res) {
     }
     if (!res.items.length > 0) throw "empty";
   } catch(error) {
-    document.querySelector(".main-result").innerHTML += `<div class="tab-result tab-error"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext('noresult')}</div><div class="snippet suggestion">${langtext('suggtext')}</div><div class="snippet">${langtext('noresultsug')}"</div></div>`;
   }
 }
 
@@ -241,7 +247,7 @@ function webresult(res) {
     }
   } catch(error) {
     if (pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">No matching results</div><div class="snippet suggestion">Search suggestions:</div><div class="snippet"><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext('noresult')}</div><div class="snippet suggestion">${langtext('suggtext')}</div><div class="snippet">${langtext('noresultsug')}"</div></div>`;
     }
   }
 }
