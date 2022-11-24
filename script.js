@@ -238,7 +238,7 @@ function webresult(res) {
     });
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext["more"}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext["more"]}</button></div>`;
     }
   } catch(error) {
     if (pageone) {
