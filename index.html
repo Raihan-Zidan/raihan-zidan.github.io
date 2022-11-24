@@ -36,7 +36,6 @@
           <div class="search-box">
             <div class="search-field">
               <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..." name="q">
-              <input type="hidden" name="hl" id="hl">
               <button type="submit" class="search-toggle"></button>
             </div>
           </div>
@@ -100,6 +99,7 @@ var hl = url.searchParams.get("hl");
 if (windowWidth > 780) $(".search-input")[0].focus();
 
 if (hl == "id") {
+  $("html")[0].lang = "id";
   $(".search-input")[0].placeholder = "Ketik untuk mencari...";
 }
 
