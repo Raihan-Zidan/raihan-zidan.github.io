@@ -247,7 +247,7 @@ function webresult(res) {
     }
   } catch(error) {
     if (pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="snippet suggestion">${langtext("suggtext")}</div><div class="snippet">${langtext("noresultsug")}"</div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="snippet suggestion">${langtext("suggtext")}</div><div class="">${langtext("noresultsug")}"</div></div>`;
     }
   }
 }
