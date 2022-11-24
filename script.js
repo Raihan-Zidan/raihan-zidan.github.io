@@ -45,6 +45,29 @@ if (tbm === "vid") {
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
 }
 
+var language = {
+  en: {
+    news: "News result",
+    more: "Show more",
+    correct: "Did you mean:",
+    tab: ["All","Images","Videos","Maps",]
+  },
+  id: {
+    news: "Hasil berita",
+    more: "Lihat lainnya",
+    correct: "Apakah yang kamu maksud:",
+    tab: ["Semua","Gambar","Video","Peta",]
+  },
+};
+
+var langtext = string => {
+  if (idlang) {
+    return language["id"][`${string}`]
+  } else {
+    return language["en"][`${string}`]
+  }
+};
+
 if (idlang) {
   searchInput.placeholder = "Ketik untuk mencari...";
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
@@ -177,7 +200,7 @@ function nwsresult(res) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">${nwstitle}</div><div class="news-list"></div>`;
+    nwsres.innerHTML += `<div class="title">${langtext["news"]}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
@@ -190,9 +213,6 @@ function nwsresult(res) {
   }
 }
 
-var didtext = (idlang) ? "Apakah yang kamu maksud:" : "Did you mean:";
-var shwtext = (idlang) ? "Lihat lainnya" : "Show more";
-
 function webresult(res) {
   try {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
@@ -201,7 +221,7 @@ function webresult(res) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">${rsltsta}</div>`;
     }
     if (res.items && res.spelling && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${didtext} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext["correct"]} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
@@ -218,7 +238,7 @@ function webresult(res) {
     });
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${shwtext}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext["more"}</button></div>`;
     }
   } catch(error) {
     if (pageone) {
