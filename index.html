@@ -48,6 +48,16 @@
 
 <script>
 
+var url = new URL(window.location.href);
+var hl = url.searchParams.get("hl");
+if (hl == "id") {
+  document.querySelector("html").lang = "id";
+  $(".search-input")[0].placeholder = "Ketik untuk mencari...";
+}
+
+</script>
+<script>
+
 clientBrowser = (function () {
   var userAgent = navigator.userAgent || [];
   var m = userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
@@ -93,15 +103,7 @@ const searchData = {
 </script>
 <script>
 
-var url = new URL(window.location.href);
-var hl = url.searchParams.get("hl");
-
 if (windowWidth > 780) $(".search-input")[0].focus();
-
-if (hl == "id") {
-  document.querySelector("html").lang = "id";
-  $(".search-input")[0].placeholder = "Ketik untuk mencari...";
-}
 
 $("form")[0].addEventListener('submit', e => {
   if ($(".search-input")[0].value == "") e.preventDefault();
