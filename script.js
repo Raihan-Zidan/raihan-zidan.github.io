@@ -200,7 +200,7 @@ function nwsresult(res) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">${langtext["news"]}</div><div class="news-list"></div>`;
+    nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
@@ -221,7 +221,7 @@ function webresult(res) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">${rsltsta}</div>`;
     }
     if (res.items && res.spelling && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext["correct"]} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
@@ -238,7 +238,7 @@ function webresult(res) {
     });
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext["more"]}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext("more")}</button></div>`;
     }
   } catch(error) {
     if (pageone) {
