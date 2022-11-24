@@ -48,16 +48,6 @@
 
 <script>
 
-var url = new URL(window.location.href);
-var hl = url.searchParams.get("hl");
-if (hl == "id") {
-  document.querySelector("html").lang = "id";
-  $(".search-input")[0].placeholder = "Ketik untuk mencari...";
-}
-
-</script>
-<script>
-
 clientBrowser = (function () {
   var userAgent = navigator.userAgent || [];
   var m = userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
