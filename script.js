@@ -196,7 +196,6 @@ function videoresult(res) {
 function nwsresult(res) {
   if (res.items.length > 1) {
     setTimeout(()=> {
-    var nwstitle = (idlang) ? "Hasil berita" : "News result";
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
