@@ -52,7 +52,7 @@ var language = {
     correct: "Did you mean:",
     noresult: "No matching results";
     suggtext: "Search suggestion:",
-    noresultsug: `<li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li>`,
+    noresultsug: "<li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li>",
     tab: ["All","Images","Videos","Maps"],
   },
   id: {
@@ -61,7 +61,7 @@ var language = {
     correct: "Apakah yang kamu maksud:",
     noresult: "Tidak ditemukan hasil",
     suggtext: "Saran pencarian:",
-    noresultsug: `<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>`,
+    noresultsug: "<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>",
     tab: ["Semua","Gambar","Video","Peta"],
   },
 };
@@ -195,7 +195,7 @@ function videoresult(res) {
     }
     if (!res.items.length > 0) throw "empty";
   } catch(error) {
-    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext('noresult')}</div><div class="snippet suggestion">${langtext('suggtext')}</div><div class="snippet">${langtext('noresultsug')}"</div></div>`;
+    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="snippet suggestion">${langtext("suggtext")}</div><div class="snippet">${langtext("noresultsug")}"</div></div>`;
   }
 }
 
