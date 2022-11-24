@@ -195,7 +195,7 @@ function videoresult(res) {
     }
     if (!res.items.length > 0) throw "empty";
   } catch(error) {
-    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="snippet suggestion">${langtext("suggtext")}</div><div class="snippet">${langtext("noresultsug")}"</div></div>`;
+    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}"</div></div>`;
   }
 }
 
@@ -247,7 +247,7 @@ function webresult(res) {
     }
   } catch(error) {
     if (pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="snippet suggestion">${langtext("suggtext")}</div><div class="">${langtext("noresultsug")}"</div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
     }
   }
 }
