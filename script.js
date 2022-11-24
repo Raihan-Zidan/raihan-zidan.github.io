@@ -50,13 +50,13 @@ var language = {
     news: "News result",
     more: "Show more",
     correct: "Did you mean:",
-    tab: ["All","Images","Videos","Maps",]
+    tab: ["All","Images","Videos","Maps"],
   },
   id: {
     news: "Hasil berita",
     more: "Lihat lainnya",
     correct: "Apakah yang kamu maksud:",
-    tab: ["Semua","Gambar","Video","Peta",]
+    tab: ["Semua","Gambar","Video","Peta"],
   },
 };
 
