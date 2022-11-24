@@ -36,7 +36,7 @@
           <div class="search-box">
             <div class="search-field">
               <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..." name="q">
-              <input type="hidden" name="hl" value="id">
+              <input type="hidden" name="hl" id="hl">
               <button type="submit" class="search-toggle"></button>
             </div>
           </div>
@@ -97,9 +97,9 @@ const searchData = {
 if (windowWidth > 780) $(".search-input")[0].focus();
 
 if (navigator.language == "id-ID") {
-  $("input[name='hl']").value = "id";
+  $("#hl").value = "id";
 } else {
-  $("input[name='hl']").remove();
+  $("#hl").remove();
 }
 
 $("form")[0].addEventListener('submit', e => {
