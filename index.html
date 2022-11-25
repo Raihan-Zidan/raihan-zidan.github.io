@@ -94,7 +94,8 @@ if (searchLang === "id") {
   inphl.name = "hl";
   inphl.value = searchLang;
   $("form")[0].appendChild(inphl);
-  document.querySelector("html").lang = searchLang;
+  $("html")[0].lang = searchLang;
+  $(".search-input")[0].placeholder = "Ketik untuk mencari...";
 }
 
 $("form")[0].addEventListener('submit', e => {
