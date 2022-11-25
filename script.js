@@ -195,6 +195,7 @@ function videoresult(res) {
     }
     if (!res.items.length > 0) throw "empty";
   } catch(error) {
+    document.querySelector(".main-result").style.minWidth = "0";
     document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}"</div></div>`;
   }
 }
