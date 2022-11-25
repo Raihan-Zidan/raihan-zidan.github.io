@@ -76,14 +76,6 @@ const $ = elm => {
   return document.querySelectorAll(elm);
 };
 
-postData = (function (url, data) {
-  if (url && data) {
-    return [url, data]
-  } else {
-    console.log("Data not found");
-  }
-})();
-
 const searchData = {
   searchPage: "search",
   searchQuery: "q",
@@ -94,6 +86,15 @@ const searchData = {
 <script>
 
 if (windowWidth > 780) $(".search-input")[0].focus();
+
+searchLang = (navigator.language == "id-ID") ? "id" : "";
+if (searchLang === "id") {
+  inphl = document.createElement("input");
+  inphl.type = "hidden";
+  inphl.name = "hl";
+  inphl.value = searchLang;
+  $("form")[0].appendChild(inphl);
+}
 
 $("form")[0].addEventListener('submit', e => {
   if ($(".search-input")[0].value == "") e.preventDefault();
