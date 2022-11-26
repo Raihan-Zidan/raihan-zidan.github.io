@@ -43,65 +43,18 @@
     </select>
   </div>
 
-</div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">Site icon</div>
+      <div class="snippet">Displays a favicon on the left side of the results.</div>
+    </div>
+    <input class="toggle" type="checkbox" id="option4">
+  </div>
 
 </div>
 
-<script>
-toggle = document.querySelectorAll(".toggle");
-option1 = localStorage.getItem("option1");
-option2 = localStorage.getItem("option2");
-option3 = localStorage.getItem("option3");
-
-if (option3 != "English" && navigator.language == "id-ID") {
-  document.querySelector("html").lang = "id";
-}
-
-if (!option1) {
-  localStorage.setItem("option1", "0")
-}
-if (!option2) {
-  localStorage.setItem("option2", "0")
-}
-if (!option3 && navigator.language == "id-ID") {
-  localStorage.setItem("option2", "Indonesia")
-} else if (!option3) {
-  localStorage.setItem("option2", "English")
-}
-
-toggle.forEach(option => {
-  option.addEventListener('click', ()=> {
-    if (option.id == "option1" && !option.checked) {
-      localStorage.setItem("option1", "0")
-    } else if (option.id == "option1" && option.checked) {
-      localStorage.setItem("option1", "1")
-    } else if (option.id == "option2" && !option.checked) {
-      localStorage.setItem("option2", "0")
-    } else if (option.id == "option2" && option.checked) {
-      localStorage.setItem("option2", "1")
-    }
-  });
-  window.addEventListener('load', ()=> {
-    if (option.id == "option1" && option1 === "1") {
-      option.checked = true;
-    }
-    if (option.id == "option2" && option2 === "1") {
-      option.checked = true;
-    }
-  });
-});
-
-language = document.querySelector("select");
-
-language.addEventListener('change', ()=> {
-  localStorage.setItem("option3", language.value);
-});
-
-if (option3) {
-  language.value = option3;
-}
-
-</script>
+</div>
 
 </body>
 </html>
@@ -203,3 +156,79 @@ if (option3) {
 }
 
 </style>
+
+<script>
+
+toggle = document.querySelectorAll(".toggle");
+option1 = localStorage.getItem("option1");
+option2 = localStorage.getItem("option2");
+option3 = localStorage.getItem("option3");
+option4 = localStorage.getItem("option4");
+
+if (option3 != "English" && navigator.language == "id-ID") {
+  document.querySelector("html").lang = "id";
+}
+
+if (!option1) {
+  localStorage.setItem("option1", "0")
+}
+if (!option2) {
+  localStorage.setItem("option2", "0")
+}
+if (!option3 && navigator.language == "id-ID") {
+  localStorage.setItem("option2", "Indonesia")
+} else if (!option3) {
+  localStorage.setItem("option2", "English")
+}
+if (!option4) {
+  localStorage.setItem("option4", "1")
+  document.getElementById("option4").checked = true;
+}
+
+toggle.forEach(option => {
+  option.addEventListener('click', ()=> {
+    if (option.id == "option1" && !option.checked) {
+      localStorage.setItem("option1", "0")
+    } else if (option.id == "option1" && option.checked) {
+      localStorage.setItem("option1", "1")
+    } else if (option.id == "option2" && !option.checked) {
+      localStorage.setItem("option2", "0")
+    } else if (option.id == "option2" && option.checked) {
+      localStorage.setItem("option2", "1")
+    } else if (option.id == "option4" && !option.checked) {
+      localStorage.setItem("option4", "0")
+    } else if (option.id == "option4" && option.checked) {
+      localStorage.setItem("option4", "1")
+    }
+  });
+  window.addEventListener('load', ()=> {
+    if (option.id == "option1" && option1 === "1") {
+      option.checked = true;
+    }
+    if (option.id == "option2" && option2 === "1") {
+      option.checked = true;
+    }
+    if (option.id == "option4" && option4 === "1") {
+      option.checked = true;
+    }
+  });
+});
+
+language = document.querySelector("select");
+
+language.addEventListener('change', ()=> {
+  localStorage.setItem("option3", language.value);
+});
+
+if (option3) {
+  language.value = option3;
+}
+
+function reset() {
+  option1 = localStorage.removeItem("option1");
+  option2 = localStorage.removeItem("option2");
+  option3 = localStorage.removeItem("option3");
+  option4 = localStorage.removeItem("option4");
+}
+
+</script>
