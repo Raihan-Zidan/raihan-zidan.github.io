@@ -115,6 +115,9 @@ html, body {
 }
 
 @media (min-width: 780px) {
+  .footer .content {
+    padding: 0 20px;
+  }
   .footer .section:first-child {
     position: absolute;
     left: 10px; right: none;
