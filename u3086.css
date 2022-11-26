@@ -392,7 +392,6 @@ html, body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
 }
 
 .footer .section {
@@ -636,6 +635,9 @@ html, body {
   .footer .content {
     flex-direction: column;
   }
+  .footer .wrapper {
+    justify-content: center;
+  }
 }
 
 @media (min-width: 780px) {
@@ -674,7 +676,8 @@ html, body {
   }
   .search-box,
   .search-menu,
-  .result-wrapper {
+  .result-wrapper,
+  .footer .wrapper {
     padding-left: 130px;
     box-shadow: none;
   }
