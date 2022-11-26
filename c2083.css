@@ -86,10 +86,10 @@ html, body {
 .footer .content {
   width: 100%;
   font-size: 15px;
-  padding: 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .footer .section {
@@ -117,11 +117,10 @@ html, body {
 @media (min-width: 780px) {
   .footer .content {
     padding: 5px 20px;
-    position: relative;
   }
   .footer .section:last-child {
     position: absolute;
-    left: none; right: 20px;
+    left: none; right: 0;
   }
 }
 
