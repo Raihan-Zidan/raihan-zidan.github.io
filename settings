@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inersoft - Settings</title>
+</head>
+
+<body>
+
+<div class="settings">
+  <div class="header">
+    <div class="title">All settings</div>
+  </div>
+
+<div class="content">
+  
+  <div class="column">
+    <div class="info">
+      <div class="label">Url in new tab</div>
+      <div class="snippet">Opens the results in a new tab in the groupm</div>
+    </div>
+    <input class="toggle" type="checkbox" id="option1">
+  </div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">New url style</div>
+      <div class="snippet">Show full url not show as domain.</div>
+    </div>
+    <input class="toggle" type="checkbox" id="option2">
+  </div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">Language</div>
+      <div class="snippet">Change site language</div>
+    </div>
+    <select name="language" class="language">
+      <option value="Browser language">Browser language</option>
+      <option value="English">English</option>
+      <option value="Indonesia">Indonesia</option>
+    </select>
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+<style>
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-size-adjust: none;
+  font-family: "HelveticaNeue";
+}
+
+.header {
+  padding: 20px;
+  display: grid;
+  place-items: center;
+}
+
+.header .title {
+  font-size: 22px;
+}
+
+.content {
+  border-top: 1px solid #EDEDED;
+}
+
+.column {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid #EDEDED;
+}
+
+.column .info {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.info .label {
+  font-size: 17px;
+  margin: 3px 0;
+}
+
+.info .snippet {
+  color: #494949;
+  font-size: 15px;
+}
+
+.language {
+  height: 35px;
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  outline: none;
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.toggle {
+  position: absolute;
+  right: 20px;
+  appearance: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s;
+  border: 1px solid #ccc;
+  -webkit-tap-highlight-color: transparent;.
+}
+
+.toggle:before {
+  content: "Off";
+  font-size: 15px;
+}
+
+.toggle:checked:before {
+  content: "On";
+  color: white;
+}
+
+.toggle:checked {
+  border: none;
+  background: #7da6ff;
+}
+
+@media (min-width: 780px) {
+  .settings {
+    max-width: 500px;
+  }
+}
+
+</style>
+
+<script>
+
+toggle = document.querySelectorAll(".toggle");
+option1 = localStorage.getItem("option1");
+option2 = localStorage.getItem("option2");
+
+if (!option1) {
+  localStorage.setItem("option1", "0")
+}
+if (!option2) {
+  localStorage.setItem("option2", "0")
+}
+
+toggle.forEach(option => {
+  option.addEventListener('click', ()=> {
+    if (option.id == "option1" && !option.checked) {
+      localStorage.setItem("option1", "0")
+    } else if (option.id == "option1" && option.checked) {
+      localStorage.setItem("option1", "1")
+    } else if (option.id == "option2" && !option.checked) {
+      localStorage.setItem("option2", "0")
+    } else if (option.id == "option2" && option.checked) {
+      localStorage.setItem("option2", "1")
+    }
+  });
+  window.addEventListener('load', ()=> {
+    if (option.id == "option1" && option1 === "1") {
+      option.checked = true;
+    }
+    if (option.id == "option2" && option2 === "1") {
+      option.checked = true;
+    }
+  });
+});
+
+</script>
