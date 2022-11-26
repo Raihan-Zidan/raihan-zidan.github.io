@@ -203,9 +203,6 @@ function submit() {
       })
     }
   }
-  if (startIndex == "1") {
-    showfooter();
-  }
 }
 
 function videoresult(res) {
@@ -309,22 +306,3 @@ window.addEventListener('load', ()=> {
     },1000)
   }
 });
-
-function showfooter() {
-  setTimeout(()=> {
-    var c = document.createElement("div");
-    c.classList.add("footer");
-    c.innerHTML = `  <div class="content">
-    <div class="section">
-      <a href="/settings">Settings</a>
-      •
-      <a href="/privacy">Privacy</a>
-    </div>
-    <div class="section">
-      <div>Copyright © 2022 All rights reserved.</div>
-    </div>
-  </div>`;
-    document.body.appendChild(c);
-    document.querySelector(".share").addEventListener('click', ()=> { share(); });
-  },1000);
-}
