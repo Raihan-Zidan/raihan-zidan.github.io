@@ -312,7 +312,16 @@ function showfooter() {
   setTimeout(()=> {
     var c = document.createElement("div");
     c.classList.add("footer");
-    c.innerHTML = `<div class="wrapper"><div class="section"><a href="/settings">Settings</a>•<a class="share">Share</a></div></div>`;
+    c.innerHTML = `  <div class="content">
+    <div class="section">
+      <a href="/settings">Settings</a>
+      •
+      <a href="/privacy">Privacy</a>
+    </div>
+    <div class="section">
+      <div>Copyright © 2022 All rights reserved.</div>
+    </div>
+  </div>`;
     document.body.appendChild(c);
     document.querySelector(".share").addEventListener('click', ()=> { share(); });
   },1000);
