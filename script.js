@@ -13,20 +13,10 @@ setTimeout(()=> {
 },800);
 
 document.addEventListener("load", function (event) {
-  alert("babsj");
-  var scrollpos = sessionStorage.getItem('scrollpos');
-  if (scrollpos) {
-    setTimeout(()=> {
-      alert("ha");
-      window.scrollTo(0, scrollpos);
-      sessionStorage.removeItem('scrollpos');
-    },1000);
-  }
+  alert("halo");
 });
 
-window.addEventListener("beforeunload", function (e) {
-  sessionStorage.setItem('scrollpos', window.scrollY);
-});
+
 
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
