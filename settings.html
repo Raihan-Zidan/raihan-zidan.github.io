@@ -38,9 +38,8 @@
       <div class="snippet">Change site language</div>
     </div>
     <select name="language" class="language">
-      <option value="Browser language">Browser language</option>
-      <option value="English">English</option>
-      <option value="Indonesia">Indonesia</option>
+      <option value="English" code="en">English</option>
+      <option value="Indonesia" code="id">Indonesia</option>
     </select>
   </div>
 
@@ -154,6 +153,11 @@
 toggle = document.querySelectorAll(".toggle");
 option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
+option3 = localStorage.getItem("option3");
+
+if (option3 != "English" && navigator.language == "id-ID") {
+  document.querySelector("html").lang = "id";
+}
 
 if (!option1) {
   localStorage.setItem("option1", "0")
@@ -183,5 +187,15 @@ toggle.forEach(option => {
     }
   });
 });
+
+language = document.querySelector("select");
+
+language.addEventListener('change', ()=> {
+  localStorage.setItem("option3", language.value);
+});
+
+if (option3) {
+  language.value = option3;
+}
 
 </script>
