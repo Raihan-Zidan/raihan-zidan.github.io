@@ -187,6 +187,16 @@ option2 = localStorage.getItem("option2");
 option3 = localStorage.getItem("option3");
 option4 = localStorage.getItem("option4");
 
+const settings = {
+  reset() {
+    option1 = localStorage.removeItem("option1");
+    option2 = localStorage.removeItem("option2");
+    option3 = localStorage.removeItem("option3");
+    option4 = localStorage.removeItem("option4");
+    window.location.reload(false);
+  }
+};
+
 if (option3 != "English" && navigator.language == "id-ID") {
   document.querySelector("html").lang = "id";
 }
@@ -237,7 +247,7 @@ toggle.forEach(option => {
 });
 
 document.querySelector(".reset").addEventListener('click', ()=> {
-  reset();
+  settings.reset();
 });
 
 language = document.querySelector("select");
@@ -248,13 +258,6 @@ language.addEventListener('change', ()=> {
 
 if (option3) {
   language.value = option3;
-}
-
-function reset() {
-  option1 = localStorage.removeItem("option1");
-  option2 = localStorage.removeItem("option2");
-  option3 = localStorage.removeItem("option3");
-  option4 = localStorage.removeItem("option4");
 }
 
 </script>
