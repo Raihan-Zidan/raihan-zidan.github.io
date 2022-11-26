@@ -105,6 +105,10 @@
   border-bottom: 1px solid #EDEDED;
 }
 
+.column:last-child {
+  border: none;
+}
+
 .column .info {
   display: flex;
   flex-direction: column;
@@ -193,7 +197,7 @@ const settings = {
     option2 = localStorage.removeItem("option2");
     option3 = localStorage.removeItem("option3");
     option4 = localStorage.removeItem("option4");
-    window.location.reload(false);
+    window.location.reload();
   }
 };
 
