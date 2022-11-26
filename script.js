@@ -10,10 +10,9 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 document.addEventListener("DOMContentLoaded", function (event) {
   var scrollpos = sessionStorage.getItem('scrollpos');
   if (scrollpos) {
-    setTimeout(()=> {
       window.scrollTo(0, scrollpos);
+      alert(scrollpos);
       sessionStorage.removeItem('scrollpos');
-    },500);
   }
 });
 
