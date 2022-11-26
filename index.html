@@ -87,7 +87,7 @@ const searchData = {
 
 if (windowWidth > 780) $(".search-input")[0].focus();
 
-searchLang = (localStorage.getItem("option3") != "English" && navigator.language == "id-ID" || localStorage.getItem("option3") != "English") ? "id" : "";
+searchLang = (localStorage.getItem("option3") != "English" || localStorage.getItem("option3") != "English" && navigator.language == "id-ID") ? "id" : "";
 if (searchLang === "id") {
   inphl = document.createElement("input");
   inphl.type = "hidden";
