@@ -112,8 +112,8 @@ if (searchLang === "id") {
 }
 
 if (windowWidth < 780) {
-  window.addEventListener("resize", (e) => { 
-    $(".search-input")[0].addEventListener('focus', ()=> {
+  $(".search-input")[0].addEventListener('focus', ()=> {
+    window.addEventListener("resize", (e) => {
       $(".footer")[0].style.display = "none";
     });
   });
