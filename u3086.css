@@ -680,7 +680,6 @@ html, body {
     padding-left: 130px;
     box-shadow: none;
   }
-  .footer .wrapper { justify-content: left; }
   .search-box .search-toggle {
     left: auto;
     right: 8px;
