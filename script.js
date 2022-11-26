@@ -203,6 +203,7 @@ function submit() {
       })
     }
   }
+  showfooter();
 }
 
 function videoresult(res) {
@@ -306,3 +307,9 @@ window.addEventListener('load', ()=> {
     },1000)
   }
 });
+
+function showfooter {
+  setTimeout(()=> {
+    document.body.innerHTML += `<div class="footer"><div class="wrapper"><div class="section"><a href="/settings">Settings</a>•<a onclick="share()">Share</a></div></div></div>`;
+  },1000);
+}
