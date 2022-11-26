@@ -381,7 +381,7 @@ html, body {
 
 .footer {
   width: 100%;
-  padding: 20px;
+  padding: 20px 50px;
 }
 
 .footer .content {
@@ -752,6 +752,9 @@ html, body {
   }
   .instant-answer .snippet {
     -webkit-line-clamp: 8;
+  }
+  .footer {
+    padding: 20px 130px;
   }
   .search-box,
   .search-menu,
