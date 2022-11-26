@@ -6,6 +6,8 @@ var hl = url.searchParams.get("hl");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
+option1 = localStorage.getItem("option1");
+option2 = localStorage.getItem("option2");
 
 window.addEventListener('load', ()=> {
   var scrollpos = sessionStorage.getItem('scrollpos');
@@ -287,3 +289,9 @@ function moreresult() {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
   }
 }
+
+window.addEventListener('load', ()=> {
+  if (option1) {
+    setTimeout(()=>
+  }
+});
