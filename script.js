@@ -7,13 +7,14 @@ var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
-setTimeout(()=> {
-  window.scrollTo(0, 500);
-},1000);
-
 window.addEventListener('load', ()=> {
   var scrollpos = sessionStorage.getItem('scrollpos');
-  window.scrollTo(0, scrollpos);
+  if (scrollpos) {
+    setTimeout(()=> {
+    window.scrollTo(0, scrollpos);
+    sessionStorage.removeItem('scrollpos');
+    },1000);
+  }
 });
 
 window.addEventListener('beforeunload', ()=> {
