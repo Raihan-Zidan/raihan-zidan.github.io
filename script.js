@@ -17,7 +17,7 @@ window.addEventListener('load', ()=> {
   alert("bo");
 });
 
-window.addEventListener("beforeunload", function (e) {
+window.addEventListener('beforeunload', ()=> {
   sessionStorage.setItem('scrollpos', window.scrollY);
 });
 
