@@ -115,12 +115,13 @@ html, body {
 }
 
 @media (min-width: 780px) {
-  .footer .content {
-    padding: 5px 20px;
+  .footer .section:first-child {
+    position: absolute;
+    left: 10px; right: none;
   }
   .footer .section:last-child {
     position: absolute;
-    left: none; right: 0;
+    left: none; right: 10px;
   }
 }
 
