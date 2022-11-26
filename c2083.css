@@ -79,7 +79,7 @@ html, body {
 
 .footer {
   width: 100%;
-  padding: 20px;
+  padding: 5px;
   position: fixed;
   left: 0; bottom: 0;
 }
@@ -115,6 +115,10 @@ html, body {
 }
 
 @media (min-width: 780px) {
+  .footer {
+    padding: 5px 20px;
+  }
+  
   .footer .section:last-child {
     position: absolute;
     left: none; right: 20px;
