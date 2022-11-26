@@ -381,16 +381,14 @@ html, body {
 
 .footer {
   width: 100%;
-  padding: 15px;
-  border-top: 1px solid #ccc;
-  background: white;
+  padding: 20px;
 }
 
-.footer .wrapper {
+.footer .content {
   width: 100%;
   font-size: 15px;
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -408,6 +406,19 @@ html, body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 780px) {
+  .footer .content {
+    align-items: center;
+  }
+}
+
+@media (min-width: 780px) {
+  .footer .section:last-child {
+    position: absolute;
+    left: none; right: 20px;
+  }
 }
 
 .book-result {
@@ -631,12 +642,6 @@ html, body {
   }
   .search-box .search-toggle {
     pointer-events: none;
-  }
-  .footer .content {
-    flex-direction: column;
-  }
-  .footer .wrapper {
-    justify-content: center;
   }
 }
 
