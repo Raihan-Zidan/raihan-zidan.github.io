@@ -7,22 +7,19 @@ var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
-var scrollY = 0;
-if (localStorage.getItem(scrollY")) {
-  scrollY = localStorage.getItem(scrollY");
-}
+document.addEventListener("DOMContentLoaded", function (event) {
+  var scrollpos = sessionStorage.getItem('scrollpos');
+  if (scrollpos) {
+    setTimeout(()=> {
+      window.scrollTo(0, scrollpos);
+      sessionStorage.removeItem('scrollpos');
+    },500);
+  }
+});
 
-if (scrollY) {
- localStorage.removeItem(scrollY");
-}
-
-if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-  localStorage.setItem(scrollY", document.documentElement.scrollTop);
-}
-
-if (scrollY) {
-  setTimeout(()=> { document.documentElement.scrollTop = scrollY; },100);
-}
+window.addEventListener("beforeunload", function (e) {
+  sessionStorage.setItem('scrollpos', window.scrollY);
+});
 
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
