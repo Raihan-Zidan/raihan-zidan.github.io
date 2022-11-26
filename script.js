@@ -291,7 +291,7 @@ function moreresult() {
 }
 
 window.addEventListener('load', ()=> {
-  if (option1) {
+  if (option1 == "1") {
     setTimeout(()=> {
       document.querySelectorAll(".main-result a").forEach(elm => {
         elm.target = "_blank";
