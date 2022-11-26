@@ -7,7 +7,10 @@ var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
-var scrollY = localStorage.getItem(scrollY");
+var scrollY = 0;
+if (localStorage.getItem(scrollY")) {
+  scrollY = localStorage.getItem(scrollY");
+}
 
 if (scrollY) {
  localStorage.removeItem(scrollY");
