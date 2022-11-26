@@ -7,6 +7,11 @@ var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
+setTimeout(()=> {
+  window.scrollTo(0, 300);
+  alert("ba");
+},1000);
+
 document.addEventListener("DOMContentLoaded", function (event) {
   var scrollpos = sessionStorage.getItem('scrollpos');
   if (scrollpos) {
