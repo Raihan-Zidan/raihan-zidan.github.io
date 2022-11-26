@@ -8,13 +8,13 @@ var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
 window.addEventListener('load', ()=> {
-  alert("ha");
   var scrollpos = sessionStorage.getItem('scrollpos');
   if (scrollpos) {
       alert("ha");
       window.scrollTo(0, scrollpos);
       sessionStorage.removeItem('scrollpos');
   }
+  alert("bo");
 });
 
 window.addEventListener("beforeunload", function (e) {
