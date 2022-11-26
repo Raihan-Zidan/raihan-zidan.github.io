@@ -246,11 +246,6 @@ function webresult(res) {
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
-    if (option4 == "0") {
-      document.querySelectorAll(".favicon").forEach(elm => {
-        elm.remove();
-      });
-    }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
@@ -265,6 +260,11 @@ function webresult(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
+    if (option4 == "0") {
+      document.querySelectorAll(".favicon").forEach(elm => {
+        elm.remove();
+      });
+    }
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext("more")}</button></div>`;
