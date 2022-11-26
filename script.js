@@ -7,6 +7,16 @@ var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
+localStorage.removeItem(scrollY");
+
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+  localStorage.setItem(scrollY", document.documentElement.scrollTop);
+}
+
+var scrollY = localStorage.getItem(scrollY");
+
+setTimeout(()=> { document.documentElement.scrollTop = scrollY; },100);
+
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
 if (q && !url.pathname.match(".html")) {
