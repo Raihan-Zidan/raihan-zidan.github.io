@@ -80,6 +80,8 @@ html, body {
 .footer {
   width: 100%;
   padding: 20px 50px;
+  position: fixed;
+  left: 0; bottom: 0;
 }
 
 .footer .content {
@@ -113,9 +115,6 @@ html, body {
 }
 
 @media (min-width: 780px) {
-  .footer {
-    margin: 20px 0;
-  }
   .footer .section:last-child {
     position: absolute;
     left: none; right: 20px;
