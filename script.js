@@ -13,6 +13,7 @@ setTimeout(()=> {
 },800);
 
 document.addEventListener("load", function (event) {
+  alert("babsj");
   var scrollpos = sessionStorage.getItem('scrollpos');
   if (scrollpos) {
     setTimeout(()=> {
