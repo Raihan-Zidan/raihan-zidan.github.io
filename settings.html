@@ -188,7 +188,7 @@
   height: 3px;
   background: #6A88E2;
   position: absolute;
-  animation: progress 2s ease-in-out infinite;
+  animation: progress 1.3s ease-in-out infinite;
 }
 
 @keyframes progress {
@@ -285,7 +285,7 @@ function loadingdata() {
   document.body.appendChild(loaddata);
   setTimeout(()=> {
     window.location.reload();
-  },1000);
+  },1500);
 }
 
 document.querySelector(".reset").addEventListener('click', ()=> {
