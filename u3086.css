@@ -640,7 +640,7 @@ html, body {
   .search-box,
   .search-menu,
   .result-wrapper {
-    padding-left: 50px;
+    padding-left: 130px;
     box-shadow: none;
   }
   .search-box .search-toggle {
