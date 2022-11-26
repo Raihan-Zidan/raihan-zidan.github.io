@@ -81,6 +81,8 @@ html, body {
   width: 100%;
   position: fixed;
   left: 0; bottom: 0;
+  background: #f2f2f2;
+  border-top: 1px solid #ccc;
 }
 
 .footer .content {
