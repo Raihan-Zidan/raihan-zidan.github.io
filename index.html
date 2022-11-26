@@ -111,6 +111,7 @@ if (searchLang === "id") {
   $(".search-input")[0].placeholder = "Ketik untuk mencari...";
 }
 
+if (windowWidth < 780) {
 $(".search-input")[0].addEventListener('focus', ()=> {
   $(".footer")[0].style.display = "none";
 });
@@ -118,6 +119,7 @@ $(".search-input")[0].addEventListener('focus', ()=> {
 $(".search-input")[0].addEventListener('blur', ()=> {
   $(".footer")[0].style.display = "block";
 });
+}
 
 $("form")[0].addEventListener('submit', e => {
   if ($(".search-input")[0].value == "") e.preventDefault();
