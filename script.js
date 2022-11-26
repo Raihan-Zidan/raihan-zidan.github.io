@@ -8,6 +8,7 @@ var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
+option4 = localStorage.getItem("option4");
 
 window.addEventListener('load', ()=> {
   var scrollpos = sessionStorage.getItem('scrollpos');
@@ -244,6 +245,11 @@ function webresult(res) {
     }
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
+    }
+    if (option4 == "0") {
+      document.querySelectorAll(".favicon").forEach(elm => {
+        elm.remove();
+      });
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
