@@ -119,7 +119,9 @@ if (windowWidth < 780) {
   });
 
   $(".search-input")[0].addEventListener('blur', ()=> {
-    $(".footer")[0].style.display = "block";
+    window.addEventListener("resize", (e) => {
+      $(".footer")[0].style.display = "block";
+    });
   });
 }
 
