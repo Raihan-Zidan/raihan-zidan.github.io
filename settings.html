@@ -62,7 +62,10 @@
       <option value="POST" disabled>POST</option>
     </select>
   </div>
-
+  
+  <div class="column">
+    <button class="reset">Reset Settings</button> 
+  </div>
 </div>
 
 </div>
@@ -116,6 +119,13 @@
 .info .snippet {
   color: #494949;
   font-size: 15px;
+}
+
+.column .reset {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .select-option {
@@ -224,6 +234,10 @@ toggle.forEach(option => {
       option.checked = true;
     }
   });
+});
+
+document.querySelector(".reset").addEventListener('click', ()=> {
+  reset();
 });
 
 language = document.querySelector("select");
