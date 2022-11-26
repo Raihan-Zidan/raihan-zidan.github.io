@@ -9,12 +9,8 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 
 window.addEventListener('load', ()=> {
   var scrollpos = sessionStorage.getItem('scrollpos');
-  if (scrollpos) {
-      alert("ha");
-      window.scrollTo(0, scrollpos);
-      sessionStorage.removeItem('scrollpos');
-  }
-  alert("bo");
+  window.scrollTo(0, scrollpos);
+
 });
 
 window.addEventListener('beforeunload', ()=> {
