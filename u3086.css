@@ -676,8 +676,7 @@ html, body {
   }
   .search-box,
   .search-menu,
-  .result-wrapper,
-  .footer .wrapper {
+  .result-wrapper {
     padding-left: 130px;
     box-shadow: none;
   }
