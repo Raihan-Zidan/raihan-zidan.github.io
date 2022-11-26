@@ -203,7 +203,9 @@ function submit() {
       })
     }
   }
-  showfooter();
+  if (startIndex == "1") {
+    showfooter();
+  }
 }
 
 function videoresult(res) {
