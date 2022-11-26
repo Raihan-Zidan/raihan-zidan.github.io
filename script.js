@@ -310,6 +310,7 @@ window.addEventListener('load', ()=> {
 
 function showfooter() {
   setTimeout(()=> {
-    document.body.innerHTML += `<div class="footer"><div class="wrapper"><div class="section"><a href="/settings">Settings</a>•<a onclick="share()">Share</a></div></div></div>`;
+    document.body.innerHTML += `<div class="footer"><div class="wrapper"><div class="section"><a href="/settings">Settings</a>•<a class="share">Share</a></div></div></div>`;
+    document.querySelector(".share").addEventListener('click', ()=> { share(); });
   },1000);
 }
