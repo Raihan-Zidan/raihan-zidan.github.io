@@ -7,12 +7,12 @@ var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 
+alert(sessionStorage.getItem('scrollpos'));
 document.addEventListener("DOMContentLoaded", function (event) {
   var scrollpos = sessionStorage.getItem('scrollpos');
   if (scrollpos) {
-      window.scrollTo(0, scrollpos);
-      alert(scrollpos);
-      sessionStorage.removeItem('scrollpos');
+    window.scrollTo(0, scrollpos);
+    sessionStorage.removeItem('scrollpos');
   }
 });
 
