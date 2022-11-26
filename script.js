@@ -292,6 +292,10 @@ function moreresult() {
 
 window.addEventListener('load', ()=> {
   if (option1) {
-    setTimeout(()=>
+    setTimeout(()=> {
+      document.querySelectorAll(".main-result a").forEach(elm => {
+        elm.target = "_blank";
+      });
+    },1000)
   }
 });
