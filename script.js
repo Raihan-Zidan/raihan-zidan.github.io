@@ -12,7 +12,7 @@ setTimeout(()=> {
   alert("ba");
 },800);
 
-document.addEventListener("load", function (event) {
+window.addEventListener('load', ()=> {
   alert("halo");
 });
 
