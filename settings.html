@@ -15,7 +15,7 @@
   </div>
 
 <div class="content">
-  
+
   <div class="column">
     <div class="info">
       <div class="label">Url in new tab</div>
@@ -42,7 +42,6 @@
       <option value="Indonesia" code="id">Indonesia</option>
     </select>
   </div>
-
 
   <div class="column">
     <div class="info">
@@ -80,7 +79,7 @@
   margin: 0;
   box-sizing: border-box;
   text-size-adjust: none;
-  font-family: "HelveticaNeue";
+  font-family: "HelveticaNeue", Arial;
 }
 
 .header {
@@ -128,8 +127,13 @@
 .column .reset {
   width: 100%;
   padding: 10px;
+  cursor: pointer;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.column .reset:hover {
+  filter: brightnees(0.8);
 }
 
 .select-option {
