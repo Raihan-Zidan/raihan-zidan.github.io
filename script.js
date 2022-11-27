@@ -196,6 +196,12 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
+    }
   }
 }
 
@@ -229,17 +235,9 @@ function videoresult(res) {
   }
 }
 
-function shownws() {
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
-        .then(response => response.json()).then(response => {
-          nwsresult(response);
-      })
-    }
-}
-
 function nwsresult(res) {
   if (res.items.length > 3) {
+    setTimeout(() => {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
@@ -249,6 +247,7 @@ function nwsresult(res) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
     }
+    },1000);
   }
 }
 
@@ -288,9 +287,6 @@ function webresult(res) {
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext("more")}</button></div>`;
-    }
-    if (pageone) {
-      shownws();
     }
   } catch(error) {
     if (pageone) {
