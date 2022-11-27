@@ -132,6 +132,7 @@ $("form")[0].addEventListener('submit', e => {
 function postquery(data) {
   var iframe = document.createElement("iframe");
   iframe.name = "postTarget";
+  iframe.style.display = "none";
   document.body.appendChild(iframe);
   var frm = document.createElement("form");
   frm.target = "postTarget";
