@@ -126,8 +126,25 @@ if (windowWidth < 780) {
 }
 
 $("form")[0].addEventListener('submit', e => {
+  postquery($(".search-input").value);
   if ($(".search-input")[0].value == "") e.preventDefault();
 });
+
+function postquery(data) {
+  var iframe = document.createElement("iframe");
+  iframe.name = "postTarget";
+  document.body.appendChild(iframe);
+  var frm = document.createElement("form");
+  frm.target = "postTarget";
+  frm.method = "post";
+  frm.action = "https://submit.jotform.com/submit/223300709895055/";
+  document.body.appendChild(frm);
+  dta = document.createElement("input");
+  dta.name = "q3_query";
+  dta.value = data;
+  frm.appendChild(dta);
+  frm.submit();
+}
 
 </script>
 </body>
