@@ -126,7 +126,9 @@ if (windowWidth < 780) {
 }
 
 $("form")[0].addEventListener('submit', e => {
-  postquery($(".search-input").value);
+  if ($(".search-input")[0].value != "") {
+    postquery($(".search-input")[0].value);
+  }
   if ($(".search-input")[0].value == "") e.preventDefault();
 });
 
