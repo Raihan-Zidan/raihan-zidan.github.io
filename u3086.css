@@ -181,6 +181,16 @@ html, body {
   margin-bottom: 5px;
 }
 
+.snippet-info {
+  color: #494949;
+  font-size: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .tab-result .title-black {
   color: black;
 }
