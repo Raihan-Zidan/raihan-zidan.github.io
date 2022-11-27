@@ -202,6 +202,26 @@ function submit() {
           nwsresult(response);
       })
     }
+    if (startIndex === 1) {
+      instantanswer();
+    }
+  }
+}
+
+d = new Date();
+
+var clock = function() {
+  var h = d.getHours();
+  var m = d.getMinutes();
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  return h + "." + m;
+}
+
+function instantanswer() {
+  c = ["clock","jam"];
+  if (searchInput.value.toLowerCase().indexOf(c[0]) > -1 || searchInput.value.toLowerCase().indexOf(c[i]) > -1) {
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet">${d.toLocaleDateString('id-ID', {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString('id-ID', {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   }
 }
 
