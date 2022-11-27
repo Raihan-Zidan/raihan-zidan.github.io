@@ -12,7 +12,6 @@
   <link rel="icon" type="image/png" href="images/search.png">
   <link rel="stylesheet" href="/c2083.css">
   <script defer src="/doodle.js"></script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYHVG0KF4J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -126,9 +125,6 @@ if (windowWidth < 780) {
 }
 
 $("form")[0].addEventListener('submit', e => {
-  if ($(".search-input")[0].value != "") {
-    postquery($(".search-input")[0].value);
-  }
   if ($(".search-input")[0].value == "") e.preventDefault();
 });
 
