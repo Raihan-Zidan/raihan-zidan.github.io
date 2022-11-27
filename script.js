@@ -196,12 +196,6 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
-        .then(response => response.json()).then(response => {
-          nwsresult(response);
-      })
-    }
   }
 }
 
@@ -236,8 +230,7 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  if (res.items.length > 1) {
-    setTimeout(()=> {
+  if (res.items.length > 3) {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
@@ -247,10 +240,6 @@ function nwsresult(res) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
     }
-    if (!document.querySelectorAll(".news-tab")[0]) {
-      document.querySelector(".news-result").remove();
-    }
-    },500);
   }
 }
 
@@ -275,6 +264,14 @@ function webresult(res) {
       displayUrl = (option2 == "1") ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
+
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
+    }
+
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
