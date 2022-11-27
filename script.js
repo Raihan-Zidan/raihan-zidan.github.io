@@ -10,20 +10,6 @@ option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
 
-window.addEventListener('load', ()=> {
-  var scrollpos = sessionStorage.getItem('scrollpos');
-  if (scrollpos) {
-    setTimeout(()=> {
-    window.scrollTo(0, scrollpos);
-    sessionStorage.removeItem('scrollpos');
-    },1000);
-  }
-});
-
-window.addEventListener('beforeunload', ()=> {
-  sessionStorage.setItem('scrollpos', window.scrollY);
-});
-
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
 if (q && !url.pathname.match(".html")) {
