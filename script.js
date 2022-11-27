@@ -218,7 +218,7 @@ var clock = function() {
 
 function instantanswer() {
   c = ["clock","jam"];
-  if (searchInput.value.toLowerCase().indexOf(c[0]|c[1]) > -1) {
+  if (searchInput.value.toLowerCase().indexOf(c[0]) > -1 || searchInput.value.toLowerCase().indexOf(c[1]) > -1 && searchInput.value.length < 10) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   }
 }
