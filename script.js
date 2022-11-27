@@ -222,7 +222,7 @@ var clock = function() {
 function instantanswer() {
   c = ["clock","jam"];
   var tabres = document.querySelectorAll(".tab-result");
-  if (searchInput.value.toLowerCase().indexOf(c[0]|c[1]) > -1) {
+  if (searchInput.value.toLowerCase().indexOf(c[0]) > -1) {
     var answer = document.createElement("div");
     answer.classList.add("tab-result");
     answer.innerHTML = `<div class="big-title">${clock()}</div><div class="snippet">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div>`;
