@@ -265,13 +265,6 @@ function webresult(res) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
 
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
-        .then(response => response.json()).then(response => {
-          nwsresult(response);
-      })
-    }
-
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
@@ -286,6 +279,13 @@ function webresult(res) {
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext("more")}</button></div>`;
+    }
+
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
     }
   } catch(error) {
     if (pageone) {
