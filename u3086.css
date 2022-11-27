@@ -183,7 +183,7 @@ html, body {
 
 .snippet-info {
   color: #494949;
-  font-size: 18px;
+  font-size: 17px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
