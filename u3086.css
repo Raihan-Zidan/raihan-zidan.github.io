@@ -176,6 +176,11 @@ html, body {
   text-overflow: ellipsis;
 }
 
+.big-title {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
 .tab-result .title-black {
   color: black;
 }
