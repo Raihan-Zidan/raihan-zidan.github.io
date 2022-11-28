@@ -203,8 +203,8 @@ var clock = function() {
 }
 
 function instantanswer() {
-  c = ["clock","jam","di","in"];
-  if (searchInput.value.toLowerCase().match(c[0]) && !searchInput.value.toLowerCase().match(c[2]) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match(c[1]) && !searchInput.value.toLowerCase().match(c[3]) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
+  c = ["clock","jam"];
+  if (searchInput.value.toLowerCase().match(c[0]) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match(c[1]) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   }
 }
