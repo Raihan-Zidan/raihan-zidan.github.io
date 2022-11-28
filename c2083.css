@@ -1,13 +1,16 @@
 * {
   padding: 0;
   margin: 0;
-  overflow: hidden;
 }
 
 html, body {
   height: 100%;
   background: #f5f8fa;
   font-family: "Helvetica Neue", arial;
+}
+
+body {
+  overflow: hidden;
 }
 
 .site-wrapper {
