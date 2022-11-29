@@ -119,7 +119,7 @@ if (windowWidth < 780) {
 }
 
 window.addEventListener('load', ()=> {
-  if (searchInput.value != '') submit();
+  if (searchInput.value != '' && !rested) submit();
 });
 
 cleartext.addEventListener('click', ()=> {
