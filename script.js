@@ -242,14 +242,9 @@ function nwsresult(res) {
     nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
-      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "/images/blank.png";
+      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "https://play-lh.googleusercontent.com/CT1M2pKlUhGx4w5UHqarn6oSU_sa7L7XRW2-hQrfNi9oou6W81PbJnWi-9PbEfC_3g";
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
     }
-    setTimeout(()=> {
-      document.querySelectorAll(".thumbnail[src='/images/blank.png']").forEach(elm => {
-        elm.remove();
-      });
-    },500);
     },1000);
   }
 }
