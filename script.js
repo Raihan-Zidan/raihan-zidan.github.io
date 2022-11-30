@@ -287,7 +287,7 @@ function webresult(res) {
     }
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a href="" class="more" onclick="moreresult(event);">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a href="javascript:void(0)" class="more" onclick="moreresult(event);">${langtext("more")}</button></div>`;
     }
   } catch(error) {
     if (pageone) {
