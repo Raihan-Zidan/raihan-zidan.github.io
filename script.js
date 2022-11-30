@@ -234,7 +234,7 @@ function videoresult(res) {
 }
 
 function nwsresult(res) {
-  if (res.items.length > 3) {
+  if (res.items.length > 5) {
     setTimeout(() => {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
