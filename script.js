@@ -248,7 +248,7 @@ function nwsresult(res) {
     setTimeout(()=> {
       document.querySelectorAll(".thumbnail[src='/images/blank.png']").forEach(elm => {
         elm.remove();
-      }
+      });
     },500);
     },1000);
   }
