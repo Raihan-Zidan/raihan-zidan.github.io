@@ -379,6 +379,7 @@ html, body {
   justify-content: center;
   position: relative;
   background: white;
+  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
 
