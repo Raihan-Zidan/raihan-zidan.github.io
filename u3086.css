@@ -379,7 +379,20 @@ html, body {
   justify-content: center;
   position: relative;
   background: white;
-  -webkit-tap-highlight-color: rgba(0,0,0,.10);
+}
+
+.show-wrapper .more:active {
+  animation-name: hoverAnim;
+  animation-duration: 0.5s;
+}
+
+@keyframes hoverAnim {
+  from {
+    background: rgba(0,0,0,.10);
+  }
+  to {
+    background: white;
+  }
 }
 
 .show-wrapper .more:before {
