@@ -271,7 +271,7 @@ function webresult(res) {
       urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
       displayUrl = (option2 == "1") ? urlparam : res.items[i].displayLink;
-      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet.replace(/\<\/?b.*?\/?\>/g, "")}</div></div>`;
     }
 
     snippet = document.querySelectorAll(".snippet");
@@ -285,7 +285,7 @@ function webresult(res) {
         elm.remove();
       });
     }
-    document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
+
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a href="javascript:void(0)" class="more" onclick="xUahe(event)">${langtext("more")}</a></div>`;
     }
