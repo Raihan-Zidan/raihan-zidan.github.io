@@ -125,7 +125,7 @@ if (windowWidth < 780) {
 }
 
 $("form")[0].addEventListener('submit', e => {
-  if ($(".search-input")[0].value == "") e.preventDefault();
+  if ($(".search-input")[0].value.trim()) e.preventDefault();
 });
 
 </script>
