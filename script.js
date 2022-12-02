@@ -295,7 +295,7 @@ function webresult(res) {
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a href="javascript:void(0)" class="more" onclick="xUahe(event)">${langtext("more")}</a></div>`;
     }
-    if (!res.items.length > 0 || !q.trim()) throw "empty";
+    if (!q.trim()) throw "empty";
   } catch(error) {
     if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
