@@ -232,7 +232,7 @@ function videoresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".main-result").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"  data-number="1"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="images/youtube.png" class="favicon"><div>www.youtube.com</div></div></div></a></div>`;
     }
-    if (!res.items.length > 0) throw "empty";
+    if (!res.items.length > 0 || !q.trim()) throw "empty";
   } catch(error) {
     document.querySelector(".result-wrapper").classList.add("CBpUsa");
     document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}"</div></div>`;
@@ -295,6 +295,7 @@ function webresult(res) {
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a href="javascript:void(0)" class="more" onclick="xUahe(event)">${langtext("more")}</a></div>`;
     }
+    if (!res.items.length > 0 || !q.trim()) throw "empty";
   } catch(error) {
     if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
