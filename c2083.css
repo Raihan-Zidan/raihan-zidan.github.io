@@ -9,10 +9,6 @@ html, body {
   font-family: "Helvetica Neue", arial;
 }
 
-body {
-  
-}
-
 .site-wrapper {
   height: 100%;
   display: flex;
@@ -87,6 +83,10 @@ body {
 .UcSRqz {
   color: #494949;
   margin: 2px 0 10px;
+}
+
+.no-js > .footer {
+  display: none;
 }
 
 .footer {
