@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -123,6 +123,7 @@ if (windowWidth < 780) {
 }
 
 $("form")[0].action = "/search";
+$("form")[0].classList.remove("no-js");
 
 $("form")[0].addEventListener('submit', e => {
   if (!$(".search-input")[0].value.trim()) e.preventDefault();
