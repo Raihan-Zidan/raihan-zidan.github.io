@@ -376,6 +376,7 @@ html, body {
   color: black;
   display: flex;
   cursor: pointer;
+  user-select: none;
   justify-content: center;
   position: relative;
   background: white;
