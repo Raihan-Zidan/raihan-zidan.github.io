@@ -319,7 +319,7 @@ function xUahe(e) {
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<a href="javascript:void(0)" class="more" onclick="xUahe(event)">${langtext("more")}</a>`; },1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<a class="more" onclick="xUahe(event)">${langtext("more")}</a>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
