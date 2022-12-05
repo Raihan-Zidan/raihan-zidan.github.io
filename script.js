@@ -293,7 +293,7 @@ function webresult(res) {
     }
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a href="javascript:void(0)" class="more" onclick="xUahe(event)">${langtext("more")}</a></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a class="more" onclick="xUahe(event)">${langtext("more")}</a></div>`;
     }
     if (!q.trim()) throw "empty";
   } catch(error) {
