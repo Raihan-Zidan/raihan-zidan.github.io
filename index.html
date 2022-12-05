@@ -31,7 +31,7 @@
         <div class="logo-homepage"></div>
       </div>
       <div class="search-wrap-home">
-        <form method="get" action="/search">
+        <form method="get" action="//google.com/search">
           <div class="search-box">
             <div class="search-field">
               <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..." name="q">
@@ -123,6 +123,8 @@ if (windowWidth < 780) {
     });
   });
 }
+
+$("form")[0].action = "/search";
 
 $("form")[0].addEventListener('submit', e => {
   if (!$(".search-input")[0].value.trim()) e.preventDefault();
