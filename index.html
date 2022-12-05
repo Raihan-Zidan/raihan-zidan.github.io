@@ -124,6 +124,7 @@ if (windowWidth < 780) {
 
 $("form")[0].action = "/search";
 $("form")[0].classList.remove("no-js");
+$("form")[0].classList.add("js");
 
 $("form")[0].addEventListener('submit', e => {
   if (!$(".search-input")[0].value.trim()) e.preventDefault();
