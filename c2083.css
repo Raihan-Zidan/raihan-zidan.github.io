@@ -85,7 +85,8 @@ html, body {
   margin: 2px 0 10px;
 }
 
-.no-js > .footer {
+.no-js > .footer,
+.no-js > .footer .content {
   display: none;
 }
 
