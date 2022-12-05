@@ -43,18 +43,6 @@
     </div>
   </div>
 </div>
-<div class="footer">
-  <div class="content">
-    <div class="section">
-      <a href="/settings">Settings</a>
-      •
-      <a href="/privacy">Privacy</a>
-    </div>
-    <div class="section">
-      <div>Copyright © 2022 All rights reserved.</div>
-    </div>
-  </div>
-</div>
 
 <script>
 
@@ -125,6 +113,19 @@ if (windowWidth < 780) {
 $("form")[0].action = "/search";
 $("html")[0].classList.remove("no-js");
 $("html")[0].classList.add("js");
+
+$("body")[0].innerHTML += `<div class="footer">
+  <div class="content">
+    <div class="section">
+      <a href="/settings">Settings</a>
+      •
+      <a href="/privacy">Privacy</a>
+    </div>
+    <div class="section">
+      <div>Copyright © 2022 All rights reserved.</div>
+    </div>
+  </div>
+</div>`;
 
 $("form")[0].addEventListener('submit', e => {
   if (!$(".search-input")[0].value.trim()) e.preventDefault();
