@@ -97,6 +97,9 @@ const searchData = {
 
 if (windowWidth > 780) $(".search-input")[0].focus();
 
+var url = new URL(window.location.href);
+var tbm = url.searchParams.get("tbm");
+
 searchLang = (localStorage.getItem("option3") != "English" || localStorage.getItem("option3") != "English" && navigator.language == "id-ID") ? "id" : "";
 if (searchLang === "id") {
   inphl = document.createElement("input");
@@ -128,7 +131,19 @@ $("html")[0].classList.add("js");
 
 $("form")[0].addEventListener('submit', e => {
   if (!$(".search-input")[0].value.trim()) e.preventDefault();
+  if (tbm) { e.preventDefault(); submit(); }
 });
+
+function submit() {
+  var searchtbm = (tbm) ? `&tbm=${tbm}` : "";
+  post_data(`/search?q=${encodeURIComponent($(".search-input")[0].value).replace(/\%20/g,'+')}${searchtbm}`);
+}
+
+function post_data(url) {
+  var a = document.createElement("a");
+  a.href = url;
+  a.click();
+}
 
 </script>
 </body>
