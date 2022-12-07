@@ -223,12 +223,12 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
-  } else if (searchInput.value.toLowerCase().match("indonesia") && searchInput.value.split(" ").length - 2) {
+  } else if ((searchInput.value.toLowerCase().match("indonesia") || searchInput.value.toLowerCase().match("malaysia")) && searchInput.value.split(" ").length - 2) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">Indonesia</div><div class="snippet">Country in Southeast Asia</div></div>`;
   }
 }
 
-function videoresult(res) {
+Function videoresult(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".main-result").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"  data-number="1"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="images/youtube.png" class="favicon"><div>www.youtube.com</div></div></div></a></div>`;
