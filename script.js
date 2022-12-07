@@ -223,7 +223,7 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
-  } else if (searchInput.value.toLowerCase().match("indonesia"|"malaysia") && searchInput.value.split(" ").length - 2) {
+  } else if (searchInput.value.toLowerCase().match(/indonesia|malaysia/i) && searchInput.value.split(" ").length - 2) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">Indonesia</div><div class="snippet">Country in Southeast Asia</div></div>`;
   }
 }
