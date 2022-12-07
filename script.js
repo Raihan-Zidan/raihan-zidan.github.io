@@ -6,7 +6,7 @@ var hl = url.searchParams.get("hl");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
-var rested = false;
+var rested = true;
 option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
