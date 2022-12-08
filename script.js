@@ -263,9 +263,7 @@ function webresult(res) {
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
-    if (res.items && pageone) {
-      instantanswer();
-    }
+    if (res.items && pageone) instantanswer();
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
@@ -274,7 +272,6 @@ function webresult(res) {
       displayUrl = (option2 == "1") ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet}</div></div>`;
     }
-
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
@@ -288,12 +285,12 @@ function webresult(res) {
     }
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
+    } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
+      document.querySelector(".show-wrapper").remove();
     }
   } catch(error) {
-    if (pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
-    }
+    if (pageone) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
   }
 }
 
@@ -306,12 +303,12 @@ function share() {
   }
 }
 
-function moreresult() {
+function XuadHc() {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">${langtext("more")}</button>`; },1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="XuadHc();">${langtext("more")}</button>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
