@@ -155,30 +155,6 @@ function post_data(url) {
   a.click();
 }
 
-playstore = [
-  {
-    "appname": "Google Translate",
-    "thumbnail": "https://play-lh.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA=w480-h960-rw",
-    "rating": "Rating 4.4 (8.6M)",
-    "package": "com.google.android.apps.translate",
-    "description": "Text translation: Translate between 108 languages by typing • Tap to Translate: Copy text in any app and tap the Google Translate icon to translate (all ...",
-  },
-  {
-    "appname": "Minecraft",
-    "thumbnail": "https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w480-h960-rw",
-    "rating": "Rating 4.6 (4.8M)",
-    "package": "com.mojang.minecraftpe",
-    "description": "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited ...",
-  },
-  {
-    "appname": "Google Maps",
-    "thumbnail": "https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w480-h960-rw",
-    "rating": "Rating 4.3 (16M)",
-    "package": "com.google.android.apps.maps",
-    "description": "Navigate your world faster and easier with Google Maps. Over 220 countries and territories mapped and hundreds of millions of businesses and places on the ...",
-  }
-];
-
 apikey = [
   "AIzaSyCJ3RgcZOxOm_V1hq-UXCJwPsWquHggQrg",
   "AIzaSyDuBTV5q0NAgfSY-2X9h5-ggbrX-a3EJBU",
@@ -246,8 +222,6 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
-  } else if (q.toLowerCase().match("Minecraft")) {
-    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href=""><div class="top"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64"><div class="link">Google Play</div></div><div class="information"><img src="${playstore[1].thumbnail}"><div class="label"><div class="title notranslate">${playstore[1].appname}</div><div class="snippet">${playstore[1].rating}</div></div></div></a></div><div class="snippet">${playstore[1].description}</div><div class="install-wrapper"><a href="https://play.google.com/store/apps/details?id=${playstore[1].package}" class="install">Install</a></div></div>`;
   }
 }
 
