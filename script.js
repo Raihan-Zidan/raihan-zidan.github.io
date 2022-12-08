@@ -11,29 +11,23 @@ option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
 
-String.prototype.ltrim = function(str) {
-  if(!this) return this;
-  return this.replace(/^\s+/g, '');
-}
-
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
-if (q.trim() && !url.pathname.match(".html") && !rested) {
+if (q && !url.pathname.match(".html") && !rested) {
   document.body.innerHTML = `<div class="site-wrapper"><div class="header"><div class="search-box"><div class="search-field"><input value="" class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..."><div role="button" class="search-toggle"></div><div role="button" class="cleartext"></div></div></div><div class="search-menu"><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}${searchlang}" class="tab-wrapper" tab-id="all"><div class="label"><svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 1C2.68629 1 0 3.68629 0 7C0 10.3137 2.68629 13 6 13C7.64669 13 9.13845 12.3366 10.2226 11.2626L14.7873 14.8403C15.1133 15.0959 15.5848 15.0387 15.8403 14.7127C16.0958 14.3867 16.0387 13.9153 15.7126 13.6597L11.1487 10.0826C11.6892 9.18164 12 8.12711 12 7C12 3.68629 9.31371 1 6 1ZM1.5 7C1.5 4.51472 3.51472 2.5 6 2.5C8.48528 2.5 10.5 4.51472 10.5 7C10.5 9.48528 8.48528 11.5 6 11.5C3.51472 11.5 1.5 9.48528 1.5 7Z"></path></svg><span>All</span></div></a></div><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=isch${searchlang}" class="tab-wrapper" tab-id="images"><div class="label">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 1C1.45507 1 0 2.45507 0 4.25V11.75C0 13.5449 1.45507 15 3.25 15H12.75C14.5449 15 16 13.5449 16 11.75V10.2593C16.0001 10.2531 16.0001 10.2469 16 10.2407V4.25C16 2.45507 14.5449 1 12.75 1H3.25ZM14.5 8.43928V4.25C14.5 3.2835 13.7165 2.5 12.75 2.5H3.25C2.2835 2.5 1.5 3.2835 1.5 4.25V11.75C1.5 11.9563 1.5357 12.1543 1.60126 12.3381L5.96967 7.96967C6.26256 7.67678 6.73744 7.67678 7.03033 7.96967L8.00003 8.93937L10.9697 5.96967C11.2626 5.67678 11.7375 5.67678 12.0304 5.96967L14.5 8.43928ZM9.06069 10L10.0303 10.9697C10.3232 11.2626 10.3232 11.7374 10.0303 12.0303C9.73744 12.3232 9.26256 12.3232 8.96967 12.0303L6.5 9.56066L2.66192 13.3987C2.84572 13.4643 3.04369 13.5 3.25 13.5H12.75C13.7165 13.5 14.5 12.7165 14.5 11.75V10.5606L11.5001 7.56066L9.06069 10Z"></path></svg><span>Images</span></div></a></div><div class="search-item"><a href="/search?q=${encodeURIComponent(q).replace(/\%20/g,'+')}&tbm=vid${searchlang}" class="tab-wrapper" tab-id="videos"><div class="label">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4887 5.55027C15.3801 6.63605 15.3801 9.36446 13.4887 10.4502L6.23148 14.6164C4.34816 15.6976 2 14.338 2 12.1664L2 3.83407C2 1.66248 4.34816 0.302917 6.23148 1.38408L13.4887 5.55027ZM12.7419 9.14937C13.629 8.64011 13.629 7.36041 12.7419 6.85115L5.48468 2.68496C4.60135 2.17787 3.5 2.81554 3.5 3.83407L3.5 12.1664C3.5 13.185 4.60135 13.8226 5.48468 13.3156L12.7419 9.14937Z"></path></svg>
 <span>Videos</span></div></a></div><div class="search-item"><a href="/maps" class="tab-wrapper" tab-id="maps"><div class="label">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="#6e7780" xmlns="http://www.w3.org/2000/svg"><path d="M8 8C9.10457 8 10 7.10457 10 6C10 4.89543 9.10457 4 8 4C6.89543 4 6 4.89543 6 6C6 7.10457 6.89543 8 8 8Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C6.81332 0 5.65328 0.351894 4.66658 1.01118C3.67989 1.67047 2.91085 2.60754 2.45673 3.7039C2.0026 4.80026 1.88378 6.00666 2.11529 7.17054C2.35179 8.35952 2.99591 9.39906 3.73051 10.2144C5.0603 11.6902 5.95884 13.0319 6.52237 13.9981C6.80408 14.4812 7.00183 14.87 7.1277 15.1343C7.19062 15.2665 7.23554 15.3675 7.26398 15.4334C7.27819 15.4664 7.28829 15.4907 7.29444 15.5057L7.30075 15.5212L7.30129 15.5226L7.30168 15.5236C7.41829 15.8212 7.71074 16.0123 8.03018 15.9994C8.34937 15.9865 8.62531 15.7729 8.71783 15.4673L8.71818 15.4662L8.72264 15.4522C8.72711 15.4384 8.73473 15.4154 8.74578 15.3837C8.76791 15.3202 8.80379 15.2219 8.85585 15.0927C8.95997 14.8342 9.12867 14.452 9.38109 13.9769C9.88586 13.0267 10.7253 11.7051 12.0529 10.2568C12.7338 9.51391 13.6375 8.41354 13.8847 7.17054C14.1162 6.00666 13.9974 4.80026 13.5433 3.7039C13.0892 2.60754 12.3201 1.67047 11.3334 1.01118C10.3467 0.351894 9.18669 0 8 0ZM8.05642 13.2731C8.01989 13.3419 7.98488 13.409 7.95134 13.4745C7.90893 13.3994 7.86453 13.322 7.81811 13.2425C7.20975 12.1993 6.25213 10.7721 4.84488 9.21027C4.23085 8.5288 3.75511 7.72573 3.58647 6.87791C3.41284 6.00499 3.50195 5.10019 3.84254 4.27792C4.18314 3.45566 4.75992 2.75285 5.49994 2.25839C6.23996 1.76392 7.10999 1.5 8 1.5C8.89002 1.5 9.76005 1.76392 10.5001 2.25839C11.2401 2.75285 11.8169 3.45566 12.1575 4.27793C12.4981 5.10019 12.5872 6.00499 12.4135 6.87791C12.2556 7.67171 11.6276 8.50093 10.9471 9.24321C9.52471 10.7949 8.61414 12.2233 8.05642 13.2731Z"></path></svg>
 <span>Maps</span></div></a></div></div></div><div class="result-wrapper"><div class="main-result"></div></div></div>`;
-  var query = (q.trim()) ? q.ltrim() : q;
-  document.querySelector(".search-input").setAttribute("value", query);
+  document.querySelector(".search-input").setAttribute("value", q);
 } else if (rested) {
   document.querySelectorAll("link").forEach(elm => { elm.remove() });
   document.querySelectorAll("meta")[1].remove();
   document.querySelector("meta[name='description']").remove();
   document.querySelector("meta[name='referrer']").remove();
   document.querySelectorAll("script")[0].remove();
-  document.title = "Error 502";
+  document.title = "Error 402";
   document.head.innerHTML += `<style>*{margin:0;padding:0}html{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#error{display:inline-block;color:black;user-select:none;font-size:40px;font-weight:bold;text-decoration:none;}</style>`;
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>502.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
 } else {
@@ -219,15 +213,20 @@ var clock = function() {
 }
 
 function instantanswer() {
-
+  c = ["clock","jam"];
+  if (searchInput.value.toLowerCase().match(c[0]) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match(c[1]) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
+  } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
+  }
 }
 
-Function videoresult(res) {
+function videoresult(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".main-result").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"  data-number="1"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="images/youtube.png" class="favicon"><div>www.youtube.com</div></div></div></a></div>`;
     }
-    if (!res.items.length > 0 || !q.trim()) throw "empty";
+    if (!res.items.length > 0) throw "empty";
   } catch(error) {
     document.querySelector(".result-wrapper").classList.add("CBpUsa");
     document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}"</div></div>`;
@@ -235,7 +234,7 @@ Function videoresult(res) {
 }
 
 function nwsresult(res) {
-  if (res.items.length > 5) {
+  if (res.items.length > 3) {
     setTimeout(() => {
     var tabres = document.querySelectorAll(".tab-result");
     var nwsres = document.createElement("div");
@@ -243,12 +242,9 @@ function nwsresult(res) {
     nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
     insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
     for (var i = 0; i < res.items.length; i++) {
-      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "error";
+      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "https://play-lh.googleusercontent.com/CT1M2pKlUhGx4w5UHqarn6oSU_sa7L7XRW2-hQrfNi9oou6W81PbJnWi-9PbEfC_3g";
       document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img class="thumbnail" src="${thumbnailimg}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${res.items[i].displayLink}</div></div></a></div>`;
     }
-    document.querySelectorAll(".thumbnail[src='error']").forEach(elm => {
-      elm.parentNode.parentNode.remove();
-    });
     },1000);
   }
 }
@@ -288,9 +284,8 @@ function webresult(res) {
     }
     document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").innerHTML.replace(/\<\/?b.*?\/?\>/g, "");
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><a class="more" onclick="xUahe(event)">${langtext("more")}</a></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="moreresult();">${langtext("more")}</button></div>`;
     }
-    if (!q.trim()) throw "empty";
   } catch(error) {
     if (pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
@@ -307,14 +302,12 @@ function share() {
   }
 }
 
-function xUahe(e) {
-  e = e || window.event;
-  e.preventDefault();
+function moreresult() {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
     setTimeout(()=> { submit(); }, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<a class="more" onclick="xUahe(event)">${langtext("more")}</a>`; },1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="moreresult();">${langtext("more")}</button>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
