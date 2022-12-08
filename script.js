@@ -14,6 +14,11 @@ option4 = localStorage.getItem("option4");
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
 
+String.prototype.ltrim = function() {
+  if (!this) return this;
+  return this.replace(/^\s+/g, '');
+}
+
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested) {
@@ -57,11 +62,6 @@ if (tbm === "vid") {
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
-}
-
-String.prototype.ltrim = function() {
-  if (!this) return this;
-  return this.replace(/^\s+/g, '');
 }
 
 var language = {
