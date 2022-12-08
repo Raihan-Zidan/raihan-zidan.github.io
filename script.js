@@ -12,8 +12,10 @@ option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
 
 String.prototype.ltrim = function() {
-  if(!this) return this;
-  return this.replace(/^\s+/g, '');
+  if (!this) return this;
+  if (this != %20) {
+    return this.replace(/^\s+/g, '');
+  }
 }
 
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
