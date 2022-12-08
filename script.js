@@ -249,7 +249,7 @@ function instantanswer() {
   }
   
   for (var i = 0; i < playstore.length; i++) {
-    if (searchInput.value.match(`${playstore[i].appname}`)) {
+    if (searchInput.value.toLowerCase().match(`${playstore[i].appname}`)) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"><a href=""><div class="top"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64"><div class="link">Google Play</div></div><div class="information"><img src="${playstore[i].thumbnail}"><div class="label"><div class="title notranslate">${playstore[i].appname}</div><div class="snippet">${playstore[i].rating}</div></div></div></a></div><div class="snippet">${playstore[i].description}</div><div class="install-wrapper"><a href="https://play.google.com/store/apps/details?id=${playstore[i].package}" class="install">Install</a></div></div>`;
     }
   }
