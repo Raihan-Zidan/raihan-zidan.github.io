@@ -748,7 +748,7 @@ html, body {
 
 .install-wrapper {
   width: 100%;
-  padding: 5px;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: right;
@@ -756,9 +756,10 @@ html, body {
 
 .install {
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 3px;
   color: #1558d6;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-size: 15px;
   cursor: pointer;
   background: transparent;
 }
@@ -773,7 +774,7 @@ html, body {
 }
 
 .information .label {
-  margin: 0 5px;
+  margin: 0 10px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
