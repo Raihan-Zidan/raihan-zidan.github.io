@@ -59,6 +59,8 @@ if (tbm === "vid") {
 } else if (tbm === "isch") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
   window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
+} else if (tbm === "nws") {
+  empty();
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
@@ -125,6 +127,10 @@ if (windowWidth < 780) {
   document.querySelectorAll(".label svg").forEach(elm => {
     elm.remove();
   });
+}
+
+function empty() {
+  return false;
 }
 
 window.addEventListener('load', ()=> {
@@ -198,7 +204,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || tbm === "nws" && startIndex == 1) {
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
       fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
