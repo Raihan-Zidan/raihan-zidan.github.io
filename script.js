@@ -60,7 +60,6 @@ if (tbm === "vid") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
   window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
 } else if (tbm === "nws") {
-  if (idlang) window.location.href = `https://google.co.id/search?q=${q}&tbm=nws`;
   window.location.href = `https://google.com/search?q=${q}&tbm=nws`;
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
