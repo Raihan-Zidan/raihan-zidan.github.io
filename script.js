@@ -60,7 +60,7 @@ if (tbm === "vid") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
   window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
 } else if (tbm === "nws") {
-  empty();
+
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
@@ -129,10 +129,6 @@ if (windowWidth < 780) {
   });
 }
 
-function empty() {
-  return false;
-}
-
 window.addEventListener('load', ()=> {
   if (searchInput.value != '' && !rested) submit();
 });
@@ -199,7 +195,9 @@ function submit() {
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
-  } else if (tbm != "vid" && tbm != "isch") {
+  } else if (tbm == "nws") {
+    
+  } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}`)
       .then(response => response.json()).then(response => {
         webresult(response);
