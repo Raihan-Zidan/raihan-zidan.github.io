@@ -239,6 +239,9 @@ var quotes = [
   "Life is not everything, because eternal life is life in the hereafter",
   "There is no need to look at race and culture, because we are one great unit",
   "Always remember that you are absolutely unique. Just like everyone else. <em>-Margaret Mead</em>",
+  "Whoever is happy will make others happy too. <em>-Anne Frank</em>",
+  "It is during our darkest moments that we must focus to see the light. <em>-Aristotle</em>",
+  "You will face many defeats in life, but never let yourself be defeated. <em>-Maya Angelou</em>",
 ];
 
 function instantanswer() {
