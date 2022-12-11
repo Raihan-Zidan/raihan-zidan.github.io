@@ -244,14 +244,20 @@ var quotes = [
   "You will face many defeats in life, but never let yourself be defeated. <em>-Maya Angelou</em>",
 ];
 
+var quotesText = quotes[Math.floor(Math.random() * quotes.length)] + "<br>Click here to load other quotes.";
+
 function instantanswer() {
   if (searchInput.value.toLowerCase().match("clock") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match("jam") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "!quotes") {
-    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">${quotes[Math.floor(Math.random() * quotes.length)]}</div></div>`;
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet" onclick="MxUCJk(this)">${quotesText}</div></div>`;
   }
+}
+
+function MxUCJk(elm) {
+  elm.innerHTML = quotesText;
 }
 
 function videoresult(res) {
