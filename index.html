@@ -145,6 +145,24 @@ function post_data(url) {
   a.click();
 }
 
+var dirurl = url.searchParams.get("url");
+
+function redirect(string) {
+  if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(string)) {
+    location.replace(link);
+  } else if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(string)) {
+    location.replace("https://" + link);
+  } else {
+    location.replace("https://" + link);
+  }
+}
+
+if (dirurl) {
+  redirect(dirurl)
+} else {
+  location.replace("/");
+}
+
 </script>
 </body>
 </html>
