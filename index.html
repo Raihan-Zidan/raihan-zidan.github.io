@@ -150,7 +150,7 @@ var dirurl = url.searchParams.get("url");
 function redirect(string) {
   if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(string)) {
     location.replace(dirurl);
-  } else {
+  } else if (dirurl.indexOf(".") > -1) {
     location.replace("https://" + dirurl);
   }
 }
