@@ -53,7 +53,7 @@ searchToggle = document.querySelector(".search-toggle");
 window.addEventListener('load', ()=> {
   var tbmd = (!tbm) ? "default" : tbm;
   searchapi = document.createElement("script");
-  searchapi.src = `/search.js?q=${q}&type=${tbmd}&oq=${q}`;
+  searchapi.src = `/search.js?q=${q}&type=${tbmd}&oq=${q}&ql=${q.split(" ").length}`;
   document.body.appendChild(searchapi);
 });
 
