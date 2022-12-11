@@ -230,11 +230,22 @@ var clock = function() {
   return h + "." + m;
 }
 
+var quotes = [
+  "Don't look for other people's faults, because it could be that person is much better than you.",
+  "Great people are people who can rise from adversity.",
+  "If you feel sad try to understand what you're thinking.",
+  "Great people are people who are brave with new things.",
+  "Learn in youth, and enjoy the results in old age.",
+  "You don't need to be great to share knowledge, because many great people are stingy to share.",
+];
+
 function instantanswer() {
   if (searchInput.value.toLowerCase().match("clock") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match("jam") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
+  } else if (searchInput.value.toLowerCase() == "!quotes") {
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="snippet">${quotes[Math.floor(Math.random() * quotes.length)]}</div></div>`;
   }
 }
 
