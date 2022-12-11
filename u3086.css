@@ -234,6 +234,11 @@ html, body {
   text-overflow: ellipsis;
 }
 
+.bodytext {
+  color: #494949;
+  font-size: 15px;
+}
+
 .corrected-word .spelling {
   color: #1558d6;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
