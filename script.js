@@ -238,6 +238,7 @@ var quotes = [
   "Life is like a mirror, what you do is what you reap",
   "Life is not everything, because eternal life is life in the hereafter",
   "There is no need to look at race and culture, because we are one great unit",
+  "Always remember that you are absolutely unique. Just like everyone else. <em>-Margaret Mead</em>",
 ];
 
 function instantanswer() {
