@@ -250,7 +250,7 @@ function instantanswer() {
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "!quotes") {
-    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">Quotes</div>&nbsp<div>Beta</div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div></div>`;
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="wrap"><div class="big-title">Quotes</div>&nbsp<div>Beta</div></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div></div>`;
   }
 }
 
