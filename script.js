@@ -242,6 +242,10 @@ var quotes = [
   "Whoever is happy will make others happy too. <em>-Anne Frank</em>",
   "It is during our darkest moments that we must focus to see the light. <em>-Aristotle</em>",
   "You will face many defeats in life, but never let yourself be defeated. <em>-Maya Angelou</em>",
+  "Life is what happens when you're busy making other plans. <em>-John Lennon</em>",
+  "The future belongs to those who believe in the beauty of their dreams. <em>-Eleanor Roosevelt</em>",
+  "Life is either a daring adventure or nothing at all. <em>-Helen Keller</em>",
+  "Love the life you live. Live the life you love. <em>-Bob Marley</em>",
 ];
 
 function instantanswer() {
