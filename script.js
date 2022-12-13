@@ -259,9 +259,7 @@ function refreshQuotes() {
   quotesBtn = document.querySelector(".quotes-tab .refresh");
   if (quotesText) quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
   quotesBtn.style.animation = "rotate 0.5s ease";
-  setTimeout(()=> {
-    quotesBtn.style.animation = "";
-  },500);
+  quotesBtn.style.animation = "";
 }
 
 function videoresult(res) {
