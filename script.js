@@ -193,6 +193,34 @@ apikey = [
   "AIzaSyDgDhEyznphPnYHWQzIqiVJfkgwrxo2-2A"
 ];
 
+quotes = [
+  "Genius is one percent inspiration and ninety-nine percent perspiration. <em>-Thomas Edison</em>",
+  "You can observe a lot just by watching. <em>-Yogi Berra</em>",
+  "A house divided against itself cannot stand. <em>-Abraham Lincoln</em>",
+  "Difficulties increase the nearer we get to the goal. <em>-Johann Wolfgang von Goethe</em>",
+  "Be the chief but never the lord. <em>-Lao Tzu</em>",
+  "Nothing happens unless first we dream. <em>-Carl Sandburg</em>",
+  "Well begun is half done. <em>-Aristotle</em>",
+  "Life is a learning experience, only if you learn. <em>-Yogi Berra</em>",
+  "Self-complacency is fatal to progress. <em>-Margaret Sangster</em>",
+  "Peace comes from within. Do not seek it without. <em>-Buddha</em>",
+  "What you give is what you get. <em>-Byron Pulsifer</em>",
+  "We can only learn to love by loving. <em>-Iris Murdoch</em>",
+  "Life is change. Growth is optional. Choose wisely. <em>-Karen Clark</em>",
+  "You'll see it when you believe it. <em>-Wayne Dyer</em>",
+  "To lead people walk behind them. <em>-Lao Tzu</em>",
+  "Having nothing, nothing can he lose. <em>-William Shakespeare</em>",
+  "Trouble is only opportunity in work clothes. <em>-Henry J. Kaiser</em>",
+  "A rolling stone gathers no moss. <em>-Publilius Syrus</em>",
+  "Ideas are the beginning points of all fortunes. <em>-Napoleon Hill</em>",
+  "Everything in life is luck. <em>-Donald Trump</em>",
+  "Doing nothing is better than being busy doing nothing. <em>-Lao Tzu</em>",
+  "Trust yourself. You know more than you think you do. <em>-Benjamin Spock</em>",
+  "Study the past, if you would divine the future. <em>-Confucius</em>",
+  "From error to error one discovers the entire truth. <em>-Sigmund Freud</em>",
+  "Well done is better than well said. <em>-Benjamin Franklin</em>",
+];
+
 searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
@@ -236,9 +264,6 @@ function instantanswer() {
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "!quotes") {
-    var qtscip = document.createElement("script");
-    qtscip.src = "/quotes.js";
-    document.body.appendChild(qtscip);
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
   }
 }
@@ -246,9 +271,6 @@ function instantanswer() {
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
-  var qtscip = document.createElement("script");
-  qtscip.src = "/quotes.js";
-  document.body.appendChild(qtscip);
   if (quotesText) {
     quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
   }
