@@ -255,7 +255,8 @@ function instantanswer() {
 }
 
 function refreshQuotes() {
-  document.querySelector(".quotes-tab .bodytext").innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+  quotesText = document.querySelector(".quotes-tab .bodytext");
+  if (quotesText) quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 function videoresult(res) {
