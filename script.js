@@ -231,10 +231,10 @@ var clock = function() {
 }
 
 var quotes = [
-  "Don't look for other people's faults, because it could be that person is much better than you.",
-  "Great people are people who can rise from adversity.",
-  "Learn in youth, and enjoy the results in old age.",
-  "You don't need to be great to share knowledge, because many great people are stingy to share.",
+  "Don't look for other people's faults, because it could be that person is much better than you",
+  "Great people are people who can rise from adversity",
+  "Learn in youth, and enjoy the results in old age",
+  "You don't need to be great to share knowledge, because many great people are stingy to share",
   "Life is like a mirror, what you do is what you reap",
   "Life is not everything, because eternal life is life in the hereafter",
   "There is no need to look at race and culture, because we are one great unit",
