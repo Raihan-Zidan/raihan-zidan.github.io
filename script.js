@@ -230,38 +230,28 @@ var clock = function() {
   return h + "." + m;
 }
 
-var quotes = [
-  "Don't look for other people's faults, because it could be that person is much better than you",
-  "Great people are people who can rise from adversity",
-  "Learn in youth, and enjoy the results in old age",
-  "You don't need to be great to share knowledge, because many great people are stingy to share",
-  "Life is like a mirror, what you do is what you reap",
-  "Life is not everything, because eternal life is life in the hereafter",
-  "There is no need to look at race and culture, because we are one great unit",
-  "Always remember that you are absolutely unique. Just like everyone else. <em>-Margaret Mead</em>",
-  "Whoever is happy will make others happy too. <em>-Anne Frank</em>",
-  "It is during our darkest moments that we must focus to see the light. <em>-Aristotle</em>",
-  "You will face many defeats in life, but never let yourself be defeated. <em>-Maya Angelou</em>",
-  "Life is what happens when you're busy making other plans. <em>-John Lennon</em>",
-  "The future belongs to those who believe in the beauty of their dreams. <em>-Eleanor Roosevelt</em>",
-  "Life is either a daring adventure or nothing at all. <em>-Helen Keller</em>",
-  "Love the life you live. Live the life you love. <em>-Bob Marley</em>",
-];
-
 function instantanswer() {
   if (searchInput.value.toLowerCase().match("clock") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match("jam") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match("tanggal") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "!quotes") {
+    var qtscip = document.createElement("script");
+    qtscip.src = "/quotes.js";
+    document.body.appendChild(qtscip);
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
+    document.querySelector("script[src='/quotes.js']").remove();
   }
 }
 
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
+  var qtscip = document.createElement("script");
+  qtscip.src = "/quotes.js";
+  document.body.appendChild(qtscip);
   if (quotesText) quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+    document.querySelector("script[src='/quotes.js']").remove();
   quotesBtn.style.animation = "rotate 0.5s ease";
   setTimeout(()=> {
     quotesBtn.style.animation = "";
