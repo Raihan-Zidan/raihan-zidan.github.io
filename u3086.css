@@ -23,6 +23,7 @@ html, body {
 
 .quotes-tab .refresh {
   position: absolute;
+  cursor: pointer;
   right: 13px;
   top: 13px;
   width: 20px;
