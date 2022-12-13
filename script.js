@@ -240,7 +240,6 @@ function instantanswer() {
     qtscip.src = "/quotes.js";
     document.body.appendChild(qtscip);
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
-    document.querySelector("script[src='/quotes.js']").remove();
   }
 }
 
@@ -250,8 +249,9 @@ function refreshQuotes() {
   var qtscip = document.createElement("script");
   qtscip.src = "/quotes.js";
   document.body.appendChild(qtscip);
-  if (quotesText) quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
-    document.querySelector("script[src='/quotes.js']").remove();
+  if (quotesText) {
+    quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+  }
   quotesBtn.style.animation = "rotate 0.5s ease";
   setTimeout(()=> {
     quotesBtn.style.animation = "";
