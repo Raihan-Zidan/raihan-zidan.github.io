@@ -337,11 +337,7 @@ html, body {
 .instant-answer .snippet {
   color: #494949;
   font-size: 15px;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .suggestion {
