@@ -51,13 +51,6 @@ searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
 searchToggle = document.querySelector(".search-toggle");
 
-window.addEventListener('load', ()=> {
-  var tbmd = (!tbm) ? "default" : tbm;
-  searchapi = document.createElement("script");
-  searchapi.src = `/search.js?q=${q}&type=${tbmd}&oq=${q}&ql=${q.split(" ").length}`;
-  document.body.appendChild(searchapi);
-});
-
 if (tbm === "vid") {
   defstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
   vidstyle = document.createElement("link");
