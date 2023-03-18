@@ -87,7 +87,7 @@ var language = {
     noresult: "Tidak ditemukan hasil",
     suggtext: "Saran pencarian:",
     noresultsug: "<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>",
-    tab: ["Kabeh","Gambar","Video","Peta"],
+    tab: ["Semua","Gambar","Video","Peta"],
   },
 };
 
@@ -102,9 +102,9 @@ function langtext(string) {
 if (idlang) {
   searchInput.placeholder = langtext("placeholder");
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
-  document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
-  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
-  document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = "Peta";
+  document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = language["id"]["tab"][1];
+  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = language["id"]["tab"][2];
+  document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = language["id"]["tab"][3];
 }
 
 HTMLInputElement.prototype.reset = function() {
