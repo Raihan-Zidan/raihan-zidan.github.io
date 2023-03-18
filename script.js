@@ -101,7 +101,7 @@ function langtext(string) {
 
 if (idlang) {
   searchInput.placeholder = langtext("placeholder");
-  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
+  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
   document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
   document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
   document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = "Peta";
