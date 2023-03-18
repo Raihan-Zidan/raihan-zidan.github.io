@@ -87,7 +87,7 @@ var language = {
     noresult: "Tidak ditemukan hasil",
     suggtext: "Saran pencarian:",
     noresultsug: "<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>",
-    tab: ["Semua","Gambar","Video","Peta"],
+    tab: ["Kabeh","Gambar","Video","Peta"],
   },
 };
 
