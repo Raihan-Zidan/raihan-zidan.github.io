@@ -72,6 +72,7 @@ var language = {
   en: {
     news: "News result",
     more: "Show more",
+    placeholder: "Type to search...",
     correct: "Did you mean:",
     noresult: "No matching results",
     suggtext: "Search suggestion:",
@@ -81,6 +82,7 @@ var language = {
   id: {
     news: "Hasil berita",
     more: "Lihat lainnya",
+    placeholder: "Ketik untuk  mencari...",
     correct: "Apakah yang kamu maksud:",
     noresult: "Tidak ditemukan hasil",
     suggtext: "Saran pencarian:",
@@ -98,7 +100,7 @@ function langtext(string) {
 }
 
 if (idlang) {
-  searchInput.placeholder = "Ketik untuk mencari...";
+  searchInput.placeholder = langtext("placeholder");
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = "Semua";
   document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = "Gambar";
   document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = "Video";
