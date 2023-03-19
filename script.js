@@ -281,7 +281,7 @@ function instant(e) {
       if (windowWidth > 780) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
-        document.querySelector(".result-wrappwr").style.paddingLeft = "30px";
+        document.querySelector(".result-wrapper").style.paddingLeft = "30px";
       } else {
         insertAfter(tabres[0], instanswer);
       }
