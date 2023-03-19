@@ -271,31 +271,7 @@ function instantanswer() {
   }
 }
 
-function instant(e) {
-  setTimeout(()=> {
-    var res = this.response;
-    if (res.Abstract.length > 100) {
-      var tabres = document.querySelectorAll(".tab-result");
-      var instanswer = document.createElement("div");
-      instanswer.classList.add("instant-answer");
-      if (windowWidth > 780) {
-        document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
-        document.querySelector(".sidebar-panel").appendChild(instanswer);
-      } else {
-        insertAfter(tabres[0], instanswer);
-      }
-      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
-      if (res.Image) {
-        document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
-      }
-      for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-        if (res.Infobox.content[i].value.trim()) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
-        }
-      }
-    }
-  },800);
-}
+
 
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
