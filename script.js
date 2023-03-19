@@ -281,7 +281,10 @@ function instant(e) {
       if (windowWidth > 780) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
-        document.querySelector(".result-wrapper").style.paddingLeft = "30px";
+        if (windowWidth < 1000) {
+          document.querySelector(".result-wrapper").style.paddingLeft = "10px";
+          document.querySelector(".search-box").style.paddingLeft = "10px";
+        }
       } else {
         insertAfter(tabres[0], instanswer);
       }
