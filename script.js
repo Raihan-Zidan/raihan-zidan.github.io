@@ -344,7 +344,10 @@ function webresult(res) {
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
-    if (res.items && pageone) instantanswer();
+    if (res.items && pageone) {
+      instantanswer();
+      wikianswer();
+    }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
