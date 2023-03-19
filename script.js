@@ -264,6 +264,36 @@ function instantanswer() {
   }
 }
 
+function wikianswer() {
+  var val = searchInput.value;
+  fetch(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&redirects&exintro=&explaintext=&titles=${val}&origin=*`)
+    .then(response => response.json()).then(response => {
+      wikibox(response);
+  })
+  fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${val}&prop=pageimages&redirects&format=json&pithumbsize=100&origin=*`)
+    .then(response => response.json()).then(response => {
+      anslogo(response);
+  })
+}
+
+function wikibox(res) {
+  try {
+    for (var text in res.query.pages) {
+      if (res.query.pages[text].extract.length > 50) {
+        document.querySelector(".main-result").innerHTML += `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.query.pages[text].title}</div><div class="about"><span class="snippet">${res.query.pages[text].extract.replaceAll('( (listen))', '')}</span><a href="https://wikipedia.org/wiki/${res.query.pages[text].title.replaceAll(' ', '_')}" class="wikipedia" title="Wikipedia">Wikipedia</a></div></div>`;
+      }
+    }
+  } catch(error) { }
+}
+
+function anslogo(res) {
+  setTimeout(()=> {
+    for (var text in res.query.pages) {
+      document.querySelector(".logo").src = res.query.pages[text].thumbnail.source;
+    }
+  },500);
+}
+
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
