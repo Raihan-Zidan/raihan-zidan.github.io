@@ -282,8 +282,9 @@ function instant(e) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
         if (windowWidth < 1000) {
-          document.querySelector(".result-wrapper").style.paddingLeft = "10px";
-          document.querySelector(".search-box").style.paddingLeft = "10px";
+          document.querySelector(".result-wrapper").style.paddingLeft = "20px";
+          document.querySelector(".search-menu").style.paddingLeft = "20px";
+          document.querySelector(".search-box").style.paddingLeft = "20px";
         }
       } else {
         insertAfter(tabres[0], instanswer);
