@@ -271,34 +271,30 @@ function instantanswer() {
   }
 }
 
-function wikianswer() {
-  var val = searchInput.value;
-  fetch(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&redirects&exintro=&explaintext=&titles=${val}&origin=*`)
-    .then(response => response.json()).then(response => {
-      wikibox(response);
-  })
-  fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${val}&prop=pageimages&redirects&format=json&pithumbsize=100&origin=*`)
-    .then(response => response.json()).then(response => {
-      anslogo(response);
-  })
-}
-
-function wikibox(res) {
-  try {
-    for (var text in res.query.pages) {
-      if (res.query.pages[text].extract.length > 50) {
-        document.querySelector(".main-result").innerHTML += `<div class="instant-answer"><img src="" align="right" class="logo"><div class="title">${res.query.pages[text].title}</div><div class="about"><span class="snippet">${res.query.pages[text].extract.replaceAll('( (listen))', '')}</span><a href="https://wikipedia.org/wiki/${res.query.pages[text].title.replaceAll(' ', '_')}" class="wikipedia" title="Wikipedia">Wikipedia</a></div></div>`;
+function instant(e) {
+  setTimeout(()=> {
+    var res = this.response;
+    if (res.Abstract.length > 100) {
+      var tabres = document.querySelectorAll(".tab-result");
+      var instanswer = document.createElement("div");
+      instanswer.classList.add("instant-answer");
+      if (windowWidth > 780) {
+        document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
+        document.querySelector(".sidebar-panel").appendChild(instanswer);
+      } else {
+        insertAfter(tabres[0], instanswer);
+      }
+      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract}</span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
+      if (res.Image) {
+        document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
+      }
+      for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
+        if (res.Infobox.content[i].value.trim()) {
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
+        }
       }
     }
-  } catch(error) { }
-}
-
-function anslogo(res) {
-  setTimeout(()=> {
-    for (var text in res.query.pages) {
-      document.querySelector(".logo").src = res.query.pages[text].thumbnail.source;
-    }
-  },500);
+  },800);
 }
 
 function refreshQuotes() {
