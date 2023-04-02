@@ -35,9 +35,6 @@ inputBox.onkeyup = (e)=> {
 function select(element) {
   let selectData = element.textContent;
   inputBox.value = selectData;
-  a = document.createElement("a");
-  a.href = `/search?q=${selectData}`;
-  a.click();
   webLink = `${weburl}/search?q=${selectData}`;
   linkTag.setAttribute("href", webLink);
   linkTag.click();
@@ -48,6 +45,15 @@ document.body.addEventListener('click', (e)=> {
     if (!elm.classList.contains("active") && !elm.classList.contains("autocom-box")) {
       searchWrapper.classList.remove("active");
     }
+});
+
+inputBox.addEventListener('keyup', (e)=> {
+  if (e.keyCode == 13) {
+    let selectData = inputBox.value;
+    webLink = `${weburl}/search?q=${selectData}`;
+    linkTag.setAttribute("href", webLink);
+    linkTag.click();
+  }
 });
 
 function showSuggestions(list) {
