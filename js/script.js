@@ -43,7 +43,12 @@ function select(element) {
   linkTag.click();
 }
 
-
+document.body.addEventListener('click', (e)=> {
+    elm = e.target;
+    if (!elm.classList.contains("active") && !elm.classList.contains("autocom-box")) {
+      searchWrapper.classList.remove("active");
+    }
+});
 
 function showSuggestions(list) {
   let listData;
