@@ -664,7 +664,7 @@ html, body {
 @media (min-width: 780px) {
   .instant-answer .infobox span {
     border-top: 1px solid #e3e3e3;
-    padding-top: 5px;
+    padding-top: 8px;
   }
   .instant-answer .infobox span:first-child {
     border-top: none;
