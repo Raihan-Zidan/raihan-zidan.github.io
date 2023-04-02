@@ -83,7 +83,7 @@ body {
   padding: 8px 12px;
   display: none;
   width: 100%;
-  cursor: default;
+  cursor: pointer;
   border-radius: 3px;
   position: relative;
 }
