@@ -115,7 +115,7 @@ body {
 }
 
 @media (min-width: 780px) {
-  .body {
+  body {
     padding: 300px 20px;
   }
   .wrapper .logo {
