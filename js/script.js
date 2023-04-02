@@ -44,7 +44,7 @@ function select(element) {
 inputBox.addEventListener('blur', ()=> {
   setTimeout(()=> {
     searchWrapper.classList.remove("active");
-  },50);
+  },100);
 });
 
 function showSuggestions(list) {
