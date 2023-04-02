@@ -110,8 +110,11 @@ body {
 }
 
 @media (min-width: 780px) {
-   .wrapper .logo {
-     min-height: 80px;
-     background-size: 280px;
+  .wrapper {
+    margin: 250px auto;
+  }
+  .wrapper .logo {
+    min-height: 80px;
+    background-size: 280px;
   }
 }
