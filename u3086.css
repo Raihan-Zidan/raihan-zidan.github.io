@@ -299,7 +299,7 @@ html, body {
 }
 
 .instant-answer .title {
-  font-size: 20px;
+  font-size: 25px;
   margin: 5px 0;
   text-decoration: none;
   font-weight: 400;
@@ -330,8 +330,14 @@ html, body {
   flex-direction: column;
 }
 
+.instant-answer span:first {
+  border-color: transparent;
+}
+
 .instant-answer span {
   margin: 3px 0;
+  border-top: 1px solid #e3e3e3;
+  padding-top: 5px;
 }
 
 .instant-answer .snippet {
