@@ -11,7 +11,7 @@ inputBox.onkeyup = (e)=> {
   let emptyArray = [];
   if (userData) {
     icon.onclick = ()=>{
-      webLink = `${weburl}/search?q=${userData}`;
+      webLink = `${weburl}/search?q=${inputBox.value}`;
       linkTag.setAttribute("href", webLink);
       linkTag.click();
     }
