@@ -38,7 +38,6 @@ function select(element) {
   webLink = `${weburl}/search?q=${selectData}`;
   linkTag.setAttribute("href", webLink);
   linkTag.click();
-  searchWrapper.classList.remove("active");
 }
 
 inputBox.addEventListener('blur', ()=> {
