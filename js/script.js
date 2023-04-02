@@ -35,6 +35,9 @@ inputBox.onkeyup = (e)=> {
 function select(element) {
   let selectData = element.textContent;
   inputBox.value = selectData;
+  a = document.createElement("a");
+  a.href = `/search?q=${selectData}`;
+  a.click();
   webLink = `${weburl}/search?q=${selectData}`;
   linkTag.setAttribute("href", webLink);
   linkTag.click();
