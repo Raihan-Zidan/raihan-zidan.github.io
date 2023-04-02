@@ -108,3 +108,10 @@ body {
   color: #644bff;
   cursor: pointer;
 }
+
+@media (min-width: 780px) {
+   .wrapper .logo {
+     min-height: 80px;
+     background-size: 280px;
+  }
+}
