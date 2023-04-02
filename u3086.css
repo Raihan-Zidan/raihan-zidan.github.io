@@ -330,15 +330,6 @@ html, body {
   flex-direction: column;
 }
 
-.instant-answer .infobox span {
-  border-top: 1px solid #e3e3e3;
-  padding-top: 5px;
-}
-
-.instant-answer .infobox span:first-child {
-  border-top: none;
-}
-
 .instant-answer span {
   margin: 3px 0;
 }
@@ -671,6 +662,13 @@ html, body {
 }
 
 @media (min-width: 780px) {
+  .instant-answer .infobox span {
+    border-top: 1px solid #e3e3e3;
+    padding-top: 5px;
+  }
+  .instant-answer .infobox span:first-child {
+    border-top: none;
+  }
   .result-wrapper {
     display: flex;
     background: #fff;
