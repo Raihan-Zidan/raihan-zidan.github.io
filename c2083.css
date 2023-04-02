@@ -1,190 +1,110 @@
-* {
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-html, body {
-  height: 100%;
+body {
   background: #f5f8fa;
-  font-family: "Helvetica Neue", arial;
+  padding: 0 20px;
 }
 
-.site-wrapper {
-  height: 100%;
-  display: flex;
-  justify-content: center;
+.wrapper {
+  max-width: 450px;
+  margin: 150px auto;
+  padding: 0 15px;
 }
 
-.content-wrap-home {
-  margin-top: 300px;
-}
-
-.content-home {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo-wrap-home {
-  padding: 30px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.logo-homepage {
-  width: 230px;
-  min-height: 58px;
+.wrapper .logo {
+  width: 100%;
+  min-height: 70px;
+  margin-bottom: 20px;
   background-image: url("https://raihan-zidan.github.io/images/logo.png");
-  background-size: cover;
+  background-size: 250px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.search-toggle {
-  border: none;
-  background: transparent;
-}
-
-.search-box {
-  position: relative;
-}
-
-.search-field {
+.wrapper .search-input {
   width: 100%;
-  display: flex;
-  align-items: center;
+  position: relative;
 }
 
 .search-toggle {
   position: absolute;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   right: 0;
   cursor: pointer;
-  background-image: url("images/search.png");
-  background-size: 18px;
+  background-image: url("search.png");
+  background-size: 20px;
   background-repeat: no-repeat;
   background-position: center
 }
 
-.search-input {
+.search-input input {
+  height: 48px;
   width: 100%;
   outline: none;
-  border: none;
+  border: 1px solid #e3e3e3;
   border-radius: 22px;
-  font-size: 16px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08),0 0 1px 0 rgba(0,0,0,.1);
   padding: 13px 45px 13px 20px;
-  background: white;
-}
-
-.UcSRqz {
-  color: #494949;
-  margin: 2px 0 10px;
-}
-
-.js .footer {
-  display: block;
-}
-
-.no-js .footer {
-  display: none;
-}
-
-.footer {
-  width: 100%;
-  position: fixed;
-  left: 0; bottom: 0;
-  background: #f2f2f2;
-  border-top: 1px solid #ccc;
-}
-
-.footer .content {
-  width: 100%;
   font-size: 15px;
-  padding: 5px 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+.search-input.active input {
+  border-radius: 22px 22px 0 0;
+}
+
+.search-input .autocom-box {
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 215px;
+  overflow-y: hidden;
+  border: 1px solid #e3e3e3;
+  border-top: hidden;
+  border-radius: 0 0 22px 22px;
+}
+
+.search-input.active .autocom-box {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+  background: #fff;
+  font-size: 15px;
+}
+
+.autocom-box li {
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
   position: relative;
 }
 
-.footer .section {
-  display: flex;
-  margin: 4px;
+.search-input.active .autocom-box li {
+  display: block;
+}
+
+.autocom-box li:hover {
+  background: #efefef;
+}
+
+.search-input .icon {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 48px;
+  width: 48px;
   text-align: center;
-}
-
-.footer a {
-  margin: 0 5px;
-  color: black;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 780px) {
-  .footer .content {
-    align-items: center;
-  }
-}
-
-@media (min-width: 780px) {
-  .footer .content {
-    padding: 20px 0;
-  }
-  .footer .section:first-child {
-    position: absolute;
-    left: 10px; right: none;
-  }
-  .footer .section:last-child {
-    position: absolute;
-    left: none; right: 10px;
-  }
-}
-
-noscript {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0; top: 0;
-  background: white;
-  font-family: "Times new roman";
-}
-
-@media (orientation:landscape) and (max-height: 450px) {
-  .content-wrap-home {
-    margin-top: 20px;
-  }
-}
-
-@media (min-height: 1800px) {
-  .content-wrap-home {
-    margin-top: 50%;
-  }
-}
-
-@media (max-height: 700px) {
-  .content-wrap-home {
-    margin-top: 190px;
-  }
-}
-
-@media (min-width: 780px) {
-  .logo-wrap-home {
-    padding: 40px 0;
-  }
-  .logo-homepage {
-    transform: scale(1.2);
-  }
-  .search-field {
-    width: 400px;
-  }
-  .search-input {
-    border-radius: 22px;;
-  }
+  line-height: 55px;
+  font-size: 20px;
+  color: #644bff;
+  cursor: pointer;
 }

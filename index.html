@@ -1,164 +1,24 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="inersoft, search engine, search, privacy, privacy search">
-  <meta name="description" content="Look for all information in the world, and get the most relevant results">
+  <meta charset="utf-8">
   <title>Inersoft - Search</title>
-  <meta name="referrer" content="origin">
-  <link rel="icon" type="image/png" href="images/search.png">
-  <link rel="stylesheet" href="/c2083.css">
-  <script defer src="/doodle.js"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYHVG0KF4J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YYHVG0KF4J');
-  </script>
+  <link rel="stylesheet" href="c2083.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-<body>
-
-<div class="site-wrapper">
-  <div class="content-wrap-home">
-    <div id="content-homepage" class="content-home">
-      <div class="logo-wrap-home">
-        <div class="logo-homepage"></div>
-      </div>
-      <div class="search-wrap-home">
-        <form method="get" action="//google.com/search">
-          <div class="search-box">
-            <div class="search-field">
-              <input class="search-input" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Type to search..." name="q">
-              <button type="submit" class="search-toggle"></button>
-            </div>
-          </div>
-        </form>
+  <body>
+    <div class="wrapper">
+      <div class="logo"></div>
+      <div class="search-input">
+        <a href="" hidden></a>
+        <input type="text" placeholder="Type to search..">
+        <div class="autocom-box">
+        </div>
+        <div class="icon"><div class="search-toggle"></div></div>
+        
       </div>
     </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="content">
-    <div class="section">
-      <a href="/settings">Settings</a>
-      •
-      <a href="/privacy">Privacy</a>
-    </div>
-    <div class="section">
-      <div>Copyright © 2022 All rights reserved.</div>
-    </div>
-  </div>
-</div>
+    <script src="js/script.js"></script>
+    <script src="js/suggestions.js"></script>
 
-<script>
-
-clientBrowser = (function () {
-  var userAgent = navigator.userAgent || [];
-  var m = userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-  if (userAgent.match(/edg/i)){
-    return "edge";
-  } else if (userAgent.match(/chrome|chromium|crios/i)) {
-    return "chrome";
-  } else if (userAgent.match(/firefox|fxios/i)){
-    return "firefox";
-  } else if (userAgent.match(/safari/i)){
-    return "safari";
-  } else if (userAgent.match(/opr\//i)){
-    return "opera";
-  }
-})();
-
-windowWidth = (function () {
-  return (window.innerWidth > 0) ? window.innerWidth : screen.width;
-})();
-
-{function seterr(str) {
-  return str;
-}};
-
-const $ = elm => {
-  return document.querySelectorAll(elm);
-};
-
-const searchData = {
-  searchPage: "search",
-  searchQuery: "q",
-  searchTab: "tbm"
-};
-
-</script>
-<script>
-
-if (windowWidth > 780) $(".search-input")[0].focus();
-
-var url = new URL(window.location.href);
-var tbm = url.searchParams.get("tbm");
-
-searchLang = (localStorage.getItem("option3") != "English" || localStorage.getItem("option3") != "English" && navigator.language == "id-ID") ? "id" : "";
-if (searchLang === "id") {
-  inphl = document.createElement("input");
-  inphl.type = "hidden";
-  inphl.name = "hl";
-  inphl.value = searchLang;
-  $("form")[0].appendChild(inphl);
-  $("html")[0].lang = searchLang;
-  $(".search-input")[0].placeholder = "Ketik untuk mencari...";
-}
-
-if (windowWidth < 780) {
-  $(".search-input")[0].addEventListener('focus', ()=> {
-    window.addEventListener("resize", (e) => {
-      $(".footer")[0].style.display = "none";
-    });
-  });
-
-  $(".search-input")[0].addEventListener('blur', ()=> {
-    window.addEventListener("resize", (e) => {
-      $(".footer")[0].style.display = "block";
-    });
-  });
-}
-
-$("form")[0].action = "/search";
-$("html")[0].classList.remove("no-js");
-$("html")[0].classList.add("js");
-
-$("form")[0].addEventListener('submit', e => {
-  if (!$(".search-input")[0].value.trim()) e.preventDefault();
-  if (tbm) { e.preventDefault(); submit(); }
-});
-
-function submit() {
-  var searchtbm = (tbm) ? `&tbm=${tbm}` : "";
-  post_data(`/search?q=${encodeURIComponent($(".search-input")[0].value).replace(/\%20/g,'+')}${searchtbm}`);
-}
-
-function post_data(url) {
-  var a = document.createElement("a");
-  a.href = url;
-  a.click();
-}
-
-var dirurl = url.searchParams.get("url");
-
-function redirect(string) {
-  if (/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(string)) {
-    location.replace(dirurl);
-  } else if (dirurl.indexOf(".") > -1) {
-    location.replace("https://" + dirurl);
-  }
-}
-
-if (dirurl) {
-  redirect(dirurl)
-}
-
-</script>
-</body>
+  </body>
 </html>
