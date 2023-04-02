@@ -43,11 +43,7 @@ function select(element) {
   linkTag.click();
 }
 
-inputBox.addEventListener('blur', ()=> {
-  setTimeout(()=> {
-    searchWrapper.classList.remove("active");
-  },100);
-});
+
 
 function showSuggestions(list) {
   let listData;
