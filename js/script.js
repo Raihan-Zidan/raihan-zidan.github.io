@@ -32,11 +32,11 @@ inputBox.onkeyup = (e)=> {
   }
 }
 
-inputBox.onfocus = ()=> {
+inputBox.addEventListener('focus', ()=> {
   if (inputBox.value) {
     searchWrapper.classList.add("active");
   }
-}
+});
 
 function select(element) {
   let selectData = element.textContent;
