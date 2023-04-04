@@ -307,9 +307,8 @@ function refreshQuotes() {
   quotesBtn = document.querySelector(".quotes-tab .refresh");
   if (quotesText) {
     fetch("http://api.quotable.io/random").then(response => response.json()).then(result => {
-      quotesText.innerHTML = result.content + result.author;
+      alert(result.content);
      });
-    
   }
   quotesBtn.style.animation = "rotate 0.5s ease";
   setTimeout(()=> {
