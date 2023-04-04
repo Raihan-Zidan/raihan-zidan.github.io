@@ -33,9 +33,7 @@ inputBox.onkeyup = (e)=> {
 }
 
 inputBox.addEventListener('focus', ()=> {
-  if (inputBox.value) {
-    searchWrapper.classList.add("active");
-  }
+  searchWrapper.classList.add("active");
 });
 
 function select(element) {
