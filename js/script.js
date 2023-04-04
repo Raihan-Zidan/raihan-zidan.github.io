@@ -39,7 +39,7 @@ inputBox.onkeyup = (e)=> {
 }
 
 inputBox.onfocus = ()=> {
-  alert("halo");
+  searchWrapper.classList.add("active");
 }
 
 function select(element) {
