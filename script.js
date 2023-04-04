@@ -305,11 +305,7 @@ function instant(e) {
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
-  
-    fetch("http://api.quotable.io/random").then(response => response.json()).then(result => {
-      alert(result.content);
-     });
-  
+  quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
   quotesBtn.style.animation = "rotate 0.5s ease";
   setTimeout(()=> {
     quotesBtn.style.animation = "";
