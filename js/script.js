@@ -30,11 +30,17 @@ inputBox.onkeyup = (e)=> {
   } else {
     searchWrapper.classList.remove("active");
   }
+  if (e.keyCode == 13) {
+    let selectData = inputBox.value;
+    webLink = `${weburl}/search?q=${selectData}`;
+    linkTag.setAttribute("href", webLink);
+    linkTag.click();
+  }
 }
 
-inputBox.addEventListener('focus', ()=> {
-  searchWrapper.classList.add("active");
-});
+inputBox.onfocus = ()=> {
+  alert("halo");
+}
 
 function select(element) {
   let selectData = element.textContent;
@@ -52,12 +58,7 @@ document.body.addEventListener('click', (e)=> {
 });
 
 inputBox.addEventListener('keyup', (e)=> {
-  if (e.keyCode == 13) {
-    let selectData = inputBox.value;
-    webLink = `${weburl}/search?q=${selectData}`;
-    linkTag.setAttribute("href", webLink);
-    linkTag.click();
-  }
+
 });
 
 function showSuggestions(list) {
@@ -65,6 +66,7 @@ function showSuggestions(list) {
   if (!list.length) {
     userValue = inputBox.value;
     listData = `<li>${userValue}</li>`;
+    searchWrapper.classList.remove("active");
   } else {
     listData = list.join('');
   }
