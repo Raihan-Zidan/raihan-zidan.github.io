@@ -10,10 +10,6 @@ html, body {
   min-height: 100%;
 }
 
-center {
-  position: absolute;
-}
-
 body {
   height: 100%;
   background: #f5f8fa;
@@ -66,6 +62,10 @@ body {
 
 .search-input.active input {
   border-radius: 22px 22px 0 0;
+}
+
+.search-input input:focus ~ center a {
+  display: none;
 }
 
 .search-input .autocom-box {
