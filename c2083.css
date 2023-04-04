@@ -75,11 +75,6 @@ body {
   border-radius: 0 0 22px 22px;
 }
 
-.search-input .autocom-box {
-  width 100%;
-  position: absolute;
-}
-
 .search-input.active .autocom-box {
   padding: 10px 8px;
   opacity: 1;
