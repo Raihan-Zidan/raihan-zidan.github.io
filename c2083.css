@@ -64,7 +64,7 @@ body {
   border-radius: 22px 22px 0 0;
 }
 
-.search-input input:focus ~ center a {
+.search-input.active ~ center a {
   display: none;
 }
 
