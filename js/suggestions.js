@@ -1,4 +1,5 @@
 let suggestions = [
+  "!quotes",
   "Amazon",
   "Amazon Prime",
   "Airbnb",
