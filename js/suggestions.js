@@ -1,5 +1,5 @@
 let suggestions = [
-  "Amazon", 
+  "Amazon",
   "Amazon Prime",
   "Airbnb",
   "Aol Mail",
