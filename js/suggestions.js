@@ -1,5 +1,5 @@
 let suggestions = [
-  "Amazon",
+  "Amazon", 
   "Amazon Prime",
   "Airbnb",
   "Aol Mail",
@@ -18,6 +18,8 @@ let suggestions = [
   "Agoda",
   "age calculator",
   "America's Got Talent",
+  "account google",
+  "accounting",
   "Bank of America",
   "Best Buy",
   "Bing",
