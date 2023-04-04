@@ -64,7 +64,12 @@ body {
   border-radius: 22px 22px 0 0;
 }
 
-.search-input.active > center a {
+.search-input .url {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.search-input.active > .url a {
   display: none;
 }
 
