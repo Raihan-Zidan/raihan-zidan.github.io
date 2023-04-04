@@ -73,6 +73,7 @@ body {
   border: 1px solid #e3e3e3;
   border-top: hidden;
   border-radius: 0 0 22px 22px;
+  position: absolute;
 }
 
 .search-input.active .autocom-box {
