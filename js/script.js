@@ -38,8 +38,11 @@ inputBox.onkeyup = (e)=> {
   }
 }
 
-inputBox.onfocus = ()=> {
-  searchWrapper.classList.add("active");
+inputBox.onfocus = (e)=> {
+  userData = e.target.value;
+  if (userData) {
+    searchWrapper.classList.add("active");
+  }
 }
 
 function select(element) {
