@@ -65,7 +65,6 @@ function showSuggestions(list) {
   if (!list.length) {
     userValue = inputBox.value;
     listData = `<li>${userValue}</li>`;
-    searchWrapper.classList.remove("active");
   } else {
     listData = list.join('');
   }
