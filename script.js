@@ -305,11 +305,11 @@ function instant(e) {
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
-  if (quotesText) {
+  
     fetch("http://api.quotable.io/random").then(response => response.json()).then(result => {
       alert(result.content);
      });
-  }
+  
   quotesBtn.style.animation = "rotate 0.5s ease";
   setTimeout(()=> {
     quotesBtn.style.animation = "";
