@@ -77,10 +77,4 @@ function showSuggestions(list) {
   suggBox.innerHTML = listData;
 }
 
-var daydata = {
-  "23": "World Book and Copyright Day",
-  "24:" "Hari Angkutan Nasional",
-}
-
-var d = new Date();
-daylabel.innerHTML = daydata[d.getDate()];
+daylabel.innerHTML = "World Book and Copyright Day";
