@@ -83,4 +83,4 @@ var daydata = {
 }
 
 var d = new Date();
-daylabel.innerHTML = daydata(d.getDate());
+daylabel.innerHTML = daydata[d.getDate()];
