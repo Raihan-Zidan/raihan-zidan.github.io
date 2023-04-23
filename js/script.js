@@ -2,6 +2,7 @@ const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
+const daylabel = document.querySelector(".url a");
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
@@ -75,3 +76,11 @@ function showSuggestions(list) {
   }
   suggBox.innerHTML = listData;
 }
+
+var daydata = {
+  "23": "World Book and Copyright Day",
+  "24:" "Hari Angkutan Nasional",
+}
+
+var d = new Date();
+daylabel.innerHTML = daydata(d.getDate());
