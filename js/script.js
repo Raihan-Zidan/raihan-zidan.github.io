@@ -78,3 +78,4 @@ function showSuggestions(list) {
 }
 
 daylabel.innerHTML = "World Book and Copyright Day";
+daylabel.ahref = `/search?q=${daylabel.innerHTML}`;
