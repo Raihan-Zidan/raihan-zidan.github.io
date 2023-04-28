@@ -127,6 +127,7 @@ body {
   font-size: 20px;
   color: #644bff;
   cursor: pointer;
+  background: transparent;
 }
 
 @media (min-width: 780px) {
