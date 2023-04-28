@@ -77,5 +77,6 @@ function showSuggestions(list) {
   suggBox.innerHTML = listData;
 }
 
-daylabel.innerHTML = "World Book and Copyright Day";
+daylabel.innerHTML = "";
 daylabel.href = `/search?q=${daylabel.innerHTML}`;
+daylabel.remove();
