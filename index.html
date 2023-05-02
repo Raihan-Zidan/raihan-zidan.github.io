@@ -36,8 +36,12 @@
            browserName="No browser detection";
          }
       }
-
-      alert(browserName());
+      window.onload = function() {
+        var a = this;
+        a.version = "1.0";
+        alert("Search" + a.version);
+      }
+      
     </script>
     <script src="js/script.js"></script>
     <script src="js/suggestions.js"></script>
