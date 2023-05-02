@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">  
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+         <ul class="controls">
+          <li class="row from">
+            <div class="icons">
+              <i id="from" class="fas fa-volume-up"></i>
+              <i id="from" class="fas fa-copy"></i>
+            </div>
+            <select></select>
+          </li>
+          <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+          <li class="row to">
+            <select></select>
+            <div class="icons">
+              <i id="to" class="fas fa-volume-up"></i>
+              <i id="to" class="fas fa-copy"></i>
+            </div>
+          </li>
+        </ul>
+        <div class="text-input">
+          <textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea>
+          <textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea>
+        </div>
+
+      </div>
+      <button>Translate Text</button>
+    </div>
+
+   <script>const _0x15217=_0x29cb;function _0x22b6(){const _0x4560ca=['Tajik','setAttribute','Mende','Dzongkha','.row\x20i','Icelandic','contains','Turkish','5942022HJgExd','lang','Swedish','Tetum','Coptic','Shona','Panjabi','Burmese','Kyrgyz','Danish','from','selected','Persian','Somali','11278xiCMrC','Bislama','placeholder','Nyanja','3252NwtNoF','Kazakh','30232GbJRcP','Kirundi','30TuQsSS','Bengali','value','Tswana','German','Croatian','1383IdjWXv','Translating...','11448780RqdDlQ','Hindi','Norwegian','Samoan','Basque','Hungarian','Slovak','Tigrinya','Estonian','Albanian','Zulu','Lao','fa-copy','Pakistani','keyup','Arabic','.from-text','Thai','Pijin','Hausa','en-GB','102CvKSme','addEventListener','Latin','id-ID','Niuean','.to-text','Nepali','Breton','translation','Yiddish','Romanian','</option>','Finnish','insertAdjacentHTML','Bosnian','execCommand','Swahili','Turkmen','Kurdish','speak','Faroese','Catalan','button','Tagalog','Galician','Bemba','classList','https://api.mymemory.translated.net/get?q=','1610235LXVaJe','English','translatedText','Italian','Sango','Translation','Latvian','then','Hebrew','Maori','copy','Japanese','Greek','responseData','\x20value=\x22','Telugu','forEach','Polish','&langpair=','click','Tamil','8968179tsseZx','Maltese','Welsh','Wolof','4014ZyzDcO','trim','Tongan','querySelector','querySelectorAll','matches'];_0x22b6=function(){return _0x4560ca;};return _0x22b6();}(function(_0x5d13ad,_0x1c2c1c){const _0x33e7da=_0x29cb,_0x459dd9=_0x5d13ad();while(!![]){try{const _0x3204a2=-parseInt(_0x33e7da(0xd7))/0x1*(parseInt(_0x33e7da(0xb2))/0x2)+-parseInt(_0x33e7da(0xc0))/0x3*(parseInt(_0x33e7da(0xb6))/0x4)+parseInt(_0x33e7da(0x7d))/0x5+-parseInt(_0x33e7da(0xa4))/0x6+-parseInt(_0x33e7da(0xc2))/0x7+parseInt(_0x33e7da(0xb8))/0x8*(parseInt(_0x33e7da(0x96))/0x9)+-parseInt(_0x33e7da(0xba))/0xa*(-parseInt(_0x33e7da(0x92))/0xb);if(_0x3204a2===_0x1c2c1c)break;else _0x459dd9['push'](_0x459dd9['shift']());}catch(_0x17b17b){_0x459dd9['push'](_0x459dd9['shift']());}}}(_0x22b6,0xd63bc));const countries={'am-ET':'Amharic','ar-SA':_0x15217(0xd1),'be-BY':'Bielarus','bem-ZM':_0x15217(0x7a),'bi-VU':_0x15217(0xb3),'bjs-BB':'Bajan','bn-IN':_0x15217(0xbb),'bo-CN':'Tibetan','br-FR':_0x15217(0xde),'bs-BA':_0x15217(0xe5),'ca-ES':_0x15217(0xec),'cop-EG':_0x15217(0xa8),'cs-CZ':'Czech','cy-GB':_0x15217(0x94),'da-DK':_0x15217(0xad),'dz-BT':_0x15217(0x9f),'de-DE':_0x15217(0xbe),'dv-MV':'Maldivian','el-GR':_0x15217(0x89),'en-GB':_0x15217(0x7e),'es-ES':'Spanish','et-EE':_0x15217(0xca),'eu-ES':_0x15217(0xc6),'fa-IR':_0x15217(0xb0),'fi-FI':_0x15217(0xe3),'fn-FNG':'Fanagalo','fo-FO':_0x15217(0xeb),'fr-FR':'French','gl-ES':_0x15217(0xef),'gu-IN':'Gujarati','ha-NE':_0x15217(0xd5),'he-IL':_0x15217(0x85),'hi-IN':_0x15217(0xc3),'hr-HR':_0x15217(0xbf),'hu-HU':_0x15217(0xc7),'id-ID':'Indonesian','is-IS':_0x15217(0xa1),'it-IT':_0x15217(0x80),'ja-JP':_0x15217(0x88),'kk-KZ':_0x15217(0xb7),'km-KM':'Khmer','kn-IN':'Kannada','ko-KR':'Korean','ku-TR':_0x15217(0xe9),'ky-KG':_0x15217(0xac),'la-VA':_0x15217(0xd9),'lo-LA':_0x15217(0xcd),'lv-LV':_0x15217(0x83),'men-SL':_0x15217(0x9e),'mg-MG':'Malagasy','mi-NZ':_0x15217(0x86),'ms-MY':'Malay','mt-MT':_0x15217(0x93),'my-MM':_0x15217(0xab),'ne-NP':_0x15217(0xdd),'niu-NU':_0x15217(0xdb),'nl-NL':'Dutch','no-NO':_0x15217(0xc4),'ny-MW':_0x15217(0xb5),'ur-PK':_0x15217(0xcf),'pau-PW':'Palauan','pa-IN':_0x15217(0xaa),'ps-PK':'Pashto','pis-SB':_0x15217(0xd4),'pl-PL':_0x15217(0x8e),'pt-PT':'Portuguese','rn-BI':_0x15217(0xb9),'ro-RO':_0x15217(0xe1),'ru-RU':'Russian','sg-CF':_0x15217(0x81),'si-LK':'Sinhala','sk-SK':_0x15217(0xc8),'sm-WS':_0x15217(0xc5),'sn-ZW':_0x15217(0xa9),'so-SO':_0x15217(0xb1),'sq-AL':_0x15217(0xcb),'sr-RS':'Serbian','sv-SE':_0x15217(0xa6),'sw-SZ':_0x15217(0xe7),'ta-LK':_0x15217(0x91),'te-IN':_0x15217(0x8c),'tet-TL':_0x15217(0xa7),'tg-TJ':_0x15217(0x9c),'th-TH':_0x15217(0xd3),'ti-TI':_0x15217(0xc9),'tk-TM':_0x15217(0xe8),'tl-PH':_0x15217(0xee),'tn-BW':_0x15217(0xbd),'to-TO':_0x15217(0x98),'tr-TR':_0x15217(0xa3),'uk-UA':'Ukrainian','uz-UZ':'Uzbek','vi-VN':'Vietnamese','wo-SN':_0x15217(0x95),'xh-ZA':'Xhosa','yi-YD':_0x15217(0xe0),'zu-ZA':_0x15217(0xcc)},fromText=document[_0x15217(0x99)](_0x15217(0xd2)),toText=document[_0x15217(0x99)](_0x15217(0xdc)),swapButton=document[_0x15217(0x99)]('.exchange'),selectTag=document['querySelectorAll']('select'),icons=document[_0x15217(0x9a)](_0x15217(0xa0));function _0x29cb(_0x315c51,_0x233ea6){const _0x22b63d=_0x22b6();return _0x29cb=function(_0x29cbc1,_0x4a052f){_0x29cbc1=_0x29cbc1-0x7a;let _0x57ceaa=_0x22b63d[_0x29cbc1];return _0x57ceaa;},_0x29cb(_0x315c51,_0x233ea6);}transButton=document['querySelector'](_0x15217(0xed)),selectTag[_0x15217(0x8d)]((_0x5e73fb,_0x3e476a)=>{const _0x1ae1f2=_0x15217;for(let _0x546951 in countries){let _0x2d46e8=_0x3e476a==0x0?_0x546951==_0x1ae1f2(0xd6)?_0x1ae1f2(0xaf):'':_0x546951==_0x1ae1f2(0xda)?_0x1ae1f2(0xaf):'',_0xfef932='<option\x20'+_0x2d46e8+_0x1ae1f2(0x8b)+_0x546951+'\x22>'+countries[_0x546951]+_0x1ae1f2(0xe2);_0x5e73fb[_0x1ae1f2(0xe4)]('beforeend',_0xfef932);}}),swapButton[_0x15217(0xd8)]('click',()=>{const _0x1fe85a=_0x15217;let _0x19c7d2=fromText[_0x1fe85a(0xbc)],_0x4c6eae=selectTag[0x0][_0x1fe85a(0xbc)];fromText[_0x1fe85a(0xbc)]=toText[_0x1fe85a(0xbc)],toText[_0x1fe85a(0xbc)]=_0x19c7d2,selectTag[0x0]['value']=selectTag[0x1][_0x1fe85a(0xbc)],selectTag[0x1][_0x1fe85a(0xbc)]=_0x4c6eae;}),fromText[_0x15217(0xd8)](_0x15217(0xd0),()=>{const _0x283706=_0x15217;!fromText['value']&&(toText[_0x283706(0xbc)]='');}),transButton['addEventListener'](_0x15217(0x90),()=>{const _0x334178=_0x15217;let _0x5adbf5=fromText[_0x334178(0xbc)][_0x334178(0x97)](),_0xa1eba9=selectTag[0x0][_0x334178(0xbc)],_0x507384=selectTag[0x1][_0x334178(0xbc)];if(!_0x5adbf5)return;toText[_0x334178(0x9d)](_0x334178(0xb4),_0x334178(0xc1));let _0x5d9115=_0x334178(0x7c)+_0x5adbf5+_0x334178(0x8f)+_0xa1eba9+'|'+_0x507384;fetch(_0x5d9115)[_0x334178(0x84)](_0x32b0fb=>_0x32b0fb['json']())[_0x334178(0x84)](_0x1c174c=>{const _0x260426=_0x334178;toText[_0x260426(0xbc)]=_0x1c174c[_0x260426(0x8a)][_0x260426(0x7f)],_0x1c174c[_0x260426(0x9b)][_0x260426(0x8d)](_0x1dce77=>{const _0x14e6aa=_0x260426;_0x1dce77['id']===0x0&&(toText['value']=_0x1dce77[_0x14e6aa(0xdf)]);}),toText[_0x260426(0x9d)]('placeholder',_0x260426(0x82));});}),icons['forEach'](_0x2df42c=>{const _0x26c4fd=_0x15217;_0x2df42c[_0x26c4fd(0xd8)](_0x26c4fd(0x90),({target:_0x55ba3d})=>{const _0x4e0ae1=_0x26c4fd;if(!fromText['value']||!toText[_0x4e0ae1(0xbc)])return;if(_0x55ba3d[_0x4e0ae1(0x7b)][_0x4e0ae1(0xa2)](_0x4e0ae1(0xce)))_0x55ba3d['id']==_0x4e0ae1(0xae)?(fromText['select'](),document[_0x4e0ae1(0xe6)](_0x4e0ae1(0x87))):(toText['select'](),document[_0x4e0ae1(0xe6)]('copy'));else{let _0x3d1ae7;_0x55ba3d['id']=='from'?(_0x3d1ae7=new SpeechSynthesisUtterance(fromText[_0x4e0ae1(0xbc)]),_0x3d1ae7['lang']=selectTag[0x0][_0x4e0ae1(0xbc)]):(_0x3d1ae7=new SpeechSynthesisUtterance(toText[_0x4e0ae1(0xbc)]),_0x3d1ae7[_0x4e0ae1(0xa5)]=selectTag[0x1][_0x4e0ae1(0xbc)]),speechSynthesis[_0x4e0ae1(0xea)](_0x3d1ae7);}});});</script>
+
+  </body>
+</html>
