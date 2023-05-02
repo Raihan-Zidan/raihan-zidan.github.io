@@ -6,6 +6,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
 html, body {
   min-height: 100%;
 }
@@ -136,6 +137,8 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
+
+input {}
 
 @media (min-width: 780px) {
   body {
