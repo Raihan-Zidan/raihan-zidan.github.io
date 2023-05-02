@@ -18,6 +18,27 @@
         <div class="url"><a href="/data?y=3"></a></div>
       </div>
     </div>
+    <script>
+      function browserName() {
+         let userAgent = navigator.userAgent;
+         let browserName;
+         if (userAgent.match(/chrome|chromium|crios/i)) {
+           return "chrome";
+         } else if (userAgent.match(/firefox|fxios/i)) {
+           return "firefox";
+         } else if (userAgent.match(/safari/i)) {
+           return "safari";
+         } else if (userAgent.match(/opr\//i)) {
+           return "opera";
+         } else if (userAgent.match(/edg/i)) {
+           return "edge";
+         } else {
+           browserName="No browser detection";
+         }
+      }
+
+      alert(browserName());
+    </script>
     <script src="js/script.js"></script>
     <script src="js/suggestions.js"></script>
   </body>
