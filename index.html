@@ -38,8 +38,15 @@
       }
       window.onload = function(c) {
         c.version = "1.2.0";
-        alert(`Search ${c.version}`);
+        console.log(`Search ${c.version}`);
       }
+      HTMLInputElement.prototype.reset = function() {
+        this.value = "";
+      }
+      const userlang = function() {
+        return navigator.language || navigator.userLanguage;
+      }
+      alert(userlang);
       
     </script>
     <script src="js/script.js"></script>
