@@ -21,9 +21,10 @@ body{
 
 .header {
   width: 100%;
-  padding: 8px 0;
-  font-size: 20px;
+  padding: 10px 0;
+  font-size: 25px;
   font-weight: bold;
+  text-align: center;
   position: fixed;
   left: 0; top: 0;
   background: #f5f8fa;
