@@ -33,7 +33,7 @@
          } else if (userAgent.match(/edg/i)) {
            return "edge";
          } else {
-           browserName="No browser detection";
+           return "No browser detection";
          }
       }
       window.onload = function(c) {
@@ -44,7 +44,6 @@
         this.value = "";
       }
       const userlang = navigator.language || navigator.userLanguage;
-      alert(userlang);
       
     </script>
     <script src="js/script.js"></script>
