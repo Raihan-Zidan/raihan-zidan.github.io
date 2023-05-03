@@ -77,6 +77,7 @@ function showSuggestions(list) {
   suggBox.innerHTML = listData;
 }
 
-daylabel.innerHTML = "";
-daylabel.href = `/search?q=${daylabel.innerHTML}`;
-daylabel.remove();
+daylabel.innerHTML = "Translator";
+daylabel.href = `/translator`;
+
+var url = `/search?q=${daylabel.innerHTML}`;
