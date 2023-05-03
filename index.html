@@ -43,9 +43,7 @@
       HTMLInputElement.prototype.reset = function() {
         this.value = "";
       }
-      const userlang = function() {
-        return navigator.language || navigator.userLanguage;
-      }
+      const userlang = navigator.language || navigator.userLanguage;
       alert(userlang);
       
     </script>
