@@ -18,11 +18,21 @@ body{
   padding: 0 10px;
   background: #fff;
 }
+
+.header {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 20px;
+  font-weight: bold;
+  position: fixed;
+  left: 0; top: 0;
+  background: #f5f8fa;
+}
+
 .container{
   max-width: 650px;
   width: 100%;
   padding: 20px;
-  
   border-radius: 7px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.01);
 }
