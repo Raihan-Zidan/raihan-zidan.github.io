@@ -139,7 +139,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (min-width: 780px) {
   body {
-    padding: 550px 20px;
+    padding: 30% 20px;
   }
   .wrapper .logo {
     min-height: 80px;
