@@ -7,11 +7,11 @@
 }
 
 html, body {
+  width: 100%;
   min-height: 100%;
 }
 
 body {
-  height: 100%;
   background: #f5f8fa;
   padding: 180px 20px 0;
 }
@@ -146,6 +146,6 @@ input[type="search"]::-webkit-search-results-decoration {
     background-size: 280px;
   }
   .wrapper {
-    max-width: 540px;
+    max-width: 550px;
   }
 }
