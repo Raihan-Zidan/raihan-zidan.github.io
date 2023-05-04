@@ -147,6 +147,6 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .wrapper {
     max-width: 540px;
-    margin: 30%;
+    margin: 30% 0;
   }
 }
