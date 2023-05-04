@@ -268,8 +268,6 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "!quotes") {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
-  } else if (searchInput.value.toLowerCase() == "translate" || searchInput.value.toLowerCase() == "terjemahan" || searchInput.value.toLowerCase() == "translator") {
-    document.querySelector(".main-result .result").innerHTML += `<di class="tab-result">You can use a translator at <a href='/translator'>Translator</a></div>`;
   }
 }
 
