@@ -269,7 +269,7 @@ function instantanswer() {
   } else if (searchInput.value.toLowerCase() == "!quotes") {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
   } else if (searchInput.value.toLowerCase() == "translate" || searchInput.value.toLowerCase() == "terjemahan" || searchInput.value.toLowerCase() == "translator") {
-    document.querSelector.(".main-result .result").innerHTML += `You can use a translator at <a href='/translator'>Translator</a>`;
+    document.querySelector.(".main-result .result").innerHTML += `You can use a translator at <a href='/translator'>Translator</a>`;
   }
 }
 
