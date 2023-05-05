@@ -80,11 +80,11 @@ function showSuggestions(list) {
   suggBox.innerHTML = listData;
 }
 
-if (lang) {
+if (hl == "id") {
   inputBox.placeholder = "Ketik untuk mencari...";
 }
 
-daylabel.innerHTML = (lang) ? "Penerjemah" : "Translator";
+daylabel.innerHTML = (hl == "id") ? "Penerjemah" : "Translator";
 daylabel.href = `/translator`;
 
 var url = `/search?q=${daylabel.innerHTML}`;
