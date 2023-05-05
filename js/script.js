@@ -5,7 +5,7 @@ const icon = searchWrapper.querySelector(".icon");
 const daylabel = document.querySelector(".url a");
 var url = new URL(window.location.href);
 var hl = url.searchParams.get("hl");
-var lang = (hl == "id") ? "hl=id" : "hl=en";
+var lang (hl == "id") ? "&hl=id" : "&hl=en";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
@@ -80,7 +80,11 @@ function showSuggestions(list) {
   suggBox.innerHTML = listData;
 }
 
-daylabel.innerHTML = "Translator";
+if (idlang) {
+  inputBox.placeholder = "Ketik untuk mencari...";
+}
+
+daylabel.innerHTML = (idlang) ? "Penerjemah" : "Translator";
 daylabel.href = `/translator`;
 
 var url = `/search?q=${daylabel.innerHTML}`;
