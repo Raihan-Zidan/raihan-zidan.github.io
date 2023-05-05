@@ -289,7 +289,14 @@ function instant(e) {
       } else {
         insertAfter(tabres[0], instanswer);
       }
-      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
+      var resAbstract = res.Abstract.slice(0, 220);
+      var trlt = "";
+      var url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=id&dt=t&q=${resAbstract}`;
+      $.getJSON(url, function(data) {
+        trlt = data[0][0][0];
+      });
+      var abstract = (idlang) ? trlt : resAbstract;
+      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${abstract}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       }
