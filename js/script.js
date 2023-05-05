@@ -3,6 +3,9 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
 const daylabel = document.querySelector(".url a");
+var url = new URL(window.location.href);
+var hl = url.searchParams.get("hl");
+var lang (hl == "id") ? "hl=id" : "hl=en";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
@@ -12,7 +15,7 @@ inputBox.onkeyup = (e)=> {
   let emptyArray = [];
   if (userData) {
     icon.onclick = ()=>{
-      webLink = `${weburl}/search?q=${inputBox.value}`;
+      webLink = `${weburl}/search?q=${inputBox.value}${lang}`;
       linkTag.setAttribute("href", webLink);
       linkTag.click();
     }
@@ -33,7 +36,7 @@ inputBox.onkeyup = (e)=> {
   }
   if (e.keyCode == 13) {
     let selectData = inputBox.value;
-    webLink = `${weburl}/search?q=${selectData}`;
+    webLink = `${weburl}/search?q=${selectData}${lang}`;
     linkTag.setAttribute("href", webLink);
     linkTag.click();
   }
@@ -49,7 +52,7 @@ inputBox.onfocus = (e)=> {
 function select(element) {
   let selectData = element.textContent;
   inputBox.value = selectData;
-  webLink = `${weburl}/search?q=${selectData}`;
+  webLink = `${weburl}/search?q=${selectData}${lang}`;
   linkTag.setAttribute("href", webLink);
   linkTag.click();
 }
