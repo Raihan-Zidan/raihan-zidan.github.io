@@ -302,6 +302,19 @@ function instant(e) {
   },800);
 }
 
+function relatedsearch() {
+  fetch(`https://api.swisscows.com/suggest?query=cara membuat`)
+  .then(response => response.json()).then(response => {
+    for (var i = 0; i < response.length && i < 5; i++) {
+      var rltb = document.createElement("div");
+      rltb.classList.add("related-search");
+      document.querySelector(".main-result .result").appendChild(rltb);
+      rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
+      document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
+    }
+  })
+}
+
 function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
@@ -352,6 +365,7 @@ function webresult(res) {
     }
     if (res.items && pageone) {
       instantanswer();
+      relatedsearch();
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
