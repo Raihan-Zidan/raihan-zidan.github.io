@@ -304,6 +304,7 @@ function instant(e) {
 
 function relatedsearch() {
   if (searchInput.value.split(" ").length - 4) {
+  setTimeout(()=> {
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
   document.querySelector(".main-result .result").appendChild(rltb);
@@ -314,6 +315,7 @@ function relatedsearch() {
         document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
     }
   })}
+  },800);
 }
 
 function refreshQuotes() {
