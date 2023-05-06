@@ -303,20 +303,17 @@ function instant(e) {
 }
 
 function relatedsearch() {
+  if (searchInput.value.split(" ").length - 4) {
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
   fetch(`https://api.swisscows.com/suggest?query=${q}`)
   .then(response => response.json()).then(response => {
     for (var i = 0; i < response.length && i < 5; i++) {
-      if (response.length > 4) {
         document.querySelector(".main-result .result").appendChild(rltb);
         rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
-      }
-      setTimeout(()=> {
         document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
-      }, 500);
     }
-  })
+  })}
 }
 
 function refreshQuotes() {
@@ -367,7 +364,7 @@ function webresult(res) {
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
-    if (res.items && pageone) {
+    if (res.items.length > 0 && pageone) {
       instantanswer();
       relatedsearch();
     }
