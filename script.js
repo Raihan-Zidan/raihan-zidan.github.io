@@ -294,7 +294,7 @@ function instant(e) {
       $.getJSON(url, function(data) {
         if (hl == "id") {
           resultText = data[0][0][0];
-        } else if (hl == "en" || !hl) {
+        } else {
           resultText = res.Abstract.slice(0, 220);
         }
       });
