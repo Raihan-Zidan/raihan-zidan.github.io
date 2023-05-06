@@ -310,15 +310,9 @@ function relatedsearch() {
   fetch(`https://api.swisscows.com/suggest?query=${q}`)
   .then(response => response.json()).then(response => {
     for (var i = 1; i < response.length && i < 5; i++) {
-      if (response.length > 3) {
-        var tmpl = "";
         document.querySelector(".main-result .result").appendChild(rltb);
         rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
-        tmpl += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
-        setTimeout(()=> {
-          document.querySelector(".search-list").innerHTML = tmpl;
-        },100);
-      }
+        document.querySelector(".search-list").innerHTML = tmpl; += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
     }
   })
   },800)}
@@ -374,7 +368,6 @@ function webresult(res) {
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
-      relatedsearch();
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
