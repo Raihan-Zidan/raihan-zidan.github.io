@@ -312,7 +312,9 @@ function relatedsearch() {
         document.querySelector(".main-result .result").appendChild(rltb);
         rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
       }
-      document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
+      setTimeout(()=> {
+        document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
+      }, 500);
     }
   })
 }
