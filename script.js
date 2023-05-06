@@ -289,7 +289,16 @@ function instant(e) {
       } else {
         insertAfter(tabres[0], instanswer);
       }
-      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
+      var resultText = "";
+      var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en-GB&tl=id-ID&dt=t&q=" + encodeURI(res.Abstract.slice(0, 220));
+      $.getJSON(url, function(data) {
+        if (hl == "id") {
+          resultText = data[0][0][0];
+        } else if (hl == "en" || !hl) {
+          resultText = res.Abstract.slice(0, 220);
+        }
+      });
+      document.querySelector(".instant-answer").innerHTML = `<img src="" align="right" class="logo"><div class="title">${res.Heading}</div><div class="about"><span class="snippet">${resultText}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
       if (res.Image) {
         document.querySelector(".instant-answer .logo").src = `https://duckduckgo.com${res.Image}`;
       }
