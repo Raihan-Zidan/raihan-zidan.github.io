@@ -310,7 +310,7 @@ function relatedsearch() {
   fetch(`https://api.swisscows.com/suggest?query=${q}`)
   .then(response => response.json()).then(response => {
     for (var i = 1; i < response.length && i < 5; i++) {
-      if (i > 3) {
+      if (q) {
         document.querySelector(".main-result .result").appendChild(rltb);
         rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
         document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
