@@ -314,8 +314,8 @@ function relatedsearch() {
     for (var i = 0; i < response.length && i < 5; i++) {
         document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
     }
-  })}
-  },800);
+  })
+  },800)}
 }
 
 function refreshQuotes() {
