@@ -799,6 +799,9 @@ input[type="search"]::-webkit-search-results-decoration {
   .main-result .instant-answer {
     display: none;
   }
+  .nwst .title {
+    margin-bottom: 5px;
+  }
 }
 
 @media (min-width: 992px) {
