@@ -107,8 +107,6 @@ html, body {
   margin: 0;
   border-bottom: 1px solid #E0E4E9;
   display: block;
-  font-weight: 500;
-  white-space: nowrap;
   user-select: none;
   display: -webkit-box;
   overflow-x: scroll;
@@ -146,11 +144,6 @@ html, body {
 }
 
 .search-item {
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  padding: 0;
-  color: #6e7780;
   font-size: 14px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
