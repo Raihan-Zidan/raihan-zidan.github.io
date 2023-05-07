@@ -335,7 +335,7 @@ function refreshQuotes() {
 
 function timeAgo(input) {
   const date = (input instanceof Date) ? input : new Date(input);
-  const formatter = new Intl.RelativeTimeFormat('en');
+  const formatter = new Intl.RelativeTimeFormat(locallang);
   const ranges = {
     years: 3600 * 24 * 365,
     months: 3600 * 24 * 30,
@@ -356,7 +356,7 @@ function timeAgo(input) {
 
 function dateconversion(val) {
   if (val.slice(0, 4).match(d.getFullYear())) {
-    return timeAgo(num);
+    return timeAgo(val);
   } else {
     return new Date(val.slice(0, 10)).toLocaleString(locallang, {day: '2-digit', month: 'long', year: 'numeric'});
   }
