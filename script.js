@@ -336,6 +336,7 @@ function refreshQuotes() {
 
 function nwsr(res) {
   try {
+    alert("halo");
     for (var i = 0; i < res.items.length; i++) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.items[i].link}"><img class="thumb" align="right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_xtYds9RZHJQicYj2eNiF-Bca1uBNIzjRoKleJ3qsx5Amdgw-LqBRSEUL"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://google.com&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].title}</div><div class="publishtime">1 Hari lalu</div></a></div></div>`;
     }
