@@ -513,6 +513,39 @@ input[type="search"]::-webkit-search-results-decoration {
   background: #f5f8fa;
 }
 
+.nwst {
+  padding: 15px;
+}
+
+.snwt {
+  min-height: 100px;
+}
+
+.nwst .title {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.nwst a {
+  color: black;
+  text-decoration: none;
+}
+
+.nwst .top {
+  width: auto;
+}
+
+.nwst .publishtime {
+  font-size: 13px;
+}
+
+.nwst .thumb {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .loader {
   width: 50px;
 }
