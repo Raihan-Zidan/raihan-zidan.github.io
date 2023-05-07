@@ -107,6 +107,7 @@ html, body {
   margin: 0;
   border-bottom: 1px solid #E0E4E9;
   display: block;
+  font-weight: 500;
   user-select: none;
   display: -webkit-box;
   overflow-x: scroll;
