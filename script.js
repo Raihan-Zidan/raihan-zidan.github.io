@@ -231,7 +231,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
@@ -335,20 +335,11 @@ function refreshQuotes() {
 }
 
 function nwsr(res) {
-  for (var i = 0; i < res.items.length; i++) {
-  document.querySelector(".main-result .result").innerHTML += `<div class="tab-result nwst">
-    <div class="snwt">
-      <a href="${res.items[i].link}">
-        <img class="thumb" align="right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_xtYds9RZHJQicYj2eNiF-Bca1uBNIzjRoKleJ3qsx5Amdgw-LqBRSEUL">
-        <div class="top">
-          <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://google.com&size=64" class="favicon">
-          <div class="link">${res.items[i].displayLink}</div>
-        </div>
-        <div class="title">${res.items[i].title}</div>
-        <div class="publishtime">1 Hari lalu</div>
-      </a>
-    </div>
-  </div>`;
+  try {
+    for (var i = 0; i < res.items.length; i++) {
+      document.querySelector(".main-result .result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.items[i].link}"><img class="thumb" align="right" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_xtYds9RZHJQicYj2eNiF-Bca1uBNIzjRoKleJ3qsx5Amdgw-LqBRSEUL"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://google.com&size=64" class="favicon"><div class="link">${res.items[i].displayLink}</div></div><div class="title">${res.items[i].title}</div><div class="publishtime">1 Hari lalu</div></a></div></div>`;
+    }
+  } catch(error) {
   }
 }
 
