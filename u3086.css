@@ -800,7 +800,7 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
   }
   .nwst .title {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
 }
 
