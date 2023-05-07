@@ -544,6 +544,7 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 100px;
   object-fit: cover;
   border-radius: 8px;
+  margin-left: 3px;
 }
 
 .loader {
