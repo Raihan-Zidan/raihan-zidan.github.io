@@ -360,10 +360,12 @@ function nwsr(res) {
     for (var i = 0; i < res.items.length; i++) {
       publisher = (res.items[i].pagemap.newsmediaorganization) ? res.items[i].pagemap.newsmediaorganization[0].name : res.items[i].displayLink;
       publishtime = (res.items[i].pagemap.metatags[0]['article:published_time']) ? timeAgo(res.items[i].pagemap.metatags[0]['article:published_time']) : "Published";
-      newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].htmlSnippet}</div>` : "";
+      newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
       document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.items[i].link}"><img class="thumb" align="right" src="${res.items[i].pagemap.cse_thumbnail[0].src}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.items[i].title.slice(0, 70)}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
     }
   } catch(error) {
+    document.querySelector(".result-wrapper").classList.add("CBpUsa");
+    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}"</div></div>`;
   }
 }
 
