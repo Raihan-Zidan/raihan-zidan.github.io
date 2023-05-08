@@ -109,6 +109,7 @@ html, body {
   display: block;
   font-weight: 500;
   user-select: none;
+  white-space: nowrap;
   display: -webkit-box;
   overflow-x: scroll;
   -webkit-scroll-snap-type: x mandatory;
