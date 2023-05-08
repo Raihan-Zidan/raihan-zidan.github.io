@@ -298,7 +298,7 @@ function instant(e) {
           document.querySelector(".search-box").style.paddingLeft = "20px";
         }
       } else {
-        insertAfter(tabres[randomIntFromInterval(1, 2)], instanswer);
+        insertAfter(tabres[0], instanswer);
       }
       var thumbmg = (res.Image) ? `<img src="https://duckduckgo.com${res.Image}" align="right" class="logo">` : "";
       document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
