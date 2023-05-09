@@ -249,10 +249,12 @@ function submit() {
     }
     if (startIndex == 1) {
       var qry = val;
-      if (val === "yahoo") {
+      if (val.toLowerCase() === "yahoo") {
         qry = "yahoo!";
-      } else if (val === "notch") {
+      } else if (val.toLowerCase() === "notch") {
         qry = "markus persson";
+      } else if (val.toLowerCase() === "microsoft team") {
+        qry = "microsoft teams";
       }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qry}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
