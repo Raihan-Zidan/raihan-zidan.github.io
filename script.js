@@ -248,8 +248,14 @@ function submit() {
       })
     }
     if (startIndex == 1) {
+      var qry = val;
+      if (val === "yahoo") {
+        qry = "yahoo!";
+      } else if (val === "notch") {
+        qry = "markus persson";
+      }
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${val}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.open("GET", `https://duckduckgo.com/?q=${qry}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
