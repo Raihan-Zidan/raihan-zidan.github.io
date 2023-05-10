@@ -307,7 +307,7 @@ function instant(e) {
         insertAfter(tabres[0], instanswer);
       }
       var thumbmg = (res.Image) ? `<img src="https://duckduckgo.com${res.Image}" align="right" class="logo">` : "";
-      document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
+      document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "1px solid #ccc";
