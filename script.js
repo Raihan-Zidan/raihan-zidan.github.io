@@ -18,7 +18,7 @@ String.prototype.ltrim = function() {
   if (!this) return this;
   return this.replace(/^\s+/g, '');
 }
-
+ 
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested) {
