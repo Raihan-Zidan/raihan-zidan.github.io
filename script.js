@@ -286,7 +286,7 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england"];
+var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england","singapore"];
 
 function instant(e) {
   setTimeout(()=> {
