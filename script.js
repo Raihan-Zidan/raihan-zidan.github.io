@@ -286,6 +286,8 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england"];
+
 function instant(e) {
   setTimeout(()=> {
     var res = this.response;
@@ -306,9 +308,10 @@ function instant(e) {
       }
       var thumbmg = (res.Image) ? `<img src="https://duckduckgo.com${res.Image}" align="right" class="logo">` : "";
       document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">Wikipedia</a></div><div class="infobox"></div>`;
-      if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == "indonesia") {
+      for (var i = 0; i < whflg.length; i++) {
+      if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "1px solid #ccc";
-      }
+      }}
       for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
         if (res.Infobox.content[i].value.trim()) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
