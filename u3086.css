@@ -8,8 +8,11 @@
 }
 
 html, body {
-  overflow-x: hidden;
   font-family: "Google Sans", arial;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .header {
