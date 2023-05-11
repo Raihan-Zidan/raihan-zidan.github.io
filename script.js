@@ -251,6 +251,8 @@ function submit() {
         qry = "markus persson";
       } else if (val.toLowerCase() === "microsoft team") {
         qry = "microsoft teams";
+      } else if (val.toLowerCase() === "bing") {
+        qry = "microsoft bing";
       }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qry}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
