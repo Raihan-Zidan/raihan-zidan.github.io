@@ -40,6 +40,8 @@ if (!q) {
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>502.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
 }
 
+function load(){}
+
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
