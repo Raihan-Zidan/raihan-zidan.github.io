@@ -92,11 +92,11 @@ var language = {
 function langtext(string, num) {
   if (num && idlang) {
     return language["id"][`${string}`][num];
-  } else if (num) {
+  } else if (num && !idlang) {
     return language["en"][`${string}`][num];
-  } else if (idlang) {
+  } else if (idlang && !num) {
     return language["id"][`${string}`];
-  } else {
+  } else if (!idlang && !num) {
     return language["en"][`${string}`];
   }
 }
