@@ -101,7 +101,7 @@ if (idlang) {
   searchInput.placeholder = langtext("placeholder");
   document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
   document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = language["id"]["tab"][1];
-  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = language["id"]["tan"][2];
+  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = language["id"]["tab"][2];
   document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = language["id"]["tab"][3];
   document.querySelectorAll(".search-item")[4].querySelector(".label span").innerHTML = language["id"]["tab"][4];
 }
