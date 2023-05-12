@@ -641,10 +641,17 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 50%;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
-  background-image: url("img/default-news.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+}
+
+.news-tab .thumbnail:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: url('http:img/default-news.png') no-repeat center;
+  color: transparent;
 }
 
 .news-tab .title {
