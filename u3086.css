@@ -650,7 +650,8 @@ input[type="search"]::-webkit-search-results-decoration {
   left: 0;
   width: inherit;
   height: inherit;
-  background: #f5f8fa url('http:img/default-news.png') no-repeat center;
+  background-image: url('http:img/default-news.png');
+  background-size: cover;
   color: transparent;
 }
 
