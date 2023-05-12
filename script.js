@@ -89,8 +89,12 @@ var language = {
   },
 };
 
-function langtext(string) {
-  if (idlang) {
+function langtext(string, num) {
+  if (num && idlang) {
+    return language["id"][`${string}`][num];
+  } else if (num) {
+    return language["en"][`${string}`][num];
+  } else if (idlang) {
     return language["id"][`${string}`];
   } else {
     return language["en"][`${string}`];
@@ -99,11 +103,11 @@ function langtext(string) {
 
 if (idlang) {
   searchInput.placeholder = langtext("placeholder");
-  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
-  document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = language["id"]["tab"][1];
-  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = language["id"]["tab"][2];
-  document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = language["id"]["tab"][3];
-  document.querySelectorAll(".search-item")[4].querySelector(".label span").innerHTML = language["id"]["tab"][4];
+  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = langtext("tab", 0);
+  document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = langtext("tab", 1);
+  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = langtext("tab", 2);
+  document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = langtext("tab", 3);
+  document.querySelectorAll(".search-item")[4].querySelector(".label span").innerHTML = langtext("tab", 4);
 }
 
 HTMLInputElement.prototype.reset = function() {
@@ -275,11 +279,11 @@ var clock = function() {
 }
 
 function instantanswer() {
-  if (searchInput.value.toLowerCase().match("clock") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4 || searchInput.value.toLowerCase().match("jam") && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
+  if (searchInput.value.toLowerCase().match(/jam|clock/) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})} (${d.toLocaleDateString(locallang, {timeZoneName: 'short'}).substr(-3)}) ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match(/tanggal|date/) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
-  } else if (searchInput.value.toLowerCase() == "!quotes") {
+  } else if (searchInput.value.toLowerCase() == "quotes") {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
   }
 }
