@@ -641,6 +641,10 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 50%;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
+  background-image: url("img/default-news.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .news-tab .title {
