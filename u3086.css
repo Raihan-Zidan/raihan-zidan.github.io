@@ -643,7 +643,7 @@ input[type="search"]::-webkit-search-results-decoration {
   object-fit: cover;
   border-radius: 8px 8px 0 0;
   opacity: 1;
-  background-image: url("images/search.png");
+  background-image: url("img/default-news.png");
   background-size: cover;
 }
 
