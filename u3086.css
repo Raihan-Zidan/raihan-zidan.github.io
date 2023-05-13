@@ -645,7 +645,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 8px 8px 0 0;
 }
 
-.news-tab .thumbnail::before {
+.news-tab .thumbnail:after {
   content: '';
   position: absolute;
   top: 0;
