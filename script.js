@@ -417,7 +417,7 @@ function nwsresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? `<img src='${res.items[i].pagemap.cse_thumbnail[0].src}' class='thumbnail'>` : "<div class='thumbnail'></div>";
       publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
-      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${publisher}</div></div></a></div>`;
+      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}">${thumbnailimg}<div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${publisher}</div></div></a></div>`;
     }
     },1000);
   }
