@@ -372,15 +372,6 @@ function timeAgo(input) {
   }
 }
 
-function blobimg(url) {
-  fetch(url).then(function(response) {
-    return response.blob();
-  }).then(function(myBlob) {
-    var objectURL = URL.createObjectURL(myBlob);
-    return objectURL;
-  });
-}
-
 function dateconversion(val) {
   if (val.slice(0, 4).match(d.getFullYear())) {
     return timeAgo(val);
