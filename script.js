@@ -19,6 +19,24 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
+window.onbeforeunload = function() {
+
+  sessionStorage.setItem('scrollpos', window.scrollY);
+
+};
+
+window.onload = function() {
+
+  var scrollpos = sessionStorage.getItem('scrollpos');
+
+  if (scrollpos) {
+
+    window.scrollTo(0, scrollpos);
+
+  }
+
+};
+
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested) {
