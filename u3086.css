@@ -506,12 +506,22 @@ input[type="search"]::-webkit-search-results-decoration {
   text-overflow: ellipsis;
 }
 
-.copyright {
+.nvbr {
   width: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
   padding: 18px;
   background: #f5f8fa;
+}
+
+.nvbr .sct {
+  display: flex;
+  margin: 2px 0;
+}
+
+.nvbr a {
+  margin: 0 3px;
+  text-decoration: none;
 }
 
 .nwst {
