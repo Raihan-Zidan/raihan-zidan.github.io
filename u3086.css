@@ -642,11 +642,14 @@ input[type="search"]::-webkit-search-results-decoration {
   display: block;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
-}
-
-.news-tab .thumbnail:not(:srcset) {
+  opacity: 1;
   background-image: url("images/search.png");
   background-size: cover;
+}
+
+.news-tab .thumbnail:not(:has(src)) {
+  opacity: 1;
+  display: block;
 }
 
 .news-tab .thumblank {
