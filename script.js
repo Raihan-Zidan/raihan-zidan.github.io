@@ -19,23 +19,17 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
-window.onbeforeunload = function() {
+document.addEventListener("DOMContentLoaded", function (event) {
+        var scrollpos = sessionStorage.getItem('scrollpos');
+        if (scrollpos) {
+            window.scrollTo(0, scrollpos);
+            sessionStorage.removeItem('scrollpos');
+        }
+    });
 
-  sessionStorage.setItem('scrollpos', window.scrollY);
-
-};
-
-window.onload = function() {
-
-  var scrollpos = sessionStorage.getItem('scrollpos');
-
-  if (scrollpos) {
-
-    window.scrollTo(0, scrollpos);
-
-  }
-
-};
+    window.addEventListener("beforeunload", function (e) {
+        sessionStorage.setItem('scrollpos', window.scrollY);
+    });
 
 if (!q) {
   window.location.href = "/";
