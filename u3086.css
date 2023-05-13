@@ -509,9 +509,11 @@ input[type="search"]::-webkit-search-results-decoration {
 .nvbr {
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 18px;
-  background: #f5f8fa;
+  background: #fff;
 }
 
 .nvbr .sct {
@@ -520,6 +522,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .nvbr a {
+  color: black;
   margin: 0 3px;
   text-decoration: none;
 }
