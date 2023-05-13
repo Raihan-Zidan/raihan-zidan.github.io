@@ -643,6 +643,16 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 8px 8px 0 0;
 }
 
+.news-tab .thumblank {
+  width: 100%;
+  height: 50%;
+  border-radius: 8px 8px 0 0;
+  background-image: url("images/search.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .news-tab .title {
   font-size: 15px;
   margin: 5px 8px 0;
