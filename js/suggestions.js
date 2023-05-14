@@ -117,4 +117,6 @@ const suggestions = [
   "YouTube TV",
 ];
 
-export default suggestions;
+const suggestionsVariable = suggestions;
+
+export default suggestionsVariable;
