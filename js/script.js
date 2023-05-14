@@ -9,6 +9,22 @@ var lang = (hl == "id") ? "&hl=id" : "&hl=en";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
+var suggestions = [];
+
+inputBox.addEventListener('keyup', ()=> {
+  var query = inputBox.value;
+  var previousValue = inputBox.previousValue;
+  if (query !== previousValue) {
+    suggestions = [];
+  }
+  fetch(`https://api.swisscows.com/suggest?query=${inputBox.value}`)
+    .then(response => response.json())
+    .then(response => {
+      for (var i = 1; i < response.length; i++) {
+        suggestions.push(response[i]);
+      }
+    });
+});
 
 inputBox.onkeyup = (e)=> {
   let userData = e.target.value;
