@@ -116,3 +116,5 @@ let suggestions = [
   "Yep",
   "YouTube TV",
 ];
+
+export { suggestions };
