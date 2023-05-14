@@ -9,6 +9,7 @@ inputBox.addEventListener('keyup', ()=> {
   var query = inputBox.value;
 
   suggBox.innerHTML = "";
+  searchWrapper.classList.remove("active")
 
   fetch(`https://api.swisscows.com/suggest?query=${inputBox.value}`)
 
@@ -19,6 +20,7 @@ inputBox.addEventListener('keyup', ()=> {
       for (var i = 1; i < response.length; i++) {
 
         suggBox.innerHTML += `<li>${response[i]}</li>`;
+        searchWrapper.classList.add("active")
 
       }
 
