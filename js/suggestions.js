@@ -1,3 +1,4 @@
+
 const suggestions = [
   "!quotes",
   "Amazon",
@@ -117,6 +118,4 @@ const suggestions = [
   "YouTube TV",
 ];
 
-const suggestionsVariable = suggestions;
-
-export default suggestionsVariable;
+export const suggestionsVariable = suggestions;
