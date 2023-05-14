@@ -1,4 +1,4 @@
-let suggestions = [
+const suggestions = [
   "!quotes",
   "Amazon",
   "Amazon Prime",
