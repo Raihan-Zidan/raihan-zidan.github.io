@@ -8,14 +8,13 @@ var lang = (hl == "id") ? "&hl=id" : "&hl=en";
 inputBox.addEventListener('keyup', ()=> {
   var query = inputBox.value;
   if (!inputBox.value) {
-    suggBox.innerHTML = "";
+    searchWrapper.classList.remove("active")
   }
-  searchWrapper.classList.remove("active")
+  suggBox.innerHTML = "";
   fetch(`https://api.swisscows.com/suggest?query=${inputBox.value}`)
     .then(response => response.json())
     .then(response => {
       for (var i = 1; i < response.length; i++) {
-        suggBox.innerHTML = "";
         suggBox.innerHTML += `<li>${response[i]}</li>`;
         searchWrapper.classList.add("active")
       }
