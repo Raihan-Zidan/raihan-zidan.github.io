@@ -1,26 +1,29 @@
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
-var url = new URL(window.location.href);
-var hl = url.searchParams.get("hl");
-var lang = (hl == "id") ? "&hl=id" : "&hl=en";
+const url = new URL(window.location.href);
+const hl = url.searchParams.get("hl");
+const lang = (hl == "id") ? "&hl=id" : "&hl=en";
 
-inputBox.addEventListener('keyup', ()=> {
-  var query = inputBox.value;
-  if (!inputBox.value) {
-    searchWrapper.classList.remove("active")
+inputBox.addEventListener('keyup', () => {
+  const query = inputBox.value;
+  if (!query) {
+    searchWrapper.classList.remove("active");
+    suggBox.innerHTML = "";
+    return;
   }
-  suggBox.innerHTML = "";
-  fetch(`https://api.swisscows.com/suggest?query=${inputBox.value}`)
+  fetch(`https://api.swisscows.com/suggest?query=${query}`)
     .then(response => response.json())
     .then(response => {
-      for (var i = 1; i < response.length; i++) {
+      for (let i = 1; i < response.length; i++) {
         suggBox.innerHTML += `<li>${response[i]}</li>`;
-        searchWrapper.classList.add("active")
       }
+      searchWrapper.classList.add("active");
     });
 });
 
 if (hl == "id") {
   inputBox.placeholder = "Ketik untuk mencari...";
 }
+
+suggBox.style.pointerEvents = 'none';
