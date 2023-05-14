@@ -118,4 +118,3 @@ const suggestions = [
   "YouTube TV",
 ];
 
-export const suggestionsVariable = suggestions;
