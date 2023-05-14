@@ -117,4 +117,4 @@ const suggestions = [
   "YouTube TV",
 ];
 
-export { suggestions };
+export default suggestions;
