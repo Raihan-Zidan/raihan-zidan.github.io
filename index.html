@@ -21,30 +21,51 @@
     </div>
     <script>
       function browserName() {
-         let userAgent = navigator.userAgent;
-         let browserName;
-         if (userAgent.match(/chrome|chromium|crios/i)) {
-           return "chrome";
-         } else if (userAgent.match(/firefox|fxios/i)) {
-           return "firefox";
-         } else if (userAgent.match(/safari/i)) {
-           return "safari";
-         } else if (userAgent.match(/opr\//i)) {
-           return "opera";
-         } else if (userAgent.match(/edg/i)) {
-           return "edge";
-         } else {
-           return "No browser detection";
-         }
-      }
-      window.onload = function(c) {
-        c.version = "1.2.0";
-        console.log(`Search ${c.version}`);
-      }
-      HTMLInputElement.prototype.reset = function() {
-        this.value = "";
-      }
-      const userlang = navigator.language || navigator.userLanguage;
+  // Get the user agent string.
+  let userAgent = navigator.userAgent;
+
+  // Check if the user agent string matches the Chrome browser.
+  if (userAgent.match(/chrome/i)) {
+    return "chrome";
+  } else if (userAgent.match(/firefox/i)) {
+    return "firefox";
+  } else if (userAgent.match(/safari/i)) {
+    return "safari";
+  } else if (userAgent.match(/opr\//i)) {
+    return "opera";
+  } else if (userAgent.match(/edg/i)) {
+    return "edge";
+  } else if (userAgent.match(/brave/i)) {
+    return "brave";
+  } else {
+    return "No browser detection";
+  }
+}
+
+// This function is called when the page loads.
+window.onload = function(c) {
+  // Set the version of the search engine.
+  c.version = "1.2.0";
+
+  // Check if the search engine object is present.
+  if (c) {
+    // Log the version of the search engine to the console.
+    console.log(`Search ${c.version}`);
+  }
+};
+
+// This function resets the value of an HTML input element.
+HTMLInputElement.prototype.reset = function() {
+  // Check if the input element is present.
+  if (this) {
+    // Set the value of the input element to an empty string.
+    this.value = "";
+  }
+};
+
+// Get the user's preferred language.
+const language = navigator.language || navigator.userLanguage;
+
       
     </script>
     <script src="js/script.js"></script>
