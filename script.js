@@ -288,7 +288,60 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "quotes") {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
+  } else if (searchInput.value.toLowerCase().match(/translate/)) {
+    trnslt();
+    document.querySelector(".main-result .result").innerHTML += `<div class="trnsl">
+
+<div class="wrpl">
+
+         <ul class="controls">
+
+          <li class="row from">
+
+            <div class="icons">
+
+              <i id="from" class="fas fa-volume-up"></i>
+
+              <i id="from" class="fas fa-copy"></i>
+
+            </div>
+
+            <select></select>
+
+          </li>
+
+          <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+
+          <li class="row to">
+
+            <select></select>
+
+            <div class="icons">
+
+              <i id="to" class="fas fa-volume-up"></i>
+
+              <i id="to" class="fas fa-copy"></i>
+
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="text-input">
+
+          <textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea>
+
+          <textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea>
+
+        </div></div>
+
+</div>`;
   }
+}
+
+function trnslt() {
+  
 }
 
 function randomIntFromInterval(min, max) {
