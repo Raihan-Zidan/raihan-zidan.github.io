@@ -59,7 +59,7 @@ function select(element) {
 
 document.body.addEventListener('click', (e)=> {
     elm = e.target;
-    if (!elm.classList.contains("autocom-box") && !elm.classList.contains("input")) {
+    if (!elm.classList.contains("autocom-box")) {
       searchWrapper.classList.remove("active");
     }
 });
