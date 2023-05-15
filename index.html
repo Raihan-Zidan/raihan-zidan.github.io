@@ -67,10 +67,17 @@ HTMLInputElement.prototype.reset = function() {
 // Get the user's preferred language.
 const language = navigator.language || navigator.userLanguage;
 
-      
-    </script>
-    <script src="js/script.js"></script>
-    <script src="js/suggestions.js"></script>
+// Load the script files
+var script1 = document.createElement('script');
+script1.src = 'js/script.js';
 
+var script2 = document.createElement('script');
+script2.src = 'js/suggestions.js';
+
+// Append the scripts to the document
+document.body.appendChild(script1);
+document.body.appendChild(script2);
+
+    </script>
   </body>
 </html>
