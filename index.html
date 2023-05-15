@@ -20,25 +20,26 @@
       </div>
     </div>
     <script>
-      function browserName() {
+
+function browserName() {
   // Get the user agent string.
   let userAgent = navigator.userAgent;
 
   // Check if the user agent string matches the Chrome browser.
   if (userAgent.match(/chrome/i)) {
-    return "chrome";
+    return "Chrome";
   } else if (userAgent.match(/firefox/i)) {
-    return "firefox";
+    return "Firefox";
   } else if (userAgent.match(/safari/i)) {
-    return "safari";
+    return "Safari";
   } else if (userAgent.match(/opr\//i)) {
-    return "opera";
+    return "Opera";
   } else if (userAgent.match(/edg/i)) {
-    return "edge";
+    return "Edge";
   } else if (userAgent.match(/brave/i)) {
-    return "brave";
+    return "Brave";
   } else {
-    return "No browser detection";
+    return "Unknown browser";
   }
 }
 
