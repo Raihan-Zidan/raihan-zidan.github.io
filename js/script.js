@@ -22,7 +22,7 @@ inputBox.onkeyup = (e)=> {
     emptyArray = suggestions.filter((data)=>{
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
     });
-    emptyArray = emptyArray.map((data)=>{
+    emptyArray = emptyArray.slice(0, 5).map((data)=>{
       return data = `<li>${data}</li>`;
     });
     searchWrapper.classList.add("active");
