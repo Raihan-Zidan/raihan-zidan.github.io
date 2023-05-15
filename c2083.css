@@ -52,7 +52,7 @@ body {
 
 .search-toggle:hover {
   background-color: #ccc;
-  border-radius: 22px 0 0 22px;
+  border-radius: 0 22px 22px 0;
 }
 
 .search-input input {
@@ -67,7 +67,7 @@ body {
 }
 
 .search-input.active input {
-  border-radius: 0 0 22px 22px;
+  border-radius: 22px 22px 0 0;
 }
 
 .search-input .url {
