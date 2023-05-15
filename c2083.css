@@ -47,18 +47,12 @@ body {
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
-  border: none;
-  outline: none;
   background-color: transparent;
 }
 
 .search-toggle:hover {
   background-color: #ccc;
-}
-
-.search-toggle:active {
-  background-color: #bbb;
+  border-radius: 5px 0 5px 0;
 }
 
 .search-input input {
