@@ -50,11 +50,6 @@ body {
   background-color: transparent;
 }
 
-.search-toggle:hover {
-  background-color: #ccc;
-  border-radius: 0 22px 22px 0;
-}
-
 .search-input input {
   height: 48px;
   width: 100%;
