@@ -263,7 +263,7 @@ function synonym(val) {
   } else {
     return val;
   }
-}w
+}
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${synonym(val)}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
       xhr.responseType = "json";
