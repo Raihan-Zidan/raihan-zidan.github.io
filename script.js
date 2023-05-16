@@ -251,18 +251,21 @@ function submit() {
       })
     }
     if (startIndex == 1) {
-      var qry = val;
-      if (val.toLowerCase() === "yahoo") {
-        qry = "yahoo!";
-      } else if (val.toLowerCase() === "notch") {
-        qry = "markus persson";
-      } else if (val.toLowerCase() === "microsoft team") {
-        qry = "microsoft teams";
-      } else if (val.toLowerCase() === "bing") {
-        qry = "microsoft bing";
-      }
+function synonym(val) {
+  const synonyms = {
+    "yahoo": "yahoo!",
+    "notch": "markus persson",
+    "microsoft team": "microsoft teams",
+    "bing": "microsoft bing",
+  };
+  if (synonym[val.toLowerCase()]) {
+    return synonyms[val.toLowerCase()];
+  } else {
+    return val;
+  }
+}
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qry}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.open("GET", `https://duckduckgo.com/?q=${synonym(val)}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
