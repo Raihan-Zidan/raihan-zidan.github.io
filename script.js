@@ -235,7 +235,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&sort=date:d:s&q=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&sort=date&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
