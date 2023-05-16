@@ -251,17 +251,19 @@ function submit() {
       })
     }
     if (startIndex == 1) {
-function synonym(val) {
-  const synonyms = {
-    "yahoo": "yahoo!",
-    "notch": "markus persson",
-    "microsoft team": "microsoft teams",
-    "bing": "microsoft bing",
-  };
-  if (synonym[val.toLowerCase()]) {
-    return synonyms[val.toLowerCase()];
-  }
-}
+      function synonym(val) {
+        const synonyms = {
+          "yahoo": "yahoo!",
+          "notch": "markus persson",
+          "microsoft team": "microsoft teams",
+          "bing": "microsoft bing",
+        };
+        if (synonym[val.toLowerCase()]) {
+          return synonyms[val.toLowerCase()];
+        } else {
+          return val;
+        }
+      }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${synonym(val)}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
       xhr.responseType = "json";
