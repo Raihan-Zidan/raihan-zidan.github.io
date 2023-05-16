@@ -537,6 +537,10 @@ input[type="search"]::-webkit-search-results-decoration {
   min-height: 90px;
 }
 
+.nwst:has(.thumb)~..snwt {
+  min-height: 100px;
+}
+
 .nwst .title {
   font-size: 16px;
   margin-bottom: 8px;
@@ -563,7 +567,6 @@ input[type="search"]::-webkit-search-results-decoration {
   object-fit: cover;
   border-radius: 8px;
   margin-left: 4px;
-  margin-bottom: 10px;
 }
 
 .loader {
