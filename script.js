@@ -260,8 +260,6 @@ function synonym(val) {
   };
   if (synonym[val.toLowerCase()]) {
     return synonyms[val.toLowerCase()];
-  } else {
-    return val;
   }
 }
       var xhr = new XMLHttpRequest();
