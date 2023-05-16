@@ -235,7 +235,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&sort=date&q=${val}&exactTerms=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&sort=date&q=${val}`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
@@ -245,7 +245,7 @@ function submit() {
         webresult(response);
     })
     if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&cx=1428d6f56512346f2&q=${val}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
