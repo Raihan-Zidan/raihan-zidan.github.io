@@ -534,10 +534,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .snwt {
-  min-height: 90px;
-}
-
-.nwst:has(.thumb)~..snwt {
   min-height: 100px;
 }
 
