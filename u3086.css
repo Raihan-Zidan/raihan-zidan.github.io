@@ -563,18 +563,14 @@ input[type="search"]::-webkit-search-results-decoration {
   object-fit: cover;
   border-radius: 8px;
   margin-left: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   float: right;
 }
 
 .nwst:after {
-
   content: "";
-
   display: table;
-
   clear: both;
-
 }
 
 .loader {
