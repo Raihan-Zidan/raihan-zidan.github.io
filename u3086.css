@@ -534,7 +534,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .snwt {
-  min-height: 100px;
+  min-height: 90px;
 }
 
 .nwst .title {
@@ -563,7 +563,8 @@ input[type="search"]::-webkit-search-results-decoration {
   object-fit: cover;
   border-radius: 8px;
   margin-left: 4px;
-float: right;
+  margin-bottom: 10px;
+  float: right;
   clear: both;
 }
 
