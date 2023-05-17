@@ -563,6 +563,8 @@ input[type="search"]::-webkit-search-results-decoration {
   object-fit: cover;
   border-radius: 8px;
   margin-left: 4px;
+float: right;
+  clear: both;
 }
 
 .loader {
