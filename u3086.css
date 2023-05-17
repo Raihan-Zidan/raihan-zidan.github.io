@@ -565,7 +565,16 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-left: 4px;
   margin-bottom: 20px;
   float: right;
+}
+
+.nwst:after {
+
+  content: "";
+
+  display: table;
+
   clear: both;
+
 }
 
 .loader {
