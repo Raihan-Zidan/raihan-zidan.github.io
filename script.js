@@ -260,6 +260,8 @@ function submit() {
       qval = "microsoft teams";
     } else if (val.toLowerCase() == "bing") {
       qval = "microsoft bing";
+    } else if (val.toLowerCase() == "bard") {
+      qval = "google bard";
     }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
