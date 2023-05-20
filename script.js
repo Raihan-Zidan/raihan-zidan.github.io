@@ -4,7 +4,7 @@ var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
 var hl = url.searchParams.get("hl");
 var uf = url.searchParams.get("uf");
-var fv = url.searchParams.get(this);
+var fv = url.searchParams.get("fv");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
