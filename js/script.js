@@ -5,7 +5,7 @@ const icon = searchWrapper.querySelector(".icon");
 const daylabel = document.querySelector(".url a");
 var url = new URL(window.location.href);
 var hl = url.searchParams.get("hl");
-var lang = (hl && hl == "id") ? "&hl=id" : "&hl=en";
+var searchlang = (hl == "id") ? "&hl=id" : "&hl=en";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
@@ -15,7 +15,7 @@ inputBox.onkeyup = (e)=> {
   let emptyArray = [];
   if (userData) {
     icon.onclick = ()=>{
-      webLink = `${weburl}/search?q=${inputBox.value}${lang}`;
+      webLink = `${weburl}/search?q=${inputBox.value}${searchlang}`;
       linkTag.setAttribute("href", webLink);
       linkTag.click();
     }
@@ -36,7 +36,7 @@ inputBox.onkeyup = (e)=> {
   }
   if (e.keyCode == 13) {
     let selectData = inputBox.value;
-    webLink = `${weburl}/search?q=${selectData}${lang}`;
+    webLink = `${weburl}/search?q=${selectData}${searchlang}`;
     linkTag.setAttribute("href", webLink);
     linkTag.click();
   }
