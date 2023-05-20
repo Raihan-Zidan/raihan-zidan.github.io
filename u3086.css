@@ -848,6 +848,11 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     flex-direction: row;
   }
+  .search-box,
+  .search-menu,
+  .result-wrapper {
+    padding-left: 50px;
+  }
 }
 
 @media (min-width: 992px) {
