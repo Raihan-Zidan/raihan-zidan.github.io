@@ -250,7 +250,7 @@ function submit() {
       qval = "microsoft bing";
     } else if (val.toLowerCase() == "bard") {
       qval = "google bard";
-    } else if (val.toLowerCase() == "apple") {
+    } else if (val.toLowerCase().match(/apple|appl/)) {
       qval = "apple inc";
     }
       var xhr = new XMLHttpRequest();
