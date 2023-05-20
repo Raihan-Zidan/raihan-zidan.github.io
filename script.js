@@ -3,6 +3,8 @@ var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
 var p = url.searchParams.get("p");
 var hl = url.searchParams.get("hl");
+var uf = url.searchParams.get("uf");
+var fv = url.searchParams.get("fv");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
@@ -460,7 +462,7 @@ function webresult(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
-    if (option4 == "0") {
+    if (option4 == "0" || fv == 0) {
       document.querySelectorAll(".favicon").forEach(elm => {
         elm.remove();
       });
