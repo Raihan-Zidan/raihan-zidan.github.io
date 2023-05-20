@@ -41,17 +41,15 @@ function insertAfter(referenceNode, newNode) {
 
 document.body.addEventListener("scroll", function (event) {
   var scrollpos = sessionStorage.getItem('scrollpos');
-  var currenturl = sessionStorage.getItem('currenturl');
-  if (scrollpos && currenturl == window.location.href) {
-    setTimeout(()=> { window.scrollTo(0, scrollpos); },1000);
+  if (scrollpos) {
+    window.scrollTo(0, scrollpos);
+    alert(scrollpos);
+    sessionStorage.removeItem('scrollpos');
   }
-  sessionStorage.removeItem('scrollpos');
-  sessionStorage.removeItem('currenturl');
 });
 
 window.addEventListener("beforeunload", function (e) {
   sessionStorage.setItem('scrollpos', window.scrollY);
-  sessionStorage.setItem('currenturl', window.location.href);
 });
 
 searchInput = document.querySelector(".search-input");
