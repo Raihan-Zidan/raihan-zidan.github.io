@@ -262,6 +262,8 @@ function submit() {
       qval = "microsoft bing";
     } else if (val.toLowerCase() == "bard") {
       qval = "google bard";
+    } else if (val.toLowerCase() == "apple") {
+      qval = "apple inc";
     }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
