@@ -846,6 +846,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .nvbr {
     display: flex;
+    flex-direction: row;
   }
 }
 
