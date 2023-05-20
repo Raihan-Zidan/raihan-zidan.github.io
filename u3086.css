@@ -815,7 +815,7 @@ input[type="search"]::-webkit-search-results-decoration {
     bottom: -12px;
   }
   .instant-answer {
-    width: 320px;
+    width: 280px;
     border-style: solid;
     border-radius: 8px;
     border-color: #ccc;
