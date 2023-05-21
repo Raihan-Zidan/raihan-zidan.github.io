@@ -41,19 +41,6 @@ function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
-document.body.addEventListener("scroll", function (event) {
-  var scrollpos = localStorage.getItem('scrollpos');
-  if (scrollpos) {
-    window.scrollTo(0, scrollpos);
-    alert(scrollpos);
-    localStorage.removeItem('scrollpos');
-  }
-});
-
-window.addEventListener("beforeunload", function (e) {
-  localStorage.setItem('scrollpos', window.scrollY);
-});
-
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
