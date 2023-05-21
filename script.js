@@ -254,6 +254,10 @@ function submit() {
       qval = "google bard";
     } else if (val.toLowerCase().match(/apple|appl/)) {
       qval = "apple inc";
+    } else if (val.toLowerCase().match(/ronaldo/)) {
+      qval = "cristiano ronaldo";
+    } else if (val.toLowerCase().match(/messi/)) {
+      qval = "lionel messi";
     }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
