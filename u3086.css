@@ -15,10 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-body:has(.title) {
-  background: #f5f8fa;
-}
-
 @media (min-width: 780px) {
   body {
     background: white;
@@ -748,6 +744,9 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .search-box .search-toggle {
     pointer-events: none;
+  }
+  body:has(.title) {
+    background: #f5f8fa;
   }
 }
 
