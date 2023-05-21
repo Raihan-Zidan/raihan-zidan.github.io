@@ -42,16 +42,16 @@ function insertAfter(referenceNode, newNode) {
 }
 
 document.body.addEventListener("scroll", function (event) {
-  var scrollpos = sessionStorage.getItem('scrollpos');
+  var scrollpos = localStorage.getItem('scrollpos');
   if (scrollpos) {
     window.scrollTo(0, scrollpos);
     alert(scrollpos);
-    sessionStorage.removeItem('scrollpos');
+    localStorage.removeItem('scrollpos');
   }
 });
 
 window.addEventListener("beforeunload", function (e) {
-  sessionStorage.setItem('scrollpos', window.scrollY);
+  localStorage.setItem('scrollpos', window.scrollY);
 });
 
 searchInput = document.querySelector(".search-input");
