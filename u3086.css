@@ -182,8 +182,6 @@ body:has(.title) {
 }
 
 .result-wrapper {
-  width: 100%;
-  background: #f5f8fa;
 }
 
 .search-result {
