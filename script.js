@@ -41,10 +41,10 @@ function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
-searchInput = $(".search-input");
-searchItem = $(".tab-wrapper");
-cleartext = $(".cleartext");
-searchToggle = $(".search-toggle");
+searchInput = document.querySelector(".search-input");
+searchItem = document.querySelectorAll(".tab-wrapper");
+cleartext = document.querySelector(".cleartext");
+searchToggle = document.querySelector(".search-toggle");
 
 if (tbm === "vid") {
   defstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
