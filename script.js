@@ -141,9 +141,9 @@ if (windowWidth < 780) {
     elm.remove();
   });
 }
-submit()
+
 window.addEventListener('load', ()=> {
-  if (searchInput.value != '' && !rested) {}
+  if (searchInput.value != '' && !rested) submit();
 });
 
 cleartext.addEventListener('click', ()=> {
