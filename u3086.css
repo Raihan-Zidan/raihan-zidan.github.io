@@ -11,8 +11,11 @@ html, body {
   font-family: "Google Sans", arial;
 }
 
-bodys {
+body {
   overflow-x: hidden;
+}
+
+body:has(.title) {
   background: #f5f8fa;
 }
 
