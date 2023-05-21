@@ -16,6 +16,12 @@ body {
   background: #f5f8fa;
 }
 
+@media (min-width: 780px) {
+  body {
+    background: white;
+  }
+}
+
 .header {
   padding-top: 8px;
   background: #ffffff;
