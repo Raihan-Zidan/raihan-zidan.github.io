@@ -13,6 +13,7 @@ html, body {
 
 body {
   overflow-x: hidden;
+  background: #f5f8fa;
 }
 
 .header {
