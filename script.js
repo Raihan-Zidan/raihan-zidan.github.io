@@ -286,6 +286,8 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "quotes") {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
+  } else if (searchInput.value.toLowerCase().match(/sea games|indonesia|bola/) {
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="big-title">Indonesia Juara!</div><div class="snippet-info">Akhirnya setelah penantian selama 32 tahun, Indonesia kembali memenangkan sepak bola di ajang sea games 2023!</div></div>`;
   }
 }
 
