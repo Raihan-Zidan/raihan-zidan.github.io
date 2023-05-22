@@ -739,7 +739,7 @@ input[type="search"]::-webkit-search-results-decoration {
   .search-box .search-toggle {
     pointer-events: none;
   }
-  body:has(.title) {
+  body:has(.title, .title-black) {
     background: #f5f8fa;
   }
 }
