@@ -234,7 +234,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1 || val.match(/indonesia/)) {
       fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
