@@ -723,6 +723,55 @@ input[type="search"]::-webkit-search-results-decoration {
   border: 1px solid #ccc;
 }
 
+.calculator {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  padding: 10px 20px 20px;
+  background: #fff;
+}
+
+.calculator .display {
+  height: 80px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #EDEDED;
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: #000e1a;
+  pointer-events: none;
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+.calculator .buttons {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calculator .buttons button {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.calculator .buttons button:active {
+  transform: scale(0.99);
+}
+
+.calculator .buttons button.operator {
+  background-color: #dbdbdb;
+}
+
+.calculator.operator {
+  color: #2f9fff;
+}
+
 @media (max-width: 780px) {
   .news-list::-webkit-scrollbar {
     display: none
@@ -909,7 +958,6 @@ input[type="search"]::-webkit-search-results-decoration {
   flex-direction: column;
 }
 
-
 .trnsl {
   width: 100%;
   border: 1px solid #EDEDED;
@@ -1061,51 +1109,3 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-.calculator {
-  position: relative;
-  max-width: 400px;
-  width: 100%;
-  padding: 10px 20px 20px;
-  background: #fff;
-}
-
-.calculator .display {
-  height: 80px;
-  width: 100%;
-  outline: none;
-  border: 1px solid #EDEDED;
-  text-align: right;
-  margin-bottom: 10px;
-  font-size: 25px;
-  color: #000e1a;
-  pointer-events: none;
-  border-radius: 5px;
-  padding: 0 8px;
-}
-
-.calculator .buttons {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.calculator .buttons button {
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  font-size: 17px;
-  cursor: pointer;
-  background-color: #eee;
-}
-
-.calculator .buttons button:active {
-  transform: scale(0.99);
-}
-
-.calculator .buttons button.operator {
-  background-color: #dbdbdb;
-}
-
-.calculator.operator {
-  color: #2f9fff;
-}
