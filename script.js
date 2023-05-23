@@ -300,11 +300,11 @@ function instantanswer() {
       if (btnValue === "=" && output !== "") {
         output = eval(output.replace("%", "/100").replace(/×/g, "*").replace(/÷/g, "/"));
       } else if (btnValue === "AC") {
-        output = "";
+        output = "0";
       } else if (btnValue === "DEL") {
         output = output.toString().slice(0, -1);
       } else {
-        if (display.value == "0" && !/^[0-9]+$/.test(btnValue)) {
+        if (isNaN(btnValue) && display.value == "0") {
           display.value == "";
         }
         if (output === "" && specialChars.includes(btnValue)) return;
