@@ -315,6 +315,7 @@ function instantanswer() {
       button.addEventListener("click", (e) => calculate(e.target.dataset.value));
     });
     },500);
+  }
 }
 
 function randomIntFromInterval(min, max) {
