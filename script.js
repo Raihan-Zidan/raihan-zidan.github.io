@@ -288,7 +288,7 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
   } else if (searchInput.value.toLowerCase().match(/kalkulator|calculator/)) {
     document.querySelector(".main-result .result").innerHTML += `<div class="calculator"><input type="text" inputmode="none" class="display" /><div class="buttons"><button class="operator" data-value="AC">AC</button><button class="operator" data-value="DEL">DEL</button><button class="operator" data-value="%">%</button><button class="operator" data-value="/">/</button><button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="operator" data-value="*">*</button><button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="operator" data-value="-">-</button><button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="operator" data-value="+">+</button><button data-value="0">0</button><button data-value="00">00</button><button data-value=".">.</button><button class="operator" data-value="=">=</button></div></div>`;
-    setTimeout(()=>{
+    setTimeout(()=> {
     const calculatorBox = document.querySelector(".calculator");
     const display = calculatorBox.querySelector(".display");
     const buttons = calculatorBox.querySelectorAll("button");
