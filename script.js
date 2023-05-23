@@ -304,8 +304,8 @@ function instantanswer() {
       } else if (btnValue === "DEL") {
         output = output.toString().slice(0, -1);
       } else {
-        if (isNaN(btnValue) && display.value == "0") {
-          display.value == "";
+        if (!isNaN(btnValue) && display.value == "0") {
+          output = "";
         }
         if (output === "" && specialChars.includes(btnValue)) return;
           output += btnValue;
