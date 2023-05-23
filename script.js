@@ -304,7 +304,7 @@ function instantanswer() {
       } else if (btnValue === "DEL") {
         output = output.toString().slice(0, -1);
       } else {
-        if (display.value == 0 && typeof btnValue === "number") {
+        if (display.value == "0" && !/^[0-9]+$/.test(btnValue)) {
           display.value == "";
         }
         if (output === "" && specialChars.includes(btnValue)) return;
