@@ -306,8 +306,7 @@ function instantanswer() {
       } else {
         if (!isNaN(btnValue) && display.value == "0") {
           output = "";
-        }
-        if (output === "" && specialChars.includes(btnValue)) return;
+        } esle if (output === "" && specialChars.includes(btnValue)) return;
           output += btnValue;
         }
         display.value = output;
