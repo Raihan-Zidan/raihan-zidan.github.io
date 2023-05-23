@@ -298,7 +298,7 @@ function instantanswer() {
     const calculate = (btnValue) => {
       display.focus();
       if (btnValue === "=" && output !== "") {
-        output = eval(output.replace("%", "/100"));
+        output = eval(output.replace("%", "/100").replace(/×/g, "*").replace(/÷/g, "/"));
       } else if (btnValue === "AC") {
         output = "";
       } else if (btnValue === "DEL") {
