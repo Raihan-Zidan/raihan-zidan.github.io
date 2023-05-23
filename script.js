@@ -292,7 +292,7 @@ function instantanswer() {
     const calculatorBox = document.querySelector(".calculator");
     const display = calculatorBox.querySelector(".display");
     const buttons = calculatorBox.querySelectorAll("button");
-    const specialChars = ["%", "*", "/", "-", "+", "="];
+    const specialChars = ["%", "*", "/", "-", " + ", "="];
     let output = "";
 
     const calculate = (btnValue) => {
@@ -305,11 +305,11 @@ function instantanswer() {
         output = output.toString().slice(0, -1);
       } else {
         if (output === "" && specialChars.includes(btnValue)) return;
-        output += btnValue;
-      }
-      display.value = output;
-      display.blur();
-    };
+          output += btnValue;
+        }
+        display.value = output;
+        display.blur();
+      };
 
     buttons.forEach((button) => {
       button.addEventListener("click", (e) => calculate(e.target.dataset.value));
