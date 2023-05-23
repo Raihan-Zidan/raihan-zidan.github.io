@@ -757,6 +757,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border: none;
   font-size: 17px;
   cursor: pointer;
+  user-select: none;
   background-color: #eee;
 }
 
