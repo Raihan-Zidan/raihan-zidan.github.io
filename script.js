@@ -319,9 +319,6 @@ function instantanswer() {
     </div>`;
     
     const calculatorBox = document.querySelector(".calculator");
-
-if (calculatorBox) {
-
 const display = calculatorBox.querySelector(".display");
 const buttons = calculatorBox.querySelectorAll("button");
 const specialChars = ["%", "*", "/", "-", "+", "="];
@@ -346,7 +343,6 @@ const calculate = (btnValue) => {
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => calculate(e.target.dataset.value));
 });
-}
   }
 }
 
