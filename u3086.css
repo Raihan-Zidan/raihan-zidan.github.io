@@ -755,7 +755,7 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 8px;
   border-radius: 6px;
   border: none;
-  font-size: 17px;
+  font-size: 16px;
   cursor: pointer;
   user-select: none;
   background-color: ini;
@@ -770,6 +770,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .calculator .buttons button.operator[th="true"] {
+  color #fff;
   background-color: #4286F5
 }
 
