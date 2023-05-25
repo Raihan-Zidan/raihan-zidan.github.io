@@ -356,23 +356,17 @@ function instant(e) {
 function relatedsearch() {
   if (q.split(" ").length - 4) {
   setTimeout(()=> {
-  fetch(`https://api.swisscows.com/suggest?query=${q}`)
-  .then(response => response.json()).then(response => {
-    rls(response);
-  })
-  },800)}
-}
-
-function rls(res) {
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
-  if (res.length > 1) {
-    document.querySelector(".main-result .result").appendChild(rltb);
-    rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
+  document.querySelector(".main-result .result").appendChild(rltb);
+  rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
+  fetch(`https://api.swisscows.com/suggest?query=${q}`)
+  .then(response => response.json()).then(response => {
     for (var i = 1; i < res.length && i < 5; i++) {
       document.querySelector(".search-list").innerHTML += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
     }
-  }
+  })
+  },800)}
 }
 
 function refreshQuotes() {
@@ -469,7 +463,6 @@ function webresult(res) {
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
-      relatedsearch();
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
