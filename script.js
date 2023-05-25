@@ -458,7 +458,7 @@ function webresult(res) {
     if (res.items && windowWidth > 700 && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">${rsltsta}</div>`;
     }
-    if (res.items && res.spelling && pageone) {
+    if (res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
     }
     if (res.items.length > 9 && pageone) {
