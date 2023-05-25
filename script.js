@@ -356,19 +356,23 @@ function instant(e) {
 function relatedsearch() {
   if (q.split(" ").length - 4) {
   setTimeout(()=> {
-  var rltb = document.createElement("div");
-  rltb.classList.add("related-search");
   fetch(`https://api.swisscows.com/suggest?query=${q}`)
   .then(response => response.json()).then(response => {
-    if (!response.length < 1) {
-      document.querySelector(".main-result .result").appendChild(rltb);
-      rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
-      for (var i = 1; i < response.length && i < 5; i++) {
-        document.querySelector(".search-list").innerHTML += `<a href="/search?q=${response[i]}" class="related">${response[i]}</a>`;
-      }
-    }
+    rls(response);
   })
   },800)}
+}
+
+function rls(res) {
+  var rltb = document.createElement("div");
+  rltb.classList.add("related-search");
+  if (res.length > 1) {
+    document.querySelector(".main-result .result").appendChild(rltb);
+    rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
+    for (var i = 1; i < res.length && i < 5; i++) {
+      document.querySelector(".search-list").innerHTML += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
+    }
+  }
 }
 
 function refreshQuotes() {
