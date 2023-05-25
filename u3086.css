@@ -269,7 +269,6 @@ body {
 
 .tab-link {
   cursor: pointer;
-  padding-top: 5px;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
 }
 
