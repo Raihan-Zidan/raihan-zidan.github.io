@@ -463,6 +463,7 @@ function webresult(res) {
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
+      relatedsearch();
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
@@ -471,7 +472,6 @@ function webresult(res) {
       urlparam = originurl.origin + urlparam;
       displayUrl = (option2 == "1" || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle.replace(/\u003ctextarea\u003e/gi, "").replace(/\<\/?b.*?\/?\>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet.replace(/\<\/?b.*?\/?\>/g, "")}</div></div>`;
-      relatedsearch();
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
