@@ -5,6 +5,7 @@ var p = url.searchParams.get("p");
 var hl = url.searchParams.get("hl");
 var uf = url.searchParams.get("uf");
 var fv = url.searchParams.get("fv");
+var sf = url.searchParams.get("sf");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
@@ -219,6 +220,7 @@ searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 function submit() {
   var val = searchInput.value;
   var geo = (idlang) ? `&gl=${hl}` : "";
+  var spr = (sf == 1) ? "&safe=active" : "";
   if (tbm === "vid") {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
       .then(response => response.json()).then(response => {
@@ -230,7 +232,7 @@ function submit() {
         nwsr(response);
     })
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}${spr}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}`)
       .then(response => response.json()).then(response => {
         webresult(response);
     })
