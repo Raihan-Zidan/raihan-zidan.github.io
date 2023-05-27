@@ -355,6 +355,45 @@ function instant(e) {
   },800);
 }
 
+var playstore = [
+  {
+    "appname": "Google Translate",
+    "thumbnail": "https://play-lh.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA=w480-h960-rw",
+    "rating": "Rating 4.4 (8.6M)",
+    "package": "com.google.android.apps.translate",
+    "price": "Free",
+    "description": "Text translation: Translate between 108 languages by typing • Tap to Translate: Copy text in any app and tap the Google Translate icon to translate (all ...",
+  },
+  {
+    "appname": "Minecraft",
+    "thumbnail": "https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w480-h960-rw",
+    "rating": "Rating 4.6 (4.8M)",
+    "package": "com.mojang.minecraftpe",
+    "price": "Paid",
+    "description": "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited ...",
+  },
+  {
+    "appname": "Google Maps",
+    "thumbnail": "https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w480-h960-rw",
+    "rating": "Rating 4.3 (16M)",
+    "package": "com.google.android.apps.maps",
+    "price": "Free",
+    "description": "Navigate your world faster and easier with Google Maps. Over 220 countries and territories mapped and hundreds of millions of businesses and places on the ...",
+  }
+];
+
+function playstore() {
+  for (var i = 0; i < playstore.length; i++) {
+    if (searchInput.value.toLowerCase().indexOf(playstore[i].appname.toLowerCase()) > -1 && searchInput.value.split(" ").length - 2) {
+      var tabres = document.querySelectorAll(".tab-result");
+      var plres = document.createElement("div");
+      plres.classList.add("tab-result");
+      plres.innerHTML += `<div class="tab-result"><div class="tab-link"><a href="https://play.google.com/store/apps/details?id=${playstore[i].package}"><div class="top"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64"><div class="link">Google Play</div></div>p<div class="information"><img src="${playstore[i].thumbnail}"><div class="label"><div class="title notranslate">${playstore[i].appname} - Apps on Google Play</div><div class="snippet">${playstore[i].rating}</div></div></div></a></div><div class="snippet">${playstore[i].description}</div></div>`;
+      insertAfter(tabres[5], plres);
+    }
+  }
+}
+
 function relatedsearch() {
   if (q.split(" ").length - 4) {
   setTimeout(()=> {
@@ -466,6 +505,7 @@ function webresult(res) {
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
+      playstore();
     }
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
