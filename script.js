@@ -480,11 +480,6 @@ function webresult(res) {
       if (description.innerHTML === "undefined") {
         description.innerHTML = `There is no information on this page.`;
       }
-      const lines = description.textContent.split('\n');
-      if (lines[2].includes('...')) {
-        lines.splice(2, 1);
-        description.textContent = lines.join('\n');
-      }
     });
     if (option4 == "0" || fv == 0) {
       document.querySelectorAll(".favicon").forEach(elm => {
