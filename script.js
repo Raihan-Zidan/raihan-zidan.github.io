@@ -492,7 +492,7 @@ function webresult(res) {
       document.querySelector(".show-wrapper").remove();
     }
   } catch(error) {
-    if (pageone) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
+    if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
   }
 }
 
