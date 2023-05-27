@@ -382,17 +382,7 @@ var playstore = [
   }
 ];
 
-function playstore() {
-  for (var i = 0; i < playstore.length; i++) {
-    if (searchInput.value.toLowerCase().indexOf(playstore[i].appname.toLowerCase()) > -1 && searchInput.value.split(" ").length - 2) {
-      var tabres = document.querySelectorAll(".tab-result");
-      var plres = document.createElement("div");
-      plres.classList.add("tab-result");
-      plres.innerHTML += `<div class="tab-result"><div class="tab-link"><a href="https://play.google.com/store/apps/details?id=${playstore[i].package}"><div class="top"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64"><div class="link">Google Play</div></div>p<div class="information"><img src="${playstore[i].thumbnail}"><div class="label"><div class="title notranslate">${playstore[i].appname} - Apps on Google Play</div><div class="snippet">${playstore[i].rating}</div></div></div></a></div><div class="snippet">${playstore[i].description}</div></div>`;
-      insertAfter(tabres[5], plres);
-    }
-  }
-}
+f
 
 function relatedsearch() {
   if (q.split(" ").length - 4) {
@@ -514,7 +504,6 @@ function webresult(res) {
       displayUrl = (option2 == "1" || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></div>`;
     }
-    playstore();
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
