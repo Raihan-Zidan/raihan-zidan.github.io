@@ -344,7 +344,7 @@ function instant(e) {
       document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
-        document.querySelector(".instant-answer .logo").style.border = "0.5px solid #EDEDED";
+        document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
       }}
       for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
         if (res.Infobox.content[i].value.trim()) {
