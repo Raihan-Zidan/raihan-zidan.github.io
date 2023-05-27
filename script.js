@@ -453,13 +453,6 @@ function nwsresult(res) {
   }
 }
 
-function customReplace(text, regex, replacement) {
-  var replaced = text.replace(regex, replacement);
-  if (text === replaced) {
-    throw new Error("No replacements made");
-  }
-  return replaced;
-}
 
 function webresult(res) {
   try {
@@ -493,7 +486,7 @@ function webresult(res) {
         elm.remove();
       });
     }
-    document.querySelector(".main-result .result").innerHTML = customReplace(document.querySelector(".main-result .result"),  /<b>?|<\/b>?/g, ""), "");
+    document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").replace(/<b>?|<\/b>?/g, "");
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
