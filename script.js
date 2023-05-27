@@ -486,7 +486,7 @@ function webresult(res) {
         elm.remove();
       });
     }
-    document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").replace(/<b>(?!\/?b>|\/?strong>)|<\/b>/g, "");
+    document.querySelector(".main-result .result").innerHTML = document.querySelector(".main-result .result").replace(/<b(?!\/b)>|<\/b>/g, "");
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
