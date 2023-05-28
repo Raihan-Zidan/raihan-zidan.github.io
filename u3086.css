@@ -25,29 +25,6 @@ body {
   position: relative;
 }
 
-.quotes-tab .refresh {
-  position: absolute;
-  cursor: pointer;
-  right: 15px;
-  top: 15px;
-  width: 20px;
-  height: 20px;
-  -webkit-tap-highlight-color: transparent;
-  background-image: url("images/refresh.svg");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
 .search-box {
   padding: 5px 15px;
 }
@@ -776,6 +753,29 @@ input[type="search"]::-webkit-search-results-decoration {
   color: #2f9fff;
 }
 
+.quotes-tab .refresh {
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  -webkit-tap-highlight-color: transparent;
+  background-image: url("images/refresh.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 @media (max-width: 780px) {
   .news-list::-webkit-scrollbar {
     display: none
@@ -1113,8 +1113,12 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-body.dark {
+body.dark, body.dark .result-wrapper {
   background: #171717;
+}
+
+body.dark .search-input {
+  border: none;
 }
 
 body.dark .search-input {
