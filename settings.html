@@ -328,6 +328,7 @@ document.querySelector(".reset").addEventListener('click', ()=> {
   settings.favicon = true,
   settings.theme = "light"
   saveData();
+  window.scrollY = 0;
   window.location.reload();
 });
 
