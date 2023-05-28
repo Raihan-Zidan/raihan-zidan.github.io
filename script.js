@@ -247,6 +247,7 @@ function submit() {
 }
 
 function wikianswer() {
+  var val = searchInput.value;
   if (startIndex == 1) {
     var qval = val;
     if (val.toLowerCase() == "yahoo") {
