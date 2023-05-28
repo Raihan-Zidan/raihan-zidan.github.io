@@ -6,7 +6,7 @@ var hl = url.searchParams.get("hl");
 var uf = url.searchParams.get("uf");
 var fv = url.searchParams.get("fv");
 var sf = url.searchParams.get("sf");
-var dm = url.searchParams.get("dm");
+var th = url.searchParams.get("th");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
@@ -14,6 +14,20 @@ var rested = false;
 option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
+var searchParam = ``;
+
+if (uf == 1) {
+  searchParam += "&uf=1";
+}
+if (fv == 0) {
+  searchParam += "&fv=0";
+}
+if (sf == 1) {
+  searchParam += "&sf=1";
+}
+if (th == 1) {
+  searchParam += "&th=1";
+}
 
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
@@ -39,7 +53,7 @@ if (!q) {
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>503.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
 }
 
-if (dm == 1) {
+if (th == 1) {
   document.body.classList.add("dark");
 }
 
