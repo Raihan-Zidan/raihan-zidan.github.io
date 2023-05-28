@@ -1113,6 +1113,15 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
+body.dark, body.dark .header {
+  background: #202125;
+}
+
+body.dark .search-input {
+  color: #E9EAEE;
+  background: #3C4043;
+}
+
 body.dark .tab-result .snippet {
   color: #BDC1C4;
 }
