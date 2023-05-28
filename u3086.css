@@ -1192,3 +1192,16 @@ body.dark .info-label, body.dark .flexwrap .link, body.dark .nwst .publishtime {
   color: #BDC1C4;
 }
 
+@media (min-width: 780px) {
+  body.dark .header {
+    background: #171717;
+  }
+  body.dark .tab-result {
+    background: transparent;
+    border: none;
+  }
+  body.dark .instant-answer .infobox span {
+    border-color: #24282B;
+  }
+}
+
