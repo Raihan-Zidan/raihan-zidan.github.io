@@ -1114,7 +1114,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 body.dark, body.dark .header {
-  background: #202125;
+  background: #171717;
 }
 
 body.dark .search-input {
@@ -1158,7 +1158,7 @@ body.dark .search-menu {
 }
 
 body.dark .news-tab {
-  border-color: #ccc;
+  border-color: #000;
 }
 
 body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
