@@ -322,6 +322,8 @@ if (getData().theme) {
 }
   
 document.querySelector(".reset").addEventListener('click', ()=> {
+  var resetSettings = confirm("Do you want to clear the settings data?");
+  if (resetSettings) {
   settings.lang = "English",
   settings.newtab = false,
   settings.newurl = false,
@@ -329,6 +331,7 @@ document.querySelector(".reset").addEventListener('click', ()=> {
   settings.theme = "light"
   saveData();
   window.location.href = ""
+  }
 });
 
 
