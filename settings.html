@@ -320,6 +320,18 @@ if (getData().lang) {
 if (getData().theme) {
   selectOption[2].value = getData().theme;
 }
+  
+document.querySelector(".reset").onclick = function() {
+  settings = {
+    lang: "English",
+    newtab: false,
+    newurl: false,
+    favicon: true,
+    theme: "light"
+  };
+  saveData();
+  window.location.reload();
+}
 
 
 </script>
