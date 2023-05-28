@@ -9,6 +9,10 @@
   background: #202125;
 }
 
+body.dark .video-result .title {
+  color: #8BB4F4;
+}
+
 .video-result .source {
   color: #BDC1C4;
 }
