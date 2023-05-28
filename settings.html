@@ -69,8 +69,8 @@
       <div class="snippet">Set the appearance of the site interface to dark or light</div>
     </div>
     <select name="theme" class="select-option">
-      <option value="light" code="lg">Light</option>
-      <option value="dark" code="dk">Dark</option>
+      <option value="light" code="light">Light</option>
+      <option value="dark" code="dark">Dark</option>
     </select>
   </div>
   
@@ -279,7 +279,7 @@ selectOption[0].addEventListener('change', ()=> {
   settings.lang = selectOption[0].value;
   saveData();
 });
-  
+
 selectOption[1].addEventListener('change', ()=> {
   settings.theme = selectOption[1].value;
   saveData();
