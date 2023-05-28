@@ -1184,7 +1184,7 @@ body.dark .instant-answer .title, body.dark .news-result .title, body.dark .news
 
 body.dark .tab-result .snippet, body.dark .tab-result .link,
 body.dark .instant-answer .infobox, body.dark .instant-answer .snippet,
-body.dark .info-label, body.dark .flexwrap .link {
+body.dark .info-label, body.dark .flexwrap .link, body.dark .nwst .publishtime {
   color: #BDC1C4;
 }
 
