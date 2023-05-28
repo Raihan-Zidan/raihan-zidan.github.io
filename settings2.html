@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inersoft - Settings</title>
+</head>
+
+<body>
+
+<div class="settings">
+  <div class="header">
+    <div class="title">All settings</div>
+  </div>
+
+<div class="content">
+
+  <div class="column">
+    <div class="info">
+      <div class="label">Open Link in New Tab</div>
+      <div class="snippet">Opens search results in a new tab</div>
+    </div>
+    <input class="toggle" type="checkbox" id="option1">
+  </div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">New url style</div>
+      <div class="snippet">Show full url not show as domain</div>
+    </div>
+    <input class="toggle" type="checkbox" id="option2">
+  </div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">Language</div>
+      <div class="snippet">Change site language.</div>
+      <div class="snippet"><b>Attention, the feature is still unstable</b></div>
+    </div>
+    <select name="language" class="select-option">
+      <option value="English" code="en">English</option>
+      <option value="Indonesia" code="id">Indonesia</option>
+    </select>
+  </div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">Site icon</div>
+      <div class="snippet">Displays a favicon on the left side of the results</div>
+    </div>
+    <input class="toggle" type="checkbox" id="option4">
+  </div>
+
+  <div class="column">
+    <div class="info">
+      <div class="label">HTTP request method</div>
+      <div class="snippet">Set your search method with POST or GET</div>
+    </div>
+    <select name="method" class="select-option">
+      <option value="GET" selected>GET</option>
+      <option value="POST" disabled>POST</option>
+    </select>
+  </div>
+  
+  <div class="column">
+    <button class="reset">Reset Settings</button> 
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
+
+<style>
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-size-adjust: none;
+  font-family: "HelveticaNeue", Arial;
+}
+
+.header {
+  padding: 20px;
+  display: grid;
+  place-items: center;
+}
+
+.header .title {
+  font-size: 22px;
+}
+
+.content {
+  border-top: 1px solid #EDEDED;
+}
+
+.column {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid #EDEDED;
+}
+
+.column:last-child {
+  border: none;
+}
+
+.column .info {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.info .label {
+  font-size: 17px;
+  margin: 3px 0;
+}
+
+.info .snippet {
+  color: #494949;
+  font-size: 15px;
+}
+
+.column .reset {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.select-option {
+  height: 30px;
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  outline: none;
+  font-size: 15px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.toggle {
+  position: absolute;
+  right: 20px;
+  appearance: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s;
+  border: 1px solid #ccc;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle:before {
+  content: "Off";
+  font-size: 15px;
+}
+
+.toggle:checked:before {
+  content: "On";
+  color: white;
+}
+
+.toggle:checked {
+  border: none;
+  background: #7da6ff;
+}
+
+@media (min-width: 780px) {
+  body {
+    padding: 0 30px;
+  }
+  .settings {
+    max-width: 500px;
+  }
+}
+
+</style>
+
+<script>
+
+const settings = {
+  lang: "English",
+  newtab: false,
+  newurl: false,
+  favicon: true,
+};
+
+function saveData() {
+  const settingsJson = JSON.stringify(settings);
+  const expirationDate = new Date();
+  expirationDate.setMonth(expirationDate.getMonth() + 18);
+  document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
+}
+
+function getData() {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const parts = cookie.split('=');
+    if (parts[0] === 'settings') {
+      return JSON.parse(parts[1]);
+    }
+  }
+  return null;
+}
+
+toggle = document.querySelectorAll(".toggle");
+
+toggle.forEach(option => {
+  option.addEventListener('click', ()=> {
+    if (option.id == "option1" && !option.checked) {
+      settings.newtab = false;
+    } else if (option.id == "option1" && option.checked) {
+      settings.newtab = true;
+    } else if (option.id == "option2" && !option.checked) {
+      settings.newurl = false;
+    } else if (option.id == "option2" && option.checked) {
+      settings.newurl = true;
+    } else if (option.id == "option4" && !option.checked) {
+      settings.favicon = false;
+    } else if (option.id == "option4" && option.checked) {
+      settings.favicon = true;
+    }
+    saveData();
+  });
+  window.addEventListener('load', ()=> {
+    if (option.id == "option1" && getData().newtab == true) {
+      option.checked = true;
+    }
+    if (option.id == "option2" && getData().newurl == true) {
+      option.checked = true;
+    }
+    if (option.id == "option4" && getData().favicon == true) {
+      option.checked = true;
+    }
+  });
+});
+
+language = document.querySelector("select");
+
+language.addEventListener('change', ()=> {
+  settings.lang = language.value;
+  saveData();
+});
+
+if (getData().lang) {
+  language.value = getData().lang;
+}
+
+</script>
