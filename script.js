@@ -6,6 +6,7 @@ var hl = url.searchParams.get("hl");
 var uf = url.searchParams.get("uf");
 var fv = url.searchParams.get("fv");
 var sf = url.searchParams.get("sf");
+var dm = url.searchParams.get("dm");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
@@ -14,7 +15,6 @@ option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
 
-document.body.classList.add("dark");
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
 
@@ -37,6 +37,10 @@ if (!q) {
   document.title = "Error 503";
   document.head.innerHTML += `<style>*{margin:0;padding:0}html{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#error{display:inline-block;color:black;user-select:none;font-size:40px;font-weight:bold;text-decoration:none;}</style>`;
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>503.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
+}
+
+if (dm == 1) {
+  document.body.classList.add("dark");
 }
 
 function insertAfter(referenceNode, newNode) {
