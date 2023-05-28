@@ -1135,11 +1135,17 @@ body.dark .selected .label:before {
 }
 
 body.dark .show-wrapper .more {
+  color: #BDC1C4;
   border-color: transparent;
-  background: #303135;
+  background: #202125;
 }
 
-body.dark .search-menu {
+body.dark .show-wrapper .more:active {
+  animation-name: hover;
+  animation-duration: 0.5s;
+}
+
+body.dark .search-menu, body.dark .news-result {
   border-color: #24282B;
 }
 
@@ -1152,7 +1158,9 @@ body.dark .tab-result .title {
   color: #8BB4F4;
 }
 
-body.dark .tab-result .snippet, body.dark .tab-result .link, body.dark .instant-answer .title, body.dark .instant-answer .infobox, body.dark .instant-answer .snippet {
+body.dark .tab-result .snippet, body.dark .tab-result .link, body.dark .instant-answer .title,
+body.dark .instant-answer .infobox, body.dark .instant-answer .snippet, body.dark .news-tab .title,
+body.dark .info-label, body.dark .flexwrap .link {
   color: #BDC1C4;
 }
 
