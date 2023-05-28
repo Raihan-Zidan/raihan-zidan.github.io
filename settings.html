@@ -189,8 +189,9 @@
 
 </style>
 
-<script>
 
+<script>
+  
 toggle = document.querySelectorAll(".toggle");
 
 const settings = {
@@ -206,9 +207,9 @@ function saveData() {
   expirationDate.setMonth(expirationDate.getMonth() + 18);
   document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
 }
-  
-function setData() {
-  const settingsJson = JSON.stringify(settings);
+
+function setData(value) {
+  const settingsJson = JSON.stringify(value);
   setCookie("settings", settingsJson);
 }
 
@@ -249,7 +250,7 @@ toggle.forEach(option => {
     } else if (option.id == "option4" && option.checked) {
       settings.favicon = true;
     }
-    setData();
+    setData(settings);
   });
   window.addEventListener('load', ()=> {
     if (option.id == "option1" && getData().newtab == true) {
@@ -268,11 +269,12 @@ language = document.querySelector("select");
 
 language.addEventListener('change', ()=> {
   settings.lang = language.value;
-  setData();
+  setData(settings);
 });
 
 if (getData().lang) {
   language.value = getData().lang;
 }
+
 
 </script>
