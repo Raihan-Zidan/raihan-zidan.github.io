@@ -23,6 +23,9 @@ function getData() {
   }
   return null;
 }
+if (getData().lang == "Indonesia") {
+  idlang = true;
+}
 
 if (uf == 1) {
   searchParam += "&uf=1";
