@@ -1113,7 +1113,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-body.dark, body.dark .header {
+body.dark {
   background: #171717;
 }
 
@@ -1140,6 +1140,10 @@ body.dark .show-wrapper .more {
   background: #202125;
 }
 
+body.dark .show-wrapper .more:before {
+  filter: invert(100%);
+}
+
 body.dark .show-wrapper .more:active {
   animation-name: hoverAnim2;
 }
@@ -1159,6 +1163,10 @@ body.dark .search-menu {
 
 body.dark .news-tab {
   border-color: #000;
+}
+
+body.dark .header {
+  background: #202125;
 }
 
 body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
