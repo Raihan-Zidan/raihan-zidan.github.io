@@ -1131,7 +1131,7 @@ body.dark .selected .label, body.dark .selected .label:before {
 }
 
 body.dark .search-menu {
-  border-color: ini 
+  border-color: #24282B;
 }
 
 body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
