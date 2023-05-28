@@ -1114,7 +1114,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 body.dark, body.dark .header {
-  background: #202125;
+  background: #171717;
 }
 
 body.dark .search-input {
@@ -1130,11 +1130,15 @@ body.dark .selected .label, body.dark .selected .label:before {
   color: #E9EAEE;
 }
 
+body.dark .search-menu {
+  border-color: ini 
+}
+
 body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
   border-color: #24282B;
   background: #202125;
 }
 
-body.dark .tab-result .snippet, body.dark .tab-result .link, body.dark .instant-anser .title, body.dark .instant-answer .snippet {
+body.dark .tab-result .snippet, body.dark .tab-result .link, body.dark .instant-answer .title, body.dark .instant-answer .infobox, body.dark .instant-answer .snippet {
   color: #BDC1C4;
 }
