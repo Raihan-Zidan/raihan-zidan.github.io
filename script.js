@@ -61,7 +61,7 @@ if (!q) {
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>503.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
 }
 
-if (th == 1) {
+if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
 
