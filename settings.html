@@ -321,7 +321,7 @@ if (getData().theme) {
   selectOption[2].value = getData().theme;
 }
   
-document.querySelector(".reset").onclick = function() {
+document.querySelector(".reset").addEventListener('click', ()=> {
   settings = {
     lang: "English",
     newtab: false,
@@ -331,7 +331,7 @@ document.querySelector(".reset").onclick = function() {
   };
   saveData();
   window.location.reload();
-}
+});
 
 
 </script>
