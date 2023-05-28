@@ -1126,8 +1126,17 @@ body.dark .search-item a {
   color: #9BA0A6;
 }
 
-body.dark .selected .label, body.dark .selected .label:before {
+body.dark .selected .label {
   color: #E9EAEE;
+}
+
+body.dark .selected .label:before {
+  background: #E9EAEE;
+}
+
+body.dark .show-wrapper .more {
+  border-color: transparent;
+  background: #303135;
 }
 
 body.dark .search-menu {
@@ -1139,6 +1148,11 @@ body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
   background: #202125;
 }
 
+body.dark .tab-result .title {
+  color: #8BB4F4;
+}
+
 body.dark .tab-result .snippet, body.dark .tab-result .link, body.dark .instant-answer .title, body.dark .instant-answer .infobox, body.dark .instant-answer .snippet {
   color: #BDC1C4;
 }
+
