@@ -10,6 +10,21 @@ let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
 
+function getData() {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const parts = cookie.split('=');
+    if (parts[0] === 'settings') {
+      return JSON.parse(parts[1]) || null;
+    }
+  }
+  return null;
+}
+
+if (getData().lang == "English") {
+  hl = "id";
+}
+
 inputBox.onkeyup = (e)=> {
   let userData = e.target.value;
   let emptyArray = [];
