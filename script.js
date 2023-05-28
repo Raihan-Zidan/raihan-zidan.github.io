@@ -13,40 +13,15 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 var rested = false;
 var searchParam = ``;
 
-const settings = {
-  lang: "English",
-  newtab: false,
-  newurl: false,
-  favicon: true,
-};
-
-function saveData() {
-  const settingsJson = JSON.stringify(settings);
-  const expirationDate = new Date();
-  expirationDate.setMonth(expirationDate.getMonth() + 18);
-  document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
-}
-
 function getData() {
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
     const parts = cookie.split('=');
     if (parts[0] === 'settings') {
-      return JSON.parse(parts[1]);
+      return JSON.parse(parts[1]) || null;
     }
   }
   return null;
-}
-
-const settingsCookie = document.cookie.indexOf("settings=");
-
-if (settingsCookie > -1) {
-  settings.lang = getData().lang;
-  settings.newtab = getData().newtab;
-  settings.newurl = getData().newurl;
-  settings.favicon = getData().favicon;
-} else {
-  saveData();
 }
 
 if (uf == 1) {
@@ -498,7 +473,7 @@ function webresult(res) {
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
       urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
-      displayUrl = (getData().newurl && getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
+      displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></div>`;
     }
     snippet = document.querySelectorAll(".snippet");
@@ -507,7 +482,7 @@ function webresult(res) {
         description.innerHTML = `There is no information on this page.`;
       }
     });
-    if (getData().favicon && getData().favicon == false || fv == 0) {
+    if (getData().favicon == false || fv == 0) {
       document.querySelectorAll(".favicon").forEach(elm => {
         elm.remove();
       });
@@ -545,7 +520,7 @@ function XuadHc() {
 }
 
 window.addEventListener('load', ()=> {
-  if (getData().newtab && getData().newtab == true) {
+  if (getData().newtab == true) {
     setTimeout(()=> {
       document.querySelectorAll(".main-result a").forEach(elm => {
         elm.target = "_blank";
