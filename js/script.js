@@ -4,7 +4,7 @@ const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
 const daylabel = document.querySelector(".url a");
 var url = new URL(window.location.href);
-var hl = url.searchParams.get("hl");
+var hl = url.searchParams.get("hl") || null;
 var searchlang = (hl == "id") ? "&hl=id" : "&hl=en";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
@@ -21,8 +21,8 @@ function getData() {
   return null;
 }
 
-if (getData().lang == "English") {
-  hl = "id";
+if (getData().lang == "Indonesia") {
+  searchLang = "&hl=id";
 }
 
 inputBox.onkeyup = (e)=> {
