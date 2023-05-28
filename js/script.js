@@ -10,14 +10,6 @@ let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
 
-fetch(`https://api.swisscows.com/suggest?query=p`)
-  .then(response => response.json())
-  .then(response => {
-  for (var i = 1; i < response.length; i++) {
-    suggestion.push(response[i]);
-  }
-})
-
 inputBox.onkeyup = (e)=> {
   let userData = e.target.value;
   let emptyArray = [];
