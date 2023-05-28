@@ -3,9 +3,7 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
 const daylabel = document.querySelector(".url a");
-var url = new URL(window.location.href);
-var hl = url.searchParams.get("hl");
-var idlang = (hl == "id") ? true : false;
+var idlang = false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
@@ -23,7 +21,7 @@ function getData() {
 }
 
 if (getData().lang == "Indonesia") {
-  searchLang = "&hl=id";
+  idlang = true;
 }
 
 inputBox.onkeyup = (e)=> {
@@ -96,7 +94,7 @@ function showSuggestions(list) {
   suggBox.innerHTML = listData;
 }
 
-if (hl == "id") {
+if (idlang == true) {
   inputBox.placeholder = "Ketik untuk mencari...";
   document.title = "Mesin pencari";
 }
