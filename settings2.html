@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,6 +191,8 @@
 
 <script>
 
+toggle = document.querySelectorAll(".toggle");
+
 const settings = {
   lang: "English",
   newtab: false,
@@ -217,7 +218,16 @@ function getData() {
   return null;
 }
 
-toggle = document.querySelectorAll(".toggle");
+const settingsCookie = document.cookie.indexOf("settings=");
+
+if (settingsCookie > -1) {
+  settings.lang = getData().lang;
+  settings.newtab = getData().newtab;
+  settings.newurl = getData().newurl;
+  settings.favicon = getData().favicon;
+} else {
+  saveData();
+}
 
 toggle.forEach(option => {
   option.addEventListener('click', ()=> {
