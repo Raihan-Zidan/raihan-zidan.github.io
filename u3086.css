@@ -1122,6 +1122,10 @@ body.dark .search-input {
   background: #3C4043;
 }
 
-body.dark .tab-result .snippet {
+body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
+  background: #202125;
+}
+
+body.dark .tab-result .snippet, body.dark .tab-result .link, body.dark .instant-anser .title, body.dark .instant-answer .snippet {
   color: #BDC1C4;
 }
