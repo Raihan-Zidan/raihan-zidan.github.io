@@ -206,6 +206,11 @@ function saveData() {
   expirationDate.setMonth(expirationDate.getMonth() + 18);
   document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
 }
+  
+function setData() {
+  const settingsJson = JSON.stringify(settings);
+  setCookie("settings", settingsJson);
+}
 
 function getData() {
   const cookies = document.cookie.split(';');
@@ -244,7 +249,7 @@ toggle.forEach(option => {
     } else if (option.id == "option4" && option.checked) {
       settings.favicon = true;
     }
-    saveData();
+    setData();
   });
   window.addEventListener('load', ()=> {
     if (option.id == "option1" && getData().newtab == true) {
@@ -263,7 +268,7 @@ language = document.querySelector("select");
 
 language.addEventListener('change', ()=> {
   settings.lang = language.value;
-  saveData();
+  setData();
 });
 
 if (getData().lang) {
