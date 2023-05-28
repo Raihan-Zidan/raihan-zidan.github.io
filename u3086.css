@@ -1122,6 +1122,14 @@ body.dark .search-input {
   background: #3C4043;
 }
 
+body.dark .search-item a {
+  color: #9BA0A6;
+}
+
+body.dark .selected .label, body.dark .selected .label:before {
+  color: #E9EAEE;
+}
+
 body.dark .tab-result, body.dark .instant-answer, body.dark .news-result {
   background: #202125;
 }
