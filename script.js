@@ -242,7 +242,12 @@ function submit() {
           nwsresult(response);
       })
     }
-    if (startIndex == 1) {
+    
+  }
+}
+
+function wikianswer() {
+  if (startIndex == 1) {
     var qval = val;
     if (val.toLowerCase() == "yahoo") {
       qval = "yahoo!";
@@ -267,7 +272,6 @@ function submit() {
       xhr.onload = instant;
       xhr.send();
     }
-  }
 }
 
 var d = new Date();
@@ -352,37 +356,8 @@ function instant(e) {
         }
       }
     }
-  },800);
+  },100);
 }
-
-var playstore = [
-  {
-    "appname": "Google Translate",
-    "thumbnail": "https://play-lh.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA=w480-h960-rw",
-    "rating": "Rating 4.4 (8.6M)",
-    "package": "com.google.android.apps.translate",
-    "price": "Free",
-    "description": "Text translation: Translate between 108 languages by typing • Tap to Translate: Copy text in any app and tap the Google Translate icon to translate (all ...",
-  },
-  {
-    "appname": "Minecraft",
-    "thumbnail": "https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w480-h960-rw",
-    "rating": "Rating 4.6 (4.8M)",
-    "package": "com.mojang.minecraftpe",
-    "price": "Paid",
-    "description": "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited ...",
-  },
-  {
-    "appname": "Google Maps",
-    "thumbnail": "https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w480-h960-rw",
-    "rating": "Rating 4.3 (16M)",
-    "package": "com.google.android.apps.maps",
-    "price": "Free",
-    "description": "Navigate your world faster and easier with Google Maps. Over 220 countries and territories mapped and hundreds of millions of businesses and places on the ...",
-  }
-];
-
-f
 
 function relatedsearch() {
   if (q.split(" ").length - 4) {
@@ -504,6 +479,7 @@ function webresult(res) {
       displayUrl = (option2 == "1" || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></div>`;
     }
+    wikianswer();
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
