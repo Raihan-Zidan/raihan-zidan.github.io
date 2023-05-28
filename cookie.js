@@ -1,5 +1,8 @@
 const settings = {
   lang: "en",
+  newtab: false,
+  newurl: false,
+  favicon: true,
 };
 
 function saveData() {
