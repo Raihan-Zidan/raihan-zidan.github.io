@@ -14,6 +14,7 @@ option1 = localStorage.getItem("option1");
 option2 = localStorage.getItem("option2");
 option4 = localStorage.getItem("option4");
 
+document.body.classList.add("dark");
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
 
