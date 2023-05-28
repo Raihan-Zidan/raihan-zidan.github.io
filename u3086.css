@@ -1157,7 +1157,7 @@ body.dark .tab-result .title {
   color: #8BB4F4;
 }
 
-body.dark .instant-answer .title, body.dark .news-result .title {
+body.dark .instant-answer .title, body.dark .news-tab .title {
   color: #E9EAEE;
 }
 
