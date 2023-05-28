@@ -9,10 +9,15 @@
 
 <body>
 
-<div class="settings">
-  <div class="header">
+  <div class="wrapper">
+    <div class="header">
+
     <div class="title">All settings</div>
+
   </div>
+    
+<div class="settings">
+ 
 
 <div class="content">
 
@@ -78,7 +83,7 @@
     <button class="reset">Reset Settings</button> 
   </div>
 </div>
-
+</div>
 </div>
 
 </body>
@@ -107,9 +112,12 @@
 }
   
 .settings {
-  background: #f5f8fa;
   padding: 10px;
 }
+  
+  .wrapper {
+    background: #F5F5F5;
+  }
 
 .content {
   border-top: 1px solid #EDEDED;
@@ -213,7 +221,7 @@
   body {
     padding: 0 30px;
   }
-  .settings {
+  .settings, .wrapper {
     max-width: 500px;
   }
 }
