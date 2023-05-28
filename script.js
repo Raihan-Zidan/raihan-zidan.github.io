@@ -357,7 +357,7 @@ function instant(e) {
         }
       }
     }
-  },100);
+  },0);
 }
 
 function relatedsearch() {
