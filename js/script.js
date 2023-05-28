@@ -4,7 +4,7 @@ const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
 const daylabel = document.querySelector(".url a");
 var idlang = false;
-var searchlang = "";
+var searchlang = (!idlang) ? "" : "&hl=id";
 let linkTag = searchWrapper.querySelector("a");
 let webLink;
 var weburl = "https://raihan-zidan.github.io";
