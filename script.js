@@ -13,6 +13,20 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 var rested = false;
 var searchParam = ``;
 
+const settings = {
+  lang: "English",
+  newtab: false,
+  newurl: false,
+  favicon: true,
+};
+
+function saveData() {
+  const settingsJson = JSON.stringify(settings);
+  const expirationDate = new Date();
+  expirationDate.setMonth(expirationDate.getMonth() + 18);
+  document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
+}
+
 function getData() {
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
@@ -22,6 +36,17 @@ function getData() {
     }
   }
   return null;
+}
+
+const settingsCookie = document.cookie.indexOf("settings=");
+
+if (settingsCookie > -1) {
+  settings.lang = getData().lang;
+  settings.newtab = getData().newtab;
+  settings.newurl = getData().newurl;
+  settings.favicon = getData().favicon;
+} else {
+  saveData();
 }
 
 if (uf == 1) {
