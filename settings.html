@@ -64,6 +64,17 @@
   </div>
   
   <div class="column">
+    <div class="info">
+      <div class="label">Theme</div>
+      <div class="snippet">Set the appearance of the site interface to dark or light</div>
+    </div>
+    <select name="theme" class="select-option">
+      <option value="light" code="lg">Light</option>
+      <option value="dark" code="dk">Dark</option>
+    </select>
+  </div>
+  
+  <div class="column">
     <button class="reset">Reset Settings</button> 
   </div>
 </div>
@@ -199,6 +210,7 @@ const settings = {
   newtab: false,
   newurl: false,
   favicon: true,
+  theme: "dark"
 };
 
 function saveData() {
@@ -226,6 +238,7 @@ if (settingsCookie > -1) {
   settings.newtab = getData().newtab;
   settings.newurl = getData().newurl;
   settings.favicon = getData().favicon;
+  settings.theme = getData().theme;
 } else {
   saveData();
 }
@@ -260,15 +273,24 @@ toggle.forEach(option => {
   });
 });
 
-language = document.querySelector("select");
+selectOption = document.querySelectorAll("select");
 
-language.addEventListener('change', ()=> {
-  settings.lang = language.value;
+selectOption[0].addEventListener('change', ()=> {
+  settings.lang = selectOption[0].value;
+  saveData();
+});
+  
+selectOption[1].addEventListener('change', ()=> {
+  settings.theme = selectOption[1].value;
   saveData();
 });
 
 if (getData().lang) {
-  language.value = getData().lang;
+  selectOption[0].value = getData().lang;
+}
+  
+if (getData().theme) {
+  selectOption[1].value = getData().theme;
 }
 
 
