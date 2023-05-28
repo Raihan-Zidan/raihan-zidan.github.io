@@ -4,7 +4,9 @@ const settings = {
 
 function saveData() {
   const settingsJson = JSON.stringify(settings);
-  document.cookie = `settings=${settingsJson};expires=${new Date(new Date().getTime() + 1000 * 60 * 60 * 24)}`;
+  const expirationDate = new Date();
+  expirationDate.setMonth(expirationDate.getMonth() + 18);
+  document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
 }
 
 function getData() {
