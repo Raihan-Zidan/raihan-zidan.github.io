@@ -322,13 +322,11 @@ if (getData().theme) {
 }
   
 document.querySelector(".reset").addEventListener('click', ()=> {
-  settings = {
-    lang: "English",
-    newtab: false,
-    newurl: false,
-    favicon: true,
-    theme: "light"
-  };
+  settings.lang = "English",
+  settings.newtab = false,
+  settings.newurl = false,
+  settings.favicon = true,
+  settings.theme = "light"
   saveData();
   window.location.reload();
 });
