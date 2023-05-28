@@ -97,11 +97,12 @@ function langtext(string) {
 
 if (idlang) {
   searchInput.placeholder = langtext("placeholder");
-  document.querySelectorAll(".search-item")[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
-  document.querySelectorAll(".search-item")[1].querySelector(".label span").innerHTML = language["id"]["tab"][1];
-  document.querySelectorAll(".search-item")[2].querySelector(".label span").innerHTML = language["id"]["tab"][2];
-  document.querySelectorAll(".search-item")[3].querySelector(".label span").innerHTML = language["id"]["tab"][3];
-  document.querySelectorAll(".search-item")[4].querySelector(".label span").innerHTML = language["id"]["tab"][4];
+  searchItem = document.querySelectorAll(".search-item");
+  searchItem[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
+  searchItem[1].querySelector(".label span").innerHTML = language["id"]["tab"][1];
+  searchItem[2].querySelector(".label span").innerHTML = language["id"]["tab"][2];
+  searchItem[3].querySelector(".label span").innerHTML = language["id"]["tab"][3];
+  searchItem[4].querySelector(".label span").innerHTML = language["id"]["tab"][4];
 }
 
 HTMLInputElement.prototype.reset = function() {
@@ -242,37 +243,32 @@ function submit() {
           nwsresult(response);
       })
     }
-    
-  }
-}
-
-function wikianswer() {
-  var val = searchInput.value;
-  if (startIndex == 1) {
-    var qval = val;
-    if (val.toLowerCase() == "yahoo") {
-      qval = "yahoo!";
-    } else if (val.toLowerCase() ==  "notch") {
-      qval = "markus persson";
-    } else if (val.toLowerCase() == "microsoft team") {
-      qval = "microsoft teams";
-    } else if (val.toLowerCase() == "bing") {
-      qval = "microsoft bing";
-    } else if (val.toLowerCase() == "bard") {
-      qval = "google bard";
-    } else if (val.toLowerCase().match(/apple|appl/)) {
-      qval = "apple inc";
-    } else if (val.toLowerCase().match(/ronaldo/)) {
-      qval = "cristiano ronaldo";
-    } else if (val.toLowerCase().match(/messi/)) {
-      qval = "lionel messi";
-    }
+    if (startIndex == 1) {
+      var qval = val;
+      if (val.toLowerCase() == "yahoo") {
+        qval = "yahoo!";
+      } else if (val.toLowerCase() ==  "notch") {
+        qval = "markus persson";
+      } else if (val.toLowerCase() == "microsoft team") {
+        qval = "microsoft teams";
+      } else if (val.toLowerCase() == "bing") {
+        qval = "microsoft bing";
+      } else if (val.toLowerCase() == "bard") {
+        qval = "google bard";
+      } else if (val.toLowerCase().match(/apple|appl/)) {
+        qval = "apple inc";
+      } else if (val.toLowerCase().match(/ronaldo/)) {
+        qval = "cristiano ronaldo";
+      } else if (val.toLowerCase().match(/messi/)) {
+        qval = "lionel messi";
+      }
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
     }
+  }
 }
 
 var d = new Date();
@@ -295,33 +291,7 @@ function instantanswer() {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
   } else if (searchInput.value.toLowerCase().match(/kalkulator|calculator/) && searchInput.value.split(" ").length - 2 || searchInput.value.match(/calculator\s+online|kalkulator\s+online/) && searchInput.value.split(" ").length - 3) {
     document.querySelector(".main-result .result").innerHTML += `<div class="calculator"><input type="text" inputmode="none" class="display" /><div class="buttons"><button class="operator" data-value="AC">AC</button><button class="operator" data-value="DEL">DEL</button><button class="operator" data-value="%">%</button><button class="operator" data-value=" ÷ ">÷</button><button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="operator" data-value=" × ">×</button><button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="operator" data-value=" - ">-</button><button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="operator" data-value=" + ">+</button><button data-value="0">0</button><button data-value="00">00</button><button data-value=".">.</button><button class="operator" data-value="=" th="true">=</button></div></div>`;
-    setTimeout(()=> {
-    const calculatorBox = document.querySelector(".calculator");
-    const display = calculatorBox.querySelector(".display");
-    const buttons = calculatorBox.querySelectorAll("button");
-    const specialChars = ["%", "*", "/", "-", "+", "="];
-    let output = "";
-
-    const calculate = (btnValue) => {
-      display.focus();
-      if (btnValue === "=" && output !== "") {
-        output = eval(output.replace("%", "/100").replace(/×/g, "*").replace(/÷/g, "/"));
-      } else if (btnValue === "AC") {
-        output = "";
-      } else if (btnValue === "DEL") {
-        output = output.toString().slice(0, -1);
-      } else {
-        if (output === "" && specialChars.includes(btnValue)) return;
-          output += btnValue;
-        }
-        display.value = output;
-        display.blur();
-      };
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", (e) => calculate(e.target.dataset.value));
-    });
-    },500);
+    setTimeout(()=>{let calculatorBox=document.querySelector(".calculator"),display=calculatorBox.querySelector(".display"),buttons=calculatorBox.querySelectorAll("button"),specialChars=["%","*","/","-","+","="],output="",calculate=btnValue=>{if(display.focus(),"="===btnValue&&""!==output)output=eval(output.replace("%","/100").replace(/×/g,"*").replace(/÷/g,"/"));else if("AC"===btnValue)output="";else if("DEL"===btnValue)output=output.toString().slice(0,-1);else{if(""===output&&specialChars.includes(btnValue))return;output+=btnValue}display.value=output,display.blur()};buttons.forEach(e=>{e.addEventListener("click",e=>calculate(e.target.dataset.value))})},500);
   }
 }
 
@@ -341,7 +311,6 @@ function instant(e) {
       if (windowWidth > 780) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
-   
       } else {
         insertAfter(tabres[0], instanswer);
       }
@@ -357,7 +326,7 @@ function instant(e) {
         }
       }
     }
-  },0);
+  },800);
 }
 
 function relatedsearch() {
@@ -480,7 +449,6 @@ function webresult(res) {
       displayUrl = (option2 == "1" || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="0"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></div>`;
     }
-    wikianswer();
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
