@@ -280,8 +280,8 @@ selectOption[0].addEventListener('change', ()=> {
   saveData();
 });
 
-selectOption[1].addEventListener('change', ()=> {
-  settings.theme = selectOption[1].value;
+selectOption[2].addEventListener('change', ()=> {
+  settings.theme = selectOption[2].value;
   saveData();
 });
 
@@ -290,7 +290,7 @@ if (getData().lang) {
 }
   
 if (getData().theme) {
-  selectOption[1].value = getData().theme;
+  selectOption[2].value = getData().theme;
 }
 
 
