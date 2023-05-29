@@ -11,15 +11,13 @@ var weburl = "https://raihan-zidan.github.io";
 
 function getData() {
   const cookies = document.cookie.split(';');
+  if (document.cookie.indexOf("settings=") > -1) {
   for (const cookie of cookies) {
     const parts = cookie.split('=');
     if (parts[0] === 'settings') {
-      try {
         return JSON.parse(parts[1]);
-      } catch (error) {
-        return null;
-      }
     }
+  }
   }
   return null;
 }
