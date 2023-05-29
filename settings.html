@@ -437,8 +437,10 @@ function ctmalert(res) {
 }
 
 function closectm() {
-  document.querySelector(".ctm-alert").remove();
-  document.body.style.removeProperty("overflow");
+  setTimeout(()=> {
+    document.querySelector(".ctm-alert").remove();
+    document.body.style.removeProperty("overflow");
+  }, 100);
 }
 
 function callback(response) {
