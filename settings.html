@@ -228,6 +228,76 @@
     max-width: 500px;
   }
 }
+  
+.ctm-alert {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0; top: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 34vh;
+  user-select: none;
+  font-family: Arial, roboto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ctm-alert .box {
+  width: 320px;
+  max-width: 400px;
+  min-height: 150px;
+  max-height: 150px;
+  border-radius: 8px;
+  padding: 15px 18px;
+  position: relative;
+  background: white;
+}
+
+.ctm-alert .box .title {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.ctm-alert .box .snippet {
+  color: #494949;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.ctm-alert .box .button-wrap {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  padding: 8px;
+  justify-content: right;
+  right: 0; bottom: 0;
+}
+
+.ctm-alert .box button {
+  min-width: 50px;
+  color: #1558d6;
+  padding: 8px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 405;
+  border-radius: 3px;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.ctm-alert .box button:hover {
+  background-color: rgba(21, 89, 214, 0.2);
+}
+
+@media (min-width: 780px) {
+  .ctm-alert .box {
+    width: 400px;
+  }
+}
 
 </style>
 
@@ -325,8 +395,13 @@ if (getData().theme) {
 }
   
 document.querySelector(".reset").addEventListener('click', ()=> {
-  var resetSettings = confirm("Do you want to clear the settings data?");
-  if (resetSettings) {
+  ctmalert({
+    title: "Reset settings",
+    message: "Do you want to reset the current settings? the settings will be returned to the default settings."
+  })
+});
+  
+functions resetSettings() {
   settings.lang = "English",
   settings.newtab = false,
   settings.newurl = false,
@@ -334,8 +409,24 @@ document.querySelector(".reset").addEventListener('click', ()=> {
   settings.theme = "light"
   saveData();
   window.location.href = ""
+}
+  
+function ctmalert(res) {
+  var ctmalert = document.createElement("div");
+  ctmalert.classList.add("ctm-alert");
+  ctmalert.innerHTML = `<div class="box"><div class="title">${res.title || "Title"}</div><div class="snippet">${res.message || "Message"}</div><div class="button-wrap"><button class="no" onclick="setTimeout(()=>{closectm()},100)">Cancel</button><button class="yes" onclick="setTimeout(()=>{closectm()},100);callback(this.textContent)">Ok</button></div></div>`;
+  document.body.appendChild(ctmalert);
+}
+
+function closectm() {
+  document.querySelector(".ctm-alert").remove();
+}
+
+function callback(response) {
+  if (response === "Ok") {
+    resetSettings();
   }
-});
+}
 
 
 </script>
