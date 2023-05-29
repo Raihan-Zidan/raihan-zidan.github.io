@@ -97,6 +97,10 @@
   box-sizing: border-box;
   font-family: Roboto, Arial, sans-serif;
 }
+  
+html, body {
+  width: 100%;
+}
 
 .header {
   background: #fff;
@@ -228,9 +232,12 @@ body {
     width: 100%;
   }
   .settings {
-    max-width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
+  }
+  .content {
+    max-width: 500px;
   }
 }
   
@@ -420,7 +427,7 @@ function resetSettings() {
 function ctmalert(res) {
   var ctmalert = document.createElement("div");
   ctmalert.classList.add("ctm-alert");
-  ctmalert.innerHTML = `<div class="box"><div class="title">${res.title || "Title"}</div><div class="snippet">${res.message || "Message"}</div><div class="button-wrap"><button class="no" onclick="closectm()">Cancel</button><button class="yes" onclick="closectm();callback(this.textContent)">Ok</button></div></div>`;
+  ctmalert.innerHTML = `<div class="box"><div class="title">${res.title || "Title"}</div><div class="snippet">${res.message || "Message"}</div><div class="button-wrap"><button class="no" onclick="closectm()">Cancel</button><button class="yes" onclick="closectm();callback('ok')">Ok</button></div></div>`;
   document.body.appendChild(ctmalert);
   document.body.style.overflow = "hidden";
 }
@@ -431,7 +438,7 @@ function closectm() {
 }
 
 function callback(response) {
-  if (response === "Ok") {
+  if (response === "ok") {
     resetSettings();
   }
 }
