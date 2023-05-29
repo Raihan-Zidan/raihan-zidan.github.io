@@ -203,9 +203,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
   transition: 0.1s;
   border: 1px solid #ccc;
   -webkit-tap-highlight-color: transparent;
+}
+  
+.toogle:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .toggle:before {
