@@ -609,7 +609,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list::-webkit-scrollbar {
-  width: 8px;
+  height: 8px;
 }
 
 .news-result .news-list::-webkit-scrollbar-thumb {
