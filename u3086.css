@@ -21,10 +21,6 @@ body {
   font-family: "Helvetica Neue", arial;
 }
 
-.quotes-tab {
-  position: relative;
-}
-
 .search-box {
   padding: 5px 15px;
 }
@@ -753,6 +749,10 @@ input[type="search"]::-webkit-search-results-decoration {
   color: #2f9fff;
 }
 
+.quotes-tab {
+  position: relative;
+}
+
 .quotes-tab .refresh {
   position: absolute;
   cursor: pointer;
@@ -767,7 +767,7 @@ input[type="search"]::-webkit-search-results-decoration {
   background-position: center;
 }
 
-@keyframes rotate {
+@keyframes rotate2 {
   from {
     transform: rotate(360deg);
   }
