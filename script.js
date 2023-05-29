@@ -379,9 +379,9 @@ function refreshQuotes() {
   quotesText = document.querySelector(".quotes-tab .bodytext");
   quotesBtn = document.querySelector(".quotes-tab .refresh");
   quotesText.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
-  quotesBtn.style.animation = "rotate 0.5s ease";
+  quotesBtn.style.animation = "rotate2 0.5s ease";
   setTimeout(()=> {
-    quotesBtn.style.animation = "";
+    quotesBtn.style.removeProperty("animation");
   },400);
 }
 
