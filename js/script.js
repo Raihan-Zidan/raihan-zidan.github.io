@@ -14,12 +14,11 @@ function getData() {
   for (const cookie of cookies) {
     const parts = cookie.split('=');
     if (parts[0] === 'settings') {
-        return JSON.parse(parts[1]) || null;
+      return JSON.parse(parts[1]) || null;
     }
   }
   return null;
 }
-
 
 if (getData().lang == "Indonesia") {
   idlang = true;
