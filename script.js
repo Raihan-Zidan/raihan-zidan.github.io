@@ -18,7 +18,11 @@ function getData() {
   for (const cookie of cookies) {
     const parts = cookie.split('=');
     if (parts[0] === 'settings') {
-      return JSON.parse(parts[1]) || null;
+      try {
+        return JSON.parse(parts[1]) || null;
+      } catch (error) {
+        return null;
+      }
     }
   }
   return null;
