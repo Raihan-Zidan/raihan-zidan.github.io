@@ -603,6 +603,23 @@ input[type="search"]::-webkit-search-results-decoration {
   scroll-snap-type: x mandatory;
 }
 
+.news-result .news-list::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.news-result .news-list::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.news-result .news-list::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
 .news-list .news-tab {
   width: 150px;
   height: 200px;
