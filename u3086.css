@@ -1210,9 +1210,13 @@ body.dark .info-label, body.dark .flexwrap .link, body.dark .nwst .publishtime {
   body.dark .header {
     background: #171717;
   }
-  body.dark .tab-result {
+  body.dark .tab-result, body.dark .news-result {
     background: transparent;
     border: none;
+  }
+  body.dark .news-tab {
+    border:  none;
+    background: #202125;
   }
   body.dark .instant-answer .infobox span {
     border-color: #24282B;
