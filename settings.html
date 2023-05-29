@@ -414,7 +414,7 @@ functions resetSettings() {
 function ctmalert(res) {
   var ctmalert = document.createElement("div");
   ctmalert.classList.add("ctm-alert");
-  ctmalert.innerHTML = `<div class="box"><div class="title">${res.title || "Title"}</div><div class="snippet">${res.message || "Message"}</div><div class="button-wrap"><button class="no" onclick="setTimeout(()=>{closectm()},100)">Cancel</button><button class="yes" onclick="setTimeout(()=>{closectm()},100);callback(this.textContent)">Ok</button></div></div>`;
+  ctmalert.innerHTML = `<div class="box"><div class="title">${res.title || "Title"}</div><div class="snippet">${res.message || "Message"}</div><div class="button-wrap"><button class="no" onclick="closectm()">Cancel</button><button class="yes" onclick="closectm();callback(this.textContent)">Ok</button></div></div>`;
   document.body.appendChild(ctmalert);
 }
 
