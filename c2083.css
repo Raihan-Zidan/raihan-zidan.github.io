@@ -150,3 +150,17 @@ input[type="search"]::-webkit-search-results-decoration {
     max-width: 550px;
   }
 }
+
+body.dark {
+  background: #171717;
+}
+
+body.dark .search-input {
+  color: #E9EAEE;
+  border: none;
+  background: #3C4043;
+}
+
+body.dark .search-input .url a {
+  color: #8BB4F4;
+}
