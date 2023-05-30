@@ -155,7 +155,11 @@ body.dark {
   background: #171717;
 }
 
-body.dark .search-input {
+body.dark .search-input.active .autocom-box {
+  background: #3C4043;
+}
+
+body.dark .search-input input {
   color: #E9EAEE;
   border: none;
   background: #3C4043;
