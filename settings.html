@@ -344,7 +344,15 @@ const settings = {
 function updateData() {
   if (settingsCookie > -1) {
     document.cookie = `settings=${JSON.stringify(settings)}`;
-    window.location.replace(window.location.href);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", window.location.href, true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        document.body.innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send();
+
   }
 }
 
