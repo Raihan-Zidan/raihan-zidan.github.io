@@ -331,6 +331,7 @@ html[lang="id"] .toggle:checked:before {
 <script>
   
 toggle = document.querySelectorAll(".toggle");
+const settingsCookie = document.cookie.indexOf("settings=");
 
 const settings = {
   lang: "English",
@@ -341,7 +342,9 @@ const settings = {
 };
   
 function updateData() {
-  document.cookie = `settings=${JSON.stringify(settings)}`;
+  if (settingsCookie > -1) {
+    document.cookie = `settings=${JSON.stringify(settings)}`;
+  }
 }
 
 function saveData() {
@@ -361,8 +364,6 @@ function getData() {
   }
   return null;
 }
-
-const settingsCookie = document.cookie.indexOf("settings=");
 
 if (settingsCookie > -1) {
   settings.lang = getData().lang;
