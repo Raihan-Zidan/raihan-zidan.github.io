@@ -347,10 +347,10 @@ function instant(e) {
       }
       var thumbmg = (res.Image) ? `<img src="https://duckduckgo.com${res.Image}" align="right" class="logo">` : "";
       document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
-      for (var i = 0; i < whflg.length; i++) {
-      if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
+      
+      if (document.querySelector(".instant-answer .logo") && /^[A-Z]{2}$/.test(res.Heading.toLowerCase())) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
-      }}
+      }
       for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
         if (res.Infobox.content[i].value.trim()) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
