@@ -339,6 +339,10 @@ const settings = {
   favicon: true,
   theme: "light"
 };
+  
+function updateData() {
+  document.cookie = `settings=${JSON.stringify(settings)}`;
+}
 
 function saveData() {
   const settingsJson = JSON.stringify(settings);
@@ -385,7 +389,7 @@ toggle.forEach(option => {
     } else if (option.id == "option4" && option.checked) {
       settings.favicon = true;
     }
-    saveData();
+    updateData();
   });
   window.addEventListener('load', ()=> {
     if (option.id == "option1" && getData().newtab == true) {
@@ -404,12 +408,12 @@ selectOption = document.querySelectorAll("select");
 
 selectOption[0].addEventListener('change', ()=> {
   settings.lang = selectOption[0].value;
-  saveData();
+  updateData();
 });
 
 selectOption[2].addEventListener('change', ()=> {
   settings.theme = selectOption[2].value;
-  saveData();
+  updateData();
 });
 
 if (getData().lang) {
@@ -433,7 +437,7 @@ function resetSettings() {
   settings.newurl = false,
   settings.favicon = true,
   settings.theme = "light"
-  saveData();
+  updateData();
   window.location.href = ""
 }
   
