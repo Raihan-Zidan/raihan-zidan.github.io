@@ -101,7 +101,7 @@ if (idlang == true) {
   document.title = "Mesin pencari";
 }
 
-daylabel.innerHTML = (hl == "id") ? "Penerjemah" : "Translator";
+daylabel.innerHTML = (idlang) ? "Penerjemah" : "Translator";
 daylabel.href = `/translator`;
 
 var url = `/search?q=${daylabel.innerHTML}`;
