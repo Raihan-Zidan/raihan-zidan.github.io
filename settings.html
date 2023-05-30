@@ -219,6 +219,14 @@ body {
   color: white;
 }
 
+html[lang="id"] .toggle:before {
+  content: "Mati";
+}
+
+html[lang="id"] .toggle:checked:before {
+  content: "Aktif";
+}
+
 .toggle:checked {
   border: none;
   background: #4286F5;
@@ -473,6 +481,7 @@ allElement = document.querySelectorAll("*");
 allElement.forEach(elm => {
   if (getData().lang == "Indonesia" && language[elm.innerHTML]) {
     elm.innerHTML = language[elm.innerHTML];
+    document.querySelector("html").setAttribute("lang", "id");
   }
 });
 
