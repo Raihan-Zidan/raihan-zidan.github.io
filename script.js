@@ -348,7 +348,7 @@ function instant(e) {
       var thumbmg = (res.Image) ? `<img src="https://duckduckgo.com${res.Image}" align="right" class="logo">` : "";
       document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
       
-      if (document.querySelector(".instant-answer .logo") && /^[A-Z]{2}$/.test(res.Heading.toLowerCase())) {
+      if (document.querySelector(".instant-answer .logo") && new RegExp(/^[A-Z]{2}$/).test(res.Heading)) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
       }
       for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
