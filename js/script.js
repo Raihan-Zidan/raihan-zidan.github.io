@@ -26,6 +26,10 @@ if (getData().lang == "Indonesia") {
   searchLang = "&hl=id";
 }
 
+if (getData().theme == "dark") {
+  document.body.classList.add("dark");
+}
+
 inputBox.onkeyup = (e)=> {
   let userData = e.target.value;
   let emptyArray = [];
