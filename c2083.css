@@ -162,6 +162,10 @@ body.dark .search-input input {
   background: #3C4043;
 }
 
+body.dark .autocom-box li:hover {
+  background: #303336;
+}
+
 body.dark .search-input .url a {
   color: #8BB4F4;
 }
