@@ -460,9 +460,9 @@ var language = {
   "Language": "Bahasa",
   "Change site language.": "Ubah bahasa situs.",
   "The language may not be completely accurate.": "Bahasanya mungkin tidak sepenuhnya akurat.",
-  "Site icon": "ikon situs",
+  "Site icon": "Ikon situs",
   "Displays a favicon on the left side of the results.": "Menampilkan favicon di sisi kiri hasil.",
-  "HTTP request method": "metode permintaan HTTP",
+  "HTTP request method": "Metode permintaan HTTP",
   "Set your search method with POST or GET.": "Tetapkan metode pencarian Anda dengan POST atau GET.",
   "Theme": "Tema",
   "Set the appearance of the site interface to dark or light.": "Atur tampilan antarmuka situs menjadi gelap atau terang."
@@ -471,7 +471,7 @@ var language = {
 allElement = document.querySelectorAll("*");
 
 allElement.forEach(elm => {
-  if (getData().lang = "Indonesia" && language[elm.innerHTML]) {
+  if (getData().lang == "Indonesia" && language[elm.innerHTML]) {
     elm.innerHTML = language[elm.innerHTML];
   }
 });
