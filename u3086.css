@@ -172,6 +172,10 @@ body {
   text-overflow: ellipsis;
 }
 
+.tab-result .title {
+  -webkit-line-clamp: 2;
+}
+
 .big-title {
   font-size: 25px;
   margin-bottom: 5px;
