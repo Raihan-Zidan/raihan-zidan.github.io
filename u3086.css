@@ -838,7 +838,8 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .search-field,
   .main-result {
-    width: 630px;
+    min-width: 630px;
+    max-width: 630px;
   }
   .news-result,
   .tab-result, .translate {
@@ -938,7 +939,8 @@ input[type="search"]::-webkit-search-results-decoration {
 @media (min-width: 992px) {
   .search-field,
   .main-result {
-    width: 650px;
+    min-width: 650px;
+    max-width: 650px;
   }
   .instant-answer {
     width: 380px;
