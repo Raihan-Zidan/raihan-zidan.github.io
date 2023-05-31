@@ -995,7 +995,6 @@ input[type="search"]::-webkit-search-results-decoration {
   border: 1px solid #EDEDED;
   border-style: solid none;
   margin: 4px 0;
-  padding: 15px;
   background: #fff;
 }
 
@@ -1112,10 +1111,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (min-width: 780px) {
   .wrpl {
-      border: 1px solid #EDEDED;
+    border: 1px solid #EDEDED;
   }
   .trnsl {
     border: none;
+    padding: 15px;
   }
   .container {
     padding: 30px;
