@@ -1156,7 +1156,7 @@ body.dark .search-item a {
   color: #9BA0A6;
 }
 
-body.dark .selected .label {
+body.dark .selected .label, body.dark .selected span {
   color: #E9EAEE;
 }
 
@@ -1167,7 +1167,7 @@ body.dark .selected .label:before {
 body.dark .show-wrapper .more {
   color: #E9EAEE;
   border-color: transparent;
-  background: #202125;
+  background: #303135;
 }
 
 body.dark .show-wrapper .more:before {
