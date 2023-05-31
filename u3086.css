@@ -1212,6 +1212,10 @@ body.dark .instant-answer .title, body.dark .news-result .title, body.dark .news
   color: #E9EAEE;
 }
 
+body.dark .selected .label svg {
+  fill: #E9EAEE;
+}
+
 body.dark .tab-result .snippet, body.dark .tab-result .link,
 body.dark .instant-answer .infobox, body.dark .instant-answer .snippet,
 body.dark .info-label, body.dark .flexwrap .link, body.dark .nwst .publishtime {
