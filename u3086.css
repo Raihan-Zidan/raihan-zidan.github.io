@@ -554,7 +554,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .loader {
-  width: 50px;
+  width: 40px;
 }
 
 .circular {
