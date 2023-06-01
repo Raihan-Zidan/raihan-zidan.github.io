@@ -1141,6 +1141,42 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
+.footer {
+  padding: 20px 0;
+  background: #fff;
+  margin-top: 4px;
+}
+
+.footer ul {
+  list-style: none;
+  text-align: center;
+}
+
+.footer ul a {
+  color: gray;
+  text-decoration: none;
+}
+
+.footer ul a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer ul a svg {
+  margin: 0 4px;
+}
+
+.footer ul li {
+  display: inline-block;
+  margin: 4px 10px;
+}
+
+.footer .copyright {
+  margin: 20px 0 0;
+  text-align: center;
+}
+
 body.dark, body.dark .result-wrapper {
   background: #171717;
 }
