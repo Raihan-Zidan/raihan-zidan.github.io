@@ -1,6 +1,5 @@
-
 const suggestions = [
-  "!quotes",
+  "quotes",
   "Amazon",
   "Amazon Prime",
   "Airbnb",
@@ -118,3 +117,4 @@ const suggestions = [
   "YouTube TV",
 ];
 
+export { suggestions };
