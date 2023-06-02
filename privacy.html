@@ -4,140 +4,118 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy</title>
+  <meta name="keywords" content="inersoft, search engine, search, privacy, privacy search">
+  <meta name="description" content="Look for all information in the world, and get the most relevant results">
+  <title>Privacy</title>
 </head>
 
 <body>
 
-<div class="general">
+<div class="root">
+ <div class="header">
   <div class="title">
-    <div class="label">Privacy Policy</div>
+    Privacy Policy
   </div>
+ </div>
+ <div class="wrp">
+<div class="content">
+
   <div class="section">
-    <div class="label">User data security</div>
-    <div class="snippet">Of course, here your data is safe, even your search terms are not stored at all, and there are no results based on personalization, because there is no collection of user data.</div>
+    <div class="title">User data security</div>
+    <div class="snippet">Search engines may save search queries to continuously improve search engine performance without knowing who is performing those searches. Your ip address and location will be kept safe and no one will ever find out about it.</div>
   </div>
-  <div class="section" id="search-filter">
-    <div class="label">Search filters</div>
-    <div class="snippet">Adult content, that is a very dangerous thing, especially for young children, no matter how safe the search on the internet, parents must continue to look after their children.</div>
-  </div>
-  <div class="section" id="license">
-    <div class="label">Licence</div>
-    <div class="snippet">Any content or resource is copyrighted or proprietary, you may not do any of the following</div><br>
-    <div class="snippet"><li>Republishing existing content</li><li>Sell ​​or rent site materials</li><li>Take site content and use it</li></div>
-  </div>
-  <div class="section" id="permission">
-    <div class="label">Permission to use</div>
-    <div class="snippet">By using this site you agree to all existing rules, and promise not to violate them.</div>
-  </div>
-  <div class="section">
-    <div class="label">Page embedding</div>
-    <div class="snippet">Page embedding is not prohibited, it is allowed but don't forget to provide the original page reference, why?  because otherwise it is very detrimental to the original site that exists.</div>
-  </div>
-  <div class="footer">
-    <div>Copyright ©2022 All rights reserved.</div>
-  </div>
+
+    <div class="section">
+      <div class="title">User location</div>
+      <div class="snippet">Here there will never be a tracker who will take your location, and follow you, so that your location data is not known by anyone but you.</div>
+    </div>
+
+    <div class="section">
+      <div class="title">Cookies</div>
+      <div class="snippet">Cookies are not always scary. They are small files that websites place on your device and can be retrieved later. On this website, cookies are only used to store your search preferences. They are not used for anything else.</div>
+    </div>
+    
+    <div class="section">
+      <div class="title">User information</div>
+      <div class="snippet">Outside, search engines sell user data to advertisers, no here, no user data is sold.</div>
+    </div>
+    </div>
+ </div>
 </div>
 
 </body>
-</html>
 
 <style>
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  text-size-adjust: none;
-  font-family: "google sans";
+  font-family: Roboto, Arial, sans-serif;
 }
-
-body {
-  height: 100vh;
-}
-
-.section {
+  
+html, body {
   width: 100%;
+}
+
+.root {
+  display: block;
+}
+
+.header {
+  background: #fff;
+  padding: 15px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header .title {
+  color: #5F6267;
+  font-size: 22px;
+  font-weight: 450;
+}
+
+.content {
+  padding: 20px 5px;
+}
+
+.content .title {
+  color: #5F6267;
+  font-size: 19px;
+  font-weight: 450;
   margin: 5px 0;
-  padding: 5px 0;
 }
 
-.label {
-  color: #2e2e2e;
-  font-size: 18px;
-  font-weight: 405;
-  margin: 3px 0 5px;
-}
-
-.snippet {
-  color: #263152;
+.content .snippet {
+  color: #494949;
   font-size: 16px;
 }
 
-.general {
-  width: 100%;
+.section {
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px 20px;
 }
 
-.general a {
-  color: #1558D6;
-  text-decoration: none;
-}
-
-.general a:hover {
-  text-decoration: underline;
-}
-
-.title .label {
-  font-size: 28px;
-  font-weight: 405;
-  margin: 10px 0;
-}
-
-.general .title {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-.footer {
+.wrp {
   width: 100%;
-  margin-top: 18px;
   display: flex;
-  padding: 10px 0;
-  text-align: center;
-  aling-items: center;
+  align-items: center;
   justify-content: center;
-  border-top: 1px solid #ccc;
-}
-
-#cookie:target, #search-filter:target, #license:target, #permission:target {
-  animation: selected 5s ease;
-  transition: all 0.5s ease;
-}
-
-@keyframes selected {
-  0% {
-    outline: 1px solid #1558D6;
-    outline-offset: 10px;
-  }
-  100% {
-    outline: none;
-    outline-offset: 10px;
-  }
 }
 
 @media (min-width: 780px) {
-  .general {
-    padding: 30px;
-  }
-  .section,
-  .footer {
-    max-width: 600px;
-    padding: 20px 0;
-  }
+   .content {
+     width: 800px;
+   }
+   .header .title {
+     font-size: 25px;
+   }
 }
 
 </style>
