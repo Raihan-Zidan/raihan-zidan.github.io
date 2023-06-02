@@ -1146,9 +1146,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .footer {
-  padding: 20px 0;
+  padding: 14px 0;
   background: #FBFBFB;
-  margin-top: 4px;
+  border: 1px solid #EDEDED;
+  border-style: solid none;
 }
 
 .footer ul {
@@ -1157,7 +1158,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .footer ul a {
-  color: gray;
+  color: #444444;
   text-decoration: none;
 }
 
@@ -1173,13 +1174,14 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .footer ul li {
   display: inline-block;
-  margin: 4px 10px;
+  margin: 4px 8px;
 }
 
 .footer .copyright {
-  color: #494949;
-  margin: 20px 0 0;
+  margin: 10px 0 0;
   text-align: center;
+  font-family: Arial;
+  color: #444444;
 }
 
 body.dark, body.dark .result-wrapper {
