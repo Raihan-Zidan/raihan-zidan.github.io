@@ -1073,10 +1073,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .controls .row select {
-  color: #333;
+  color: #1558D6;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
   background: none;
   padding-left: 5px;
 }
