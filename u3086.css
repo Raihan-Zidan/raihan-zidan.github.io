@@ -1081,7 +1081,7 @@ input[type="search"]::-webkit-search-results-decoration {
   padding-left: 5px;
 }
 
-.controls .row select option::before {
+.controls .row select option:checked {
   color: #1558D6;
   font-weight: 450;
 }
