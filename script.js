@@ -323,7 +323,7 @@ function instantanswer() {
   } else if (searchInput.value.toLowerCase().match(/kalkulator|calculator/) && searchInput.value.split(" ").length - 2 || searchInput.value.match(/calculator\s+online|kalkulator\s+online/) && searchInput.value.split(" ").length - 3) {
     document.querySelector(".main-result .result").innerHTML += `<div class="calculator"><input type="text" inputmode="none" class="display" /><div class="buttons"><button class="operator" data-value="AC">AC</button><button class="operator" data-value="DEL">DEL</button><button class="operator" data-value="%">%</button><button class="operator" data-value=" ÷ ">÷</button><button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="operator" data-value=" × ">×</button><button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="operator" data-value=" - ">-</button><button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="operator" data-value=" + ">+</button><button data-value="0">0</button><button data-value="00">00</button><button data-value=".">.</button><button class="operator" data-value="=" th="true">=</button></div></div>`;
     setTimeout(()=>{let calculatorBox=document.querySelector(".calculator"),display=calculatorBox.querySelector(".display"),buttons=calculatorBox.querySelectorAll("button"),specialChars=["%","*","/","-","+","="],output="",calculate=btnValue=>{if(display.focus(),"="===btnValue&&""!==output)output=eval(output.replace("%","/100").replace(/×/g,"*").replace(/÷/g,"/"));else if("AC"===btnValue)output="";else if("DEL"===btnValue)output=output.toString().slice(0,-1);else{if(""===output&&specialChars.includes(btnValue))return;output+=btnValue}display.value=output,display.blur()};buttons.forEach(e=>{e.addEventListener("click",e=>calculate(e.target.dataset.value))})},500);
-  } else if (matchWord("translate", searchInput.value.toLowerCase())) {
+  } else if (searchInput.value.toLowerCase().match(/translate/)) {
     document.querySelector(".main-result .result").innerHTML += `<div class="trnsl"><div class="wrpl"><ul class="controls"><li class="row from"><div class="icons"><i id="from" class="fas fa-volume-up"></i><i id="from" class="fas fa-copy"></i></div><select></select></li><li class="exchange"><i class="fas fa-exchange-alt"></i></li><li class="row to"><select></select><div class="icons"><i id="to" class="fas fa-volume-up"></i><i id="to" class="fas fa-copy"></i></div></li></ul><div class="text-input"><textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea><textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea></div></div></div>`;
     const countries={af:"Afrikaans",sq:"Albanian",am:"Amharic",ar:"Arabic",hy:"Armenian",as:"Assamese",ay:"Aymara",az:"Azerbaijani",bm:"Bambara",eu:"Basque",be:"Belarusian",bn:"Bengali",bho:"Bhojpuri",bs:"Bosnian",bg:"Bulgarian",ca:"Catalan",ceb:"Cebuano",co:"Corsican",hr:"Croatian",cs:"Czech",da:"Danish",nl:"Dutch",en:"English",eo:"Esperanto",et:"Estonian",ee:"Ewe",fil:"Filipino",fi:"Finnish",fr:"French",fy:"Frisian",ga:"Irish",gl:"Galician",de:"German",el:"Greek",gu:"Gujarati",ha:"Hausa",he:"Hebrew",hi:"Hindi",hu:"Hungarian",is:"Icelandic",ig:"Igbo",id:"Indonesian",it:"Italian",ja:"Japanese",jw:"Javanese",kn:"Kannada",kk:"Kazakh",km:"Khmer",ko:"Korean",ky:"Kyrgyz",lo:"Lao",lv:"Latvian",lt:"Lithuanian",lu:"Lushootseed",mk:"Macedonian",mg:"Malagasy",ms:"Malay",ml:"Malayalam",mt:"Maltese",mr:"Marathi",mn:"Mongolian",my:"Burmese",ne:"Nepali",no:"Norwegian",pa:"Punjabi",pl:"Polish",pt:"Portuguese",ro:"Romanian",ru:"Russian",sa:"Sanskrit",si:"Sinhala",sk:"Slovak",sl:"Slovenian",so:"Somali",es:"Spanish",su:"Sundanese",sw:"Swahili",sv:"Swedish",ta:"Tamil",te:"Telugu",th:"Thai",tr:"Turkish",uk:"Ukrainian",ur:"Urdu",uz:"Uzbek",vi:"Vietnamese",xh:"Xhosa",yo:"Yoruba",zu:"Zulu"};setTimeout(()=>{let e=document.querySelector(".trnsl"),a=e.querySelector(".from-text"),n=e.querySelector(".to-text"),l=e.querySelector(".exchange"),i=e.querySelectorAll("select"),t=e.querySelectorAll(".row i");function r(){let e=a.value.trim(),l=i[0].value,t=i[1].value;if(e){n.setAttribute("placeholder","Translating..."),n.value&&(n.value=n.value+"\n...");var r="",s="https://translate.googleapis.com/translate_a/single?client=gtx&sl="+l+"&tl="+t+"&dt=t&q="+encodeURI(e);$.getJSON(s,function(e){for(var a=0;a<e[0].length;a++)r+=e[0][a][0],setTimeout(()=>{n.value=r},100)})}}transButton=e.querySelector("button"),i.forEach((e,a)=>{for(let n in countries){let l=`<option ${0==a?"en"==n?"selected":"":"id"==n?"selected":""} value="${n}">${countries[n]}</option>`;e.insertAdjacentHTML("beforeend",l)}}),i.forEach(e=>{e.addEventListener("change",()=>{r()})}),l.addEventListener("click",()=>{a.value;let e=i[0].value;a.value=n.value,i[0].value=i[1].value,i[1].value=e,r()}),a.addEventListener("keyup",()=>{a.value||(n.value="")});let s,u=500;a.addEventListener("input",()=>{clearTimeout(s),a.value?s=setTimeout(r,u):a.value||n.setAttribute("placeholder","Translation")}),t.forEach(e=>{e.addEventListener("click",({target:e})=>{if(a.value&&n.value){if(e.classList.contains("fa-copy"))"from"==e.id?navigator.clipboard.writeText(a.value):navigator.clipboard.writeText(n.value);else{let l;"from"==e.id?(l=new SpeechSynthesisUtterance(a.value)).lang=i[0].value:(l=new SpeechSynthesisUtterance(n.value)).lang=i[1].value,speechSynthesis.speak(l)}}})})},500);
   }
@@ -546,77 +546,4 @@ window.addEventListener('load', ()=> {
   }
 });
 
-function matchWord(keyword, input) {
-  keyword = keyword.toLowerCase();
-  input = input.toLowerCase();
 
-  // Menghilangkan spasi pada keyword
-  keyword = keyword.replace(/\s/g, '');
-
-  // Mencocokkan keyword dengan input
-  if (input.includes(keyword)) {
-    return true;
-  }
-
-  // Mencocokkan keyword dengan input berdasarkan skor Jaro-Winkler
-  var threshold = 0.62; // Threshold untuk kecocokan kata
-  if (jaroWinklerDistance(keyword, input) >= threshold) {
-    return true;
-  }
-
-  return false;
-}
-
-function jaroWinklerDistance(word1, word2) {
-  var matchingWindow = Math.floor(Math.max(word1.length, word2.length) / 2) - 1;
-  var word1Matches = new Array(word1.length).fill(false);
-  var word2Matches = new Array(word2.length).fill(false);
-  var matches = 0;
-  var transpositions = 0;
-
-  // Mencari karakter yang cocok pada kedua kata
-  for (var i = 0; i < word1.length; i++) {
-    var start = Math.max(0, i - matchingWindow);
-    var end = Math.min(i + matchingWindow + 1, word2.length);
-
-    for (var j = start; j < end; j++) {
-      if (!word2Matches[j] && word1[i] === word2[j]) {
-        word1Matches[i] = true;
-        word2Matches[j] = true;
-        matches++;
-        break;
-      }
-    }
-  }
-
-  if (matches === 0) {
-    return 0;
-  }
-
-  // Menghitung jumlah karakter yang salah urut
-  var k = 0;
-  for (var i = 0; i < word1.length; i++) {
-    if (word1Matches[i]) {
-      while (!word2Matches[k]) {
-        k++;
-      }
-      if (word1[i] !== word2[k]) {
-        transpositions++;
-      }
-      k++;
-    }
-  }
-
-  // Menghitung skor Jaro
-  var jaroSimilarity = (matches / word1.length + matches / word2.length + (matches - transpositions / 2) / matches) / 3;
-
-  // Menghitung skor Jaro-Winkler
-  var prefixLength = 0;
-  var maxPrefixLength = 4; // Panjang maksimum awalan yang akan dihitung
-  while (prefixLength < maxPrefixLength && word1[prefixLength] === word2[prefixLength]) {
-    prefixLength++;
-  }
-  var jaroWinklerSimilarity = jaroSimilarity + prefixLength * 0.1 * (1 - jaroSimilarity);
-
-  return jaroWinklerSimilarity;
-}
