@@ -1120,6 +1120,11 @@ input[type="search"]::-webkit-search-results-decoration {
   transition: transform 0.2s ease;
 }
 
+.controls .exchange.off {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 @media (min-width: 780px) {
   .wrpl {
     border: 1px solid #EDEDED;
