@@ -938,9 +938,6 @@ input[type="search"]::-webkit-search-results-decoration {
   .result-wrapper {
     padding-left: 40px;
   }
-  .nwst .title {
-    font-size: 20px;
-  }
 }
 
 @media (min-width: 992px) {
