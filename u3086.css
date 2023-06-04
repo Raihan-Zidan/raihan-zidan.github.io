@@ -938,6 +938,9 @@ input[type="search"]::-webkit-search-results-decoration {
   .result-wrapper {
     padding-left: 40px;
   }
+  .nwst .title {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1283,7 +1286,7 @@ body.dark .info-label, body.dark .flexwrap .link, body.dark .nwst .publishtime {
   body.dark .header {
     background: #171717;
   }
-  body.dark .tab-result, body.dark .news-result {
+  body.dark .tab-result, body.dark .news-result, body.dark .trnsl, body.dark .calculator {
     background: transparent;
     border: none;
   }
