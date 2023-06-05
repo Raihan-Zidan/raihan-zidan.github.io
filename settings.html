@@ -150,7 +150,8 @@ body {
   width: 100%;
   display: flex;
   padding: 20px;
-  justify-content: end;
+  align-items: center;
+  flex-direction: column;
 }
 
 .column:last-child {
@@ -179,7 +180,7 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
-  margin: 0 5px;
+  margin: 4px 0;
   font-size: 16px;
   border-radius: 8px;
   background: #4286F5;
@@ -247,12 +248,21 @@ html[lang="id"] .toggle:checked:before {
     background: #fff;
   }
   .settings {
-    width: 640px;
+    width: 620px;
     padding: 20px 120px 0;
     box-sizing: initial;
   }
   .content {
     border: none;
+  }
+  .buttons {
+    align-items: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .buttons button {
+    width: 30%;
+    margin: 0 5px;
   }
 }
   
