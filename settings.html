@@ -9,7 +9,8 @@
 
 <body>
 
-  <div class="wrapper">
+<div class="root-PTvYB">
+  <div class="layout">
     <div class="header">
 
     <div class="title">All settings</div>
@@ -80,11 +81,13 @@
   </div>
   
   <div class="buttons">
+    <button class="save">Save Settings</button>
     <button class="reset">Reset Settings</button> 
   </div>
 </div>
 </div>
 </div>
+  </div>
 
 </body>
 </html>
@@ -124,6 +127,10 @@ html, body {
 
 body {
   background: #F2F3F5;
+}
+  
+.layout {
+  background: transparent;  
 }
 
 .content {
@@ -168,7 +175,7 @@ body {
   font-size: 15px;
 }
 
-.buttons .reset {
+.buttons button {
   width: 90%;
   padding: 10px;
   color: #fff;
@@ -236,13 +243,11 @@ html[lang="id"] .toggle:checked:before {
   body {
     background: #fff;
   }
-  .wrapper {
-    width: 100%;
-  }
   .settings {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    max-width: 660px;
+    padding: 0 120px 0;
+    box-sizing: initial;
   }
   .content {
     width: 500px;
@@ -340,18 +345,18 @@ const settings = {
   favicon: true,
   theme: "light"
 };
-  
-function updateData() {
-  if (settingsCookie > -1) {
-    document.cookie = `settings=${JSON.stringify(settings)}`;
-  }
-}
 
 function saveData() {
   const settingsJson = JSON.stringify(settings);
   const expirationDate = new Date();
   expirationDate.setMonth(expirationDate.getMonth() + 18);
   document.cookie = `settings=${settingsJson};expires=${expirationDate}`;
+}
+
+function updateData() {
+  if (settingsCookie > -1) {
+    document.cookie = `settings=${JSON.stringify(settings)}`;
+  }
 }
 
 function getData() {
@@ -390,7 +395,6 @@ toggle.forEach(option => {
     } else if (option.id == "option4" && option.checked) {
       settings.favicon = true;
     }
-    updateData();
   });
   window.addEventListener('load', ()=> {
     if (option.id == "option1" && getData().newtab == true) {
@@ -409,12 +413,10 @@ selectOption = document.querySelectorAll("select");
 
 selectOption[0].addEventListener('change', ()=> {
   settings.lang = selectOption[0].value;
-  updateData();
 });
 
 selectOption[2].addEventListener('change', ()=> {
   settings.theme = selectOption[2].value;
-  updateData();
 });
 
 if (getData().lang) {
@@ -430,6 +432,11 @@ document.querySelector(".reset").addEventListener('click', ()=> {
     title: "Reset settings",
     message: "Do you want to reset the current settings to default settings?"
   })
+});
+  
+document.querySelector(".save").addEventListener('click', ()=> {
+  updateData();
+  window.location.href = ""
 });
   
 function resetSettings() {
