@@ -172,10 +172,6 @@ body {
   text-overflow: ellipsis;
 }
 
-.tab-result .title {
-
-}
-
 .big-title {
   font-size: 25px;
   margin-bottom: 5px;
@@ -234,7 +230,7 @@ body {
 
 .tab-result .snippet {
   color: #494949;
-  font-size: 14px;
+  font-size: 15px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
