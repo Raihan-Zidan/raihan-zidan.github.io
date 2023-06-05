@@ -49,6 +49,7 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
+
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested && navigator.onLine) {
