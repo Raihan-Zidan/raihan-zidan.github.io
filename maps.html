@@ -60,7 +60,9 @@
     
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('q');
-    if (q) { geocoder.query(); }
+    if (q) {
+      geocoder.query(q);
+    }
     setTimeout(()=> {
       const inputElement = document.querySelector('.mapboxgl-ctrl-geocoder input');
       inputElement.blur();
