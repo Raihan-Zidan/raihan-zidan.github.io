@@ -234,7 +234,7 @@ body {
 
 .tab-result .snippet {
   color: #494949;
-  font-size: 15px;
+  font-size: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
