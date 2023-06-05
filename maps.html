@@ -36,48 +36,67 @@
 <body>
   <div id="map"></div>
 
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.3/mapbox-gl-geocoder.min.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.3/mapbox-gl-geocoder.min.js"></script>
 
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoidGltZXNwYWNlZ3VpZGUiLCJhIjoiY2s0MGlkbjFkMDBhZzNlbDE4ODNpcDJyeCJ9.6Ur81nnpTOySNhpjO26oiw';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 3,
+    center: [106.827183, -6.1753942]
+  });
 
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGltZXNwYWNlZ3VpZGUiLCJhIjoiY2s0MGlkbjFkMDBhZzNlbDE4ODNpcDJyeCJ9.6Ur81nnpTOySNhpjO26oiw';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      zoom: 3,
-      center: [106.827183, -6.1753942]
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    marker: false
+  });
+  map.addControl(geocoder);
+
+  geocoder.setPlaceholder('Find a location...');
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('q');
+  const inputElement = document.querySelector('.mapboxgl-ctrl-geocoder input');
+  if (searchQuery) {
+    geocoder.query(searchQuery);
+  }
+  setTimeout(() => {
+    inputElement.blur();
+  }, 500);
+
+  var geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    trackUserLocation: true
+  });
+  map.addControl(geolocate);
+
+  var zoomControls = new mapboxgl.NavigationControl();
+  map.addControl(zoomControls, 'top-right');
+
+  geocoder.on('result', function(e) {
+    var result = e.result;
+
+    // Menghapus semua tanda yang ada pada map
+    map.removeLayer('marker');
+
+    // Menambahkan tanda pada lokasi yang dicari
+    var marker = new mapboxgl.Marker()
+      .setLngLat(result.geometry.coordinates)
+      .addTo(map);
+
+    // Mengatur view map agar fokus pada lokasi yang dicari
+    map.flyTo({
+      center: result.geometry.coordinates,
+      zoom: 10
     });
-    
-    var geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl,
-      marker: false
-    });
-    map.addControl(geocoder);
-    
-    geocoder.setPlaceholder('Find a location...');
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get('q');
-    if (searchQuery) {
-      geocoder.query(searchQuery);
-    }
-    setTimeout(()=> {
-      const inputElement = document.querySelector('.mapboxgl-ctrl-geocoder input');
-      inputElement.blur();
-    }, 500);
-    
-    var geolocate = new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true
-      },
-      trackUserLocation: true
-    });
-    map.addControl(geolocate);
-    
-    var zoomControls = new mapboxgl.NavigationControl();
-    map.addControl(zoomControls, 'top-right');
-  </script>
+    inputElement.blur();
+  });
+</script>
+
 </body>
 </html>
