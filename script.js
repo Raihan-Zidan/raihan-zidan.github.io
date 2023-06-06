@@ -413,13 +413,11 @@ function instant(e) {
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
           thumbmg = `<img src="${imageUrl}" align="right" class="logo">`;
-          updateInstantAnswer(thumbmg);
+          document.querySelector(".instant-answer").innerHTML = thumbmg;
         }
       });
-      } else {
-        updateInstantAnswer(thumbmg);
       }
-      document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
+      document.querySelector(".instant-answer").innerHTML += `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
@@ -431,12 +429,6 @@ function instant(e) {
       }
     }
   },800);
-}
-
-function updateInstantAnswer(thumbmg) {
-  if (document.querySelector(".instant-answer")) {
-    document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
-  }
 }
 
 function relatedsearch() {
