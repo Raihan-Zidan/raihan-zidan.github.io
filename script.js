@@ -142,7 +142,9 @@ const sitelinks = [
     site: "https://www.ecosia.org/?c=en",
     links: [
       ["How Ecosia Works", "https://info.ecosia.org/what"],
-      
+      ["Privacy", "https://info.ecosia.org/privacy"],
+      ["Gift Trees", "https://plant.ecosia.org/"],
+      ["Blog", "https://blog.ecosia.org/"]
     ]
   }
 ];
