@@ -141,9 +141,9 @@ const sitelinks = [
 ];
 
 function showLinks(url) {
-  var hcq = '';
   var foundSite = sitelinks.find(s => s.site == url);
   if (foundSite) {
+    var hcq = '';
     var msb = foundSite.links;
     for (var i = 0; i < msb.length; i++) {
       var bac = msb[i];
@@ -152,7 +152,7 @@ function showLinks(url) {
     var html = `<div class="sitelinks">${hcq}</div>`;
     return html;
   } else {
-    return null;
+    return '';
   }
 }
 
