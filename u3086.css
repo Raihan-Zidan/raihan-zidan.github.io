@@ -631,7 +631,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list {
-  overflow-x: hidden;
 }
 
 .news-result .news-list::-webkit-scrollbar-track {
