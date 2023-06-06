@@ -137,6 +137,13 @@ const sitelinks = [
       ["Office", "https://www.microsoft.com/en-us/microsoft-365/microsoft-office"],
       ["Contact Us", "https://support.microsoft.com/en-us/contactus"]
     ]
+  },
+  {
+    site: "https://www.ecosia.org/?c=en",
+    links: [
+      ["How Ecosia Works", "https://info.ecosia.org/what"],
+      
+    ]
   }
 ];
 
