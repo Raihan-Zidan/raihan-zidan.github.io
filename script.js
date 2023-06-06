@@ -119,6 +119,42 @@ var language = {
   },
 };
 
+const sitelinks = [
+  {
+    site: "https://www.google.com/",
+    links: [
+      ["Gmail", "https://mail.google.com/mail/?tab=wm"],
+      ["Search", "https://www.google.com/webhp"],
+      ["Maps", "https://www.google.com/maps"],
+      ["News", "https://news.google.com/?tab=wn"]
+    ]
+  },
+  {
+    site: "https://www.microsoft.com/",
+    links: [
+      ["Account", "https://account.microsoft.com/account"],
+      ["Microsoft 365", "https://www.microsoft.com/en-us/microsoft-365"],
+      ["Office", "https://www.microsoft.com/en-us/microsoft-365/microsoft-office"],
+      ["Contact Us", "https://support.microsoft.com/en-us/contactus"]
+    ]
+  }
+];
+
+function showLinks(url) {
+  var hcq = '';
+  sitelinks.forEach(s => {
+    if (s.site == url) {
+      var msb = s.links;
+      for (var i = 0; i < msb.length; i++) {
+        var bac = msb[i];
+        hcq += `<a href="${bac[1]}" class="link">${bac[0]}</a>`;
+      }
+    }
+  });
+  var html = `<div class="sitelinks">${hcq}</div>`;
+  return html;
+}
+
 function langtext(string) {
   if (idlang) {
     return language["id"][`${string}`];
