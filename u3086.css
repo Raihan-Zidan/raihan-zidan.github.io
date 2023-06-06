@@ -238,6 +238,25 @@ body {
   text-overflow: ellipsis;
 }
 
+.tab-result:has(.sitelinks) {
+  padding-bottom: 0px;
+}
+
+.tab-result .sitelinks {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.sitelinks .link {
+  color: #1558D6;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 0;
+  cursor: pointer;
+  border-top: 1px solid #E0E4E9;
+}
+
 .bodytext {
   color: #494949;
   font-size: 15px;
