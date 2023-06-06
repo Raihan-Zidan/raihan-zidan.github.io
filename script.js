@@ -413,7 +413,7 @@ function instant(e) {
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
           thumbmg = `<img src="${imageUrl}" align="right" class="logo">`;
-          document.querySelector(".instant-answer").innerHTML = thumbmg;
+          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", thumbmg);
         }
       });
       }
