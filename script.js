@@ -388,6 +388,33 @@ function cekGambarAda(url, callback) {
   img.src = url;
 }
 
+function urlToBlobWithDomain(imageUrl, domain) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', imageUrl, true);
+    xhr.responseType = 'blob';
+
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const blob = xhr.response;
+        const newUrl = URL.createObjectURL(blob);
+        const parsedUrl = new URL(newUrl);
+        parsedUrl.hostname = domain;
+        resolve(parsedUrl.href);
+      } else {
+        reject(new Error('Failed to load image URL'));
+      }
+    };
+
+    xhr.onerror = function () {
+      reject(new Error('Failed to load image URL'));
+    };
+
+    xhr.send();
+  });
+}
+
+
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
