@@ -388,32 +388,19 @@ function cekGambarAda(url, callback) {
   img.src = url;
 }
 
-function urlToBlobWithDomain(imageUrl, domain) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', imageUrl, true);
-    xhr.responseType = 'blob';
-
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        const blob = xhr.response;
-        const newUrl = URL.createObjectURL(blob);
-        const parsedUrl = new URL(newUrl);
-        parsedUrl.hostname = domain;
-        resolve(parsedUrl.href);
-      } else {
-        reject(new Error('Failed to load image URL'));
-      }
-    };
-
-    xhr.onerror = function () {
-      reject(new Error('Failed to load image URL'));
-    };
-
-    xhr.send();
-  });
+function toDataURL(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      callback(reader.result);
+    }
+    reader.readAsDataURL(xhr.response);
+  };
+  xhr.open('GET', url);
+  xhr.responseType = 'blob';
+  xhr.send();
 }
-
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -438,10 +425,8 @@ function instant(e) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
-          const domain = 'raihan-zidan.github.io';
-          urlToBlobWithDomain(imageUrl, domain)
-          .then(blobUrl => {
-            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${blobUrl}" align="right" class="logo">`);
+          toDataURL(imageUrl, function(dataUrl) {
+            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUrl}" align="right" class="logo">`);
           })
         }
       });
