@@ -409,7 +409,7 @@ function instant(e) {
       }
       var thumbmg = "";
       if (res.Image) {
-      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading}.png`;
+      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
           thumbmg = `<img src="${imageUrl}" align="right" class="logo">`;
