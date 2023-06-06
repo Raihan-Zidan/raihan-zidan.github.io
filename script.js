@@ -434,7 +434,7 @@ function instant(e) {
 }
 
 function updateInstantAnswer(thumbmg) {
-  if (document.querySelector(".instant-answer") {
+  if (document.querySelector(".instant-answer")) {
     document.querySelector(".instant-answer").innerHTML = `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
   }
 }
