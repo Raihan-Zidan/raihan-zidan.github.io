@@ -438,7 +438,11 @@ function instant(e) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
-          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${imageUrl}" align="right" class="logo">`);
+          const domain = 'raihan-zidan.github.io';
+          urlToBlobWithDomain(imageUrl, domain)
+          .then(blobUrl => {
+            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${blobUrl}" align="right" class="logo">`);
+          })
         }
       });
       }
