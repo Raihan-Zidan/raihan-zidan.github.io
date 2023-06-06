@@ -149,6 +149,8 @@ function showLinks(url) {
         var bac = msb[i];
         hcq += `<a href="${bac[1]}" class="link">${bac[0]}</a>`;
       }
+    } else {
+      return null;
     }
   });
   var html = `<div class="sitelinks">${hcq}</div>`;
