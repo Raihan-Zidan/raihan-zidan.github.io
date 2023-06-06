@@ -142,20 +142,20 @@ const sitelinks = [
 
 function showLinks(url) {
   var hcq = '';
-  sitelinks.forEach(s => {
-    if (s.site == url) {
-      var msb = s.links;
-      for (var i = 0; i < msb.length; i++) {
-        var bac = msb[i];
-        hcq += `<a href="${bac[1]}" class="link">${bac[0]}</a>`;
-      }
-      var html = `<div class="sitelinks">${hcq}</div>`;
-      return html;
-    } else {
-      return null;
+  var foundSite = sitelinks.find(s => s.site == url);
+  if (foundSite) {
+    var msb = foundSite.links;
+    for (var i = 0; i < msb.length; i++) {
+      var bac = msb[i];
+      hcq += `<a href="${bac[1]}" class="link">${bac[0]}</a>`;
     }
-  });
+    var html = `<div class="sitelinks">${hcq}</div>`;
+    return html;
+  } else {
+    return null;
+  }
 }
+
 
 function langtext(string) {
   if (idlang) {
