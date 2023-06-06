@@ -413,7 +413,6 @@ function instant(e) {
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
           thumbmg = `<img src="${imageUrl}" align="right" class="logo">`;
-        } else {
           updateInstantAnswer(thumbmg);
         }
       });
