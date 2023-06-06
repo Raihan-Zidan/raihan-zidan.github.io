@@ -125,7 +125,7 @@ const sitelinks = [
     links: [
       ["Gmail", "https://mail.google.com/mail/?tab=wm"],
       ["Search", "https://www.google.com/webhp"],
-      ["Maps", "https://www.google.com/maps"],
+      ["Meet Bard", "https://bard.google.com/"],
       ["News", "https://news.google.com/?tab=wn"]
     ]
   },
@@ -149,12 +149,12 @@ function showLinks(url) {
         var bac = msb[i];
         hcq += `<a href="${bac[1]}" class="link">${bac[0]}</a>`;
       }
+      var html = `<div class="sitelinks">${hcq}</div>`;
+      return html;
     } else {
       return null;
     }
   });
-  var html = `<div class="sitelinks">${hcq}</div>`;
-  return html;
 }
 
 function langtext(string) {
