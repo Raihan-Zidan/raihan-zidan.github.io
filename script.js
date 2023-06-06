@@ -419,7 +419,7 @@ function instant(e) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
       } else {
-        insertAfter(tabres[0], instanswer);
+        insertAfter(tabres[1], instanswer);
       }
       if (res.Image) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
@@ -535,7 +535,7 @@ function nwsresult(res) {
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
     nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
-    insertAfter(tabres[Math.floor(Math.random() * (2 - 1 + 1) + 1)], nwsres);
+    insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
     for (var i = 0; i < res.items.length && i < 5; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "";
       publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
