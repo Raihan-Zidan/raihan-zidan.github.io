@@ -146,6 +146,15 @@ const sitelinks = [
       ["Blog", "https://blog.ecosia.org/"],
       ["Tree Store", "https://plant.ecosia.org/"]
     ]
+  },
+  {
+    site: "https://duckduckgo.com/",
+    links: [
+      ["Start Page", "https://start.duckduckgo.com"],
+      ["About", "https://duckduckgo.com/about"],
+      ["All Settings", "https://duckduckgo.com/settings"],
+      ["Install Duckduckgo", "https://duckduckgo.com/install"]
+    ]
   }
 ];
 
