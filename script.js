@@ -409,6 +409,7 @@ function instant(e) {
       }
       if (res.Image) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/-/g, "").toLowerCase()}.png`;
+ alert(imageUrl);
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
           document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${imageUrl}" align="right" class="logo">`);
