@@ -535,7 +535,7 @@ function nwsresult(res) {
     var nwsres = document.createElement("div");
     nwsres.classList.add("news-result");
     nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
-    insertAfter(tabres[randomIntFromInterval(3, 4)], nwsres);
+    insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
     for (var i = 0; i < res.items.length && i < 5; i++) {
       var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "";
       publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
