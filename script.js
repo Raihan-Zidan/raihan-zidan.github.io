@@ -407,17 +407,15 @@ function instant(e) {
       } else {
         insertAfter(tabres[0], instanswer);
       }
-      var thumbmg = "";
       if (res.Image) {
-      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.toLowerCase()}.png`;
+      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.toLowerCase().replaceAll(" ", "-").replaceAll("!", "")}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
-          thumbmg = `<img src="${imageUrl}" align="right" class="logo">`;
-          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", thumbmg);
+          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${imageUrl}" align="right" class="logo">`);
         }
       });
       }
-      document.querySelector(".instant-answer").innerHTML += `${thumbmg}<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`;
+      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
