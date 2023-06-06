@@ -143,8 +143,8 @@ const sitelinks = [
     links: [
       ["How Ecosia Works", "https://info.ecosia.org/what"],
       ["Privacy", "https://info.ecosia.org/privacy"],
-      ["Gift Trees", "https://plant.ecosia.org/"],
-      ["Blog", "https://blog.ecosia.org/"]
+      ["Blog", "https://blog.ecosia.org/"],
+      ["Gift Trees", "https://plant.ecosia.org/"]
     ]
   }
 ];
