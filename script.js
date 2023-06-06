@@ -408,7 +408,7 @@ function instant(e) {
         insertAfter(tabres[0], instanswer);
       }
       if (res.Image) {
-      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.toLowerCase().replace(" ", "-").replace(".", "").replace("!", "")}.png`;
+      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/-/g, "").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
           document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${imageUrl}" align="right" class="logo">`);
