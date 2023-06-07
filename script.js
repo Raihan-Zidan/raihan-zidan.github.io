@@ -33,7 +33,8 @@ fetch('https://raihan-zidan.github.io/img/image.js')
     throw new Error('Error: ' + response.status);
   })
   .then(function(data) {
-    alert(data);
+    var parsedData = JSON.parse(data);
+    alert(parsedData);
   })
   .catch(function(error) {
     alert('Error:', error);
