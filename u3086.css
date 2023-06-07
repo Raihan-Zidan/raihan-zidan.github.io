@@ -244,8 +244,13 @@ body {
 
 .tab-result .sitelinks {
   display: flex;
-  flex-direction: column;
   padding-top: 10px;
+}
+
+@media (max-width: 780px) {
+  .tab-result .sitelinks {
+    flex-direction: column;
+  }
 }
 
 .sitelinks .link {
