@@ -123,19 +123,19 @@ const sitelinks = [
   {
     site: "https://www.google.com/",
     links: [
-      ["Gmail", "https://mail.google.com/mail/?tab=wm"],
-      ["Search", "https://www.google.com/webhp"],
-      ["Meet Bard", "https://bard.google.com/"],
-      ["News", "https://news.google.com/?tab=wn"]
+      ["Gmail", "https://mail.google.com/mail/?tab=wm", "In your Google Account, you can see and manage your information"],
+      ["Search", "https://www.google.com/webhp", "Search the world's information, including webpages, images, videos and more..."],
+      ["Meet Bard", "https://bard.google.com/", "Bard is your creative and helpful collaborator to supercharge..."],
+      ["News", "https://news.google.com/?tab=wn", "News - Google"]
     ]
   },
   {
     site: "https://www.microsoft.com/",
     links: [
-      ["Account", "https://account.microsoft.com/account"],
-      ["Microsoft 365", "https://www.microsoft.com/en-us/microsoft-365"],
-      ["Office", "https://www.microsoft.com/en-us/microsoft-365/microsoft-office"],
-      ["Contact Us", "https://support.microsoft.com/en-us/contactus"]
+      ["Account", "https://account.microsoft.com/account", "Sign In with your Microsoft account. One account. One place to manage it all."],
+      ["Microsoft 365", "https://www.microsoft.com/en-us/microsoft-365", "Introducing Microsoft 365 Copilot The new Microsoft 365 Copilot experience..."],
+      ["Office", "https://www.microsoft.com/en-us/microsoft-365/microsoft-office", "Microsoft 365 is your powerful cloud-based productivity platform that includ..."],
+      ["Contact Us", "https://support.microsoft.com/en-us/contactus", "Contact Microsoft Support. Find solutions to common problems, or get..."]
     ]
   },
   {
@@ -174,7 +174,11 @@ function showLinks(url) {
     var msb = foundSite.links;
     for (var i = 0; i < msb.length; i++) {
       var bac = msb[i];
-      hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a></div>`;
+      if (bac[3]) {
+        hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a><div class="snippet">${bac[3]}</div></div>`;
+      } else {
+        hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a></div>`;
+      }
     }
     var html = `<div class="sitelinks">${hcq}</div>`;
     return html;
