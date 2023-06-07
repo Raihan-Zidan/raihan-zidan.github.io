@@ -141,28 +141,28 @@ const sitelinks = [
   {
     site: "https://www.ecosia.org/?c=en",
     links: [
-      ["How Ecosia Works", "https://info.ecosia.org/what"],
-      ["Privacy", "https://info.ecosia.org/privacy"],
-      ["Blog", "https://blog.ecosia.org/"],
-      ["Tree Store", "https://plant.ecosia.org/"]
+      ["How Ecosia Works", "https://info.ecosia.org/what", "Search ads generate income for Ecosia. Ecosia uses this income to plant trees..."],
+      ["Privacy", "https://info.ecosia.org/privacy", "Ecosia is a “privacy friendly” search engine. We take user..."],
+      ["Blog", "https://blog.ecosia.org/", "News from Ecosia, the alternative search engine that plants..."],
+      ["Tree Store", "https://plant.ecosia.org/", "Join the Ecosia community by following us on social media and see progress and…"]
     ]
   },
   {
     site: "https://duckduckgo.com/",
     links: [
-      ["Start Page", "https://start.duckduckgo.com"],
-      ["About", "https://duckduckgo.com/about"],
-      ["All Settings", "https://duckduckgo.com/settings"],
-      ["Install Duckduckgo", "https://duckduckgo.com/install"]
+      ["Start Page", "https://start.duckduckgo.com", "Start Page - DuckDuckGo — Privacy, simplified."],
+      ["About", "https://duckduckgo.com/about", "DuckDuckGo is the Internet privacy company for everyone who's ..."],
+      ["All Settings", "https://duckduckgo.com/settings", "Settings - DuckDuckGo — Privacy, simplified."],
+      ["Install Duckduckgo", "https://duckduckgo.com/install", "Set DuckDuckGo as your default search engine. 1. Right click in the search bar."]
     ]
   },
   {
     site: "https://www.minecraft.net/en-us",
     links: [
-      ["Login", "https://www.minecraft.net/en-us/login"],
-      ["Games", "https://www.minecraft.net/en-us/about-minecraft"],
-      ["Minecraft Legends", "https://www.minecraft.net/en-us/about-legends"],
-      ["Download", "https://www.minecraft.net/en-us/download"]
+      ["Login", "https://www.minecraft.net/en-us/login", "Sign in to your account with your Minecraft login information and..."],
+      ["Games", "https://www.minecraft.net/en-us/about-minecraft", "Minecraft is a sandbox video game developed by Mojang Studios. The game allows..."],
+      ["Minecraft Legends", "https://www.minecraft.net/en-us/about-legends", "Minecraft Legends is an action strategy game developed by Mojang Studios and Blackbird Interactive."],
+      ["Download", "https://www.minecraft.net/en-us/download", "Download Minecraft for Windows, Mac and Linux. Get server..."]
     ]
   }
 ];
