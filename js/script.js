@@ -72,7 +72,7 @@ inputBox.onfocus = (e)=> {
 function select(element) {
   let selectData = element.textContent;
   inputBox.value = selectData;
-  webLink = `${weburl}/search?q=${selectData}${lang}`;
+  webLink = `${weburl}/search?q=${inputBox.value}${searchlang}`;
   linkTag.setAttribute("href", webLink);
   linkTag.click();
 }
@@ -82,10 +82,6 @@ document.body.addEventListener('click', (e)=> {
     if (!elm.classList.contains("autocom-box") && !elm.classList.contains("wrapper")) {
       searchWrapper.classList.remove("active");
     }
-});
-
-inputBox.addEventListener('keyup', (e)=> {
-
 });
 
 function showSuggestions(list) {
