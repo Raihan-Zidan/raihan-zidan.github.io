@@ -157,7 +157,7 @@ const sitelinks = [
     ]
   },
   {
-    site: "https://minecraft.net/en-us",
+    site: "https://www.minecraft.net/en-us",
     links: [
       ["Login", "https://www.minecraft.net/en-us/login"],
       ["Games", "https://www.minecraft.net/en-us/about-minecraft"],
