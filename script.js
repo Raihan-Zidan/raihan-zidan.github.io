@@ -24,6 +24,8 @@ function getData() {
   return {};
 }
 
+alert(image.mobil);
+
 if (getData().lang == "Indonesia") {
   idlang = true;
 }
