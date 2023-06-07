@@ -24,17 +24,13 @@ function getData() {
   return {};
 }
 
-if (getData().lang == "Indonesia") {
-  idlang = true;
-}
-
+idlang = getData().lang == "Indonesia" ? true : false;
 searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
 searchParam += sf == 1 ? "&sf=1" : "";
 searchParam += th == 1 ? "&th=1" : "";
-
-document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
-var startIndex = (p > 1) ? p : 1;
+document.title = idlang ? `${q} - Penelusuran` : `${q} - Search`;
+var startIndex = p > 1 ? p : 1;
 
 String.prototype.ltrim = function() {
   if (!this) return this;
