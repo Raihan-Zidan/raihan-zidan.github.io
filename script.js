@@ -174,7 +174,7 @@ function showLinks(url) {
     var msb = foundSite.links;
     for (var i = 0; i < msb.length; i++) {
       var bac = msb[i];
-      if (bac[2] windowWidth > 780) {
+      if (bac[2] && windowWidth > 780) {
         hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a><div class="snippet">${bac[2]}</div></div>`;
       } else {
         hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a></div>`;
