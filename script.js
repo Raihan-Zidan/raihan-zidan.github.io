@@ -24,39 +24,14 @@ function getData() {
   return {};
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-var script = document.createElement('script');
-script.src = 'https://raihan-zidan.github.io/img/image.js';
-
-// Event listener untuk mendeteksi saat skrip selesai dimuat
-script.addEventListener('load', function() {
-  // Tangkap nilai variabel dari skrip eksternal
-  var myVariableValue = window.myVariable;
-  alert(myVariableValue);
-
-  // Hapus elemen <script> setelah mendapatkan datanya
-  script.remove();
-});
-
-document.head.appendChild(script);
-});
-
 if (getData().lang == "Indonesia") {
   idlang = true;
 }
 
-if (uf == 1) {
-  searchParam += "&uf=1";
-}
-if (fv == 0) {
-  searchParam += "&fv=0";
-}
-if (sf == 1) {
-  searchParam += "&sf=1";
-}
-if (th == 1) {
-  searchParam += "&th=1";
-}
+searchParam += uf == 1 ? "&uf=1" : "";
+searchParam += fv == 0 ? "&fv=0" : "";
+searchParam += sf == 1 ? "&sf=1" : "";
+searchParam += th == 1 ? "&th=1" : "";
 
 document.title = (idlang) ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = (p > 1) ? p : 1;
