@@ -273,7 +273,11 @@ body {
   }
   .sitelinks .wrlink {
     width: 48%;
-    margin: 10px 5px 0;
+    margin: 0 5px;
+  }
+  .sitelinks .wrlink:nth-child(3),
+  .sitelinks .wrlink:nth-child(4) {
+    margin-top: 10px;
   }
   .sitelinks .link {
     border: none;
