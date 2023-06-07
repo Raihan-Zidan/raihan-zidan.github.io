@@ -270,6 +270,7 @@ body {
   }
   .sitelinks {
     padding: 0 10px;
+    margin: 5px 0;
   }
   .sitelinks .wrlink {
     width: 48%;
@@ -277,7 +278,7 @@ body {
   }
   .sitelinks .link {
     border: none;
-    padding: 4px 0;
+    padding: 2px 0;
   }
 }
 
@@ -651,6 +652,7 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow-y: hidden;
   -webkit-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
 }
 
 .news-result .news-list {
@@ -667,7 +669,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list::-webkit-scrollbar-thumb {
-  height: 20px;
+  width: 20px;
   background: lightgrey;
   border-radius: 8px;
 }
