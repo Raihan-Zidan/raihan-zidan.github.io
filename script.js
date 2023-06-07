@@ -155,6 +155,15 @@ const sitelinks = [
       ["All Settings", "https://duckduckgo.com/settings"],
       ["Install Duckduckgo", "https://duckduckgo.com/install"]
     ]
+  },
+  {
+    site: "https://minecraft.net/en-us",
+    links: [
+      ["Login", "https://www.minecraft.net/en-us/login"],
+      ["Games", "https://www.minecraft.net/en-us/about-minecraft"],
+      ["Minecraft Legends", "https://www.minecraft.net/en-us/about-legends"],
+      ["Download", "https://www.minecraft.net/en-us/download"]
+    ]
   }
 ];
 
