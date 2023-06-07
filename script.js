@@ -344,7 +344,7 @@ function submit() {
         qval = "microsoft bing";
       } else if (val.toLowerCase() == "bard") {
         qval = "google bard";
-      } else if (val.toLowerCase().match(/apple|appl/)) {
+      } else if (val.toLowerCase() == /apple|appl/) {
         qval = "apple inc";
       } else if (val.toLowerCase().match(/ronaldo/)) {
         qval = "cristiano ronaldo";
