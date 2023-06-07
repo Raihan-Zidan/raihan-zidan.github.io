@@ -24,6 +24,7 @@ function getData() {
   return {};
 }
 
+document.addEventListener('DOMContentLoaded', function() {
 var script = document.createElement('script');
 script.src = 'https://raihan-zidan.github.io/img/image.js';
 script.onload = function() {
@@ -32,6 +33,7 @@ script.onload = function() {
   script.remove();
 };
 document.head.appendChild(script);
+});
 
 if (getData().lang == "Indonesia") {
   idlang = true;
