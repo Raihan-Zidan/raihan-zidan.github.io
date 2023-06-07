@@ -270,11 +270,10 @@ body {
   }
   .sitelinks {
     padding: 0 10px;
-    margin: 5px 0;
   }
   .sitelinks .wrlink {
     width: 48%;
-    margin: 0 5px;
+    margin: 5px;
   }
   .sitelinks .link {
     border: none;
@@ -652,7 +651,6 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow-y: hidden;
   -webkit-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
 }
 
 .news-result .news-list {
@@ -669,7 +667,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list::-webkit-scrollbar-thumb {
-  width: 20px;
   background: lightgrey;
   border-radius: 8px;
 }
