@@ -121,7 +121,7 @@ var language = {
 
 const sitelinks = [
   {
-    site: "https://www.google.com/",
+    site: "http://www.google.com/",
     links: [
       ["Gmail", "https://mail.google.com/mail/?tab=wm", "In your Google Account, you can see and manage your information"],
       ["Search", "https://www.google.com/webhp", "Search the world's information, including webpages, images, videos and more..."],
