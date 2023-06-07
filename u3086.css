@@ -250,9 +250,9 @@ body {
 
 .sitelinks .link {
   color: #1558D6;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
-  padding: 12px 0;
+  padding: 10px 0;
   cursor: pointer;
   border-top: 1px solid #E0E4E9;
 }
