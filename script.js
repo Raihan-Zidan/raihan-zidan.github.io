@@ -168,7 +168,7 @@ const sitelinks = [
 ];
 
 function showLinks(url) {
-  var foundSite = sitelinks.find(s => s.site == url);
+  var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
   if (foundSite) {
     var hcq = '';
     var msb = foundSite.links;
