@@ -25,14 +25,19 @@ function getData() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-var script = document.createElement('script');
-script.src = 'https://raihan-zidan.github.io/img/image.js';
-script.onload = function() {
-  var data = window.image;
-  alert(data);
-  script.remove();
-};
-document.head.appendChild(script);
+fetch('https://raihan-zidan.github.io/img/image.js')
+  .then(function(response) {
+    if (response.ok) {
+      return response.text();
+    }
+    throw new Error('Error: ' + response.status);
+  })
+  .then(function(data) {
+    alert(data);
+  })
+  .catch(function(error) {
+    alert('Error:', error);
+  });
 });
 
 if (getData().lang == "Indonesia") {
