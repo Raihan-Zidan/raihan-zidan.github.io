@@ -262,6 +262,23 @@ body {
   border-top: 1px solid #E0E4E9;
 }
 
+@media (min-width: 780px) {
+  .tab-result .sitelinks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: auto;
+  }
+  .sitelinks {
+    padding: 0 10px;
+  }
+  .sitelinks .wrlink {
+    width: 50%;
+  }
+  .sitelinks .link {
+    border: none;
+  }
+}
+
 .bodytext {
   color: #494949;
   font-size: 15px;
