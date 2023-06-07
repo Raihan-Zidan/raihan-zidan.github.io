@@ -273,6 +273,7 @@ body {
   }
   .sitelinks .wrlink {
     width: 48%;
+    margin: 0 5px;
   }
   .sitelinks .link {
     border: none;
@@ -659,7 +660,7 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 4px;
 }
 
-.news-result .news-list::-webkit-scrollbar-track,
+.news-result .news-list::-webkit-scrollbar-track {
   background: lightgrey;
   border-radius: 8px;
 }
