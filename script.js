@@ -320,7 +320,7 @@ quotes = [
 searchApi = apikey[Math.floor(Math.random() * apikey.length)];
 
 function submit() {
-  var val = searchInput.value;
+  var val = q;
   var geo = (idlang) ? `&gl=${hl}` : "";
   var spr = (sf == 1) ? "&safe=active" : "";
   if (tbm === "vid") {
