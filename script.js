@@ -24,7 +24,7 @@ function getData() {
   return {};
 }
 
-import { image } from './images';
+import { image } from './image';
 
 alert(image.mobil);
 
