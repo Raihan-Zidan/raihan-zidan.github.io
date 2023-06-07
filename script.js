@@ -344,11 +344,11 @@ function submit() {
         qval = "microsoft bing";
       } else if (val.toLowerCase() == "bard") {
         qval = "google bard";
-      } else if (val.toLowerCase() == /apple|appl/) {
+      } else if (val.toLowerCase() == "apple") {
         qval = "apple inc";
-      } else if (val.toLowerCase().match(/ronaldo/)) {
+      } else if (val.toLowerCase() == "ronaldo") {
         qval = "cristiano ronaldo";
-      } else if (val.toLowerCase().match(/messi/)) {
+      } else if (val.toLowerCase() == "messi") {
         qval = "lionel messi";
       }
       var xhr = new XMLHttpRequest();
