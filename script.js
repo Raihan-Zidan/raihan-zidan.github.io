@@ -175,7 +175,7 @@ function showLinks(url) {
     for (var i = 0; i < msb.length; i++) {
       var bac = msb[i];
       if (bac[2]) {
-        hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a><div class="snippet">${bac[3]}</div></div>`;
+        hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a><div class="snippet">${bac[2]}</div></div>`;
       } else {
         hcq += `<div class="wrlink"><a href="${bac[1]}" class="link">${bac[0]}</a></div>`;
       }
