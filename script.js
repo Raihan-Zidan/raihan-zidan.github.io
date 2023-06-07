@@ -24,6 +24,8 @@ function getData() {
   return {};
 }
 
+import { image } from './images';
+
 alert(image.mobil);
 
 if (getData().lang == "Indonesia") {
