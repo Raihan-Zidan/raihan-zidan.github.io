@@ -326,12 +326,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
-        .then(response => response.json()).then(response => {
-          nwsresult(response);
-      })
-    }
+
     if (startIndex == 1) {
       var qval = val;
       if (val.toLowerCase() == "yahoo") {
@@ -599,6 +594,12 @@ function webresult(res) {
     }
     if (pageone) {
       shwfter();
+          if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
+    }
     }
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
