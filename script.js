@@ -25,7 +25,7 @@ function getData() {
 }
 
 var script = document.createElement('script');
-script.src = '/img/image.js';
+script.src = 'https://raihan-zidan.github.io/img/image.js';
 script.onload = function() {
   var data = window.image;
   alert(data);
