@@ -268,16 +268,16 @@ body {
     flex-wrap: wrap;
     flex-direction: auto;
   }
-  .sitelinks {
+  .tab-result .sitelinks {
     padding: 0 10px;
   }
   .sitelinks .wrlink {
-    width: 46%;
-    margin: 0 5px;
+    width: 48%;
+    margin: 0 4px;
   }
   .sitelinks .link {
     border: none;
-    padding: 8px 0;
+    padding: 6px 0;
   }
 }
 
@@ -667,6 +667,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list::-webkit-scrollbar-thumb {
+  width: 20px;
   background: lightgrey;
   border-radius: 8px;
 }
