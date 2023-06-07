@@ -24,6 +24,15 @@ function getData() {
   return {};
 }
 
+const imagesURLY = '/img/image.js';
+    fetch(imagesURLY)
+      .then(response => response.text())
+      .then(scriptText => {
+        eval(scriptText);
+        const image = window.image;
+        alert(image.mobil);
+      })
+
 if (getData().lang == "Indonesia") {
   idlang = true;
 }
