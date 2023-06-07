@@ -576,7 +576,7 @@ function webresult(res) {
     if (pageone) {
       shwfter();
    if (startIndex == 1) {
-      var qval = val;
+      var qval = q;
       if (val.toLowerCase() == "yahoo") {
         qval = "yahoo!";
       } else if (val.toLowerCase() ==  "notch") {
