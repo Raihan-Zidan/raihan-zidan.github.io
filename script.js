@@ -24,10 +24,6 @@ function getData() {
   return {};
 }
 
-import { image } from './image';
-
-alert(image.mobil);
-
 if (getData().lang == "Indonesia") {
   idlang = true;
 }
