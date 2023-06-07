@@ -326,32 +326,13 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-
-    if (startIndex == 1) {
-      var qval = val;
-      if (val.toLowerCase() == "yahoo") {
-        qval = "yahoo!";
-      } else if (val.toLowerCase() ==  "notch") {
-        qval = "markus persson";
-      } else if (val.toLowerCase() == "microsoft team") {
-        qval = "microsoft teams";
-      } else if (val.toLowerCase() == "bing") {
-        qval = "microsoft bing";
-      } else if (val.toLowerCase() == "bard") {
-        qval = "google bard";
-      } else if (val.toLowerCase().match(/apple|appl/)) {
-        qval = "apple inc";
-      } else if (val.toLowerCase().match(/ronaldo/)) {
-        qval = "cristiano ronaldo";
-      } else if (val.toLowerCase().match(/messi/)) {
-        qval = "lionel messi";
-      }
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
-      xhr.responseType = "json";
-      xhr.onload = instant;
-      xhr.send();
+    if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
     }
+ 
   }
 }
 
@@ -594,11 +575,30 @@ function webresult(res) {
     }
     if (pageone) {
       shwfter();
-          if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
-        .then(response => response.json()).then(response => {
-          nwsresult(response);
-      })
+   if (startIndex == 1) {
+      var qval = val;
+      if (val.toLowerCase() == "yahoo") {
+        qval = "yahoo!";
+      } else if (val.toLowerCase() ==  "notch") {
+        qval = "markus persson";
+      } else if (val.toLowerCase() == "microsoft team") {
+        qval = "microsoft teams";
+      } else if (val.toLowerCase() == "bing") {
+        qval = "microsoft bing";
+      } else if (val.toLowerCase() == "bard") {
+        qval = "google bard";
+      } else if (val.toLowerCase().match(/apple|appl/)) {
+        qval = "apple inc";
+      } else if (val.toLowerCase().match(/ronaldo/)) {
+        qval = "cristiano ronaldo";
+      } else if (val.toLowerCase().match(/messi/)) {
+        qval = "lionel messi";
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.responseType = "json";
+      xhr.onload = instant;
+      xhr.send();
     }
     }
     } catch(error) {
