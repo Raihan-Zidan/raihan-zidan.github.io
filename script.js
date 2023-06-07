@@ -611,7 +611,7 @@ function shwfter() {
   const mrs = document.querySelector(".result-wrapper");
   window.addEventListener('resize', ()=> {
     if (mrs.clientHeight < window.innerHeight) {
-      fotr.marginTop = (window.innerHeight - mrs.clientHeight) + "px";
+      fotr.style.marginTop = (window.innerHeight - mrs.clientHeight) + "px";
     }
   });
 }
