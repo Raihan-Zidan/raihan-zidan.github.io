@@ -443,6 +443,10 @@ document.querySelector(".reset").addEventListener('click', ()=> {
   })
 });
   
+window.addEventListener('load', ()=> {
+  updateData();
+});
+  
 document.querySelector(".save").addEventListener('click', ()=> {
   updateData();
   window.location.href = ""
@@ -481,6 +485,7 @@ function callback(response) {
 
 var language = {
   "All settings": "Semua pengaturan",
+  "Save Settings": "Simpan pengaturan",
   "Reset Settings": "Atur ulang pengaturan",
   "Open Link in New Tab": "Buka Tautan di Tab Baru",
   "Opens search results in a new tab.": "Membuka hasil pencarian di tab baru.",
