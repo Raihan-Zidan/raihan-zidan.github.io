@@ -33,7 +33,7 @@ if (getData().theme == "dark") {
 inputBox.onkeyup = (e)=> {
   let userData = e.target.value;
   let emptyArray = [];
-  if (userData) {
+  if (userData.length > 1) {
     icon.onclick = ()=>{
       webLink = `${weburl}/search?q=${inputBox.value}${searchlang}`;
       linkTag.setAttribute("href", webLink);
