@@ -327,12 +327,36 @@ function submit() {
         webresult(response);
     })
     if (Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
     }
- 
+    if (startIndex == 1) {
+      var qval = val;
+      if (val.toLowerCase() == "yahoo") {
+        qval = "yahoo!";
+      } else if (val.toLowerCase() ==  "notch") {
+        qval = "markus persson";
+      } else if (val.toLowerCase() == "microsoft team") {
+        qval = "microsoft teams";
+      } else if (val.toLowerCase() == "bing") {
+        qval = "microsoft bing";
+      } else if (val.toLowerCase() == "bard") {
+        qval = "google bard";
+      } else if (val.toLowerCase().match(/apple|appl/)) {
+        qval = "apple inc";
+      } else if (val.toLowerCase().match(/ronaldo/)) {
+        qval = "cristiano ronaldo";
+      } else if (val.toLowerCase().match(/messi/)) {
+        qval = "lionel messi";
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.responseType = "json";
+      xhr.onload = instant;
+      xhr.send();
+    }
   }
 }
 
@@ -395,12 +419,18 @@ function randomIntFromInterval(min, max) {
 var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england","singapore"];
 
 function instant(e) {
+  setTimeout(()=> {
     var res = this.response;
     if (res.Abstract.length > 100) {
+      var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
       instanswer.classList.add("instant-answer");
-      document.querySelector(".main-result .result").appendChild(instanswer);
-      
+      if (windowWidth > 780) {
+        document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
+        document.querySelector(".sidebar-panel").appendChild(instanswer);
+      } else {
+        insertAfter(tabres[2], instanswer);
+      }
       if (res.Image) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
@@ -422,7 +452,7 @@ function instant(e) {
         }
       }
     }
-
+  },800);
 }
 
 function relatedsearch() {
@@ -569,32 +599,6 @@ function webresult(res) {
     }
     if (pageone) {
       shwfter();
-   if (startIndex == 1) {
-       var val = q;
-      var qval = val;
-      if (val.toLowerCase() == "yahoo") {
-        qval = "yahoo!";
-      } else if (val.toLowerCase() ==  "notch") {
-        qval = "markus persson";
-      } else if (val.toLowerCase() == "microsoft team") {
-        qval = "microsoft teams";
-      } else if (val.toLowerCase() == "bing") {
-        qval = "microsoft bing";
-      } else if (val.toLowerCase() == "bard") {
-        qval = "google bard";
-      } else if (val.toLowerCase().match(/apple|appl/)) {
-        qval = "apple inc";
-      } else if (val.toLowerCase().match(/ronaldo/)) {
-        qval = "cristiano ronaldo";
-      } else if (val.toLowerCase().match(/messi/)) {
-        qval = "lionel messi";
-      }
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
-      xhr.responseType = "json";
-      xhr.onload = instant;
-      xhr.send();
-    }
     }
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
