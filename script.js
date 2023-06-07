@@ -26,7 +26,7 @@ function getData() {
 
 document.addEventListener('DOMContentLoaded', function() {
 var script = document.createElement('script');
-script.src = 'https://raihan-zidan.github.io/js/script2.js';
+script.src = 'https://raihan-zidan.github.io/img/image.js';
 
 // Event listener untuk mendeteksi saat skrip selesai dimuat
 script.addEventListener('load', function() {
