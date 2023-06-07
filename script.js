@@ -25,20 +25,20 @@ function getData() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-fetch('https://raihan-zidan.github.io/img/image.js')
-  .then(function(response) {
-    if (response.ok) {
-      return response.text();
-    }
-    throw new Error('Error: ' + response.status);
-  })
-  .then(function(data) {
-    var parsedData = JSON.parse(data);
-    alert(parsedData);
-  })
-  .catch(function(error) {
-    alert('Error:', error);
-  });
+var script = document.createElement('script');
+script.src = 'https://raihan-zidan.github.io/js/script2.js';
+
+// Event listener untuk mendeteksi saat skrip selesai dimuat
+script.addEventListener('load', function() {
+  // Tangkap nilai variabel dari skrip eksternal
+  var myVariableValue = window.myVariable;
+  alert(myVariableValue);
+
+  // Hapus elemen <script> setelah mendapatkan datanya
+  script.remove();
+});
+
+document.head.appendChild(script);
 });
 
 if (getData().lang == "Indonesia") {
