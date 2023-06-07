@@ -272,8 +272,8 @@ body {
     padding: 0 10px;
   }
   .sitelinks .wrlink {
-    width: 48%;
-    margin: 0 5px;
+    width: 46%;
+    margin: 0 8px;
   }
   .sitelinks .link {
     border: none;
@@ -654,10 +654,11 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list {
+  padding-bottom: 5px;
 }
 
 .news-result .news-list::-webkit-scrollbar {
-  height: 4px;
+  height: 6px;
 }
 
 .news-result .news-list::-webkit-scrollbar-track {
@@ -666,7 +667,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .news-result .news-list::-webkit-scrollbar-thumb {
-  background: #ddd;
+  background: #f1f1f1;
   border-radius: 8px;
 }
 
