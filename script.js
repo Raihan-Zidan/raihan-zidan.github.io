@@ -395,18 +395,12 @@ function randomIntFromInterval(min, max) {
 var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england","singapore"];
 
 function instant(e) {
-  setTimeout(()=> {
     var res = this.response;
     if (res.Abstract.length > 100) {
-      var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
       instanswer.classList.add("instant-answer");
-      if (windowWidth > 780) {
-        document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
-        document.querySelector(".sidebar-panel").appendChild(instanswer);
-      } else {
-        insertAfter(tabres[2], instanswer);
-      }
+      document.querySelector(".main-result .result").appendChild(instanswer);
+      
       if (res.Image) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
@@ -428,7 +422,7 @@ function instant(e) {
         }
       }
     }
-  },800);
+
 }
 
 function relatedsearch() {
