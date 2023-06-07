@@ -24,6 +24,15 @@ function getData() {
   return {};
 }
 
+var script = document.createElement('script');
+script.src = '/img/image.js';
+script.onload = function() {
+  var data = window.image;
+  alert(data);
+  script.remove();
+};
+document.head.appendChild(script);
+
 if (getData().lang == "Indonesia") {
   idlang = true;
 }
