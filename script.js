@@ -514,7 +514,7 @@ function nwsr(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
       publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
-      publishTime = (res.items[i].pagemap.newsarticle[0].datepublished) ? res.items[i].pagemap.newsarticle[0].datepublished : "Published";
+      publishTime = (res.items[i].pagemap.newsarticle[0]['datepublished']) ? res.items[i].pagemap.newsarticle[0]['datepublished'] : "Published";
       publishtime = (res.items[i].pagemap.metatags[0]['article:published_time']) ? dateconversion(res.items[i].pagemap.metatags[0]['article:published_time']) : publishTime;
       newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
       thumbimg = (res.items[i].pagemap.cse_thumbnail) ? `<img class="thumb" src="${res.items[i].pagemap.cse_thumbnail[0].src}">` : "";
