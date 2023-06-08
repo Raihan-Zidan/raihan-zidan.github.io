@@ -924,14 +924,15 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-left: 15px;
     margin-top: 10px;
   }
-  .tab-result .title:hover {
+  .tab-result .title:hover,
+  ..sitelinks .link:hover {
     text-decoration: underline;
   }
   .tab-link {
     display: inline-block;
     -webkit-tap-highlight-color: transparent;
   }
-  .tab-result .title {
+  .tab-result .title, .sitelinks .link {
     display: inline-block;
   }
   .tab-wrapper {
