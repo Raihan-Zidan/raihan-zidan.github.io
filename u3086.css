@@ -453,6 +453,18 @@ input[type="search"]::-webkit-search-results-decoration {
   animation-duration: 0.5s;
 }
 
+@media (min-wdith: 780px) {
+  .show-wrapper .more {
+    width: 50%;
+  }
+  .mXsk8 {
+    background-color: #dadce0;
+    height: 1px;
+    position: absolute;
+    width: 100%;
+  }
+}
+
 @keyframes hoverAnim {
   from {
     background: rgba(0,0,0,.10);
@@ -467,8 +479,8 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 20px;
   height: 20px;
   position: absolute;
-  left: 10px;
-  background-image: url("images/more.svg");
+  right: 10px;
+  background-image: url('data:image/svg+xml,<svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>');
   background-size: 20px;
   background-position: center;
   background-repeat: no-repeat;
