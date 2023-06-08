@@ -412,6 +412,21 @@ function toDataURL(url, callback) {
   xhr.send();
 }
 
+function convertImageUrlToBlob(imageUrl, domain) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", imageUrl);
+  xhr.setRequestHeader("Accept", "image/jpeg");
+  xhr.setRequestHeader("Access-Control-Allow-Origin", domain);
+  xhr.send();
+  if (xhr.status === 200) {
+    var blob = new Blob([xhr.response], {type: "image/jpeg"});
+    return blob;
+  } else {
+    throw new Error("Image download failed.");
+  }
+}
+
+
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -435,9 +450,7 @@ function instant(e) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
-          toDataURL(imageUrl, function(dataUrl) {
-            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUrl}" align="right" class="logo">`);
-          })
+          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${convertImageUrlToBlob(imageUrl, window.location.hostname)}" align="right" class="logo">`);
         }
       });
       }
