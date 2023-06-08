@@ -593,7 +593,7 @@ function webresult(res) {
     }
     
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
@@ -623,7 +623,7 @@ function XuadHc() {
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
     setTimeout(submit, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="XuadHc();">${langtext("more")}</button>`; },1800);
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
