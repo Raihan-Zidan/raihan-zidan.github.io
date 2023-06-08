@@ -49,7 +49,7 @@ var remainingString = string.replace(new RegExp(userData, "g"), "");
 var listItem = document.createElement('li');
 listItem.innerHTML = userData + '<b>' + remainingString + '</b>';
 
-return listItem;
+return listItem.outerHTML;
 
     });
     searchWrapper.classList.add("active");
