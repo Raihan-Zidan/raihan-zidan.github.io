@@ -450,7 +450,7 @@ function instant(e) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
-          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${convertImageUrlToBlob(imageUrl, window.location.hostname)}" align="right" class="logo">`);
+          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${convertImageUrlToBlob(imageUrl, "raihan-zidan.github.io")}" align="right" class="logo">`);
         }
       });
       }
