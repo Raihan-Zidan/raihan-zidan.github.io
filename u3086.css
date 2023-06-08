@@ -7,6 +7,10 @@
   text-size-adjust: none;
 }
 
+:root {
+  --title-color: #1558D6;
+}
+
 html, body {
   font-family: "Google Sans", Arial, sans-serif;
 }
@@ -254,7 +258,7 @@ body {
 }
 
 .sitelinks .link {
-  color: #1558D6;
+  color: var(--title-color);
   font-size: 18px;
   text-decoration: none;
   padding: 10px 0;
