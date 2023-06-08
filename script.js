@@ -412,19 +412,6 @@ function toDataURL(url, callback) {
   xhr.send();
 }
 
-function convertImageUrlToBlob(imageUrl) {
-  const fileReader = new FileReader();
-  fileReader.readAsDataURL(imageUrl);
-
-  fileReader.onload = function() {
-    const imageData = fileReader.result;
-    const binaryData = btoa(imageData);
-    const blob = new Blob([binaryData], {type: 'image/jpeg'});
-
-    return blob;
-  };
-}
-
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -448,7 +435,9 @@ function instant(e) {
       var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
       cekGambarAda(imageUrl, function(ada) {
         if (ada) {
-          document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${convertImageUrlToBlob(imageUrl)}" align="right" class="logo">`);
+          toDataURL(imageUrl, function(dataUrl) {
+            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUrl}" align="right" class="logo">`);
+          });
         }
       });
       }
