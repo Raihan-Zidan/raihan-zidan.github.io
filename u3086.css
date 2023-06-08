@@ -167,7 +167,7 @@ body {
 
 .tab-result .title,
 .tab-result .title-black {
-  color: #1558D6;
+  color: var(--title-color);
   font-size: 20px;
   margin: 8px 0;
   display: -webkit-box;
@@ -893,6 +893,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 @media (min-width: 780px) {
+  :root {
+    --title-color: #1A0DAB;
+  }
   .instant-answer .infobox span {
     border-top: 1px solid #e3e3e3;
     padding-top: 8px;
@@ -981,9 +984,6 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 10px;
     margin: 3px 4px 0 0;
     border: 1px solid #EDEDED;
-  }
-  .tab-result .title {
-    color: #1A0DAB;
   }
   .search-menu {
     margin: 8px 0;
