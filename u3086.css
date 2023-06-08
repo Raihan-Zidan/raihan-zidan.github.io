@@ -925,7 +925,7 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-top: 10px;
   }
   .tab-result .title:hover,
-  ..sitelinks .link:hover {
+  .sitelinks .link:hover {
     text-decoration: underline;
   }
   .tab-link {
