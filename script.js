@@ -516,9 +516,9 @@ function nwsr(res) {
       publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
       var waktup = "Published";
       if (res.items[i].pagemap.metatags[0]['article:published_time']) {
-        waktup = res.items[i].pagemap.metatags[0]['article:published_time'];
+        waktup = dateconversion(res.items[i].pagemap.metatags[0]['article:published_time']);
       } else if (res.items[i].pagemap.newsarticle[0]['datepublished']) {
-        waktup = res.items[i].pagemap.newsarticle[0]['datepublished'];
+        waktup = dateconversion(res.items[i].pagemap.newsarticle[0]['datepublished']);
       }
       newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
       thumbimg = (res.items[i].pagemap.cse_thumbnail) ? `<img class="thumb" src="${res.items[i].pagemap.cse_thumbnail[0].src}">` : "";
