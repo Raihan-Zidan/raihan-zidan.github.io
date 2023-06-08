@@ -43,10 +43,14 @@ inputBox.onkeyup = (e)=> {
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
     });
     emptyArray = emptyArray.slice(0, 5).map((data)=>{
-      var string = data;
-      var remainingString = string.replace(new RegExp(userData, "g"), "");
+  var string = data;
+var remainingString = string.replace(new RegExp(userData, "g"), "");
 
-      return data = `<li>${userData}<b>${remainingString}</b></li>`;
+var listItem = document.createElement('li');
+listItem.innerHTML = userData + '<b>' + remainingString + '</b>';
+
+return listItem;
+
     });
     searchWrapper.classList.add("active");
     showSuggestions(emptyArray);
