@@ -43,7 +43,10 @@ inputBox.onkeyup = (e)=> {
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
     });
     emptyArray = emptyArray.slice(0, 5).map((data)=>{
-      return data = `<li>${data}</li>`;
+      var string = data;
+      var remainingString = string.replace(new RegExp(userData, "g"), "");
+
+      return data = `<li>${userData}<b>${remainingString}</b></li>`;
     });
     searchWrapper.classList.add("active");
     showSuggestions(emptyArray);
