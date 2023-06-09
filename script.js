@@ -605,7 +605,7 @@ function webresult(res) {
     }
     var storedScrollPosition = sessionStorage.getItem('scrollPosition');
     if (storedScrollPosition) {
-      window.scrollTo(0, storedScrollPosition);
+      alert(storedScrollPosition);
       sessionStorage.removeItem('scrollPosition');
     } 
     } catch(error) {
