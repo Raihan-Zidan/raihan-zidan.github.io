@@ -616,7 +616,7 @@ function webresult(res) {
     }
     
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><div class="more" onclick="XuadHc();">${langtext("more")}</div></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
@@ -645,8 +645,8 @@ function XuadHc() {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
-    setTimeout(submit, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button>`; },1800);
+    submit();
+    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><div class="more" onclick="XuadHc();">${langtext("more")}</div>`; },1800);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
