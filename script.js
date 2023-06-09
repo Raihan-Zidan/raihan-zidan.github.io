@@ -23,12 +23,6 @@ function getData() {
   }
   return {};
 }
-
-var currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-localStorage.setItem('scrollPosition', currentScrollPosition);
-setTimeout(()=> {
-  alert(localStorage.getItem('scrollPosition'));
-},1000);
   
 idlang = getData().lang == "Indonesia" ? true : false;
 searchParam += uf == 1 ? "&uf=1" : "";
