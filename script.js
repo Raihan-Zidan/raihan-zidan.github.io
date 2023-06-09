@@ -155,6 +155,17 @@ const sitelinks = [
   }
 ];
 
+function generateRandomString(maxLen) {
+  // Generate a random string of letters and numbers.
+  var randomString = '';
+  for (var i = 0; i < maxLen; i++) {
+    randomString += String.fromCharCode(Math.floor(Math.random() * 123) + 97);
+  }
+
+  // Return the random string.
+  return randomString;
+}
+
 function showLinks(url) {
   var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
   if (foundSite) {
@@ -352,7 +363,7 @@ function submit() {
         qval = "lionel messi";
       }
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&cors=*`);
+      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
