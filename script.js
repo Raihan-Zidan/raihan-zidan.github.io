@@ -187,8 +187,9 @@ window.addEventListener('load', ()=> {
   
 });
 
-loadDynamicScript('https://raihan-zidan.github.io/sitelinks.js', function() {
+loadDynamicScript('sitelinks.js', function() {
   if (searchInput.value != '' && !rested) submit();
+  document.querySelector("script[src='sitelinks.js']").remove();
 });
 
 cleartext.addEventListener('click', ()=> {
