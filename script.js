@@ -119,8 +119,9 @@ var language = {
 };
 
 function showLinks(url) {
+  if (sitelinks)
   var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
-  if (foundSite && sitelinks) {
+  if (foundSite) {
     var hcq = '';
     var msb = foundSite.links;
     for (var i = 0; i < msb.length; i++) {
