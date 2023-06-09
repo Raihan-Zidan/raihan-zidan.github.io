@@ -384,6 +384,8 @@ function instantanswer() {
   } else if (searchInput.value.toLowerCase().match(/translate/)) {
     document.querySelector(".main-result .result").innerHTML += `<div class="trnsl"><div class="wrpl"><ul class="controls"><li class="row from"><div class="icons"><i id="from" class="fas fa-volume-up"></i><i id="from" class="fas fa-copy"></i></div><select></select></li><li class="exchange"><i class="fas fa-exchange-alt"></i></li><li class="row to"><select></select><div class="icons"><i id="to" class="fas fa-volume-up"></i><i id="to" class="fas fa-copy"></i></div></li></ul><div class="text-input"><textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea><textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea></div></div></div>`;
     const countries={af:"Afrikaans",sq:"Albanian",am:"Amharic",ar:"Arabic",hy:"Armenian",as:"Assamese",ay:"Aymara",az:"Azerbaijani",bm:"Bambara",eu:"Basque",be:"Belarusian",bn:"Bengali",bho:"Bhojpuri",bs:"Bosnian",bg:"Bulgarian",ca:"Catalan",ceb:"Cebuano",co:"Corsican",hr:"Croatian",cs:"Czech",da:"Danish",nl:"Dutch",en:"English",eo:"Esperanto",et:"Estonian",ee:"Ewe",fil:"Filipino",fi:"Finnish",fr:"French",fy:"Frisian",ga:"Irish",gl:"Galician",de:"German",el:"Greek",gu:"Gujarati",ha:"Hausa",he:"Hebrew",hi:"Hindi",hu:"Hungarian",is:"Icelandic",ig:"Igbo",id:"Indonesian",it:"Italian",ja:"Japanese",jw:"Javanese",kn:"Kannada",kk:"Kazakh",km:"Khmer",ko:"Korean",ky:"Kyrgyz",lo:"Lao",lv:"Latvian",lt:"Lithuanian",lu:"Lushootseed",mk:"Macedonian",mg:"Malagasy",ms:"Malay",ml:"Malayalam",mt:"Maltese",mr:"Marathi",mn:"Mongolian",my:"Burmese",ne:"Nepali",no:"Norwegian",pa:"Punjabi",pl:"Polish",pt:"Portuguese",ro:"Romanian",ru:"Russian",sa:"Sanskrit",si:"Sinhala",sk:"Slovak",sl:"Slovenian",so:"Somali",es:"Spanish",su:"Sundanese",sw:"Swahili",sv:"Swedish",ta:"Tamil",te:"Telugu",th:"Thai",tr:"Turkish",uk:"Ukrainian",ur:"Urdu",uz:"Uzbek",vi:"Vietnamese",xh:"Xhosa",yo:"Yoruba",zu:"Zulu"};setTimeout(()=>{let a=document.querySelector(".trnsl"),e=a.querySelector(".from-text"),l=a.querySelector(".to-text"),n=a.querySelector(".exchange"),i=a.querySelectorAll("select"),t=a.querySelectorAll(".row i");a.querySelector("button");let r=!1;function s(a){let t=e.value.trim(),s=i[0].value,u=i[1].value;if(t){l.setAttribute("placeholder","Translating..."),!l.value||a||l.value.match(e.value)?a&&(l.value="Translating...",r=!0,n.classList.add("off")):(l.value=`${l.value} ...`,n.classList.add("off"));var o="",c="https://translate.googleapis.com/translate_a/single?client=gtx&sl="+s+"&tl="+u+"&dt=t&q="+encodeURI(t);$.getJSON(c,function(a){for(var e=0;e<a[0].length;e++)o+=a[0][e][0],setTimeout(function(){l.value=o,n.classList.remove("off"),r=!1},120)})}}i.forEach((a,e)=>{for(let l in countries){let n=`<option ${0==e?"en"==l?"selected":"":"id"==l?"selected":""} value="${l}">${countries[l]}</option>`;a.insertAdjacentHTML("beforeend",n)}}),i.forEach(a=>{a.addEventListener("change",()=>{s()})}),"Indonesia"==getData().lang&&(i[0].value="id",i[1].value="en"),n.addEventListener("click",()=>{var a;if(e.value&&!l.value||r)return;e.value;let n=i[0].value;e.value=l.value,i[0].value=i[1].value,i[1].value=n,s(!0)}),e.addEventListener("keyup",()=>{e.value||(l.value="")});let u,o=500;e.addEventListener("input",()=>{clearTimeout(u),e.value?u=setTimeout(s,o):e.value||l.setAttribute("placeholder","Translation"),e.value&&!l.value&&n.classList.add("off")}),t.forEach(a=>{a.addEventListener("click",({target:a})=>{if(e.value&&l.value){if(a.classList.contains("fa-copy"))"from"==a.id?navigator.clipboard.writeText(e.value):navigator.clipboard.writeText(l.value);else{let n;"from"==a.id?(n=new SpeechSynthesisUtterance(e.value)).lang=i[0].value:(n=new SpeechSynthesisUtterance(l.value)).lang=i[1].value,speechSynthesis.speak(n)}}})})},500);
+  } else if (/kapan|when.*indonesia|argentina.*argentina|indonesia/i.test(searchInput.value)) {
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="title-black">Indonesia vs Argentina</div><div class="snippet">FIFA Matchday yang mempertemukan Indonesia vs Argentina direncanakan digelar di Stadion</div><div class="snippet"> Utama Gelora Bung Karno, Jakarta, pada 19 Juni 2023.</div><br><div class="snippet">Sumber: <a href="https://www.detik.com/jabar/sepakbola/d-6754873/link-beli-tiket-timnas-indonesia-vs-argentina-2023-siap-siap-war#:~:text=FIFA%20Matchday%20yang%20mempertemukan%20Indonesia,Jakarta%2C%20pada%2019%20Juni%202023.">detik.com</a></div></div>`;
   }
 }
 
@@ -538,7 +540,7 @@ function videoresult(res) {
   }
 }
 
-function nwsresult(res) {
+function nwsresultOld(res) {
   if (res.items.length > 3) {
     setTimeout(() => {
     var tabres = document.querySelectorAll(".tab-result");
@@ -555,6 +557,41 @@ function nwsresult(res) {
   }
 }
 
+function nwsresult(data) {
+  if (data.items.length > 3) {
+    setTimeout(() => {
+      var tabres = document.querySelectorAll(".tab-result");
+      var nwsres = document.createElement("div");
+      nwsres.classList.add("news-result");
+      nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
+      insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
+
+      var resultsWithThumbnail = data.items.filter(function(item) {
+        // Memeriksa apakah item memiliki properti 'cse_thumbnail' yang tidak kosong
+        if (item.pagemap.cse_thumbnail) {
+          var thumbnailimg = item.pagemap.cse_thumbnail[0].src;
+          var publisher = (item.pagemap.metatags[0]['og:site_name']) ? item.pagemap.metatags[0]['og:site_name'] : item.displayLink;
+
+          // Mengambil URL thumbnail menggunakan fungsi toDataURL
+          toDataURL(thumbnailimg, function(dataUrl) {
+            var newsTab = document.createElement("div");
+            newsTab.classList.add("news-tab");
+            newsTab.innerHTML = `<a href="${item.link}"><img src='${dataUrl}' class='thumbnail'><div class="title">${item.title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.link}&size=64"><div class="link">${publisher}</div></div></a>`;
+
+            // Menambahkan tab berita ke dalam elemen dengan class "news-list"
+            document.querySelector(".news-result .news-list").appendChild(newsTab);
+          });
+
+          // Mengembalikan nilai true agar item disertakan dalam hasil filter
+          return true;
+        } else {
+          // Mengembalikan nilai false agar item tidak disertakan dalam hasil filter
+          return false;
+        }
+      });
+    }, 1000);
+  }
+}
 
 function webresult(res) {
   try {
@@ -593,10 +630,11 @@ function webresult(res) {
     }
     
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
+    XuadHc("stop");
     if (pageone) {
       shwfter();
     }
@@ -618,15 +656,18 @@ function share() {
   }
 }
 
-function XuadHc() {
+function XuadHc(cmt) {
+  if (cmt != "stop") {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
-    setTimeout(submit, 500);
-    setTimeout(()=> { document.querySelector(".show-wrapper").innerHTML = `<button class="more" onclick="XuadHc();">${langtext("more")}</button>`; },1800);
+    setTimeout(submit, 200);
   }
   if (startIndex > 20) {
     setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
+  }
+  } else {
+    document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button>`;
   }
 }
 
