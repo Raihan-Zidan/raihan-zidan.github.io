@@ -120,7 +120,7 @@ var language = {
 
 function showLinks(url) {
   var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
-  if (foundSite) {
+  if (foundSite && sitelinks) {
     var hcq = '';
     var msb = foundSite.links;
     for (var i = 0; i < msb.length; i++) {
@@ -184,12 +184,7 @@ if (windowWidth < 780) {
 }
 
 window.addEventListener('load', ()=> {
-  
-});
-
-loadDynamicScript('sitelinks.js', function() {
   if (searchInput.value != '' && !rested) submit();
-  document.querySelector("script[src='sitelinks.js']").remove();
 });
 
 cleartext.addEventListener('click', ()=> {
