@@ -119,7 +119,7 @@ var language = {
 };
 
 function showLinks(url) {
-  if (sitelinks)
+  if (sitelinks) {
   var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
   if (foundSite) {
     var hcq = '';
@@ -134,6 +134,9 @@ function showLinks(url) {
     }
     var html = `<div class="sitelinks">${hcq}</div>`;
     return html;
+  } else {
+    return '';
+  }
   } else {
     return '';
   }
