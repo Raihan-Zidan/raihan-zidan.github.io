@@ -188,7 +188,14 @@ if (windowWidth < 780) {
 }
 
 window.addEventListener('load', ()=> {
+  
+});
+
+
+
+loadDynamicScript('sitelinks.js', function() {
   if (searchInput.value != '' && !rested) submit();
+  document.querySelector("script[src='sitelinks.js']").remove();
 });
 
 cleartext.addEventListener('click', ()=> {
