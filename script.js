@@ -363,9 +363,8 @@ function submit() {
         qval = "lionel messi";
       }
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
       xhr.responseType = "json";
-      xhr.setRequestHeader("Cache-Control", "no-cache");
       xhr.onload = instant;
       xhr.send();
     }
