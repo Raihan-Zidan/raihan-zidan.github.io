@@ -24,6 +24,9 @@ function getData() {
   return {};
 }
 
+var currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+sessionStorage.setItem('scrollPosition', currentScrollPosition);
+
 idlang = getData().lang == "Indonesia" ? true : false;
 searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
@@ -600,6 +603,11 @@ function webresult(res) {
     if (pageone) {
       shwfter();
     }
+    var storedScrollPosition = sessionStorage.getItem('scrollPosition');
+    if (storedScrollPosition) {
+      window.scrollTo(0, storedScrollPosition);
+      sessionStorage.removeItem('scrollPosition');
+    } 
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
   }
