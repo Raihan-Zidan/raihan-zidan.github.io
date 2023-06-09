@@ -448,11 +448,12 @@ function instant(e) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
       }}
+      IF (res.Infobox) {
       for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
         if (res.Infobox.content[i].value.trim()) {
           document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
         }
-      }
+      }]
     }
   },800);
 }
