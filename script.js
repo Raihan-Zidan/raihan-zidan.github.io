@@ -642,8 +642,8 @@ function share() {
   }
 }
 
-function XuadHc(comment) {
-  if (!comment) {
+function XuadHc(cmt) {
+  if (cmt != "stop") {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
