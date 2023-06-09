@@ -62,6 +62,17 @@ function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+function loadDynamicScript(url, callback) {
+  var script = document.createElement('script');
+  script.src = url;
+
+  script.onload = function() {
+    callback();
+  };
+
+  document.head.appendChild(script);
+}
+
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
@@ -173,6 +184,10 @@ if (windowWidth < 780) {
 }
 
 window.addEventListener('load', ()=> {
+  
+});
+
+loadDynamicScript('https://raihan-zidan.github.io/sitelinks.js', function() {
   if (searchInput.value != '' && !rested) submit();
 });
 
