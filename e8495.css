@@ -1,7 +1,3 @@
-body {
-  overflow-x: hidden;
-}
-
 .tab-result.Dxcgd {
   padding-bottom: 0;
 }
@@ -70,4 +66,5 @@ dot:before {
   color: #494949;
   font-size: 13px;
   white-space: nowrap;
+  overflow: hidden;
 }
