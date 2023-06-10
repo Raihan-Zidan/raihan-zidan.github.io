@@ -556,7 +556,7 @@ function nwsr(res) {
 }
 
 function hnvd(res) {
-  if (res.items.length > 4)
+  if (res.items.length > 4) {
   var videonya = "";
   for (var i = 0; i < res.items.length && i < 5; i++) {
     videonya += `<div class="vidbung">
@@ -583,7 +583,7 @@ function hnvd(res) {
   } else {
     document.querySelector("main-result .result").innerHTML += hnvde;
   }
-    },200);
+    },200);}
 }
 
 function videoresult(res) {
