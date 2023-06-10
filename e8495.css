@@ -66,4 +66,5 @@ dot:before {
 .tanggal, .chnama {
   color: #494949;
   font-size: 13px;
+  white-space: nowrap;
 }
