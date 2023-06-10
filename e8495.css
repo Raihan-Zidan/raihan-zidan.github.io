@@ -28,13 +28,11 @@
 
 .viditem .thumbnail {
   position: relative;
-  width: 230px;
-  height: 78px;
+  width: 160px;
 }
 
 .thumbnail img {
-  width: 100%;
-  height: 100%;
+  width: 160px;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -46,6 +44,11 @@
 .joedoel {
   color: var(--title-color);
   font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 dot:before {
@@ -54,6 +57,7 @@ dot:before {
 }
 
 .soember {
+  color: #000;
   display: flex;
   font-size: 13px;
   margin: 4px 0;
