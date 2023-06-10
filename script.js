@@ -342,7 +342,7 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (val.toLowerCase() == "minecraft videos") {
+    if (/\b\w+\s+videos\b/.test(val)) {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o`)
       .then(response => response.json()).then(response => {
         hnvd(response);
