@@ -333,7 +333,7 @@ function submit() {
   var geo = (idlang) ? `&gl=${hl}` : "";
   var spr = (sf == 1) ? "&safe=active" : "";
   if (tbm === "vid") {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE&order=date`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
@@ -348,7 +348,7 @@ function submit() {
         webresult(response);
     })
     if (/\b\w+\s+videos\b/.test(val)) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o&order=date`)
       .then(response => response.json()).then(response => {
         hnvd(response);
     })
