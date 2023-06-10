@@ -8,6 +8,7 @@
 
 .tab-result .title.Jhtm {
   color: black;
+  margin-top: 0px;
 }
 
 .vidbung {
@@ -28,11 +29,11 @@
 
 .viditem .thumbnail {
   position: relative;
-  width: 160px;
+  width: 140px;
 }
 
 .thumbnail img {
-  width: 160px;
+  width: 140px;
   object-fit: cover;
   border-radius: 5px;
 }
