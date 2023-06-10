@@ -572,7 +572,7 @@ function hnvd(res) {
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
   if (tabres[0]) {
-    insertAfter(tabres[0], hnvd);
+    insertAfter(tabres[0], hnvde);
   } else {
     document.querySelector("main-result .result").appendChild(hnvd);
   }
