@@ -62,6 +62,11 @@ function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+function hapusKata(teks) {
+  var pattern = /what is/gi;
+  return teks.replace(pattern, "").trim();
+}
+
 searchInput = document.querySelector(".search-input");
 searchItem = document.querySelectorAll(".tab-wrapper");
 cleartext = document.querySelector(".cleartext");
