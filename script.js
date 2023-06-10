@@ -552,7 +552,7 @@ function nwsr(res) {
 
 function hnvd(res) {
   var videonya = "";
-  for (var i = 8; i < res.items.length; i++) {
+  for (var i = 8; i < res.items.length && i < 12; i++) {
     videonya += `<div class="vidbung">
       <div class="tab-link"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
         <div class="thumbnail">
@@ -566,11 +566,12 @@ function hnvd(res) {
       </div></a></div>
       </div>`;
   }
+  var tabres = document.querySelectorAll(".tab-result");
   var hnvde = document.createElement("div");
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
-  document.querySelector(".main-result .result").appendChild(hnvde);
+  insertAfter(tabres[1], nwsres);
 }
 
 function videoresult(res) {
