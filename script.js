@@ -556,8 +556,9 @@ function nwsr(res) {
 }
 
 function hnvd(res) {
+  if (res.items.length > 4)
   var videonya = "";
-  for (var i = 8; i < res.items.length && i < 12; i++) {
+  for (var i = 0; i < res.items.length && i < 5; i++) {
     videonya += `<div class="vidbung">
       <div class="tab-link"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
         <div class="thumbnail">
