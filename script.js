@@ -347,12 +347,6 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
-    if (/\b\w+\s+videos\b/.test(val)) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o&order=date`)
-      .then(response => response.json()).then(response => {
-        hnvd(response);
-    })
-    }
     if (!val.match(/html|css|javascript|how|to|cara|membuat/) && Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
       fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
         .then(response => response.json()).then(response => {
@@ -576,13 +570,11 @@ function hnvd(res) {
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
-  setTimeout(()=> {
   if (tabres[0]) {
     insertAfter(tabres[0], hnvde);
   } else {
     document.querySelector("main-result .result").appendChild(hnvde);
   }
-  },200);
 }
 
 function videoresult(res) {
@@ -696,6 +688,12 @@ function webresult(res) {
     if (pageone) {
       shwfter();
     }
+    if (/\b\w+\s+videos\b/.test(searchInput.value)) {
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o&order=date`)
+      .then(response => response.json()).then(response => {
+        hnvd(response);
+    })
+}
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
   }
