@@ -333,7 +333,7 @@ function submit() {
   var geo = (idlang) ? `&gl=${hl}` : "";
   var spr = (sf == 1) ? "&safe=active" : "";
   if (tbm === "vid") {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE&order=date`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
