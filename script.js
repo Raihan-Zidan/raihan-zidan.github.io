@@ -571,7 +571,11 @@ function hnvd(res) {
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
-  insertAfter(tabres[1], nwsres);
+  if (tabres) {
+    insertAfter(tabres[1], hnvd);
+  } else {
+    document.querySelector("main-result .result").appendChild(hnvd);
+  }
 }
 
 function videoresult(res) {
