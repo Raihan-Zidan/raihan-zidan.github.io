@@ -539,6 +539,13 @@ function nwsr(res) {
   }
 }
 
+function hnvd(res) {
+  const hnvd = document.createElement("div");
+  hnvd.classList.add("tab-result");
+  hnvd.classList.add("Dxcgd");
+  hnvd.innerHTML = "<div class="title Jhtm">Videos</div><div class="PbNgks"></div></div>";
+}
+
 function videoresult(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
