@@ -540,10 +540,26 @@ function nwsr(res) {
 }
 
 function hnvd(res) {
-  const hnvd = document.createElement("div");
-  hnvd.classList.add("tab-result");
-  hnvd.classList.add("Dxcgd");
-  hnvd.innerHTML = "<div class="title Jhtm">Videos</div><div class="PbNgks"></div></div>";
+  var videonya = "";
+  for (var i = 8; i < res.items.length; i++) {
+    videonya += `<div class="vidbung">
+      <div class="tab-link"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
+        <div class="thumbnail">
+          <img src="${res.items[i].snippet.thumbnails.medium.url}">
+        </div>
+        <div class="sampingnye">
+          <div class="joedoel">${res.items[i].snippet.title}</div>
+          <div class="soember">YouTube <dot></dot> <div class="chnama">Bang Mandra</div></div>
+          <div class="tanggal">2 Abad yang lalu</div>
+        </div>
+      </div></a></div>
+      </div>`;
+  }
+  var hnvde = document.createElement("div");
+  hnvde.classList.add("tab-result");
+  hnvde.classList.add("Dxcgd");
+  hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
+  document.querySelector(".main-result .result").appendChild("hnvde");
 }
 
 function videoresult(res) {
