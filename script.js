@@ -570,7 +570,7 @@ function hnvd(res) {
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
-  document.querySelector(".main-result .result").appendChild("hnvde");
+  document.querySelector(".main-result .result").appendChild(hnvde);
 }
 
 function videoresult(res) {
