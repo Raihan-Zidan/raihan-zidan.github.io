@@ -343,7 +343,7 @@ function submit() {
         webresult(response);
     })
     if (val == "Minecraft Videos") {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o`)
       .then(response => response.json()).then(response => {
         hnvd(response);
     })
