@@ -458,14 +458,13 @@ function instant(e) {
         insertAfter(tabres[2], instanswer);
       }
       if (res.Image) {
-      var imageUrl = `https://raihan-zidan.github.io/img/${res.Heading.replace(/[!.]/g, "").replace(/ /g, "-").toLowerCase()}.png`;
-      cekGambarAda(imageUrl, function(ada) {
-        if (ada) {
-          toDataURL(imageUrl, function(dataUrl) {
-            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUrl}" align="right" class="logo">`);
-          });
-        }
-      });
+      fetch('https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True')
+       .then(response => response.json())
+       .then(response => {
+          if (response.itemListElement[0].result.image.contentUrl) {
+            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${response.itemListElement[0].result.image.contentUrl}" align="right" class="logo">`);
+          }
+        });
       }
       document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
       for (var i = 0; i < whflg.length; i++) {
