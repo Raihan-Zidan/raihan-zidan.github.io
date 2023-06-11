@@ -354,7 +354,7 @@ function submit() {
       })
     }
     var ytkey = "AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o";
-    if (/\b\w+\s+videos\b/.test(val)) {
+    if (startIndex == 1 && /\b\w+\s+videos\b/.test(val)) {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${val}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
       .then(response => response.json()).then(response => {
         hnvd(response);
