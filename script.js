@@ -458,7 +458,7 @@ function instant(e) {
         insertAfter(tabres[2], instanswer);
       }
       if (res.Image) {
-      fetch('https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True')
+      fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True`)
        .then(response => response.json())
        .then(response => {
           if (response.itemListElement[0].result.image.contentUrl) {
