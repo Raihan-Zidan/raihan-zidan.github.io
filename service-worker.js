@@ -1,13 +1,11 @@
-self.addEventListener('activate', event => {
+self.addEventListener('activate', function(event) {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== 'offline-cache') {
-            return caches.delete(cacheName);
-          }
-        })
-      );
+    caches.keys().then(function(cacheNames) {
+      cacheNames.forEach(function(cacheName) {
+        console.log('Nama Cache:', cacheName);
+        // Anda dapat memeriksa apakah cache tersebut berisi offline page
+        // dan menghapusnya jika perlu
+      });
     })
   );
 });
