@@ -575,13 +575,10 @@ function hnvd(res) {
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
-  setTimeout(()=> {
   if (tabres[0]) {
     insertAfter(tabres[0], hnvde);
-  } else {
-    document.querySelector("main-result .result").innerHTML += hnvde;
   }
-    },200);}
+ }
 }
 
 function videoresult(res) {
@@ -656,7 +653,7 @@ function webresult(res) {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
     var pageone = (startIndex  == 1) ? true : false;
     if (res.items && windowWidth > 700 && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="WsXZp"><div class="result-stats">${rsltsta}</div></div>`;
+      document.querySelector(".main-result").insertAdjacentHTML('beforeend', `<div class="WsXZp"><div class="result-stats">${rsltsta}</div></div>`);
     }
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
