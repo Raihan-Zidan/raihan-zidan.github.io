@@ -53,13 +53,18 @@ if (!q) {
   document.head.innerHTML += `<style>*{margin:0;padding:0}html{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#error{display:inline-block;color:black;user-select:none;font-size:40px;font-weight:bold;text-decoration:none;}</style>`;
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>503.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
 }
-
+document.head.insertAdjacentHTML('beforeend', '<meta http-equiv="Cache-Control" content="no-store">');
 if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
 
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function hapusKata(teks) {
+  var pattern = /what is/gi;
+  return teks.replace(pattern, "").trim();
 }
 
 searchInput = document.querySelector(".search-input");
@@ -82,6 +87,11 @@ if (tbm === "vid") {
 } else {
   document.querySelectorAll(".search-item")[0].classList.add("selected");
   document.querySelector(".main-result").innerHTML += `<div class="result"></div>`;
+  defstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
+  vidstyle = document.createElement("link");
+  vidstyle.rel = "stylesheet";
+  vidstyle.href = "/e8495.css";
+  insertAfter(defstyle, vidstyle);
 }
 
 var language = {
@@ -154,6 +164,17 @@ const sitelinks = [
     ]
   }
 ];
+
+function generateRandomString(maxLen) {
+  // Generate a random string of letters and numbers.
+  var randomString = '';
+  for (var i = 0; i < maxLen; i++) {
+    randomString += String.fromCharCode(Math.floor(Math.random() * 123) + 97);
+  }
+
+  // Return the random string.
+  return randomString;
+}
 
 function showLinks(url) {
   var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
@@ -332,6 +353,8 @@ function submit() {
           nwsresult(response);
       })
     }
+    var ytkey = "AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o";
+
     if (startIndex == 1) {
       var qval = val;
       if (val.toLowerCase() == "yahoo") {
@@ -352,7 +375,7 @@ function submit() {
         qval = "lionel messi";
       }
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1`);
+      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
@@ -384,7 +407,7 @@ function instantanswer() {
   } else if (searchInput.value.toLowerCase().match(/translate/)) {
     document.querySelector(".main-result .result").innerHTML += `<div class="trnsl"><div class="wrpl"><ul class="controls"><li class="row from"><div class="icons"><i id="from" class="fas fa-volume-up"></i><i id="from" class="fas fa-copy"></i></div><select></select></li><li class="exchange"><i class="fas fa-exchange-alt"></i></li><li class="row to"><select></select><div class="icons"><i id="to" class="fas fa-volume-up"></i><i id="to" class="fas fa-copy"></i></div></li></ul><div class="text-input"><textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea><textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea></div></div></div>`;
     const countries={af:"Afrikaans",sq:"Albanian",am:"Amharic",ar:"Arabic",hy:"Armenian",as:"Assamese",ay:"Aymara",az:"Azerbaijani",bm:"Bambara",eu:"Basque",be:"Belarusian",bn:"Bengali",bho:"Bhojpuri",bs:"Bosnian",bg:"Bulgarian",ca:"Catalan",ceb:"Cebuano",co:"Corsican",hr:"Croatian",cs:"Czech",da:"Danish",nl:"Dutch",en:"English",eo:"Esperanto",et:"Estonian",ee:"Ewe",fil:"Filipino",fi:"Finnish",fr:"French",fy:"Frisian",ga:"Irish",gl:"Galician",de:"German",el:"Greek",gu:"Gujarati",ha:"Hausa",he:"Hebrew",hi:"Hindi",hu:"Hungarian",is:"Icelandic",ig:"Igbo",id:"Indonesian",it:"Italian",ja:"Japanese",jw:"Javanese",kn:"Kannada",kk:"Kazakh",km:"Khmer",ko:"Korean",ky:"Kyrgyz",lo:"Lao",lv:"Latvian",lt:"Lithuanian",lu:"Lushootseed",mk:"Macedonian",mg:"Malagasy",ms:"Malay",ml:"Malayalam",mt:"Maltese",mr:"Marathi",mn:"Mongolian",my:"Burmese",ne:"Nepali",no:"Norwegian",pa:"Punjabi",pl:"Polish",pt:"Portuguese",ro:"Romanian",ru:"Russian",sa:"Sanskrit",si:"Sinhala",sk:"Slovak",sl:"Slovenian",so:"Somali",es:"Spanish",su:"Sundanese",sw:"Swahili",sv:"Swedish",ta:"Tamil",te:"Telugu",th:"Thai",tr:"Turkish",uk:"Ukrainian",ur:"Urdu",uz:"Uzbek",vi:"Vietnamese",xh:"Xhosa",yo:"Yoruba",zu:"Zulu"};setTimeout(()=>{let a=document.querySelector(".trnsl"),e=a.querySelector(".from-text"),l=a.querySelector(".to-text"),n=a.querySelector(".exchange"),i=a.querySelectorAll("select"),t=a.querySelectorAll(".row i");a.querySelector("button");let r=!1;function s(a){let t=e.value.trim(),s=i[0].value,u=i[1].value;if(t){l.setAttribute("placeholder","Translating..."),!l.value||a||l.value.match(e.value)?a&&(l.value="Translating...",r=!0,n.classList.add("off")):(l.value=`${l.value} ...`,n.classList.add("off"));var o="",c="https://translate.googleapis.com/translate_a/single?client=gtx&sl="+s+"&tl="+u+"&dt=t&q="+encodeURI(t);$.getJSON(c,function(a){for(var e=0;e<a[0].length;e++)o+=a[0][e][0],setTimeout(function(){l.value=o,n.classList.remove("off"),r=!1},120)})}}i.forEach((a,e)=>{for(let l in countries){let n=`<option ${0==e?"en"==l?"selected":"":"id"==l?"selected":""} value="${l}">${countries[l]}</option>`;a.insertAdjacentHTML("beforeend",n)}}),i.forEach(a=>{a.addEventListener("change",()=>{s()})}),"Indonesia"==getData().lang&&(i[0].value="id",i[1].value="en"),n.addEventListener("click",()=>{var a;if(e.value&&!l.value||r)return;e.value;let n=i[0].value;e.value=l.value,i[0].value=i[1].value,i[1].value=n,s(!0)}),e.addEventListener("keyup",()=>{e.value||(l.value="")});let u,o=500;e.addEventListener("input",()=>{clearTimeout(u),e.value?u=setTimeout(s,o):e.value||l.setAttribute("placeholder","Translation"),e.value&&!l.value&&n.classList.add("off")}),t.forEach(a=>{a.addEventListener("click",({target:a})=>{if(e.value&&l.value){if(a.classList.contains("fa-copy"))"from"==a.id?navigator.clipboard.writeText(e.value):navigator.clipboard.writeText(l.value);else{let n;"from"==a.id?(n=new SpeechSynthesisUtterance(e.value)).lang=i[0].value:(n=new SpeechSynthesisUtterance(l.value)).lang=i[1].value,speechSynthesis.speak(n)}}})})},500);
-  } else if (/kapan|when.*indonesia|argentina.*argentina|indonesia/i.test(searchInput.value)) {
+  } else if (/kapan|when.*(indonesia|argentina)?.*(argentina|indonesia)?/i.test(searchInput.value)) {
     document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="title-black">Indonesia vs Argentina</div><div class="snippet">FIFA Matchday yang mempertemukan Indonesia vs Argentina direncanakan digelar di Stadion</div><div class="snippet"> Utama Gelora Bung Karno, Jakarta, pada 19 Juni 2023.</div><br><div class="snippet">Sumber: <a href="https://www.detik.com/jabar/sepakbola/d-6754873/link-beli-tiket-timnas-indonesia-vs-argentina-2023-siap-siap-war#:~:text=FIFA%20Matchday%20yang%20mempertemukan%20Indonesia,Jakarta%2C%20pada%2019%20Juni%202023.">detik.com</a></div></div>`;
   }
 }
@@ -528,6 +551,36 @@ function nwsr(res) {
   }
 }
 
+function hnvd(res) {
+  if (res.items.length > 4) {
+  var videonya = "";
+  var a = 8;
+  var b = a + 4;
+  for (var i = a; i < res.items.length && i < b; i++) {
+    videonya += `<div class="vidbung">
+      <div class="tab-link"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
+        <div class="thumbnail">
+          <img src="${res.items[i].snippet.thumbnails.medium.url}">
+        </div>
+        <div class="sampingnye">
+          <div class="joedoel">${res.items[i].snippet.title}</div>
+          <div class="soember">YouTube<dot></dot><div class="chnama">${res.items[i].snippet.channelTitle}</div></div>
+          <div class="tanggal">${dateconversion(res.items[i].snippet.publishTime)}</div>
+        </div>
+      </div></a></div>
+      </div>`;
+  }
+  var tabres = document.querySelectorAll(".tab-result");
+  var hnvde = document.createElement("div");
+  hnvde.classList.add("tab-result");
+  hnvde.classList.add("Dxcgd");
+  hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
+  if (tabres[0]) {
+    insertAfter(tabres[0], hnvde);
+  }
+ }
+}
+
 function videoresult(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
@@ -563,6 +616,7 @@ function nwsresult(data) {
     setTimeout(() => {
       var tabres = document.querySelectorAll(".tab-result");
       var nwsres = document.createElement("div");
+      nwsres.classList.add("m6gAk");
       nwsres.classList.add("news-result");
       nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
       insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
@@ -599,7 +653,7 @@ function webresult(res) {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
     var pageone = (startIndex  == 1) ? true : false;
     if (res.items && windowWidth > 700 && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="result-stats">${rsltsta}</div>`;
+      document.querySelector(".main-result").insertAdjacentHTML('afterbegin', `<div class="WsXZp"><div class="result-stats">${rsltsta}</div></div>`);
     }
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
@@ -616,7 +670,7 @@ function webresult(res) {
       urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
       displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
-      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div>`);
+      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div>`);
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -634,6 +688,12 @@ function webresult(res) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
+    }
+    if (!res.spelling && pageone && /\b\w+\s+videos\b/.test(searchInput.value)) {
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
+        .then(response => response.json()).then(response => {
+          hnvd(response);
+      })
     }
     XuadHc("stop");
     if (pageone) {
@@ -664,11 +724,10 @@ function XuadHc(cmt) {
     startIndex += 10;
     setTimeout(submit, 200);
   }
-  if (startIndex > 20) {
-    setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
-  }
   } else {
     document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button>`;
+    if (startIndex > 20)
+    setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
   }
 }
 
@@ -681,4 +740,3 @@ window.addEventListener('load', ()=> {
     },1000)
   }
 });
-
