@@ -61,11 +61,17 @@ dot:before {
   display: flex;
   font-size: 13px;
   margin: 3px 0;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .tanggal, .chnama {
   color: #494949;
   font-size: 13px;
+}
+
+div.soember {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
