@@ -3,7 +3,9 @@ self.addEventListener('activate', event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          return caches.delete(cacheName);
+          if (cacheName !== 'offline-cache') {
+            return caches.delete(cacheName);
+          }
         })
       );
     })
