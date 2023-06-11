@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-app-v1';
+var CACHE_NAME = 'my-cache';
 
 self.addEventListener('install', function(event) {
   self.skipWaiting();
