@@ -1,9 +1,15 @@
-self.addEventListener('fetch', function(event) {
-  if (!navigator.onLine) {
-    // The page is offline, so return a 404 response
-    event.respondWith(new Response('Not Found', {status: 404}));
-  } else {
-    // The page is online, so continue as normal
-    event.respondWith(fetch(event.request));
+function deleteCachedPages() {
+  // Get all cached pages
+  var cachedPages = await caches.keys();
+
+  // For each cached page, delete it
+  for (var i = 0; i < cachedPages.length; i++) {
+    caches.delete(cachedPages[i]);
   }
+}
+
+// Listen for the event that the service worker is activated
+self.addEventListener('activate', function() {
+  // Delete all cached pages
+  deleteCachedPages();
 });
