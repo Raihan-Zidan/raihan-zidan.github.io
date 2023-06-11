@@ -353,8 +353,9 @@ function submit() {
           nwsresult(response);
       })
     }
+    var ytkey = "AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o";
     if (/\b\w+\s+videos\b/.test(val)) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o&order=date`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${val}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
       .then(response => response.json()).then(response => {
         hnvd(response);
     })
