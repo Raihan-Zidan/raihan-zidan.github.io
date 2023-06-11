@@ -1,21 +1,32 @@
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open('my-cache').then(function(cache) {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/css/style.css',
-        '/js/main.js',
-        '/images/logo.png'
-      ]);
-    })
-  );
-});
-
 self.addEventListener('fetch', function(event) {
+  if (!navigator.onLine) {
+    event.respondWith(
+      new Response("Tidak ada koneksi internet. Silakan cek kembali nanti.", {
+        headers: { 'Content-Type': 'text/plain' }
+      })
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(function(response) {
       return response || fetch(event.request);
     })
   );
+});
+
+self.addEventListener('offline', function(event) {
+  self.clients.matchAll().then(function(clients) {
+    clients.forEach(function(client) {
+      client.postMessage({ type: 'offline', message: 'Tidak ada koneksi internet. Silakan cek kembali nanti.' });
+    });
+  });
+});
+
+self.addEventListener('online', function(event) {
+  self.clients.matchAll().then(function(clients) {
+    clients.forEach(function(client) {
+      client.postMessage({ type: 'online' });
+    });
+  });
 });
