@@ -15,6 +15,7 @@
   border-top: 1px solid #EDEDED;
   padding: 12px 0;
   position: relative;
+  overflow: hidden;
 }
 
 .vidbung:first-child {
