@@ -656,7 +656,7 @@ function webresult(res) {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
     var pageone = (startIndex  == 1) ? true : false;
     if (res.items && windowWidth > 700 && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="result-stats">${rsltsta}</div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="WsXZp"><div class="result-stats">${rsltsta}</div></div>`;
     }
     if (res.items && res.spelling && pageone) {
       document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
@@ -693,7 +693,7 @@ function webresult(res) {
       document.querySelector(".show-wrapper").remove();
     }
     if (startIndex == 1 && /\b\w+\s+videos\b/.test(searchInput.value)) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${val}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
       .then(response => response.json()).then(response => {
         hnvd(response);
     })
