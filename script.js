@@ -461,7 +461,7 @@ function instant(e) {
       fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True`)
        .then(response => response.json())
        .then(response => {
-          if (response.itemListElement[0].result.image.contentUrl) {
+          if (response.itemListElement[0].result.image) {
             document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${response.itemListElement[0].result.image.contentUrl}" align="right" class="logo">`);
           }
         });
