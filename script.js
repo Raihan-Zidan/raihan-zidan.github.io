@@ -1,3 +1,4 @@
+https://kgsearch.googleapis.com/v1/entities:search?query=Facebook&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True
 var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
