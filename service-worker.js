@@ -1,21 +1,9 @@
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          return cacheName !== 'my-cache';
-        }).map(function(cacheName) {
-          return caches.delete(cacheName);
-        })
-      );
-    })
-  );
-});
-
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match('/index.html');
-    })
-  );
+  if (!navigator.onLine) {
+    // The page is offline, so return a 404 response
+    event.respondWith(new Response('Not Found', {status: 404}));
+  } else {
+    // The page is online, so continue as normal
+    event.respondWith(fetch(event.request));
+  }
 });
