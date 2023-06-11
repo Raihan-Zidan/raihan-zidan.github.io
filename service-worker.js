@@ -1,7 +1,7 @@
 self.addEventListener('fetch', function(event) {
   if (!navigator.onLine) {
     event.respondWith(
-      new Response("Tidak ada koneksi internet. Silakan cek kembali nanti.", {
+      new Response("<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body>Tidak ada koneksi internet. Silakan cek kembali nanti.</body></html>", {
         headers: { 'Content-Type': 'text/plain' }
       })
     );
