@@ -624,6 +624,7 @@ function nwsresult(data) {
     setTimeout(() => {
       var tabres = document.querySelectorAll(".tab-result");
       var nwsres = document.createElement("div");
+      nwsres.classList.add("m6gAk");
       nwsres.classList.add("news-result");
       nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
       insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
@@ -677,7 +678,7 @@ function webresult(res) {
       urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
       displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
-      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div>`);
+      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div>`);
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
