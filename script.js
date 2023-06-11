@@ -1,4 +1,3 @@
-
 var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
@@ -445,8 +444,17 @@ function randomIntFromInterval(min, max) {
 var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england","singapore"];
 
 function instant(e) {
+  var res = this.response;
+  var thumb = "";
+  if (res.Image){
+  fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True`)
+    .then(response => response.json())
+    .then(response => {
+       if (response.itemListElement[0].result.image) {
+         thumb = response.itemListElement[0].result.image.contentUrl;
+       }
+  });}
   setTimeout(()=> {
-    var res = this.response;
     if (res.Abstract.length > 100) {
       var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
@@ -457,14 +465,8 @@ function instant(e) {
       } else {
         insertAfter(tabres[2], instanswer);
       }
-      if (res.Image) {
-      fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True`)
-       .then(response => response.json())
-       .then(response => {
-          if (response.itemListElement[0].result.image) {
-            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${response.itemListElement[0].result.image.contentUrl}" align="right" class="logo">`);
-          }
-        });
+      if (thumb != "") {
+        document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumb}" align="right" class="logo">`);
       }
       document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
       for (var i = 0; i < whflg.length; i++) {
@@ -554,7 +556,7 @@ function nwsr(res) {
 function hnvd(res) {
   if (res.items.length > 4) {
   var videonya = "";
-  var a = 8;
+  var a = 0;
   var b = a + 4;
   for (var i = a; i < res.items.length && i < b; i++) {
     videonya += `<div class="vidbung">
