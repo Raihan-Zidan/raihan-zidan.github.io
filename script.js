@@ -689,11 +689,11 @@ function webresult(res) {
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
-    if (startIndex == 1 && /\b\w+\s+videos\b/.test(searchInput.value)) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
-      .then(response => response.json()).then(response => {
-        hnvd(response);
-    })
+    if (!res.spelling && pageone && /\b\w+\s+videos\b/.test(searchInput.value)) {
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
+        .then(response => response.json()).then(response => {
+          hnvd(response);
+      })
     }
     XuadHc("stop");
     if (pageone) {
