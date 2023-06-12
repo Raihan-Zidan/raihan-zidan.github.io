@@ -726,8 +726,9 @@ function XuadHc(cmt) {
   }
   } else {
     document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button>`;
-    if (startIndex > 20)
-    setTimeout(()=> { document.querySelector(".show-wrapper").remove();}, 1800);
+    if (startIndex > 20) {
+      document.querySelector(".show-wrapper").remove();
+    }
   }
 }
 
