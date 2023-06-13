@@ -15,8 +15,8 @@ var searchParam = ``;
 
 var search = {
   query: q,
-  more: function(kevy) {
-    XuadHc();
+  more: function() {
+    if (event.target.classList.contains("more") XuadHc();
   }
 };
 
@@ -725,7 +725,8 @@ function share() {
 }
 
 function XuadHc(cmt) {
-  if (cmt != "stop") {
+  var maxIndex = 20;
+  if (cmt != "stop" && !startIndex > maxIndex) {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
@@ -733,7 +734,7 @@ function XuadHc(cmt) {
   }
   } else {
     document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="search.more();">${langtext("more")}</button>`;
-    if (startIndex > 20) {
+    if (startIndex > maxIndex) {
       document.querySelector(".show-wrapper").remove();
     }
   }
