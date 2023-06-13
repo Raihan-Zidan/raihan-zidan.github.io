@@ -703,7 +703,6 @@ function webresult(res) {
     
   var savedOffset = sessionStorage.getItem('scrollOffset');
   if (savedOffset) {
-    alert(savedOffset);
     window.scrollTo(0, savedOffset);
   }
 
