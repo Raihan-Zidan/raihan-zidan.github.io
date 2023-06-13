@@ -50,8 +50,11 @@ window.addEventListener('popstate', function(event) {
   clearScrollOffset();
 });
 
+var initialURL = window.location.href;
 window.addEventListener('scroll', function(event) {
-  saveScrollOffset();
+  if (window.location.href === initialURL) {
+    saveScrollOffset();
+  }
 });
 
 if (!q) {
