@@ -37,23 +37,7 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
-function clearScrollOffset() {
-  localStorage.removeItem('m2819');
-}
 
-function saveScrollOffset() {
-  var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-  localStorage.setItem('m2819', offset);
-}
-
-window.addEventListener('scroll', function(event) {
-  saveScrollOffset();
-});
-
-
-window.addEventlistener('load', ()=> {
-  localStorage.setItem('prev', window.location.href);
-});
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested && navigator.onLine) {
