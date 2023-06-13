@@ -58,6 +58,20 @@ if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
 
+function saveScrollOffset() {
+  var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  localStorage.setItem('offset', offset);
+}
+
+window.addEventListener('scroll', function(event) {
+  saveScrollOffset();
+});
+
+
+window.addEventlistener('load', ()=> {
+  localStorage.setItem('prevUrl', window.location.href);
+});
+
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
@@ -700,9 +714,9 @@ function webresult(res) {
       shwfter();
     }
     
-  var savedOffset = localStorage.getItem('m2819');
- var prevu = localStorage.getItem('prev');
-  if (savedOffset && prevu == window.location.href) {
+  var savedOffset = localStorage.getItem('offset');
+ var preve = localStorage.getItem('prevUrl');
+  if (savedOffset && preve == window.location.href) {
     window.scrollTo(0, savedOffset);
   }
 
