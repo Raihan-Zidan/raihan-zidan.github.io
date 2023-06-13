@@ -117,6 +117,14 @@ var language = {
   },
 };
 
+var search = {
+  theme: "light",
+  query: q,
+  more: function() {
+    XuadHc();
+  }
+};
+
 const sitelinks = [
   {
     site: "http://www.google.com/",
@@ -685,7 +693,7 @@ function webresult(res) {
     }
     
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="search.more();">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
@@ -725,7 +733,7 @@ function XuadHc(cmt) {
     setTimeout(submit, 200);
   }
   } else {
-    document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="XuadHc();">${langtext("more")}</button>`;
+    document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="search.more();">${langtext("more")}</button>`;
     if (startIndex > 20) {
       document.querySelector(".show-wrapper").remove();
     }
