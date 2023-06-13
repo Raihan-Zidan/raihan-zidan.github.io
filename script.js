@@ -456,17 +456,19 @@ function instant(e) {
       } else {
         insertAfter(tabres[2], instanswer);
       }
-      if (res.Image) {
+      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
+      
         fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True`)
           .then(response => response.json())
           .then(response => {
-          if (response.itemListElement[0].result.image) {
+          if (res.Image && response.itemListElement[0].result.image) {
             var thumb = response.itemListElement[0].result.image.contentUrl;
             document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumb}" align="right" class="logo">`);
           }
+          if (response.itemListElement[0].result.detailedDescription) {
+            document.querySelector(".instant-answer .snippet").innerHTML = response.itemListElement[0].result.detailedDescription.articleBody;
+          }
         });
-      }
-      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
