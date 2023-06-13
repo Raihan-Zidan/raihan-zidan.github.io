@@ -697,8 +697,8 @@ function webresult(res) {
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
-    if (!res.spelling && pageone && /\b\w+\s+videos\b/i.test(searchInput.value)) {
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
+    if (!res.spelling && pageone && /\b\w+\s+videos\b/i.test(q)) {
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
