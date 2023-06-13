@@ -16,7 +16,7 @@ var searchParam = ``;
 var search = {
   query: q,
   more: function() {
-    if (event.target.classList.contains("more") XuadHc();
+    if (event.target.classList.contains("more")) XuadHc();
   }
 };
 
