@@ -465,9 +465,7 @@ function instant(e) {
             var thumb = response.itemListElement[0].result.image.contentUrl;
             document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumb}" align="right" class="logo">`);
           }
-          if (response.itemListElement[0].result.detailedDescription) {
-            document.querySelector(".instant-answer .snippet").innerHTML = response.itemListElement[0].result.detailedDescription.articleBody;
-          }
+          
         });
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
