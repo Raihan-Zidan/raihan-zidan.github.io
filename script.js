@@ -37,6 +37,7 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
+window.onscroll = function() { var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop; sessionStorage.setItem('scrollOffset', offset); }
 
 if (!q) {
   window.location.href = "/";
@@ -699,6 +700,14 @@ function webresult(res) {
     if (pageone) {
       shwfter();
     }
+    
+window.onload = function() {
+  var savedOffset = sessionStorage.getItem('scrollOffset');
+  if (savedOffset) {
+    window.scrollTo(0, savedOffset);
+  }
+}
+
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
   }
