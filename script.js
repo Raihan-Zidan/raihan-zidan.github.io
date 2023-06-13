@@ -68,7 +68,7 @@ window.addEventListener('scroll', function(event) {
 });
 
 
-window.addEventlistener('load', ()=> {
+window.addEventListener('load', ()=> {
   localStorage.setItem('prevUrl', window.location.href);
 });
 
