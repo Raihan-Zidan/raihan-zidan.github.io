@@ -701,12 +701,12 @@ function webresult(res) {
       shwfter();
     }
     
-window.onload = function() {
   var savedOffset = sessionStorage.getItem('scrollOffset');
   if (savedOffset) {
+    alert(savedOffset);
     window.scrollTo(0, savedOffset);
   }
-}
+
 
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
