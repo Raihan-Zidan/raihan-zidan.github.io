@@ -13,6 +13,14 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 var rested = false;
 var searchParam = ``;
 
+var search = {
+  query: q,
+  more: function(key) {
+    if (key == "shwl") XuadHc();
+    alert("error")
+  }
+};
+
 function getData() {
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
@@ -115,14 +123,6 @@ var language = {
     noresultsug: "<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>",
     tab: ["Semua","Gambar","Video","Berita","Peta"],
   },
-};
-
-var search = {
-  theme: "light",
-  query: q,
-  more: function() {
-    XuadHc();
-  }
 };
 
 const sitelinks = [
