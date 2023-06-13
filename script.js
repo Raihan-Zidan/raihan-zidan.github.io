@@ -15,9 +15,8 @@ var searchParam = ``;
 
 var search = {
   query: q,
-  more: function(key) {
-    if (key == "shwl") XuadHc();
-    alert("error")
+  more: function(kevy) {
+    XuadHc();
   }
 };
 
