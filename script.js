@@ -37,7 +37,22 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
-window.onscroll = function() { var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop; sessionStorage.setItem('scrollOffset', offset); }
+function clearScrollOffset() {
+  sessionStorage.removeItem('scrollOffset');
+}
+
+function saveScrollOffset() {
+  var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  sessionStorage.setItem('scrollOffset', offset);
+}
+
+window.addEventListener('popstate', function(event) {
+  clearScrollOffset();
+});
+
+window.addEventListener('scroll', function(event) {
+  saveScrollOffset();
+});
 
 if (!q) {
   window.location.href = "/";
