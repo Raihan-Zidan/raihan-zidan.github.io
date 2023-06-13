@@ -559,7 +559,6 @@ function nwsr(res) {
   }
 }
 
-var hnvde;
 function hnvd(res) {
   if (res.items.length > 4) {
   var videonya = "";
@@ -580,10 +579,13 @@ function hnvd(res) {
       </div>`;
   }
   var tabres = document.querySelectorAll(".tab-result");
-  hnvde = document.createElement("div");
+  var hnvde = document.createElement("div");
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
+  if (tabres[0]) {
+    insertAfter(tabres[0], hnvde);
+  }
  }
 }
 
@@ -654,13 +656,6 @@ function nwsresult(data) {
   }
 }
 
-    if (startIndex == 1 && /\b\w+\s+videos\b/i.test(q)) {
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
-        .then(response => response.json()).then(response => {
-          hnvd(response);
-      })
-    }
-
 function webresult(res) {
   try {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
@@ -702,11 +697,12 @@ function webresult(res) {
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
-    var tabres = document.querySelectorAll(".tab-result");
-  if (tabres[0] && hnvde) {
-    insertAfter(tabres[0], hnvde);
-  }
-
+    if (!res.spelling && pageone && /\b\w+\s+videos\b/i.test(q)) {
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
+        .then(response => response.json()).then(response => {
+          hnvd(response);
+      })
+    }
     XuadHc("stop");
     if (pageone) {
       shwfter();
