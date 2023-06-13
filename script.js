@@ -716,7 +716,7 @@ function webresult(res) {
       shwfter();
     }
     
-  var savedOffset = sessionStorage.getItem('m2819');
+  var savedOffset = localStorage.getItem('m2819');
  var prevu = localStorage.getItem('prev');
   if (savedOffset && prevu == window.location.href) {
     window.scrollTo(0, savedOffset);
