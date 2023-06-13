@@ -13,13 +13,6 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 var rested = false;
 var searchParam = ``;
 
-var search = {
-  query: q,
-  more: function() {
-    XuadHc();
-  }
-};
-
 function getData() {
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
@@ -692,7 +685,7 @@ function webresult(res) {
     }
     
     if (res.queries.nextPage && pageone) {
-      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more" onclick="search.more();">${langtext("more")}</button></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
       document.querySelector(".show-wrapper").remove();
     }
@@ -730,14 +723,22 @@ function XuadHc(cmt) {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
   if (startIndex < 20 && navigator.onLine) {
     startIndex += 10;
-    setTimeout(submit, 200);
+    setTimeout(submit, 300);
   }
   } else {
-    document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more" onclick="search.more();">${langtext("more")}</button>`;
+    document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
     if (startIndex > maxIndex) {
       document.querySelector(".show-wrapper").remove();
     }
   }
+}
+
+var moreButton = document.querySelector('.show-wrapper .more');
+
+if (moreButton) {
+  moreButton.addEventListener('click', function() {
+    XuadHc();
+  });
 }
 
 window.addEventListener('load', ()=> {
