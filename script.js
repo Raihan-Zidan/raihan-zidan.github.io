@@ -733,18 +733,13 @@ function XuadHc(cmt) {
   }
 }
 
-var showWrapper = document.querySelector('.show-wrapper');
-
-if (showWrapper) {
-  var moreButton = showWrapper.querySelector('.more');
+document.addEventListener('click', function(event) {
+  var target = event.target;
   
-  if (moreButton) {
-    moreButton.addEventListener('click', function() {
-      XuadHc();
-    });
+  if (target.matches('.show-wrapper .more')) {
+    XuadHc();
   }
-}
-
+});
 
 window.addEventListener('load', ()=> {
   if (getData().newtab == true) {
