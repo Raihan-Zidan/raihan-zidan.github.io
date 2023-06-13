@@ -690,7 +690,7 @@ function webresult(res) {
       document.querySelector(".show-wrapper").remove();
     }
     if (!res.spelling && pageone && /\b\w+\s+videos\b/i.test(searchInput.value)) {
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY&order=date`)
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchInput.value}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
