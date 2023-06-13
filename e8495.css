@@ -29,6 +29,7 @@
 .viditem .thumbnail {
   position: relative;
   width: 140px;
+  max-height: 80px;
 }
 
 .thumbnail img {
