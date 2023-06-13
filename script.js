@@ -38,25 +38,22 @@ String.prototype.ltrim = function() {
 }
 
 function clearScrollOffset() {
-  sessionStorage.removeItem('scrollOffset');
+  localStorage.removeItem('m2819');
 }
 
 function saveScrollOffset() {
   var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-  sessionStorage.setItem('scrollOffset', offset);
+  localStorage.setItem('m2819', offset);
 }
 
-window.addEventListener('popstate', function(event) {
-  clearScrollOffset();
-});
-
-var initialURL = window.location.href;
 window.addEventListener('scroll', function(event) {
-  if (window.location.href === initialURL) {
-    saveScrollOffset();
-  }
+  saveScrollOffset();
 });
 
+
+window.addeventlistener('load', ()=> {
+  localStorage.setItem('prev', window.location.href);
+});
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested && navigator.onLine) {
@@ -719,8 +716,9 @@ function webresult(res) {
       shwfter();
     }
     
-  var savedOffset = sessionStorage.getItem('scrollOffset');
-  if (savedOffset) {
+  var savedOffset = sessionStorage.getItem('m2819');
+ var prevu = localStorage.getItem('prev');
+  if (savedOffset && prevu == window.location.href) {
     window.scrollTo(0, savedOffset);
   }
 
