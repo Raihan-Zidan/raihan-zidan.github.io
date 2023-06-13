@@ -51,7 +51,7 @@ window.addEventListener('scroll', function(event) {
 });
 
 
-window.addeventlistener('load', ()=> {
+window.addEventlistener('load', ()=> {
   localStorage.setItem('prev', window.location.href);
 });
 if (!q) {
