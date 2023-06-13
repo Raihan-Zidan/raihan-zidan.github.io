@@ -15,8 +15,8 @@ var searchParam = ``;
 
 var search = {
   query: q,
-  more: function(event) {
-    if (event.target.classList.contains("more")) XuadHc();
+  more: function() {
+    XuadHc();
   }
 };
 
