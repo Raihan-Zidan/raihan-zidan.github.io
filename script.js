@@ -58,19 +58,6 @@ if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
 
-function saveScrollOffset() {
-  var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-  localStorage.setItem('offset', offset);
-}
-
-window.addEventListener('scroll', function(event) {
-  saveScrollOffset();
-});
-
-
-window.addEventListener('load', ()=> {
-  localStorage.setItem('prevUrl', window.location.href);
-});
 
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -713,13 +700,6 @@ function webresult(res) {
     if (pageone) {
       shwfter();
     }
-    
-  var savedOffset = localStorage.getItem('offset');
- var preve = localStorage.getItem('prevUrl');
-  if (savedOffset && preve == window.location.href) {
-    window.scrollTo(0, savedOffset);
-  }
-
 
     } catch(error) {
     if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
