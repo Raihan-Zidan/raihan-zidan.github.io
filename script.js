@@ -118,7 +118,7 @@ var language = {
   },
 };
 
-var sitelinks;
+var sitelinkss;
 
 fetch('/sitelinks.js')
   .then(response => {
@@ -129,7 +129,7 @@ fetch('/sitelinks.js')
     eval(dataText);
     var nilaiData = eval('sitelinks');
     if (nilaiData) {
-      sitelinks = nilaiData;
+      sitelinkss = nilaiData;
     }
 })
 
@@ -146,7 +146,7 @@ function generateRandomString(maxLen) {
 }
 
 function showLinks(url) {
-  var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
+  var foundSite = sitelinkss.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
   if (foundSite) {
     var hcq = '';
     var msb = foundSite.links;
