@@ -43,5 +43,11 @@ var sitelinks = [
       ["Minecraft Legends", "https://www.minecraft.net/en-us/about-legends", "Minecraft Legends is an action strategy game developed by Mojang Studios and Blackbird Interactive."],
       ["Download", "https://www.minecraft.net/en-us/download", "Download Minecraft for Windows, Mac and Linux. Get server..."]
     ]
+  },
+  {
+    site: "https://www.apple.com/",
+    links: [
+      
+    ]
   }
 ];
