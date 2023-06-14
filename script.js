@@ -161,9 +161,12 @@ function showLinks(url) {
   }
 }
 
-
-function langtext(string) {
-  if (idlang) {
+function langtext(string, nundex) {
+  if (idlang && nundex) {
+    return language["id"][`${string}`][nundex];
+  } else if (nundex) {
+    return language["en"][`${string}`][nundex];
+  } if (idlang) {
     return language["id"][`${string}`];
   } else {
     return language["en"][`${string}`];
@@ -173,11 +176,11 @@ function langtext(string) {
 if (idlang) {
   searchInput.placeholder = langtext("placeholder");
   searchItem = document.querySelectorAll(".search-item");
-  searchItem[0].querySelector(".label span").innerHTML = language["id"]["tab"][0];
-  searchItem[1].querySelector(".label span").innerHTML = language["id"]["tab"][1];
-  searchItem[2].querySelector(".label span").innerHTML = language["id"]["tab"][2];
-  searchItem[3].querySelector(".label span").innerHTML = language["id"]["tab"][3];
-  searchItem[4].querySelector(".label span").innerHTML = language["id"]["tab"][4];
+  searchItem[0].querySelector(".label span").innerHTML = langtext("tab", 0);
+  searchItem[1].querySelector(".label span").innerHTML = langtext("tab", 1);
+  searchItem[2].querySelector(".label span").innerHTML = langtext("tab", 2);
+  searchItem[3].querySelector(".label span").innerHTML = langtext("tab", 3);
+  searchItem[4].querySelector(".label span").innerHTML = langtext("tab", 4);
 }
 
 HTMLInputElement.prototype.reset = function() {
