@@ -448,11 +448,11 @@ function instant(e) {
 function relatedsearch(res) {
   var rltn = "";
   for (var i = 1; i < res.length && i < 5; i++) {
-    rltn += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
+    rltn += `<div class="gaXpK ZMWUv"><a href="/search?q=${res[i]}" class="related">${res[i]}</a><div>`;
   }
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
-  rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">${rltn}</div>`;
+  rltb.innerHTML = `<div class="YjKdl"><div class="title">Related search</div></div><div class="search-list">${rltn}</div>`;
   if (rltn != "") {
     document.querySelector(".main-result .result").appendChild(rltb);
   }
