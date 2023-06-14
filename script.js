@@ -546,7 +546,7 @@ function hnvd(res) {
   if (tabres[0] && q.split(" ").length < 3) {
     insertAfter(tabres[0], hnvde);
   } else if (tabres[0]) {
-    document.querySelector(".main-result .result").insertAdjacentHTML("afterbegin", hnvde);
+    document.querySelector(".main-result .result").insertAdjacentHTML("afterbegin", `<div class="tab-result Dxcgd">${hnvde.innerHTML}</div>);
   }
  }
 }
