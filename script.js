@@ -452,14 +452,17 @@ function instant(e) {
 function relatedsearch() {
   if (q.split(" ").length - 4) {
   setTimeout(()=> {
+  var rltn = "";
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
-  document.querySelector(".main-result .result").appendChild(rltb);
-  rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">`;
+  rltb.innerHTML = `<div class="title">Related search</div><div class="search-list"></div>`;
   fetch(`https://api.swisscows.com/suggest?query=${q}`)
   .then(response => response.json()).then(response => {
     for (var i = 1; i < res.length && i < 5; i++) {
-      document.querySelector(".search-list").innerHTML += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
+      rltn += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
+    }
+    if (rltn != "") {
+      document.querySelector(".main-result .result").appendChild(rltb);
     }
   })
   },800)}
