@@ -658,7 +658,6 @@ function webresult(res) {
           hnvd(response);
       })
     }
-
     XuadHc("stop");
     if (pageone) {
       shwfter();
@@ -674,7 +673,7 @@ function webresult(res) {
 }
 
 function shwfter() {
-  document.querySelector(".rcthl-wrp").insertAdjacentHTML('beforeend', `<section class="footer"><ul class="list"><li><a href="/settings">Settings</a></li><li><a href="/">Privacy</a></li><li><a href="/search?q=translate">Translate</a></li></ul><div class="copyright">©Copyright 2023</div></section>`);
+  document.querySelector(".QZjVU").insertAdjacentHTML('beforeend', `<section class="footer"><ul class="list"><li><a href="/settings">Settings</a></li><li><a href="/">Privacy</a></li><li><a href="/search?q=translate">Translate</a></li></ul><div class="copyright">©Copyright 2023</div></section>`);
 }
 
 function share() {
