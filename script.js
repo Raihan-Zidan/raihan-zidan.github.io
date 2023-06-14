@@ -58,7 +58,6 @@ if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
 
-
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
@@ -544,8 +543,10 @@ function hnvd(res) {
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
-  if (tabres[0]) {
+  if (tabres[0] && q.split(" ").length < 3) {
     insertAfter(tabres[0], hnvde);
+  } else if (tabres[0]) {
+    document.querySelector(".main-result .result").insertAdjacentHTML("afterbegin", hnvde);
   }
  }
 }
