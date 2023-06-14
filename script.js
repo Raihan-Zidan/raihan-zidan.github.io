@@ -132,7 +132,6 @@ fetch('/sitelinks.js')
     }
 })
 
-
 function generateRandomString(maxLen) {
   var randomString = '';
   for (var i = 0; i < maxLen; i++) {
@@ -161,15 +160,15 @@ function showLinks(url) {
   }
 }
 
-function langtext(string, nundex) {
-  if (idlang && nundex) {
-    return language["id"][`${string}`][nundex];
-  } else if (nundex) {
-    return language["en"][`${string}`][nundex];
+function langtext(string, index) {
+  if (idlang && index !== undefined) {
+    return language["id"][string][index];
+  } else if (index !== undefined) {
+    return language["en"][string][index];
   } if (idlang) {
-    return language["id"][`${string}`];
+    return language["id"][string];
   } else {
-    return language["en"][`${string}`];
+    return language["en"][string];
   }
 }
 
