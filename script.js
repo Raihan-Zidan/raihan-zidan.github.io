@@ -118,23 +118,20 @@ var language = {
   },
 };
 
-var sitelinkss;
+var sitelinks;
 
-fetch('https://raihan-zidan.github.io/sitelinks.js')
+fetch('/sitelinks.js')
   .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to fetch image.js');
-    }
     return response.text();
   })
   .then(response => {
-    const iconText = response;
-    eval(iconText);
-    var nilaiMobil = eval('sitelinks');
-    if (nilaiMobil) {
-      sitelinkss = nilaiMobil;
+    const dataText = response;
+    eval(dataText);
+    var nilaiData = eval('sitelinks');
+    if (nilaiData) {
+      sitelinks = nilaiData;
     }
-  })
+})
 
 
 function generateRandomString(maxLen) {
@@ -149,7 +146,7 @@ function generateRandomString(maxLen) {
 }
 
 function showLinks(url) {
-  var foundSite = sitelinkss.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
+  var foundSite = sitelinks.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
   if (foundSite) {
     var hcq = '';
     var msb = foundSite.links;
