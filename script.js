@@ -728,9 +728,10 @@ function XuadHc(cmt) {
     setTimeout(submit, 300);
   }
   } else {
-    document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
     if (startIndex > maxIndex) {
       document.querySelector(".show-wrapper").remove();
+    } else {
+      document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
     }
   }
 }
