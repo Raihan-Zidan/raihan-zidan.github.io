@@ -511,7 +511,7 @@ function nwsr(res) {
     }
     if (startIndex == 1) { shwfter(); }
   } catch(error) {
-    if (!res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
+    if (!res.items) noresult();
   }
 }
 
@@ -556,7 +556,7 @@ function videoresult(res) {
     if (!res.items.length > 0) throw "empty";
   } catch(error) {
     document.querySelector(".result-wrapper").classList.add("CBpUsa");
-    document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
+    noresult();
   }
 }
 
@@ -671,8 +671,12 @@ function webresult(res) {
     }
 
     } catch(error) {
-    if (pageone && !res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
+    if (pageone && !res.items) noresult();
   }
+}
+
+function noresult() {
+  document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
 }
 
 function shwfter() {
