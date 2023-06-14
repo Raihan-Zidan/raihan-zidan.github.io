@@ -36,6 +36,10 @@ function getData() {
   return {};
 }
 
+if (getData().theme == "dark" || th == 1) {
+  search.theme = "dark";
+}
+
 idlang = getData().lang == "Indonesia" ? true : false;
 searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
@@ -65,10 +69,6 @@ if (!q) {
   document.body.innerHTML += `<span id="error" aria-label="error" class="notranslate">ERROR</span><p><b>503.</b> <ins>That’s an error.</ins><p>This site is currently under maintenance, please visit later.  <ins>Sorry about that.</ins></p>`
 }
 document.head.insertAdjacentHTML('beforeend', '<meta http-equiv="Cache-Control" content="no-store">');
-if (getData().theme == "dark" || th == 1) {
-  document.body.classList.add("dark");
-  search.theme = "dark";
-}
 
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
