@@ -1,4 +1,4 @@
-const sitelinks = [
+var sitelinks = [
   {
     site: "http://www.google.com/",
     links: [
