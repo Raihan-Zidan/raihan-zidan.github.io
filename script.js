@@ -37,7 +37,6 @@ String.prototype.ltrim = function() {
   return this.replace(/^\s+/g, '');
 }
 
-
 if (!q) {
   window.location.href = "/";
 } else if (q.trim() && !url.pathname.match(".html") && !rested && navigator.onLine) {
@@ -134,13 +133,10 @@ fetch('/sitelinks.js')
 
 
 function generateRandomString(maxLen) {
-  // Generate a random string of letters and numbers.
   var randomString = '';
   for (var i = 0; i < maxLen; i++) {
     randomString += String.fromCharCode(Math.floor(Math.random() * 123) + 97);
   }
-
-  // Return the random string.
   return randomString;
 }
 
@@ -449,7 +445,7 @@ function instant(e) {
   },800);
 }
 
-function relatedsearch() {
+function relatedsearch(res) {
   var rltn = "";
   for (var i = 1; i < res.length && i < 5; i++) {
     rltn += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
