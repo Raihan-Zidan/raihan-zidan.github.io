@@ -450,22 +450,16 @@ function instant(e) {
 }
 
 function relatedsearch() {
-  if (q.split(" ").length - 4) {
-  setTimeout(()=> {
   var rltn = "";
+  for (var i = 1; i < res.length && i < 5; i++) {
+    rltn += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
+  }
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
-  rltb.innerHTML = `<div class="title">Related search</div><div class="search-list"></div>`;
-  fetch(`https://api.swisscows.com/suggest?query=${q}`)
-  .then(response => response.json()).then(response => {
-    for (var i = 1; i < res.length && i < 5; i++) {
-      rltn += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
-    }
-    if (rltn != "") {
-      document.querySelector(".main-result .result").appendChild(rltb);
-    }
-  })
-  },800)}
+  rltb.innerHTML = `<div class="title">Related search</div><div class="search-list">${rltn}</div>`;
+  if (rltn != "") {
+    document.querySelector(".main-result .result").appendChild(rltb);
+  }
 }
 
 function refreshQuotes() {
@@ -633,7 +627,6 @@ function webresult(res) {
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
-      relatedsearch();
     }
     if (res.promotions){for (var i = 0; i < res.promotions.length; i++) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="ads">Ads</div><div class="link">${res.promotions[i].displayLink}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div>`;
@@ -669,10 +662,14 @@ function webresult(res) {
           hnvd(response);
       })
     }
+
     XuadHc("stop");
     if (pageone) {
       shwfter();
-
+  fetch(`https://api.swisscows.com/suggest?query=${q}`)
+  .then(response => response.json()).then(response => {
+    relatedsearch(response);
+  })
     }
 
     } catch(error) {
