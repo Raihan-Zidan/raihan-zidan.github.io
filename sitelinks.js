@@ -48,7 +48,9 @@ var sitelinks = [
     site: "https://www.apple.com/",
     links: [
       ["Support", "Some counterfeit and third party power adapters and batteries may not be..."],
-      ["Mac", "Testing conducted by Apple in April and May 2023 using preproduction 15-inch..."]
+      ["Mac", "Testing conducted by Apple in April and May 2023 using preproduction 15-inch..."],
+      ["iPhone", "Limited‑time offer; subject to change. Additional terms from Apple, Verizon"],
+      ["iTunes", "Download the latest macOS for an all‑new entertainment experience. You..."],
     ]
   }
 ];
