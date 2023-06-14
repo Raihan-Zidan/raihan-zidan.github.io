@@ -630,6 +630,7 @@ function webresult(res) {
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
+      relatedsearch();
     }
     if (res.promotions){for (var i = 0; i < res.promotions.length; i++) {
       document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="ads">Ads</div><div class="link">${res.promotions[i].displayLink}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div>`;
@@ -668,6 +669,7 @@ function webresult(res) {
     XuadHc("stop");
     if (pageone) {
       shwfter();
+
     }
 
     } catch(error) {
