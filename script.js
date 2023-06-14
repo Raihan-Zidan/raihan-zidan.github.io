@@ -102,7 +102,7 @@ var language = {
     correct: "Did you mean:",
     noresult: "No matching results",
     suggtext: "Search suggestion:",
-    noresultsug: "<li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li>",
+    noresultsug: ["Try different keywords.", "Try more general keywords.", "Try fewer keywords."],
     tab: ["All","Images","Videos","News","Maps"],
   },
   id: {
@@ -112,7 +112,7 @@ var language = {
     correct: "Apakah yang kamu maksud:",
     noresult: "Tidak ditemukan hasil",
     suggtext: "Saran pencarian:",
-    noresultsug: "<li>Coba kata kunci yang berbeda.</li><li>Coba kata kunci yang lebih umum.</li><li>Coba lebih sedikit kata kunci.</li>",
+    noresultsug: ["Coba kata kunci yang berbeda.", "Coba kata kunci yang lebih umum.", "Coba lebih sedikit kata kunci."],
     tab: ["Semua","Gambar","Video","Berita","Peta"],
   },
 };
@@ -676,7 +676,11 @@ function webresult(res) {
 }
 
 function noresult() {
-  document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
+  nosugtext = "";
+  for (var i = 0; i < 3; i++) {
+    nosugtext += `<li>${langtext("noresultsug", i)}</li>`;
+  }
+  document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
 }
 
 function shwfter() {
