@@ -52,7 +52,7 @@
   text-overflow: ellipsis;
 }
 
-dot:before {
+span.dot:before {
   content: "•";
   margin: 0 3px;
 }
