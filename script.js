@@ -528,7 +528,7 @@ function hnvd(res) {
         </div>
         <div class="sampingnye">
           <div class="joedoel">${res.items[i].snippet.title}</div>
-          <div class="soember">YouTube<dot></dot><div class="chnama">${res.items[i].snippet.channelTitle}</div></div>
+          <div class="soember">YouTube &bull; <div class="chnama">${res.items[i].snippet.channelTitle}</div></div>
           <div class="tanggal">${dateconversion(res.items[i].snippet.publishTime)}</div>
         </div>
       </div></a></div>
