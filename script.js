@@ -98,6 +98,7 @@ var language = {
   en: {
     news: "News result",
     more: "Show more",
+    vidTitle: "Videos",
     placeholder: "Type to search...",
     correct: "Did you mean:",
     noresult: "No matching results",
@@ -108,6 +109,7 @@ var language = {
   id: {
     news: "Hasil berita",
     more: "Lihat lainnya",
+    vidTitle: "Video",
     placeholder: "Ketik untuk  mencari...",
     correct: "Apakah yang kamu maksud:",
     noresult: "Tidak ditemukan hasil",
@@ -538,7 +540,7 @@ function hnvd(res) {
   var hnvde = document.createElement("div");
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
-  hnvde.innerHTML = `<div class="title Jhtm">Videos</div><div class="PbNgks">${videonya}</div></div>`;
+  hnvde.innerHTML = `<div class="title Jhtm">${langtext("vidTitle")}</div><div class="PbNgks">${videonya}</div></div>`;
   if (tabres[0] && q.split(" ").length < 3) {
     insertAfter(tabres[0], hnvde);
   } else if (tabres[0]) {
