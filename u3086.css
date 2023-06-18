@@ -892,6 +892,9 @@ input[type="search"]::-webkit-search-results-decoration {
   body:has(.title, .title-black) {
     background: #f5f8fa;
   }
+  .sitelinks {
+    padding-bottom: 8px;
+  }
 }
 
 @media (min-width: 780px) {
