@@ -28,7 +28,7 @@ if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
 
-idlang = getData().lang == "Indonesia" ? true : false;
+idlang = getData().lang == "Indonesia" || hl == id ? true : false;
 searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
 searchParam += sf == 1 ? "&sf=1" : "";
