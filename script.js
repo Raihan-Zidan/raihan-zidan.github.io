@@ -99,6 +99,7 @@ var language = {
     news: "News result",
     more: "Show more",
     vidTitle: "Videos",
+    related: "Related search",
     placeholder: "Type to search...",
     correct: "Did you mean:",
     noresult: "No matching results",
@@ -110,6 +111,7 @@ var language = {
     news: "Hasil berita",
     more: "Lihat lainnya",
     vidTitle: "Video",
+    related: "Pencarian terkait",
     placeholder: "Ketik untuk  mencari...",
     correct: "Apakah yang kamu maksud:",
     noresult: "Tidak ditemukan hasil",
@@ -457,7 +459,7 @@ function relatedsearch(res) {
   }
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
-  rltb.innerHTML = `<div class="YjKdl"><div class="title">Related search</div></div><div class="search-list">${rltn}</div>`;
+  rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
   if (rltn != "") {
     document.querySelector(".main-result .result").appendChild(rltb);
   }
