@@ -662,7 +662,7 @@ function webresult(res) {
       if (q.toLowerCase() == "games" && windowWidth < 780 && i == 1 && pageone) {
         document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="tab-result pL6sR">
       <span class="atas-euy"><div class="top">
-      <img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64">
+      <img class="favicon" src="img/google-play.png">
       <div class="link">Google Play</div>
     </div></span><div class="MciPl">
   <div class="tab-link">
@@ -731,7 +731,7 @@ function webresult(res) {
           hnvd(response);
       })
     }
-    var newsKey = ['chrome', 'google', 'microsoft'];
+    var newsKey = ['chrome', 'youtube', twitter', 'google', 'microsoft'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
       fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
         .then(response => response.json()).then(response => {
