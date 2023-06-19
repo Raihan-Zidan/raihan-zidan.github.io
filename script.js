@@ -443,16 +443,14 @@ function instant(e) {
         insertAfter(tabres[2], instanswer);
       }
       document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
-      
-        fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${res.Heading}&key=AIzaSyDI2W_dGgUxMaWpTaQTLJ28c0irWeHjPHM&limit=1&indent=True`)
-          .then(response => response.json())
-          .then(response => {
-          if (res.Image && response.itemListElement[0].result.image) {
-            var thumb = response.itemListElement[0].result.image.contentUrl;
-            document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumb}" align="right" class="logo">`);
-          }
-          
+      if (res.Image) {
+        var thumbUr = `/img/${res.Heading.replace("!", "").replace(" ", "-")}.png`;
+        cekGambarAda(thumbUr, fungtion(ada) {
+            if (ada) {
+              document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" align="right" class="logo">`);
+            }
         });
+    }
       for (var i = 0; i < whflg.length; i++) {
       if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
         document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
