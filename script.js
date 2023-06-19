@@ -445,7 +445,7 @@ function instant(e) {
       document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
       if (res.Image) {
         var thumbUr = `/img/${res.Heading.replace("!", "").replace(" ", "-")}.png`;
-        cekGambarAda(thumbUr, fungtion(ada) {
+        cekGambarAda(thumbUr, function(ada) {
             if (ada) {
               document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" align="right" class="logo">`);
             }
