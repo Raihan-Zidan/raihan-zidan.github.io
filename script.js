@@ -585,7 +585,6 @@ function nwsresultOld(res) {
 
 function nwsresult(data) {
   if (data.items.length > 3) {
-    setTimeout(() => {
       var tabres = document.querySelectorAll(".tab-result");
       var nwsres = document.createElement("div");
       nwsres.classList.add("m6gAk");
@@ -616,7 +615,6 @@ function nwsresult(data) {
           return false;
         }
       });
-    }, 1000);
   }
 }
 
