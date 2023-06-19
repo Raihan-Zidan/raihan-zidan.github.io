@@ -105,28 +105,33 @@ div.chnama {
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-.information {
+.tab-result.pL6sR .information {
   display: flex;
   margin: 8px 0;
 }
 
-.information img {
+.tab-result.pL6sR .information img {
   width: 60px;
   height: 60px;
   border-radius: 4px;
 }
 
-.information .label {
+.tab-result.pL6sR .label {
   margin: 0 10px;
   display: flex;
   flex-direction: column;
 }
 
-.information .label .title {
+.tab-result.pL6sR .title {
   margin: 0;
+  font-size: 18px;
 }
 
-.information .label .snippet {
+.tab-result.pL6sR .label .snippet {
   font-size: 14px;
+}
+
+.tab-result.pL6sR .MciPl {
+  margin-top: 5px;
 }
 
