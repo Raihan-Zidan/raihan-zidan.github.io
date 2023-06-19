@@ -319,10 +319,7 @@ function submit() {
         webresult(response);
     })
     if (!val.match(/html|css|javascript|how|to|cara|membuat/) && Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
-        .then(response => response.json()).then(response => {
-          nwsresult(response);
-      })
+
     }
     var ytkey = "AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o";
 
@@ -670,6 +667,14 @@ function webresult(res) {
           hnvd(response);
       })
     }
+    var newsKey = ['chrome', 'google', 'microsoft'];
+    if (newsKey.includes(q.toLowerCase()) && pageone) {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
+        .then(response => response.json()).then(response => {
+          nwsresult(response);
+      })
+    }
+
     XuadHc("stop");
     if (pageone) {
       shwfter();
