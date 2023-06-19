@@ -746,7 +746,7 @@ div.shwrp .more {
 }
 
 .news-result .news-list {
-  padding-bottom: 5px;
+  padding: 5px 0;
 }
 
 .news-result .news-list::-webkit-scrollbar {
