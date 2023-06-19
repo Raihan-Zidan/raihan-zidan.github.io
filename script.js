@@ -547,8 +547,7 @@ function hnvd(res) {
   var hnvde = document.createElement("div");
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
-  var shbnt = (res.items.length > 10) ? `<div class="shwrp"><div class="mXsk8"></div><a href="/search?q=${q}&tbm=vid${searchParam}" class="more"><span>Show more</span><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg></a></div>` : '';
-  hnvde.innerHTML = `<div class="title Jhtm">${langtext("vidTitle")}</div><div class="PbNgks">${videonya}</div>${shbnt}</div>`;
+  hnvde.innerHTML = `<div class="title Jhtm">${langtext("vidTitle")}</div><div class="PbNgks">${videonya}</div></div>`;
   if (tabres[0] && q.split(" ").length < 3) {
     insertAfter(tabres[0], hnvde);
   } else if (tabres[0]) {
