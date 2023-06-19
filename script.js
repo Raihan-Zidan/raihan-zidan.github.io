@@ -36,7 +36,7 @@ searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
 searchParam += sf == 1 ? "&sf=1" : "";
 searchParam += th == 1 ? "&th=1" : "";
-searchParam += isMobile ? "&td=mobile-mV2" : "&td=desktop-u3B";
+searchParam += isMobile && windowWidth > 780 ? "&td=mobile-mV2" : "&td=desktop-u3B";
 document.title = idlang ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = p > 1 ? p : 1;
 
