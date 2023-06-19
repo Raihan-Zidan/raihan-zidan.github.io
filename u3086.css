@@ -772,11 +772,6 @@ div.shwrp .more {
   border-radius: 8px;
 }
 
-.news-tab:hover {
-  transform: scale(1.04);
-  transition: transform 0.3s;
-}
-
 .news-tab a {
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
@@ -788,6 +783,19 @@ div.shwrp .more {
 
 .news-list .news-tab:last-child {
   margin-right: 0;
+}
+
+.news-tab:hover {
+  transform: scale(1.04);
+  transition: all 0.3s;
+}
+
+.news-tab:first-child:hover {
+  margin: 0 3px;
+}
+
+.news-tab:last-child:hover {
+  margin: 0 3px;
 }
 
 .news-tab .thumbnail {
