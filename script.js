@@ -669,7 +669,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'google', 'microsoft'];
     if (newsKey.includes(q.toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${val}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
