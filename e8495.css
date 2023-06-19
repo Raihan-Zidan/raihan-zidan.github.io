@@ -76,3 +76,57 @@ div.chnama {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.tab-result.pL6sR {
+  padding: 15px 0 0;
+}
+
+.tab-result.pL6sR .top {
+  padding: 0 15px;
+}
+
+.tab-result.pL6sR .top .link {
+  font-size: 16px;
+}
+
+.tab-result.pL6sR .top img {
+  width: 19px;
+  height: 19px;
+}
+
+.pL6sR .tab-link {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.pL6sR hr {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.information {
+  display: flex;
+  margin: 8px 0;
+}
+
+.information img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+}
+
+.information .label {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.information .label .title {
+  margin: 0;
+}
+
+.information .label .snippet {
+  font-size: 14px;
+}
+
