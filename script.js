@@ -33,7 +33,7 @@ function tambahUbahParameterURL(namaParameter, nilaiParameter) {
   } else {
     url.searchParams.append(namaParameter, nilaiParameter);
   }
-  window.history.replaceState({}, '', url);
+  window.history.replaceState({}, '', url.href);
 }
 
 if (getData().theme == "dark" || th == 1) {
