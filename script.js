@@ -664,7 +664,7 @@ function webresult(res) {
       <span class="atas-euy"><div class="top">
       <img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64">
       <div class="link">Google Play</div>
-    </div></span><span class="MciPl">
+    </div></span><div class="MciPl">
   <div class="tab-link">
   <a href="https://play.google.com/store/apps/details?id=com.fingersoft.hcr2&hl=id_ID">
      <div class="information">
@@ -704,7 +704,7 @@ function webresult(res) {
       </div>
     </div>
   </a>
-  </div></span>
+  </div></div>
 </div>`);
       }
     }
