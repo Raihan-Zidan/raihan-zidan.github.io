@@ -480,8 +480,14 @@ input[type="search"]::-webkit-search-results-decoration {
   animation-duration: 0.5s;
 }
 
-.show-wrapper.shwrp {
+.shwrp {
   padding: 8px 0;
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
 .shwrp .more {
@@ -495,7 +501,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
 }
 
-div.shwrp {
+div.shwrp .more {
   cursor: pointer;
   user-select: none; 
   position: relative;
