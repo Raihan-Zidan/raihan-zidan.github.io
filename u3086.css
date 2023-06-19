@@ -480,8 +480,44 @@ input[type="search"]::-webkit-search-results-decoration {
   animation-duration: 0.5s;
 }
 
+.show-wrapper.shwrp {
+  padding: 8px 0;
+}
+
+.shwrp .more {
+  background: #F2F3F5;
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 22px;
+  color: black;
+  display: flex;
+}
+
+div.shwrp {
+  cursor: pointer;
+  user-select: none; 
+  position: relative;
+  background: #f2f3f5;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.shwrp .more span {
+  margin: 0 6px 0 auto;
+}
+
+.shwrp .more svg {
+  width: 20px;
+  position: relative;
+  margin: 0 auto 0 0;
+}
+
 @media (min-width: 780px) {
-  .show-wrapper .more {
+  .show-wrapper .more, .shwrp .more {
     width: 50%;
   }
   .mXsk8 {
