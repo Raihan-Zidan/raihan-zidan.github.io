@@ -33,7 +33,7 @@ function tambahUbahParameterURL(namaParameter, nilaiParameter) {
   } else {
     url.searchParams.append(namaParameter, nilaiParameter);
   }
-  window.history.replaceState({}, '', url.href);
+  window.history.replaceState({}, '', url.pathname + url.search);
 }
 
 if (getData().theme == "dark" || th == 1) {
@@ -46,7 +46,7 @@ searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
 searchParam += sf == 1 ? "&sf=1" : "";
 searchParam += th == 1 ? "&th=1" : "";
-searchParam += isMobile && windowWidth > 780 ? tambahUbahParameterURL('td', "&td=mobile-mV2") : tambahUbahParameterURL('td', "&td=desktop-u3B");
+searchParam += isMobile && windowWidth > 780 ? tambahUbahParameterURL('td', "mobile-mV2") : tambahUbahParameterURL('td', "desktop-u3B");
 document.title = idlang ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = p > 1 ? p : 1;
 
