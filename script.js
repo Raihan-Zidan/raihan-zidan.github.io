@@ -659,12 +659,12 @@ function webresult(res) {
       urlparam = originurl.origin + urlparam;
       displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div>`);
-      if (q.toLowerCase() == "games" && i == 2 && pageone) {
+      if (q.toLowerCase() == "games" && windowWidth < 780 && i == 1 && pageone) {
         document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="tab-result pL6sR">
-      <div class="top">
+      <span class="atas-euy"><div class="top">
       <img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.google.com/&hl=en_US&gl=US&size=64">
       <div class="link">Google Play</div>
-    </div>
+    </div></span><span class="MciPl">
   <div class="tab-link">
   <a href="https://play.google.com/store/apps/details?id=com.fingersoft.hcr2&hl=id_ID">
      <div class="information">
@@ -704,8 +704,7 @@ function webresult(res) {
       </div>
     </div>
   </a>
-  </div>
-
+  </div></span>
 </div>`);
       }
     }
