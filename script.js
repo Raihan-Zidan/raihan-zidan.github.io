@@ -529,6 +529,11 @@ function hnvd(res) {
       <div class="tab-link"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
         <div class="thumbnail">
           <img src="${res.items[i].snippet.thumbnails.medium.url}">
+          <div class="XTiWK"><span>
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5"></path>
+            </svg></span>
+          </div>
         </div>
         <div class="sampingnye">
           <div class="joedoel">${res.items[i].snippet.title}</div>
