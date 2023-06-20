@@ -30,6 +30,28 @@
   display: flex;
 }
 
+.viditem .XTiWK {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.XTiWK span {
+  position: absolute;
+  opacity: .8;
+}
+
+.XTiWK .NwGDz {
+  width: 35px;
+}
+
+.XTiWK span svg {
+  fill: #FFF;
+}
+
 .viditem .thumbnail {
   position: relative;
   width: 140px;
