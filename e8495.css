@@ -123,12 +123,14 @@ div.chnama {
 }
 
 .tab-result.pL6sR .title {
-  margin: 0 0 5px;
+  margin: 0 0 2px;
   font-size: 18px;
 }
 
 .tab-result.pL6sR .label .snippet {
   font-size: 14px;
+  margin: 2px 0;
+
 }
 
 .tab-result.pL6sR .MciPl {
