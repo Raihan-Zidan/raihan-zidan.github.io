@@ -334,7 +334,11 @@ function submit() {
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${geo}${spr}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}`)
       .then(response => response.json()).then(response => {
-        webresult(response);
+     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}`)
+        .then(response => response.json()).then(response => {
+          webresult(response, data);
+      })
+      
     })
     if (!val.match(/html|css|javascript|how|to|cara|membuat/) && Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
 
@@ -634,7 +638,7 @@ function nwsresult(data) {
   }
 }
 
-function webresult(res) {
+function webresult(res, data) {
   try {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
     var pageone = (startIndex  == 1) ? true : false;
@@ -745,6 +749,39 @@ function webresult(res) {
     relatedsearch(response);
   })
     }
+
+      if (data.items.length > 3) {
+      var tabres = document.querySelectorAll(".tab-result");
+      var nwsres = document.createElement("div");
+      nwsres.classList.add("m6gAk");
+      nwsres.classList.add("news-result");
+      nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
+      insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
+
+      var resultsWithThumbnail = data.items.filter(function(item) {
+        // Memeriksa apakah item memiliki properti 'cse_thumbnail' yang tidak kosong
+        if (item.pagemap.cse_thumbnail) {
+          var thumbnailimg = item.pagemap.cse_thumbnail[0].src;
+          var publisher = (item.pagemap.metatags[0]['og:site_name']) ? item.pagemap.metatags[0]['og:site_name'] : item.displayLink;
+
+          // Mengambil URL thumbnail menggunakan fungsi toDataURL
+          toDataURL(thumbnailimg, function(dataUrl) {
+            var newsTab = document.createElement("div");
+            newsTab.classList.add("news-tab");
+            newsTab.innerHTML = `<a href="${item.link}"><img src='${dataUrl}' class='thumbnail'><div class="title">${item.title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.link}&size=64"><div class="link">${publisher}</div></div></a>`;
+
+            // Menambahkan tab berita ke dalam elemen dengan class "news-list"
+            document.querySelector(".news-result .news-list").appendChild(newsTab);
+          });
+
+          // Mengembalikan nilai true agar item disertakan dalam hasil filter
+          return true;
+        } else {
+          // Mengembalikan nilai false agar item tidak disertakan dalam hasil filter
+          return false;
+        }
+      });
+  }
 
     } catch(error) {
     if (pageone && !res.items) noresult();
