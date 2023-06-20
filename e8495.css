@@ -98,18 +98,12 @@ div.chnama {
   margin: 4px 0;
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 4px 15px;
 }
 
 .pL6sR hr {
   margin: 0 15px;
   border-color: rgba(0, 0, 0, 0.1);
-  
-}
-
-.tab-result.pL6sR .information {
-  display: flex;
-  margin: 8px 0;
 }
 
 .tab-result.pL6sR .information img {
