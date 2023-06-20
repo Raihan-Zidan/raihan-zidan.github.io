@@ -420,6 +420,7 @@ function instant(e) {
     if (res.Abstract.length > 100) {
       var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
+      instanswer.classList.add("VtuHV");
       instanswer.classList.add("instant-answer");
       if (windowWidth > 780) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
@@ -457,6 +458,7 @@ function relatedsearch(res) {
   }
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
+  rltb.classList.add("VtuHV")
   rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
   if (rltn != "") {
     document.querySelector(".main-result .result").appendChild(rltb);
@@ -543,6 +545,7 @@ function hnvd(res) {
   }
   var tabres = document.querySelectorAll(".tab-result");
   var hnvde = document.createElement("div");
+  hnvde.classList.add("VtuHV")
   hnvde.classList.add("tab-result");
   hnvde.classList.add("Dxcgd");
   hnvde.innerHTML = `<div class="title Jhtm">${langtext("vidTitle")}</div><div class="PbNgks">${videonya}</div></div>`;
@@ -589,6 +592,7 @@ function nwsresult(data) {
       var tabres = document.querySelectorAll(".tab-result");
       var nwsres = document.createElement("div");
       nwsres.classList.add("m6gAk");
+      nwsres.classList.add("VtuHV");
       nwsres.classList.add("news-result");
       nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
       insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
@@ -643,7 +647,7 @@ function webresult(res) {
       displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
       document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32" class="favicon"><div class="link">${displayUrl}</div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div>`);
       if (q.toLowerCase() == "games" && windowWidth < 780 && i == 1 && pageone) {
-        document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="tab-result pL6sR">
+        document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV tab-result pL6sR">
       <span class="atas-euy"><div class="top">
       <img class="favicon" src="img/google-play.png">
       <div class="link">Google Play</div>
