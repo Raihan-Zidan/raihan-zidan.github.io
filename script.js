@@ -26,16 +26,6 @@ function getData() {
   return {};
 }
 
-function tambahUbahParameterURL(namaParameter, nilaiParameter) {
-  var url = new URL(window.location.href);
-  if (url.searchParams.has(namaParameter)) {
-    url.searchParams.set(namaParameter, nilaiParameter);
-  } else {
-    url.searchParams.append(namaParameter, nilaiParameter);
-  }
-  window.history.replaceState({}, '', url.pathname + url.search);
-}
-
 if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
@@ -46,11 +36,6 @@ searchParam += uf == 1 ? "&uf=1" : "";
 searchParam += fv == 0 ? "&fv=0" : "";
 searchParam += sf == 1 ? "&sf=1" : "";
 searchParam += th == 1 ? "&th=1" : "";
-if (isMobile && windowWidth < 780) {
-  tambahUbahParameterURL('td', "mobile-mV2");
-} else {
-  tambahUbahParameterURL('td', "desktop-u3B");
-}
 document.title = idlang ? `${q} - Penelusuran` : `${q} - Search`;
 var startIndex = p > 1 ? p : 1;
 
