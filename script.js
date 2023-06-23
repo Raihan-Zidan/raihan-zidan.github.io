@@ -659,7 +659,7 @@ function webresult(res) {
       <div class="label">
          <div class="title notranslate">Hill Climb Racing 2</div>
          <div class="snippet">Rating 4.6 (4M)</div>
-         <div class="snippet">Balapan • Stunt driving • Arcade</div>
+         <div class="snippet">Balapan • Stunt driving • Arkade</div>
       </div>
     </div>
   </a>
@@ -687,7 +687,7 @@ function webresult(res) {
       <div class="label">
          <div class="title notranslate">Temple Run 2</div>
          <div class="snippet">Rating 4.3 (10M)</div>
-         <div class="snippet">Aksi • Platformer • Berlari • Arcade</div>
+         <div class="snippet">Aksi • Platformer • Berlari • Arkade</div>
       </div>
     </div>
   </a>
