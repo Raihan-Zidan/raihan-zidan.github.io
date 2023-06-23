@@ -710,7 +710,7 @@ function webresult(res) {
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more">${langtext("more")}</button></div>`;
     } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
-      document.querySelector(".show-wrapper").remove();
+      XuadHc("stop");
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
       fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
@@ -780,7 +780,6 @@ function XuadHc(cmt) {
 
 document.addEventListener('click', function(event) {
   var target = event.target;
-  
   if (target.matches('.show-wrapper .more')) {
     XuadHc();
   }
