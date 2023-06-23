@@ -158,10 +158,20 @@ div.chnama {
   position: relative;
 }
 
-body.dark .footer {
+body.dark .footer, body.dark .related-search {
+  border-color: #24282B;
   background: #202125;
 }
 
-body.dark .footer ul a, body.dark .footer .copyright {
+body.dark .related-search .title {
+  color: #E9EAEE;
+}
+
+body.dark .sitelinks .link {
+  border-color: #24282B;
+  color: #BDC1C4;
+}
+
+body.dark .footer ul a, body.dark .footer .copyright, .search-list .related {
   color: #BDC1C4;
 }
