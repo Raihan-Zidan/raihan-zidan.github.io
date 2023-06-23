@@ -164,10 +164,15 @@ body.dark .footer, body.dark .related-search {
 }
 
 body.dark .related-search .title {
-  color: #8BB4F4;
+  color: #E9EAEE;
 }
 
-body.dark .sitelinks .link, .search-list .related {
+body.dark .sitelinks .link {
+  color: #8BB4F4;
+  border-color: #9BA0A6;
+}
+
+body.dark .search-list .related {
   border-color: #9BA0A6;
   color: #BDC1C4;
 }
