@@ -947,7 +947,7 @@ div.shwrp .more {
   body:has(.title, .title-black) {
     background: #f5f8fa;
   }
-  .wrlink {
+  .wrlink:has(.snippet) {
     margin-bottom: 8px;
   }
 }
