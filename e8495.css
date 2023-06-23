@@ -162,6 +162,6 @@ body.dark .footer {
   background: #202125;
 }
 
-body.dark .footer li, body.dark .footer .copyright {
+body.dark .footer ul a, body.dark .footer .copyright {
   color: #BDC1C4;
 }
