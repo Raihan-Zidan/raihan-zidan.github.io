@@ -458,7 +458,7 @@ function relatedsearch(res) {
   rltb.classList.add("related-search");
   rltb.classList.add("VtuHV")
   rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
-  if (rltn != "") {
+  if (rltn != "" && res.length > 3) {
     document.querySelector(".main-result .result").appendChild(rltb);
   }
 }
