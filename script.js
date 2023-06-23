@@ -10,7 +10,7 @@ var th = url.searchParams.get("th");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
-var rested = false;
+var rested = true;
 var searchParam = ``;
 
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
