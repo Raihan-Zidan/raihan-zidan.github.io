@@ -743,8 +743,8 @@ div.shwrp .more {
 }
 
 .news-list .news-tab {
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 220px;
   border: 1px solid #ccc;
   margin: 0 3px;
   position: relative;
@@ -764,16 +764,16 @@ div.shwrp .more {
   margin-right: 0;
 }
 
-.news-tab:hover {
+.news-tabs:hover {
   transform: scale(1.04);
   transition: all 0.3s;
 }
 
-.news-tab:first-child:hover {
+.news-tabs:first-child:hover {
   margin: 0 3px;
 }
 
-.news-tab:last-child:hover {
+.news-tabs:last-child:hover {
   margin: 0 3px;
 }
 
