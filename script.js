@@ -593,7 +593,7 @@ function nwsresult(data) {
       nwsres.classList.add("VtuHV");
       nwsres.classList.add("news-result");
       nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
-      insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
+      insertAfter(tabres[3], nwsres);
 
       var resultsWithThumbnail = data.items.filter(function(item) {
         // Memeriksa apakah item memiliki properti 'cse_thumbnail' yang tidak kosong
