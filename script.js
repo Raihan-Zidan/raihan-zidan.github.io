@@ -431,7 +431,9 @@ function instant(e) {
         var thumbUr = `/img/${res.Heading.toLowerCase().replace("!", "").replace(" ", "-")}.png`;
         cekGambarAda(thumbUr, function(ada) {
             if (ada) {
-              document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" align="right" class="logo">`);
+              toDataURL(thumbUr, function(dataUr) {
+                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUr}" align="right" class="logo">`);
+              }
             }
         });
     }
