@@ -433,7 +433,7 @@ function instant(e) {
             if (ada) {
               toDataURL(thumbUr, function(dataUr) {
                 document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUr}" align="right" class="logo">`);
-              }
+              });
             }
         });
     }
