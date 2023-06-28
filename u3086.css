@@ -199,16 +199,17 @@ body {
 .tab-result .top {
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 .ads {
-  font-size: 12px;
+  font-size: 10px;
   border: 1px solid gray;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-left: auto;
-  padding: 1px;
+  padding: 2px;
   text-decoration: none;
-  color: black;
+  color: #444;
 }
 
 .tab-result .favicon {
