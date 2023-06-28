@@ -107,6 +107,7 @@ var language = {
     correct: "Did you mean:",
     noresult: "No matching results",
     suggtext: "Search suggestion:",
+    adlabel: "Ad",
     noresultsug: ["Try different keywords.", "Try more general keywords.", "Try fewer keywords."],
     tab: ["All","Images","Videos","News","Maps"],
   },
@@ -119,6 +120,7 @@ var language = {
     correct: "Apakah yang kamu maksud:",
     noresult: "Tidak ditemukan hasil",
     suggtext: "Saran pencarian:",
+    adlabel: "Iklan",
     noresultsug: ["Coba kata kunci yang berbeda.", "Coba kata kunci yang lebih umum.", "Coba lebih sedikit kata kunci."],
     tab: ["Semua","Gambar","Video","Berita","Peta"],
   },
@@ -638,7 +640,7 @@ function webresult(res) {
     }
     if (res.promotions && pageone) {
       for (var i = 0; i < res.promotions.length; i++) {
-        document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="link">${res.promotions[i].displayLink}</div><div class="ads">Ad</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div>`;
+        document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="link">${res.promotions[i].displayLink}</div><div class="ads">${langtext("adlabel")}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div>`;
       }
     }
     for (var i = 0; i < res.items.length; i++) {
