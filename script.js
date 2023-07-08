@@ -601,8 +601,8 @@ function nwsresult(data) {
 
       var resultsWithThumbnail = data.items.filter(function(item) {
         // Memeriksa apakah item memiliki properti 'cse_thumbnail' yang tidak kosong
-        if (item.pagemap.cse_thumbnail || item.pagemap.imageobject) {
-          var thumbnailimg = item.pagemap.cse_thumbnail[0].src || item.pagemap.imageobject.url;
+        if (item.pagemap.cse_thumbnail) {
+          var thumbnailimg = item.pagemap.cse_thumbnail[0].src;
           var publisher = (item.pagemap.metatags[0]['og:site_name']) ? item.pagemap.metatags[0]['og:site_name'] : item.displayLink;
 
           // Mengambil URL thumbnail menggunakan fungsi toDataURL
