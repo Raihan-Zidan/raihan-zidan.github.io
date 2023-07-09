@@ -203,7 +203,6 @@ body.dark .footer ul a, body.dark .footer .copyright {
   text-decoration: none;
   padding: 5px;
   cursor: pointer;
-  margin-right: 6px;
 }
 
 .sitelinks .link {
@@ -213,6 +212,6 @@ body.dark .footer ul a, body.dark .footer .copyright {
   flex-shrink: 0;
 }
 
-.sitelinks .link::last-child {
-  margin-right: 0;
+.sitelinks .link:not(:last-child) {
+  margin-right: 8px;
 }
