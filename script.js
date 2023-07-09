@@ -303,10 +303,10 @@ quotes = [
 ];
 
 searchApi = apikey[Math.floor(Math.random() * apikey.length)];
+var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
 
 function submit() {
   var val = q;
-  var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
   var spr = (sf == 1) ? "&safe=active" : "";
   if (tbm === "vid") {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
@@ -724,7 +724,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}&exactTerms={q}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}&exactTerms=${q}${basa}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
