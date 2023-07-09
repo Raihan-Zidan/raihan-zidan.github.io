@@ -1,7 +1,3 @@
-:root {
-  --padding-nya: 16px;
-}
-
 .tab-result.Dxcgd {
   padding-bottom: 0;
 }
@@ -212,6 +208,7 @@ body.dark .footer ul a, body.dark .footer .copyright {
   flex-shrink: 0;
 }
 
-.sitelinks .link:not(::last-child) {
+.sitelinks .link:not(:last-child) {
   margin-right: 8px;
 }
+
