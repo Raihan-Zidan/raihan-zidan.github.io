@@ -722,7 +722,7 @@ function webresult(res) {
           hnvd(response);
       })
     }
-    var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepakbola'];
+    var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
       fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}&exactTerms={q}`)
         .then(response => response.json()).then(response => {
