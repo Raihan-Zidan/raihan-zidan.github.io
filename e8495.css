@@ -207,7 +207,7 @@ body.dark .footer ul a, body.dark .footer .copyright {
   cursor: pointer;
 }
 
-.sitelinks > .link {
+.sitelinks .link {
   border: 1px solid #E0E4E9;
   border-radius: 6px;
   white-space: nowrap;
