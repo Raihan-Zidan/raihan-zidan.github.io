@@ -181,8 +181,6 @@ body.dark .footer ul a, body.dark .footer .copyright {
   color: #BDC1C4;
 }
 
-/* sitelinks new design */
-
 .tab-result:has(.sitelinks) {
   padding-bottom: 15px;
 }
@@ -205,6 +203,7 @@ body.dark .footer ul a, body.dark .footer .copyright {
   text-decoration: none;
   padding: 5px;
   cursor: pointer;
+  margin-right: 6px;
 }
 
 .sitelinks .link {
@@ -212,9 +211,8 @@ body.dark .footer ul a, body.dark .footer .copyright {
   border-radius: 6px;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-right: 6px;
 }
 
-.sitelinks .link:last-child {
+.sitelinks .link::last-child {
   margin-right: 0;
 }
