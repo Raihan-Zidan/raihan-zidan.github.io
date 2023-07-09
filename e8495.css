@@ -181,3 +181,39 @@ body.dark .footer ul a, body.dark .footer .copyright {
   color: #BDC1C4;
 }
 
+/* sitelinks new design */
+
+.tab-result:has(.sitelinks) {
+  padding-bottom: 15px;
+}
+
+.tab-result .sitelinks {
+  display: flex;
+  padding-top: 10px;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.tab-result .sitelinks::-webkit-scrollbar {
+  height: 0;
+}
+
+.sitelinks .link {
+  color: var(--title-color);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.sitelinks > .link {
+  border: 1px solid #E0E4E9;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sitelinks .link:not(:last-child) {
+  margin-right: 6px;
+}
