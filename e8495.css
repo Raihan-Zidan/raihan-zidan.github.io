@@ -177,6 +177,7 @@ body.dark .footer ul a, body.dark .footer .copyright {
   color: #BDC1C4;
 }
 
+@media (max-width: 780px) {
 .tab-result:has(.sitelinks) {
   padding-bottom: 15px;
 }
@@ -213,3 +214,4 @@ body.dark .footer ul a, body.dark .footer .copyright {
   margin-right: 0;
 }
 
+}
