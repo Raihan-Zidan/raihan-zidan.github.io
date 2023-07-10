@@ -63,9 +63,13 @@
   if (searchQuery) {
     geocoder.query(searchQuery);
   }
+  inputElement.blur()
   setTimeout(() => {
     inputElement.blur();
   }, 500);
+  setTimeout(()=> {
+    inputElement.blur();
+  }, 700);
 
   var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
