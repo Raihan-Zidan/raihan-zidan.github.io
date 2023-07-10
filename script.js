@@ -328,7 +328,24 @@ function submit() {
     }
     var ytkey = "AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o";
 
+
+  }
+}
+
+var d = new Date();
+var locallang = (idlang) ? "id-ID" : "en-US";
+
+var clock = function() {
+  var h = d.getHours();
+  var m = d.getMinutes();
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  return h + "." + m;
+}
+
+function jwbn() {
     if (startIndex == 1) {
+      var val = q;
       var qval = val;
       if (val.toLowerCase() == "yahoo") {
         qval = "yahoo!";
@@ -353,18 +370,6 @@ function submit() {
       xhr.onload = instant;
       xhr.send();
     }
-  }
-}
-
-var d = new Date();
-var locallang = (idlang) ? "id-ID" : "en-US";
-
-var clock = function() {
-  var h = d.getHours();
-  var m = d.getMinutes();
-  h = (h < 10) ? "0" + h : h;
-  m = (m < 10) ? "0" + m : m;
-  return h + "." + m;
 }
 
 function instantanswer() {
@@ -416,7 +421,7 @@ var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland",
 
 function instant(e) {
   var res = this.response;
-  setTimeout(()=> {
+  
     if (res.Abstract.length > 100) {
       var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
@@ -450,7 +455,7 @@ function instant(e) {
         }
       }}
     }
-  },800);
+  
 }
 
 function relatedsearch(res) {
@@ -737,6 +742,7 @@ function webresult(res) {
   .then(response => response.json()).then(response => {
     relatedsearch(response);
   })
+      jwbn();
     }
 
     } catch(error) {
