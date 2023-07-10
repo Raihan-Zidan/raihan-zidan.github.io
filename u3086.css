@@ -13,11 +13,7 @@
 }
 
 html, body {
-  font-family: "Google Sans", Arial, sans-serif;
-}
-
-body {
-  overflow-x: hidden;
+  font-family: "Google Sans", 'Roboto', Arial, sans-serif;
 }
 
 .header {
@@ -786,7 +782,6 @@ div.shwrp .more {
   display: block;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid #E0E4E9;
 }
 
 .news-tab .thumbnail:after {
