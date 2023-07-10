@@ -62,11 +62,8 @@
   const inputElement = document.querySelector('.mapboxgl-ctrl-geocoder input');
   if (searchQuery) {
     geocoder.query(searchQuery);
+    document.title = searchQuery + " Maps";
   }
-  inputElement.blur()
-  setTimeout(() => {
-    inputElement.blur();
-  }, 500);
   setTimeout(()=> {
     inputElement.blur();
   }, 700);
