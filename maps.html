@@ -62,11 +62,11 @@
   const inputElement = document.querySelector('.mapboxgl-ctrl-geocoder input');
   if (searchQuery) {
     geocoder.query(searchQuery);
-    document.title = searchQuery + " Maps";
+    document.title = searchQuery + " - Maps";
   }
   setTimeout(()=> {
     inputElement.blur();
-  }, 700);
+  }, 600);
 
   var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
