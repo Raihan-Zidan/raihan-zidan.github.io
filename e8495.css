@@ -204,13 +204,13 @@ body.dark .footer ul a, body.dark .footer .copyright {
 
 .sitelinks .link {
   border: 1px solid #E0E4E9;
-  border-radius: 22px;
+  border-radius: 8px;
   white-space: nowrap;
   flex-shrink: 0;
   margin-right: 6px;
 }
 
-.sitelinks .link:last-child {
+.sitelinks .link::last-child {
   margin-right: 0;
 }
 
