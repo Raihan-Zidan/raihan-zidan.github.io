@@ -83,7 +83,8 @@ span.dot:before {
   color: #000;
   display: flex;
   font-size: 13px;
-  margin: auto 0 2px;
+  margin: 2px 0;
+  margin-top: auto;
 }
 
 .tanggal, .chnama {
