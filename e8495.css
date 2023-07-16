@@ -228,6 +228,10 @@ body.dark .footer ul a, body.dark .footer .copyright {
     padding: 12px;
     border-radius: 15px;
   }
+  .news-list .news-tab {
+    width: 32.9%;
+    height: 220px;
+  }
 }
 
 
