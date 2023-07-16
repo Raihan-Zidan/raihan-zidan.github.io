@@ -212,6 +212,15 @@ body.dark .footer ul a, body.dark .footer .copyright {
   }
 }
 
+@media (min-width: 780px) {
+  .wrpl {
+    border: 1px solid #ccc;
+  }
+  .controls {
+    border: 1px solid #ccc;
+  }
+}
+
 
 
 
