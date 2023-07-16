@@ -180,17 +180,17 @@ body.dark .footer ul a, body.dark .footer .copyright {
 /* sitelink desain baru */
 
 @media (max-width: 780px) {
-  .Kj7VF:has(.sitelinks) {
+  .tab-result:has(.sitelinks) {
     padding-bottom: 15px;
   }
-  .Kj7VF .sitelinks {
+  .tab-result .sitelinks {
     display: flex;
     padding-top: 10px;
     overflow-x: scroll;
     flex-wrap: nowrap;
     flex-direction: row;
   }
-  .Kj7VF .sitelinks::-webkit-scrollbar {
+  .tab-result .sitelinks::-webkit-scrollbar {
     height: 0;
   }
   .sitelinks .link {
@@ -211,85 +211,6 @@ body.dark .footer ul a, body.dark .footer .copyright {
     margin-right: 0;
   }
 }
-
-/* tab dengan class baru */
-
-.Kj7VF {
-  width: 100%;
-  border: 1px solid #EDEDED;
-  border-style: solid none;
-  padding: 15px;
-  margin: 4px 0;
-  background: white;
-}
-
-.Kj7VF .title,
-.Kj7VF .title-black {
-  color: var(--title-color);
-  font-size: 20px;
-  margin: 8px 0;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.Kj7VF .title-black {
-  color: black;
-}
-
-.Kj7VF .top {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.Kj7VF .favicon {
-  width: 18px;
-  height: 18px;
-}
-
-.Kj7VF .favicon {
-  margin-right: 5px;
-}
-
-.Kj7VF a {
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.Kj7VF .link {
-  color: #222222;
-  font-size: 14px;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.Kj7VF .snippet {
-  color: #494949;
-  font-size: 15px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (min-width: 780px) {
-  .Kj7VF {
-    border: none;
-  }
-  .Kj7VF .title:hover {
-    text-decoration: underline;
-  }
-  .Kj7VF .title {
-    display: inline-block;
-  }
-}
-
 
 
 
