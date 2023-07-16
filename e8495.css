@@ -180,17 +180,17 @@ body.dark .footer ul a, body.dark .footer .copyright {
 /* sitelink desain baru */
 
 @media (max-width: 780px) {
-  .tab-result:has(.sitelinks) {
+  .Kj7VF:has(.sitelinks) {
     padding-bottom: 15px;
   }
-  .tab-result .sitelinks {
+  .Kj7VF .sitelinks {
     display: flex;
     padding-top: 10px;
     overflow-x: scroll;
     flex-wrap: nowrap;
     flex-direction: row;
   }
-  .tab-result .sitelinks::-webkit-scrollbar {
+  .Kj7VF .sitelinks::-webkit-scrollbar {
     height: 0;
   }
   .sitelinks .link {
