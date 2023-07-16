@@ -231,6 +231,8 @@ body.dark .footer ul a, body.dark .footer .copyright {
   .news-list .news-tab {
     width: 32.9%;
     height: 220px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 }
 
