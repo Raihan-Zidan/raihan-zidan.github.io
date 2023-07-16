@@ -219,8 +219,11 @@ body.dark .footer ul a, body.dark .footer .copyright {
   .controls {
     border-bottom: 1px solid #ccc;
   }
+  .related-search {
+    padding: 0 15px;
+  }
   .search-list .related {
-    margin: 5px 10px 0 0;
+    margin: 8px 10px 0 0;
     border: 1px solid #ccc;
     padding: 12px;
     border-radius: 20px;
