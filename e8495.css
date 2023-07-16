@@ -278,27 +278,7 @@ body.dark .footer ul a, body.dark .footer .copyright {
   text-overflow: ellipsis;
 }
 
-.Kj7VF:has(.sitelinks) {
-  padding-bottom: 0px;
-}
-
-.Kj7VF .sitelinks {
-  display: flex;
-  padding-top: 10px;
-}
-
-@media (max-width: 780px) {
-  .Kj7VF .sitelinks {
-    flex-direction: column;
-  }
-}
-
 @media (min-width: 780px) {
-  .Kj7VF .sitelinks {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: auto;
-  }
   .Kj7VF {
     border: none;
   }
