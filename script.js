@@ -550,7 +550,7 @@ function hnvd(res) {
       </div></a></div>
       </div>`;
   }
-  var tabres = document.querySelectorAll(".tab-result");
+  var tabres = document.querySelectorAll(".Kj7VF");
   var hnvde = document.createElement("div");
   hnvde.classList.add("VtuHV")
   hnvde.classList.add("tab-result");
