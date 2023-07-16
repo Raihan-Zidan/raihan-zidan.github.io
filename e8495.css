@@ -220,13 +220,13 @@ body.dark .footer ul a, body.dark .footer .copyright {
     border-bottom: 1px solid #ccc;
   }
   .related-search {
-    padding: 0 15px;
+    padding: 5px 15px;
   }
   .search-list .related {
     margin: 8px 8px 0 0;
     border: 1px solid #ccc;
     padding: 12px;
-    border-radius: 20px;
+    border-radius: 15px;
   }
 }
 
