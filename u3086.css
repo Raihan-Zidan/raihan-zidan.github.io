@@ -514,7 +514,7 @@ div.shwrp .more {
 
 @keyframes hoverAnim {
   from {
-    background: rgba(0,0,0,.10);
+    background: #ededed;
   }
   to {
     background: white;
