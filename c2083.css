@@ -25,7 +25,7 @@ body {
 .wrapper .logo {
   width: 100%;
   min-height: 70px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background-image: url("images/logo.png");
   background-size: 250px;
   background-position: center;
