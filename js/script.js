@@ -101,7 +101,9 @@ if (idlang == true) {
   document.title = "Mesin pencari";
 }
 
-daylabel.innerHTML = (idlang) ? "Penerjemah" : "Translator";
-daylabel.href = `/translator`;
+var d = new Date();
+var locallang = 'id-ID';
+daylabel.innerHTML = d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'});
+daylabel.href = `https://calendar.google.com/`;
 
 var url = `/search?q=${daylabel.innerHTML}`;
