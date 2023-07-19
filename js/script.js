@@ -105,6 +105,5 @@ var d = new Date();
 var locallang = 'id-ID';
 daylabel.innerHTML = d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'});
 daylabel.href = `https://calendar.google.com/`;
-daylabel.setAttribute('target', '_blank');
 
 var url = `/search?q=${daylabel.innerHTML}`;
