@@ -158,6 +158,7 @@ if (idlang == true) {
 
 var d = new Date();
 var locallang = 'id-ID';
+daylabel.remove();
 daylabel.innerHTML = d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'});
 daylabel.href = `https://calendar.google.com/`;
 
