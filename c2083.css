@@ -161,7 +161,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 body {
-  padding-top: 130px;
+  /* padding-top: 130px; */
 }
 
 .wrapper ul {
