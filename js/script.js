@@ -136,7 +136,10 @@ window.addEventListener('load', ()=> {
         </a>
       </li>
     </ul>`;
-  document.querySelector(".wrapper").insertAdjacentHTML('beforeend', gelembungUrl);
+  var o = 1;
+  if (o == 0) {
+    document.querySelector(".wrapper").insertAdjacentHTML('beforeend', gelembungUrl);
+  }
 });
 
 function showSuggestions(list) {
@@ -158,7 +161,6 @@ if (idlang == true) {
 
 var d = new Date();
 var locallang = 'id-ID';
-daylabel.remove();
 daylabel.innerHTML = d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'});
 daylabel.href = `https://calendar.google.com/`;
 
