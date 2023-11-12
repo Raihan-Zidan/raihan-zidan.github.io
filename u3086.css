@@ -165,7 +165,7 @@ html, body {
 .tab-result .title-black {
   color: var(--title-color);
   font-size: 20px;
-  margin: 8px 0;
+  margin-top: 8px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
