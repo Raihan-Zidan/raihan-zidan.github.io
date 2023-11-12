@@ -533,7 +533,7 @@ function hnvd(res) {
   var b = a + 4;
   for (var i = a; i < res.items.length && i < b; i++) {
     videonya += `<div class="vidbung">
-      <div class="tab-link"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
+      <div class="tab-tb"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"><div class="viditem">
         <div class="thumbnail">
           <img src="${res.items[i].snippet.thumbnails.medium.url}">
           <div class="XTiWK"><span class="NwGDz">
