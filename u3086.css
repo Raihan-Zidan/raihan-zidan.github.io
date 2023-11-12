@@ -157,7 +157,6 @@ html, body {
   width: 100%;
   border: 1px solid #EDEDED;
   border-style: solid none;
-  padding: 15px;
   margin: 4px 0;
   background: white;
 }
@@ -322,6 +321,11 @@ html, body {
 .tab-link {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
+  padding: 10px 15px;
+}
+
+.btm-snpt {
+  padding: 15px;
 }
 
 .result-stats {
