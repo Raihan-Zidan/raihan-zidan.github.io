@@ -13,8 +13,6 @@ var searchlang = (idlang) ? `&hl=${hl}` : "";
 var rested = false;
 var searchParam = ``;
 
-rested = (window.location.href.toLowerCase().match("israel")) ? true : false;
-
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 function getData() {
