@@ -218,6 +218,7 @@ html, body {
   max-height: 28px;
   background: #f5f5f7;
   border-radius: 8px;
+  pointer-events: none;
 }
 
 .tab-result .favicon img {
