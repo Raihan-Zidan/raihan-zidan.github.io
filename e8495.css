@@ -184,9 +184,6 @@ body.dark .footer ul a, body.dark .footer .copyright {
 /* sitelink desain baru */
 
 @media (max-width: 780px) {
-  .tab-result:has(.sitelinks) {
-    padding-bottom: 15px;
-  }
   .tab-result .sitelinks {
     display: flex;
     padding-top: 10px;
