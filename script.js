@@ -433,7 +433,7 @@ function instant(e) {
       } else {
         insertAfter(tabres[2], instanswer);
       }
-      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="tab-result Vc7Ux"><div class="pddf fexl"><div class="title-black">${res.Heading}</div><div class="bagon"></div></div><div class="line"></div><div class="pddf"><div class="snip">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... <a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div></div></div>`);
+      document.querySelector(".tab-result.Vc7Ux").insertAdjacentHTML("beforeend", `<div class="pddf fexl"><div class="title-black">${res.Heading}</div><div class="bagon"></div></div><div class="line"></div><div class="pddf"><div class="snip">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... <a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div></div>`);
       if (res.Image) {
         var thumbUr = `/img/${res.Heading.toLowerCase().replace("!", "").replace(" ", "-")}.png`;
         cekGambarAda(thumbUr, function(ada) {
