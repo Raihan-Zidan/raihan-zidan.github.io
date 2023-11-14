@@ -425,33 +425,29 @@ function instant(e) {
     if (res.Abstract.length > 100) {
       var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
-      instanswer.classList.add("VtuHV");
-      instanswer.classList.add("instant-answer");
+      instanswer.classList.add("tab-result");
+      instanswer.classList.add("Vc7Ux");
       if (windowWidth > 780) {
         document.querySelector(".result-wrapper").innerHTML += `<div class="sidebar-panel"></div>`;
         document.querySelector(".sidebar-panel").appendChild(instanswer);
       } else {
         insertAfter(tabres[2], instanswer);
       }
-      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
+      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="tab-result Vc7Ux"><div class="pddf fexl"><div class="title-black">${res.Heading}</div><div class="bagon"></div></div><div class="line"></div><div class="pddf"><div class="snip">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... <a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div></div></div>`);
       if (res.Image) {
         var thumbUr = `/img/${res.Heading.toLowerCase().replace("!", "").replace(" ", "-")}.png`;
         cekGambarAda(thumbUr, function(ada) {
             if (ada) {
               toDataURL(thumbUr, function(dataUr) {
-                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUr}" align="right" class="logo">`);
+                document.querySelector(".tab-result.Vc7Ux .bagon").insertAdjacentHTML("afterbegin", `<img src="${dataUr}">`);
               });
             }
         });
     }
-      for (var i = 0; i < whflg.length; i++) {
-      if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
-        document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
-      }}
       if (res.Infobox) {
       for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
         if (res.Infobox.content[i].value.trim()) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
+          document.querySelector(".tab-result.Vc7Ux .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
         }
       }}
     }
