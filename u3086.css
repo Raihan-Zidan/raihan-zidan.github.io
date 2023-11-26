@@ -327,11 +327,11 @@ html, body {
 .tab-link {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
-  padding: 15px 15px 8px;
+  padding: 16px 16px 10px;
 }
 
 .btm-snpt {
-  padding: 0 15px 15px;
+  padding: 0 16px 16px;
 }
 
 .result-stats {
