@@ -642,6 +642,7 @@ div.shwrp .more {
   padding: 15px;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
+  background-color: #F7F8FA;
 }
 
 .snwt {
