@@ -767,7 +767,6 @@ div.shwrp .more {
 .news-list .news-tab {
   width: 150px;
   height: 200px;
-  border: 1px solid #E0E4E9;
   margin: 0 2px;
   position: relative;
   border-radius: 8px;
@@ -806,7 +805,6 @@ div.shwrp .more {
   display: block;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid #E0E4E9;
 }
 
 .news-tab .thumbnail:after {
@@ -825,7 +823,7 @@ div.shwrp .more {
 .news-tab .title {
   font-size: 15px;
   margin: 5px 8px 0;
-  color: black;
+  color: var(--title-color);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
