@@ -642,7 +642,6 @@ div.shwrp .more {
   padding: 15px;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
-  background-color: #F7F8FA;
 }
 
 .snwt {
@@ -772,6 +771,7 @@ div.shwrp .more {
   margin: 0 2px;
   position: relative;
   border-radius: 8px;
+  background: #F7F8FA;
 }
 
 .news-tab a {
