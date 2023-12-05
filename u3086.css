@@ -762,12 +762,12 @@ div.shwrp .more {
 .news-result .news-list::-webkit-scrollbar-thumb {
   background: lightgrey;
   border-radius: 8px;
+  gap: 0 5px;
 }
 
 .news-list .news-tab {
-  width: 150px;
-  height: 200px;
-  margin: 0 2px;
+  width: 160px;
+  height: 220px;
   position: relative;
   border-radius: 8px;
   background: #F7F8FA;
@@ -822,7 +822,7 @@ div.shwrp .more {
 
 .news-tab .title {
   font-size: 15px;
-  margin: 5px 8px 0;
+  margin: 6px 8px 0;
   color: var(--title-color);
   display: -webkit-box;
   -webkit-line-clamp: 3;
