@@ -748,6 +748,7 @@ div.shwrp .more {
 
 .news-result .news-list {
   padding: 5px 0;
+  gap: 0 8px;
 }
 
 .news-result .news-list::-webkit-scrollbar {
@@ -762,7 +763,6 @@ div.shwrp .more {
 .news-result .news-list::-webkit-scrollbar-thumb {
   background: lightgrey;
   border-radius: 8px;
-  gap: 0 5px;
 }
 
 .news-list .news-tab {
