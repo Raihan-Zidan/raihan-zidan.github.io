@@ -971,7 +971,7 @@ div.shwrp .more {
   .wrlink:has(.snippet) {
     margin-bottom: 8px;
   }
-  .tab-result .top {
+  .tab-result:not(.pL6sR) .top {
     background: #f7f8f9;
     padding: 10px 8px;
     border-radius: 16px;
