@@ -971,6 +971,11 @@ div.shwrp .more {
   .wrlink:has(.snippet) {
     margin-bottom: 8px;
   }
+  .tab-result .top {
+    background: #f7f8f9;
+    padding: 8px;
+    border-radius: 12px;
+  }
 }
 
 @media (min-width: 780px) {
