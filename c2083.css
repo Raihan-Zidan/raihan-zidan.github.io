@@ -21,10 +21,15 @@ body {
 }
 
 .container .search-box, form {
-  width: 90%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.container form {
+  position: relative;
+  width: 80%;
 }
 
 .container form .search-box {
@@ -32,6 +37,10 @@ body {
   border-radius: 22px;
   box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
   background: #fff;
+}
+
+.container form .search-box, .search-suggest {
+  width: 100%;
 }
 
 .container form input {
@@ -71,7 +80,7 @@ body {
 }
 
 
-.container ul {
+.container ul.link {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -84,7 +93,7 @@ body {
   list-style: none;
 }
 
-.container li > a {
+.container ul.link li > a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,15 +105,15 @@ body {
   transition: all .2s;
 }
 
-.container li:active > a {
+.container ul.link li:active > a {
   filter: brightness(90%);
 }
 
-.container li span {
+.container ul.link li span {
   font-size: 12px;
 }
 
-.container li .icon {
+.container ul.link li .icon {
   width: 50px;
   height: 50px;
   background: #fff;
@@ -116,11 +125,57 @@ body {
   align-items: center;
 }
 
-.container li .icon svg {
+.container ul.link li .icon svg {
   width: 20px;
   fill: #262626;
 }
 
-.container li .icon span {
+.container ul.link li .icon span {
   font-size: 18px;
 }
+
+.container form {
+  position: relative;
+}
+
+.search-suggest {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 0px 0px 22px 22px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  top: 100%;
+  display: none;
+}
+
+.search-suggest.active {
+  display: block;
+}
+
+.search-suggest ul li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  padding: 6px 15px;
+  transition: all .1s ease-in;
+  overflow: hidden;
+}
+
+.search-suggest ul li {
+  display: flex;
+  align-items: center;
+}
+
+.search-suggest ul li button {
+  right: 0;
+  position: absolute;
+}
+
+.search-suggest ul li:hover {
+  background: #edf3fc;
+}
+
+.container form .search-box.active {
+  border-radius: 22px 22px 0 0;
+}
+
