@@ -167,7 +167,7 @@ body {
 .search-suggest ul li span {
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: calc(100% - 50px);
+  max-width: calc(100% - 20px);
   overflow: hidden;
 }
 
