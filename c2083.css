@@ -58,7 +58,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .container .search-box {
+  .container form {
     max-width: 500px;
   }
   .container .img-logo {
