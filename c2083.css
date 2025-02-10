@@ -153,10 +153,8 @@ body {
 }
 
 .search-suggest ul li {
-  white-space: nowrap;
-  text-overflow: ellipsis;
   cursor: pointer;
-  padding: 6px 15px;
+  padding: 8px 15px;
   transition: all .1s ease-in;
   overflow: hidden;
 }
@@ -164,6 +162,13 @@ body {
 .search-suggest ul li {
   display: flex;
   align-items: center;
+}
+
+.search-suggest ul li span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 50px);
+  overflow: hidden;
 }
 
 .search-suggest ul li button {
