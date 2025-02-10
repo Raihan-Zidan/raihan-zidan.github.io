@@ -630,12 +630,6 @@ function nwsresult(data) {
   }
 }
 
-function formatSiteName(url) {
-  let domain = new URL(url).hostname;
-  domain = domain.replace("www.", "").replace(".com", ""); // Hilangkan "www." dan ".com"
-  return domain.charAt(0).toUpperCase() + domain.slice(1); // Kapitalisasi huruf pertama
-}
-
 function webresult(res) {
   try {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
@@ -660,7 +654,7 @@ function webresult(res) {
       urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
       displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
-      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32"></div><div class="link-rw"><div class="link">${formatSiteName(res.items[i].link)}</div><div class="link k">${urlparam}</div></div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div></div>`);
+      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32"></div><div class="link-rw"><div class="link">${displayUrl}</div><div class="link k">${urlparam}</div></div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div></div>`);
       if (q.toLowerCase() == "games" && windowWidth < 780 && i == 1 && pageone) {
         document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV tab-result pL6sR">
       <span class="atas-euy"><div class="top">
