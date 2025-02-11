@@ -423,7 +423,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .related-search .title {
   font-size: 20px;
   margin: 5px 0;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .search-list {
@@ -439,6 +439,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   padding: 14px;
   color: black;
+  font-weight: bold;
   text-decoration: none;
   border-top: 1px solid #EDEDED;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
