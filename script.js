@@ -10,7 +10,7 @@ var th = url.searchParams.get("th");
 var tbm = url.searchParams.get("tbm");
 var idlang = (hl == "id") ? true : false;
 var searchlang = (idlang) ? `&hl=${hl}` : "";
-var rested = true;
+var rested = false;
 var searchParam = ``;
 
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -638,7 +638,7 @@ function webresult(res) {
       document.querySelector(".main-result").insertAdjacentHTML('afterbegin', `<div class="WsXZp"><div class="result-stats">${rsltsta}</div></div>`);
     }
     if (res.items && res.spelling && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a><span>?</span></div></div>`;
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
