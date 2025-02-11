@@ -418,18 +418,18 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 6px 0;
   position: relative;
   background: white;
+  font-weight: 600;
 }
 
 .related-search .title {
   font-size: 20px;
   margin: 5px 0;
-  font-weight: bold;
 }
 
 .search-list {
   width: 100%;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: #222222;
   display: flex;
   flex-wrap: wrap;
@@ -439,7 +439,6 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   padding: 14px;
   color: black;
-  font-weight: bold;
   text-decoration: none;
   border-top: 1px solid #EDEDED;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
