@@ -20,7 +20,7 @@ html, body {
 .header {
   padding-top: 8px;
   background: #fff;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Google Sans', Arial, sans-serif;
 }
 
 .search-box {
@@ -158,8 +158,12 @@ html, body {
   width: 100%;
   border: 1px solid #EDEDED;
   border-style: solid none;
-  margin: 5px 0;
+  margin-bottom: 6px;
   background: white;
+}
+
+.search-result > .tab-result:not(:first-child) {
+  margin: 6px 0;
 }
 
 .tab-result .title,
