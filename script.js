@@ -755,7 +755,7 @@ function noresult() {
   for (var i = 0; i < 3; i++) {
     nosugtext += `<li>${langtext("noresultsug", i)}</li>`;
   }
-  document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
+  document.querySelector(".main-result").innerHTML += `<div class="tab-result Nrltf"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
 }
 
 function shwfter() {
