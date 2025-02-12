@@ -100,9 +100,9 @@ if (tbm === "vid") {
 var language = {
   en: {
     news: "News result",
-    more: "Show more",
+    more: "More search results",
     vidTitle: "Videos",
-    related: "People are also search for",
+    related: "People also search for",
     placeholder: "Type to search...",
     correct: "Did you mean:",
     noresult: "No matching results",
@@ -113,7 +113,7 @@ var language = {
   },
   id: {
     news: "Hasil berita",
-    more: "Lihat lainnya",
+    more: "Hasil penelusuran lainnya",
     vidTitle: "Video",
     related: "Orang lain juga menelusuri",
     placeholder: "Ketik untuk  mencari...",
