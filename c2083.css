@@ -127,11 +127,12 @@ body {
 
 .container ul.link li .icon svg {
   width: 20px;
-  fill: #EDEDED;
+  fill: #474747;
 }
 
 .container ul.link li .icon span {
   font-size: 16px;
+  color: #474747
 }
 
 .container form {
