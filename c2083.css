@@ -127,12 +127,13 @@ body {
 
 .container ul.link li .icon svg {
   width: 20px;
-  fill: #474747;
+  fill: #494949;
 }
 
 .container ul.link li .icon span {
   font-size: 16px;
-  color: #474747
+  color: #494949;
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000;
 }
 
 .container form {
@@ -182,8 +183,11 @@ body {
   background: #edf3fc;
 }
 
+.container form .search-box {
+  transition: all .2s;
+}
+
 .container form .search-box.active {
   border-radius: 22px 22px 0 0;
-  transition: all .2s;
 }
 
