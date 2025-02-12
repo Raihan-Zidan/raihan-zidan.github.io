@@ -314,10 +314,20 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://serpapi.com/search?engine=google_news&api_key=ac297d92e17eeec5536517574b560f560b863c0de8575884503724302442676f&gl=id&hl=id&q=${val}`)
-      .then(response => response.json()).then(response => {
-        nwsr(response);
-    })
+    
+
+const { getJson } = require("serpapi");
+
+getJson({
+  engine: "google_news",
+  q: val,
+  gl: "id",
+  hl: "id",
+  api_key: "ac297d92e17eeec5536517574b560f560b863c0de8575884503724302442676f"
+}, (json) => {
+  nwsr(json["news_results"]);
+});
+
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${spr}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}${basa}`)
       .then(response => response.json()).then(response => {
