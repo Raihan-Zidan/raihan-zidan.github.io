@@ -314,20 +314,10 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    
-
-const { getJson } = require("serpapi");
-
-getJson({
-  engine: "google_news",
-  q: val,
-  gl: "id",
-  hl: "id",
-  api_key: "ac297d92e17eeec5536517574b560f560b863c0de8575884503724302442676f"
-}, (json) => {
-  nwsr(json["news_results"]);
-});
-
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&sort=date&sort=date&q=${val}`)
+      .then(response => response.json()).then(response => {
+        nwsr(response);
+    })
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${spr}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}${basa}`)
       .then(response => response.json()).then(response => {
@@ -523,12 +513,12 @@ function dateconversion(val) {
 
 function nwsr(res) {
   try {
-    for (var i = 0; i < res.news_results.length; i++) {
-      publisher = res.news_results[i].stories[2].soure.name
-      var publishtime = (res.news_results[i].stories[2].data) ? dateconversion(res.news_results[i].stories[2].data) : "Published";
+    for (var i = 0; i < res.items.length; i++) {
+      publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
+      var publishtime = (res.items[i].pagemap.metatags[0]['article:published_time']) ? dateconversion(res.items[i].pagemap.metatags[0]['article:published_time']) : "Published";
       newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
-      thumbimg = (res.news_results[i].stories[2].thumbnail) ? `<img class="thumb" src="${res.news_results[i].stories[2].thumbnail}">` : "";
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.news_results[i].stories[2].link}">${thumbimg}<div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.news_results[i].stories[2].link}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.news_results[i].stories[2].title.slice(0, 70)}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
+      thumbimg = (res.items[i].pagemap.cse_thumbnail) ? `<img class="thumb" src="${res.items[i].pagemap.cse_thumbnail[0].src}">` : "";
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.items[i].link}">${thumbimg}<div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.items[i].title.slice(0, 70)}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
     }
     if (startIndex == 1) { shwfter(); }
   } catch(error) {
