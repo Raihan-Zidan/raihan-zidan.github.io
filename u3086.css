@@ -770,11 +770,11 @@ div.shwrp .more {
 }
 
 .news-list .news-tab {
-  width: 160px;
-  height: 220px;
+  width: 200px;
+  height: 260px;
   position: relative;
   border-radius: 8px;
-  background: #f2f7ff;
+  background: #f4f6f7;
 }
 
 .news-tab a {
