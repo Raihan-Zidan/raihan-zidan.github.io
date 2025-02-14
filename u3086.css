@@ -416,6 +416,7 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 15px 15px 0;
   margin: 6px 0;
   position: relative;
+  background: white;
   text-shadow: 0.1px 0 0 #000, -0.1px 0 0 #000;
 }
 
@@ -449,8 +450,7 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: #F4F4F4;
   border-radius: 100%;
   position: absolute;
-  right: 0;
-  top: auto;
+  inset: auto 0 auto auto;
   background-image: url("images/search.png");
   background-size: 18px;
   background-repeat: no-repeat;
