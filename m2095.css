@@ -61,8 +61,6 @@
 	color: #000;
 	padding: 12px 8px;
 	font-size: 11px;
-	overflow: hidden;
-	white-space: nowrap;
 }
 
 .video-result .info {
@@ -70,10 +68,8 @@
 	margin-top: auto;
 	align-items: center;
 	gap: 4px;
-}
-
-.video-result .info > *:nth-child(3) { 
-  order: 1;
+	
+	white-space: nowrap;
 }
 
 .video-result .favicon {
