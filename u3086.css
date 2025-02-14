@@ -444,7 +444,7 @@ input[type="search"]::-webkit-search-results-decoration {
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
 }
 
-.related:before {
+.related:after {
   content: "";
   width: 18px;
   height: 18px;
