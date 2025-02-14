@@ -567,7 +567,7 @@ function hnvd(res) {
 function videoresult(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
-      document.querySelector(".main-result").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"  data-number="1"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="images/youtube.png" class="favicon"><div>YouTube • ${res.items[i].snippet.channelTitle}</div></div><div class="source"><div class="info">${res.items[i].snippet.publishTime}</div></div></div></a></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="video-result"><a href="https://youtube.com/watch?v=${res.items[i].id.videoId}"  data-number="1"><img src="${res.items[i].snippet.thumbnails.medium.url}" class="thumbnail"><div class="title">${res.items[i].snippet.title}</div><div class="source"><div class="info"><img src="images/youtube.png" class="favicon"><div>YouTube • ${res.items[i].snippet.channelTitle}</div><div class="info">${res.items[i].snippet.publishTime}</div></div></div></a></div>`;
     }
     if (startIndex == 1) { shwfter(); }
     if (!res.items.length > 0) throw "empty";
