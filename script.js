@@ -26,6 +26,10 @@ function getData() {
   return {};
 }
 
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 if (getData().theme == "dark" || th == 1) {
   document.body.classList.add("dark");
 }
@@ -461,7 +465,7 @@ function instant(e) {
 function relatedsearch(res) {
   var rltn = "";
   for (var i = 1; i < res.length && i < 5; i++) {
-    rltn += `<a href="/search?q=${res[i]}" class="related">${res[i]}</a>`;
+    rltn += `<a href="/search?q=${res[i]}" class="related">${capitalize(res[i])}</a>`;
   }
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
