@@ -440,6 +440,7 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 14px 0;
   color: black;
   text-decoration: none;
+  position: relative;
   border-top: 1px solid #EDEDED;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
 }
