@@ -26,6 +26,7 @@
 	margin: 2px;
 	background: #fff;
 	position: relative
+	gap: 10px;
 }
 
 .video-result a:active>* {
@@ -59,17 +60,16 @@
 
 .video-result .source {
 	color: #000;
-	padding: 12px 8px;
+	padding: 0 8px;
 	font-size: 11px;
-	gap: 4px;
 }
 
 .video-result .info {
 	display: flex;
-	margin-top: auto;
+	margin-top: 4px;
 	align-items: center;
 	gap: 4px;
-	
+	overflow: hidden;
 	white-space: nowrap;
 }
 
