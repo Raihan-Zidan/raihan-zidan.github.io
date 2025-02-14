@@ -60,13 +60,14 @@
 .video-result .source {
 	color: #000;
 	padding: 12px 8px;
-	font-size: 10px;
+	font-size: 11px;
   overflow: hidden;
 }
 
 .video-result .info {
 	display: flex;
 	margin-top: auto;
+	align-items: center;
 }
 
 .video-result .favicon {
