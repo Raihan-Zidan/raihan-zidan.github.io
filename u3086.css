@@ -453,7 +453,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 100%;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 7px;
   margin-right: 10px;
   background-image: url("images/search.png");
   background-size: 18px;
