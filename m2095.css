@@ -65,15 +65,15 @@
 	white-space: nowrap;
 }
 
-.video-result .source > *:nth-child(3) { 
-  order: 1;
-}
-
 .video-result .info {
 	display: flex;
 	margin-top: auto;
 	align-items: center;
 	gap: 4px;
+}
+
+.video-result .info > *:nth-child(3) { 
+  order: 1;
 }
 
 .video-result .favicon {
