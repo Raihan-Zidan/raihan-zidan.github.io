@@ -47,7 +47,7 @@
 
 .video-result .title {
 	color: #1558d6;
-	margin: 4px 5px 8px;
+	margin: 2px 5px 8px;
 	font-size: 15px;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
@@ -61,7 +61,8 @@
 	color: #000;
 	padding: 12px 8px;
 	font-size: 11px;
-  overflow: hidden;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .video-result .info {
@@ -73,7 +74,6 @@
 .video-result .favicon {
 	width: 16px;
 	height: 16px;
-	margin-right: 4px
 }
 
 @media (min-width:780px) {
