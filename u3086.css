@@ -127,6 +127,8 @@ html, body {
   display: inline-block;
   text-align: center;
   font-size: 14px;
+  font-family: Google Sans,Roboto-Medium,sans-serif;
+  font-weight: 500;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
