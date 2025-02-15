@@ -743,14 +743,14 @@ function webresult(res) {
       XuadHc("stop");
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}&sort=date`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&sort=date`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
@@ -802,7 +802,7 @@ function XuadHc(cmt, res) {
     }
   } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0) {
       document.querySelector(".show-wrapper").remove();
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="btm-snpt"><div class="snippet" style="font-size:15px;">Untuk sementara waktu kami perlu membatasi hasil pencarian yang muncul, maaf.</div></div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu kami perlu membatasi hasil pencarian yang muncul.</div></div></div>`;
   } else {
       document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
   }
