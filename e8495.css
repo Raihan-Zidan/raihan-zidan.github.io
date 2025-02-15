@@ -31,20 +31,20 @@
 
 .vidbung:active {
   animation-name: hoverAnim;
-  animation-duration: .9s;
+  animation-duration: .8s;
 }
 
 @keyframes hoverAnim {
   0 {
     background: #fff;
   }
-  20% {
+  10% {
     background: #ededed;
   }
   60% {
     background: #ededed;
   }
-  100% {
+  70% {
     background: #fff;
   }
 }
