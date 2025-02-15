@@ -217,7 +217,7 @@ html, body {
 }
 
 .tab-result .favicon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 28px;
@@ -228,8 +228,8 @@ html, body {
 }
 
 .tab-result .favicon img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 5px;
 }
 
