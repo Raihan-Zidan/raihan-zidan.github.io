@@ -28,7 +28,7 @@
   gap: 12px;
 }
 
-.viditem {
+.vidbung:active {
   animation-name: hoverAnim;
   animation-duration: 0.8s;
 }
