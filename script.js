@@ -340,7 +340,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyCJ3RgcZOxOm_V1hq-UXCJwPsWquHggQrg&cx=f7113f6d71c8f48c8&q=${val}&hl=id&gl=id&ql=berita`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&q=${val}&hl=id&gl=id&ql=berita`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
@@ -393,7 +393,13 @@ function jwbn() {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
       xhr.responseType = "json";
-      xhr.onload = instant;
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          instant(xhr.response);
+        } else {
+          
+        }
+      };
       xhr.send();
     }
 }
@@ -746,7 +752,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&sort=date&cx=1428d6f56512346f2&q=${q}&exactTerms=${q}${basa}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
