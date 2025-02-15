@@ -399,6 +399,8 @@ function jwbn() {
           instant(xhr.response);
       };
       xhr.onerror = function() {
+        console.clear("WKWKWKK");
+        
       };
       xhr.send();
     }
