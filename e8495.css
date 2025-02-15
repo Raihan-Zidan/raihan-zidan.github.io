@@ -53,8 +53,8 @@
 .viditem .thumbnail {
   position: relative;
   width: 130px;
-  height: auto;
-  background: green
+  display: flex;
+  align-items: center;
 }
 
 .thumbnail img {
