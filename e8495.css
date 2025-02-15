@@ -45,7 +45,7 @@
 }
 
 .XTiWK span svg {
-  fill: #FFF;
+  fill: #EDEDED;
 }
 
 .viditem .thumbnail {
@@ -55,7 +55,7 @@
 }
 
 .thumbnail img {
-  width: 100%;
+  width: 120px;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -82,13 +82,13 @@ span.dot:before {
 .soember {
   color: #000;
   display: flex;
-  font-size: 13px;
-  margin: 2px 0;
+  font-size: 12px;
+  margin: 0px 0;
 }
 
 .tanggal, .chnama {
   color: #494949;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 div.chnama {
