@@ -24,9 +24,8 @@
 
 .viditem {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  background: red;
 }
 
 .viditem .XTiWK {
@@ -54,7 +53,7 @@
 .viditem .thumbnail {
   position: relative;
   width: 130px;
-  height: 80px;
+  height: 90px;
 }
 
 .thumbnail img {
