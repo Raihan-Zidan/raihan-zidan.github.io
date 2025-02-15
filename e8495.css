@@ -38,8 +38,8 @@
 .XTiWK span {
   position: absolute;
   opacity: .7;
-  width: 35px;
-  height; 35px;
+  width: 30px;
+  height: 30px;
   background: #fff;
   border-radius: 50%;
 }
@@ -70,7 +70,7 @@
 
 .joedoel {
   color: var(--title-color);
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 6px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
