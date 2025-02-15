@@ -404,7 +404,7 @@ function jwbn() {
         
       };
       xhr.send();
-    
+    }
 }
 
 function instantanswer() {
