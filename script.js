@@ -318,7 +318,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=1428d6f56512346f2&sort=date&sort=date&q=${val}`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyCJ3RgcZOxOm_V1hq-UXCJwPsWquHggQrg&cx=f7113f6d71c8f48c8&q=${val}&hl=id&gl=id&ql=berita`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
