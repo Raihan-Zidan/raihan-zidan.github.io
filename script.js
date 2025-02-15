@@ -609,24 +609,19 @@ function nwsresult(data) {
       insertAfter(tabres[(windowWidth > 780) ? 2 : 3], nwsres);
 
       var resultsWithThumbnail = data.items.filter(function(item) {
-        if (item.pagemap.cse_thumbnail[0].src) {
+        if (item.pagemap.cse_thumbnail) {
           var thumbnailimg = item.pagemap.cse_thumbnail[0].src;
           var publisher = (item.pagemap.metatags[0]['og:site_name']) ? item.pagemap.metatags[0]['og:site_name'] : item.displayLink;
 
-          // Mengambil URL thumbnail menggunakan fungsi toDataURL
           toDataURL(thumbnailimg, function(dataUrl) {
             var newsTab = document.createElement("div");
             newsTab.classList.add("news-tab");
             newsTab.innerHTML = `<a href="${item.link}"><img src='${dataUrl}' class='thumbnail'><div class="title">${item.title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.link}&size=64"><div class="link">${publisher}</div></div></a>`;
 
-            // Menambahkan tab berita ke dalam elemen dengan class "news-list"
             document.querySelector(".news-result .news-list").appendChild(newsTab);
           });
-
-          // Mengembalikan nilai true agar item disertakan dalam hasil filter
           return true;
         } else {
-          // Mengembalikan nilai false agar item tidak disertakan dalam hasil filter
           return false;
         }
       });
