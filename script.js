@@ -396,9 +396,10 @@ function jwbn() {
       xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
           instant(xhr.response);
-        } else {
-          console.log("Terjadi error saat menghubungi data server.");
         }
+      };
+      xhr.onerror = function() {
+        // Jika ada kesalahan jaringan atau masalah saat request, kita bisa biarkan kosong atau tangani secara lain
       };
       xhr.send();
     }
@@ -752,7 +753,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}&sort=date-sdate`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
