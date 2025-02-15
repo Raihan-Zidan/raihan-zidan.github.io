@@ -390,25 +390,15 @@ function jwbn() {
       } else if (val.toLowerCase() == "messi") {
         qval = "lionel messi";
       }
-      function suppressXHRError() {
-  console.error = function (...args) {
-    if (!args[0] || typeof args[0] !== "string" || !args[0].includes("XMLHttpRequest")) {
-      originalConsoleError.apply(console, args); // Hanya tampilkan error lain
-    }
-  };
-}
+
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
       xhr.responseType = "json";
       xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
           instant(xhr.response);
-        } else {
-          suppressXHRError();
-        }
       };
       xhr.onerror = function() {
-        suppressXHRError();
       };
       xhr.send();
     }
