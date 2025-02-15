@@ -340,7 +340,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${val}&hl=id&gl=id&ql=berita`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${val}&hl=id&gl=id&ql=berita&sort=date`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
@@ -390,16 +390,25 @@ function jwbn() {
       } else if (val.toLowerCase() == "messi") {
         qval = "lionel messi";
       }
+      function suppressXHRError() {
+  console.error = function (...args) {
+    if (!args[0] || typeof args[0] !== "string" || !args[0].includes("XMLHttpRequest")) {
+      originalConsoleError.apply(console, args); // Hanya tampilkan error lain
+    }
+  };
+}
       var xhr = new XMLHttpRequest();
       xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
       xhr.responseType = "json";
       xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
           instant(xhr.response);
+        } else {
+          suppressXHRError();
         }
       };
       xhr.onerror = function() {
-        // Jika ada kesalahan jaringan atau masalah saat request, kita bisa biarkan kosong atau tangani secara lain
+        suppressXHRError();
       };
       xhr.send();
     }
@@ -753,7 +762,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}&sort=date-sdate`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}&sort=date`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
