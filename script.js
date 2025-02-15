@@ -636,7 +636,7 @@ function nwsresult(data) {
     data.items.forEach(item => { // Use forEach for simpler iteration
       if (item.pagemap?.cse_thumbnail?.length > 0 && item.pagemap.cse_thumbnail[0]?.src) {
         const thumbnailimg = item.pagemap.cse_thumbnail[0].src;
-        const publisher = item.pagemap.metatags?.[0]?.['og:site_name'] ?? item.displayLink; // Nullish coalescing
+        const publisher = item.pagemap.metatags?.[0]?.['og:site_name'] ? item.pagemap.metatags?.[0]?.['og:site_name'] : item.displayLink; // Nullish coalescing
 
         toDataURL(thumbnailimg, function(dataUrl) {
           const newsTab = document.createElement("div");
