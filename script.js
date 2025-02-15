@@ -340,7 +340,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&q=${val}&hl=id&gl=id&ql=berita`)
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${val}&hl=id&gl=id&ql=berita`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
@@ -397,7 +397,7 @@ function jwbn() {
         if (xhr.status >= 200 && xhr.status < 300) {
           instant(xhr.response);
         } else {
-          
+          console.log("Terjadi error saat menghubungi data server.");
         }
       };
       xhr.send();
@@ -752,7 +752,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&hl=id&gl=id&ql=berita&exactTerms=${q}`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
