@@ -1,5 +1,5 @@
 .tab-result.Dxcgd {
-  padding: 16px 16px 0;
+  padding: 0 0 0;
 }
 
 .TgeAw {
@@ -9,11 +9,12 @@
 .tab-result .title.Jhtm {
   color: black;
   margin: 0;
+  padding: 16px 16px 0;
 }
 
 .vidbung {
   border-top: 1px solid #EDEDED;
-  padding: 12px 0 8px;
+  padding: 12px 16px 8px;
   position: relative;
   overflow: hidden;
 }
