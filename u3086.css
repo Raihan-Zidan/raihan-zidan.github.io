@@ -169,7 +169,6 @@ html, body {
 .tab-result .title-black {
   color: var(--title-color);
   font-size: 20px;
-  margin-top: 10px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -200,7 +199,10 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 0 0 11px;
 }
+
+.top .link-rw {}
 
 .ads {
   font-size: 10px;
@@ -224,8 +226,8 @@ html, body {
 }
 
 .tab-result .favicon img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   border-radius: 5px;
 }
 
@@ -249,8 +251,9 @@ html, body {
 }
 
 .tab-result .snippet {
-  color: #494949;
-  font-size: 15px;
+  color: #474747;
+  font-size: 14px;
+  font-family: Roboto,sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -318,7 +321,7 @@ html, body {
 }
 
 .pddf, .corrected-word {
-  padding: 15px;
+  padding: 16px;
 }
 
 .corrected-word .spelling {
@@ -329,7 +332,7 @@ html, body {
 .tab-link {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
-  padding: 15px 15px 10px;
+  padding: 16px 16px 10px;
 }
 
 .btm-snpt {
@@ -351,7 +354,7 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
   border: 1px solid #EDEDED;
   border-style: solid none;
-  padding: 15px;
+  padding: 16px;
   margin: 6px 0;
   background: white;
 }
@@ -412,7 +415,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .related-search {
   width: 100%;
   border: 1px solid #EDEDED;
-  padding: 15px 15px 0;
+  padding: 16px 16px 0;
   margin: 6px 0;
   position: relative;
   background: white;
@@ -647,7 +650,7 @@ div.shwrp .more {
 }
 
 .nwst {
-  padding: 15px;
+  padding: 16px;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
 }
@@ -1294,7 +1297,7 @@ div.shwrp .more {
   }
   .trnsl {
     border: none;
-    padding: 15px;
+    padding: 16px;
   }
   .container {
     padding: 30px;
