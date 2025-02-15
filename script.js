@@ -756,7 +756,7 @@ function webresult(res) {
       })
     }
 
-    XuadHc("stop");
+    XuadHc("stop", res);
     if (pageone) {
       shwfter();
   fetch(`https://api.swisscows.com/suggest?query=${q}`)
@@ -792,16 +792,16 @@ function share() {
   }
 }
 
-function XuadHc(cmt) {
+function XuadHc(cmt, res) {
   var maxIndex = 30;
   if (cmt != "stop" && startIndex < maxIndex) {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
-  if (startIndex < maxIndex && navigator.onLine) {
-    startIndex += 10;
-    setTimeout(submit, 300);
-  }
+    if (startIndex < maxIndex && navigator.onLine) {
+      startIndex += 10;
+      setTimeout(submit, 500);
+    }
   } else {
-    if (startIndex > maxIndex) {
+    if (startIndex > maxIndex || res.searchInformation.totalResults == 0) {
       document.querySelector(".show-wrapper").remove();
     } else {
       document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
