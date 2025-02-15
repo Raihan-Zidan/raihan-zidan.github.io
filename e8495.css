@@ -35,16 +35,10 @@
 }
 
 @keyframes hoverAnim {
-  0 {
-    background: #fff;
-  }
-  10% {
+  from {
     background: #ededed;
   }
-  60% {
-    background: #ededed;
-  }
-  70% {
+  to {
     background: #fff;
   }
 }
