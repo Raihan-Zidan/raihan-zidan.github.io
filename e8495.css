@@ -38,8 +38,8 @@
 .XTiWK span {
   position: absolute;
   opacity: .7;
-  width: 30px;
-  height: 30px;
+  min-width: 25px;
+  min-height: 25px;
   background: #fff;
   border-radius: 50%;
 }
