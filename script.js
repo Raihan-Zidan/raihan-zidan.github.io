@@ -227,7 +227,7 @@ function isLikelyTitle(str) {
     return false;
   }
   const words = str.split(' ');
-  if (words.length > 1) {
+  if (!words.length > 1) {
     return false;
   }
   let capitalizedCount = 0;
