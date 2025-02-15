@@ -24,6 +24,8 @@
 
 .viditem {
   display: flex;
+  align-items: start;
+  gap: 12px;
 }
 
 .viditem .XTiWK {
@@ -58,10 +60,6 @@
   width: 130px;
   object-fit: cover;
   border-radius: 6px;
-}
-
-.sampingnye {
-  padding-left: 12px;
 }
 
 .joedoel {
