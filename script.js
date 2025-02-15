@@ -609,8 +609,7 @@ function nwsresult(data) {
       insertAfter(tabres[(windowWidth > 780) ? 2 : 3], nwsres);
 
       var resultsWithThumbnail = data.items.filter(function(item) {
-        // Memeriksa apakah item memiliki properti 'cse_thumbnail' yang tidak kosong
-        if (item.pagemap.cse_thumbnail) {
+        if (item.pagemap.cse_thumbnail[0].src) {
           var thumbnailimg = item.pagemap.cse_thumbnail[0].src;
           var publisher = (item.pagemap.metatags[0]['og:site_name']) ? item.pagemap.metatags[0]['og:site_name'] : item.displayLink;
 
@@ -658,7 +657,8 @@ function webresult(res) {
       urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
       displayUrl = (getData().newurl == true || url.searchParams.get("uf") == 1) ? urlparam : res.items[i].displayLink;
-      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32"></div><div class="link-rw"><div class="link">${displayUrl}</div><div class="link k">${urlparam}</div></div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div></div>`);
+      var siteName = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : displayUrl;
+      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=32"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">${urlparam}</div></div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div>${showLinks(res.items[i].link)}</div></div>`);
       if (q.toLowerCase() == "games" && windowWidth < 780 && i == 1 && pageone) {
         document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV tab-result pL6sR">
       <span class="atas-euy"><div class="top">
