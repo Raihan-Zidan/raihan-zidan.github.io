@@ -223,7 +223,7 @@ if (windowWidth < 780) {
 
 // cek judul atau bukan //
 function isLikelyTitle(str) {
-  if (str.length > 150) {
+  if (str.length > 18) {
     return false;
   }
   const words = str.split(' ');
@@ -621,32 +621,28 @@ function nwsresultOld(res) {
 }
 
 function nwsresult(data) {
-  if (data.items.length > 3) {
-      var tabres = document.querySelectorAll(".tab-result");
-      var nwsres = document.createElement("div");
-      nwsres.classList.add("m6gAk");
-      nwsres.classList.add("VtuHV");
-      nwsres.classList.add("news-result");
-      nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
-      insertAfter(tabres[(windowWidth > 780) ? 2 : 3], nwsres);
+  if (data.items?.length > 3) { // Use optional chaining for data.items
+    var tabres = document.querySelectorAll(".tab-result");
+    var nwsres = document.createElement("div");
+    nwsres.classList.add("m6gAk", "VtuHV", "news-result"); // Combined class adding
+    nwsres.innerHTML = `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
+    insertAfter(tabres[(windowWidth > 780) ? 2 : 3], nwsres);
 
-      var resultsWithThumbnail = data.items.filter(function(item) {
-        if (item.pagemap.cse_thumbnail) {
-          var thumbnailimg = item.pagemap.cse_thumbnail[0].src;
-          var publisher = (item.pagemap.metatags[0]['og:site_name']) ? item.pagemap.metatags[0]['og:site_name'] : item.displayLink;
+    // More robust filtering and processing
+    data.items.forEach(item => { // Use forEach for simpler iteration
+      if (item.pagemap?.cse_thumbnail?.length > 0 && item.pagemap.cse_thumbnail[0]?.src) {
+        const thumbnailimg = item.pagemap.cse_thumbnail[0].src;
+        const publisher = item.pagemap.metatags?.[0]?.['og:site_name'] ?? item.displayLink; // Nullish coalescing
 
-          toDataURL(thumbnailimg, function(dataUrl) {
-            var newsTab = document.createElement("div");
-            newsTab.classList.add("news-tab");
-            newsTab.innerHTML = `<a href="${item.link}"><img src='${dataUrl}' class='thumbnail'><div class="title">${item.title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.link}&size=64"><div class="link">${publisher}</div></div></a>`;
+        toDataURL(thumbnailimg, function(dataUrl) {
+          const newsTab = document.createElement("div");
+          newsTab.classList.add("news-tab");
+          newsTab.innerHTML = `<a href="${item.link}"><img src='${dataUrl}' class='thumbnail'><div class="title">${item.title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.link}&size=64"><div class="link">${publisher}</div></div></a>`;
 
-            document.querySelector(".news-result .news-list").appendChild(newsTab);
-          });
-          return true;
-        } else {
-          return false;
-        }
-      });
+          document.querySelector(".news-result .news-list").appendChild(newsTab);
+        });
+      }
+    });
   }
 }
 
