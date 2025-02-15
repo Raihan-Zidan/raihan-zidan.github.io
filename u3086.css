@@ -780,11 +780,11 @@ div.shwrp .more {
 }
 
 .news-list .news-tab {
-  width: 230px;
-  height: 280px;
+  width: 180px;
+  height: 250px;
   position: relative;
-  border-radius: 12px;
-  background: #bed0ed;
+  border-radius: 16px;
+  background: #f4f6f7;
 }
 
 .news-tab a {
@@ -818,7 +818,7 @@ div.shwrp .more {
   height: 50%;
   display: block;
   object-fit: cover;
-  border-radius: 12px 12px 0 0;
+  border-radius: 16px 16px 0 0;
 }
 
 .news-tab .thumbnail:after {
