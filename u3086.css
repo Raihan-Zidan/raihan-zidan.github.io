@@ -220,7 +220,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
+  min-width: 28px;
   height: 28px;
   background: #f5f5f7;
   border-radius: 50%;
@@ -228,8 +228,8 @@ html, body {
 }
 
 .tab-result .favicon img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 5px;
 }
 
@@ -421,7 +421,8 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 6px 0;
   position: relative;
   background: white;
-  text-shadow: 0.1px 0 0 #000, -0.1px 0 0 #000;
+  font-family: Google Sans,Roboto-Medium,sans-serif;
+  font-weight: 500;
 }
 
 .related-search .title {
