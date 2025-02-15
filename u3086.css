@@ -230,7 +230,7 @@ html, body {
 .tab-result .favicon img {
   width: 22px;
   height: 22px;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 
 .tab-result .favicon {
