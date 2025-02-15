@@ -28,6 +28,11 @@
   gap: 12px;
 }
 
+.viditem {
+  animation-name: hoverAnim;
+  animation-duration: 0.8s;
+}
+
 .viditem .XTiWK {
   display: flex;
   align-items: center;
@@ -55,6 +60,7 @@
   width: 130px;
   display: flex;
   align-items: center;
+  background: red;
 }
 
 .thumbnail img {
