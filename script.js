@@ -400,7 +400,6 @@ function jwbn() {
         }
       };
       xhr.onerror = function() {
-        console.clear("WKWKWKK");
         
       };
       xhr.send();
