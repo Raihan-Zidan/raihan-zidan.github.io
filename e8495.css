@@ -206,6 +206,7 @@ body.dark .footer ul a, body.dark .footer .copyright {
     overflow-x: scroll;
     flex-wrap: nowrap;
     flex-direction: row;
+    gap: 6px;
   }
   .tab-result .sitelinks::-webkit-scrollbar {
     height: 0;
