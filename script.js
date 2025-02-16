@@ -467,8 +467,8 @@ function instant(e) {
         var thumbUr = `https://datasearch.raihan-zidan2709.workers.dev/images/` + res.Image.replace("/i/", "");
         cekGambarAda(thumbUr, function(ada) {
             if (ada) {
-              
-                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" align="right" class="logo">`);
+                var dt = (res.type) ? `style="border:1px solid #999999"` : "";
+                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" ${dt} align="right" class="logo">`);
               
             }
         });
