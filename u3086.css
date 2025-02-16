@@ -1031,6 +1031,10 @@ div.shwrp .more {
   .tab-link {
     display: inline-block;
     -webkit-tap-highlight-color: transparent;
+    padding: 16px 16px 0;
+  }
+  .btm-snpt {
+    padding: 0 15px 5px;
   }
   .tab-result .title, .sitelinks .link {
     display: inline-block;
