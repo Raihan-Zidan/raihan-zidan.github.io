@@ -147,13 +147,7 @@ fetch('/sitelinks.js')
     }
 })
 
-function generateRandomString(maxLen) {
-  var randomString = '';
-  for (var i = 0; i < maxLen; i++) {
-    randomString += String.fromCharCode(Math.floor(Math.random() * 123) + 97);
-  }
-  return randomString;
-}
+
 
 function showLinks(url) {
   var foundSite = sitelinkss.find(s => s.site.replace(/^https?:\/\//, "") == url.replace(/^https?:\/\//, ""));
@@ -400,7 +394,7 @@ function jwbn() {
       }
 
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://duckduckgo.com/?q=${qval}&format=json&pretty=1&no_redirect=1&no_html=1&skip_disambig=1&m=${generateRandomString(5)}`);
+      xhr.open("GET", `https://datasearch.raihan-zidan2709.workers.dev/?q=${qval}`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
