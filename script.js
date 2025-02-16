@@ -354,6 +354,9 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
+    .catch(error => {
+      window.location.replace(window.location.href); 
+    });
     if (!val.match(/html|css|javascript|how|to|cara|membuat/) && Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
 
     }
