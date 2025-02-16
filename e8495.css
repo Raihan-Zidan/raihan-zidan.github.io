@@ -222,10 +222,6 @@ body.dark .footer ul a, body.dark .footer .copyright {
     border-radius: 5px;
     white-space: nowrap;
     flex-shrink: 0;
-    margin-right: 6px;
-  }
-  .sitelinks .link::last-child {
-    margin-right: 0;
   }
 }
 
