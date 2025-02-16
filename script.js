@@ -110,6 +110,7 @@ var language = {
     placeholder: "Type to search...",
     correct: "Did you mean:",
     noresult: "No matching results",
+    noSiteInfo: "There is no information on this page.",
     suggtext: "Search suggestion:",
     adlabel: "Ad",
     noresultsug: ["Try different keywords.", "Try more general keywords.", "Try fewer keywords."],
@@ -123,6 +124,7 @@ var language = {
     placeholder: "Ketik untuk  mencari...",
     correct: "Apakah maksudmu:",
     noresult: "Tidak ditemukan hasil",
+    noSiteInfo: "Tidak ada informasi mengenai halaman ini.",
     suggtext: "Saran pencarian:",
     adlabel: "Iklan",
     noresultsug: ["Coba kata kunci yang berbeda.", "Coba kata kunci yang lebih umum.", "Coba lebih sedikit kata kunci."],
@@ -683,7 +685,7 @@ function webresult(res) {
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
-        description.innerHTML = `There is no information on this page.`;
+        description.innerHTML = langtext("noSiteInfo");
       }
     });
     if (getData().favicon == false || fv == 0) {
