@@ -471,9 +471,9 @@ function instant(e) {
         });
     }
       if (res.infobox) {
-      for (var i = 0; i < res.infobox.content.length && i < 3; i++) {
+      for (var i = 0; i < res.infobox.length && i < 3; i++) {
         if (res.infobox.content[i].value.trim()) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.infobox.content[i].label}: ${res.infobox.content[i].value}</span>`;
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.infobox[i].label}: ${res.infobox[i].value}</span>`;
         }
       }}
     }
