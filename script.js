@@ -468,7 +468,7 @@ function instant(e) {
         cekGambarAda(thumbUr, function(ada) {
             if (ada) {
               
-                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${dataUr}" align="right" class="logo">`);
+                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" align="right" class="logo">`);
               console.log(thumbUr);
             }
         });
