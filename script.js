@@ -449,7 +449,7 @@ function randomIntFromInterval(min, max) {
 function instant(e) {
   var res = this.response;
   
-    if (res.Abstract.length > 100) {
+    if (res.snippet.length > 100) {
       var tabres = document.querySelectorAll(".tab-result");
       var instanswer = document.createElement("div");
       instanswer.classList.add("VtuHV");
