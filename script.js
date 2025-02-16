@@ -721,8 +721,8 @@ function webresult(res) {
       jwbn();
     }
 
-    } catch(error && !res.items) {
-    if (pageone) noresult();
+    } catch(error) {
+    if (pageone && !res.items) noresult();
   }
 }
 
