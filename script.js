@@ -676,57 +676,9 @@ function webresult(res) {
       urlparam = originurl.origin + urlparam;
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
-      
+      console.log(res.items[i].snippet);
       var siteName = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : displayUrl;
-      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=64"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].htmlTitle?.replace(/<b(?!\/b)>|<\/b>/g, "")}</div></a></div><div class="btm-snpt"><div class="snippet">${(res.items[i].htmlSnippet || res.items[i].snippet) ? res.items[i].htmlSnippet?.replace(/<b(?!\/b)>|<\/b>/g, "") : "undefined"}</div>${showLinks(res.items[i].link)}</div></div>`);
-      if (q.toLowerCase() == "games" && windowWidth < 780 && i == 1 && pageone) {
-        document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV tab-result pL6sR">
-      <span class="atas-euy"><div class="top">
-      <img class="favicon" src="img/google-play.png">
-      <div class="link">Google Play</div>
-    </div></span><div class="MciPl">
-  <div class="tab-link">
-  <a href="https://play.google.com/store/apps/details?id=com.fingersoft.hcr2&hl=id_ID">
-     <div class="information">
-      <img src="https://play-lh.googleusercontent.com/2fdEgYhRnpPRTSJLcJ7CpZ9-dFcfbNrP-BYVzzUoCwXyVBMRMVtBUrce0k_l-dV62ps=w480-h960-rw">
-      <div class="label">
-         <div class="title notranslate">Hill Climb Racing 2</div>
-         <div class="snippet">Rating 4.6 (4M)</div>
-         <div class="snippet">Balapan • Stunt driving • Arkade</div>
-      </div>
-    </div>
-  </a>
-  </div>
-  <hr>
-    <div class="tab-link">
-  <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&hl=id_ID">
-
-     <div class="information">
-      <img src="https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w480-h960-rw">
-      <div class="label">
-         <div class="title notranslate">Minecraft</div>
-         <div class="snippet">Rating 4.6 (4.8M)</div>
-         <div class="snippet">Simulasi • Sandbox • Santai</div>
-      </div>
-    </div>
-  </a>
-  </div>
-  <hr>
-    <div class="tab-link">
-  <a href="https://play.google.com/store/apps/details?id=com.imangi.templerun2&hl=id_ID">
-
-     <div class="information">
-      <img src="https://play-lh.googleusercontent.com/go4XqS4mYs-G2tZymiVLF4wJYXIi5QrvwixNRzssk4G_vRBHrAdg4E1ddNwy9c2cZA=w480-h960-rw">
-      <div class="label">
-         <div class="title notranslate">Temple Run 2</div>
-         <div class="snippet">Rating 4.3 (10M)</div>
-         <div class="snippet">Aksi • Platformer • Berlari • Arkade</div>
-      </div>
-    </div>
-  </a>
-  </div></div>
-</div>`);
-      }
+      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${originurl.hostname}&size=64"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -762,14 +714,14 @@ function webresult(res) {
     XuadHc("stop", res);
     if (pageone) {
       shwfter();
-  fetch(`https://api.swisscows.com/suggest?query=${q}`)
-  .then(response => response.json()).then(response => {
-    relatedsearch(response);
-  })
+      fetch(`https://api.swisscows.com/suggest?query=${q}`)
+        .then(response => response.json()).then(response => {
+          relatedsearch(response);
+      })
       jwbn();
     }
 
-    } catch(error) {
+    } catch(error && !res.items) {
     if (pageone) noresult();
   }
 }
