@@ -4,12 +4,8 @@
 <script>
   var url = new URL(window.location.href);
 var q = url.searchParams.get("q");
-var fOrm = document.querySelector("form");
-
-window.addEventListener('load', ()=> {
   if (q.trim()) {
-    input.value = q;
-    fOrm.submit();
+    window.location.href = `/search?q=${q}`;
+    
   }
-});
 </script>
