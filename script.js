@@ -723,6 +723,7 @@ function webresult(res) {
     }
 
     } catch(error) {
+    console.log("Kesalahan: " + error);
     if (pageone && !res.items) noresult();
   }
 }
