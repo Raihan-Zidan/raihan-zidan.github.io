@@ -446,8 +446,6 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-var whflg = ["indonesia","japan","canada","poland","monaco","qatar","greenland","england","singapore"];
-
 function instant(e) {
   var res = this.response;
   
@@ -462,25 +460,20 @@ function instant(e) {
       } else {
         insertAfter(tabres[2], instanswer);
       }
-      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.Heading}</div><div class="about"><span class="snippet">${res.Abstract.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.AbstractURL}" class="wikipedia" title="Wikipedia">${res.AbstractSource}</a></div><div class="infobox"></div>`);
-      if (res.Image) {
-        var thumbUr = `https://datasearch.raihan-zidan2709.workers.dev/images/` + res.Image.replace("/i/", "");
-        cekGambarAda(thumbUr, function(ada) {
+      document.querySelector(".instant-answer").insertAdjacentHTML("beforeend", `<div class="title">${res.title}</div><div class="about"><span class="snippet">${res.snippet.replace(/\<\/?pre.*?\/?\>/g, "").replace(/\<\/?code.*?\/?\>/g, "").slice(0, 220)}... </span><a href="${res.sourceUrl}" class="wikipedia" title="Wikipedia">${res.source}</a></div><div class="infobox"></div>`);
+      if (res.image) {
+        cekGambarAda(res.image, function(ada) {
             if (ada) {
                 var dt = (res.type) ? `style="border:1px solid #999999"` : "";
-                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${thumbUr}" ${dt} align="right" class="logo" alt="${res.Heading}">`);
+                document.querySelector(".instant-answer").insertAdjacentHTML("afterbegin", `<img src="${res.image}" ${dt} align="right" class="logo" alt="${res.Heading}">`);
               
             }
         });
     }
-      for (var i = 0; i < whflg.length; i++) {
-      if (document.querySelector(".instant-answer .logo") && res.Heading.toLowerCase() == whflg[i]) {
-        document.querySelector(".instant-answer .logo").style.border = "0.5px solid #ccc";
-      }}
-      if (res.Infobox) {
-      for (var i = 0; i < res.Infobox.content.length && i < 3; i++) {
-        if (res.Infobox.content[i].value.trim()) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.Infobox.content[i].label}: ${res.Infobox.content[i].value}</span>`;
+      if (res.infobox) {
+      for (var i = 0; i < res.infobox.content.length && i < 3; i++) {
+        if (res.infobox.content[i].value.trim()) {
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.infobox.content[i].label}: ${res.infobox.content[i].value}</span>`;
         }
       }}
     }
