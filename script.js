@@ -770,7 +770,7 @@ function webresult(res) {
     }
 
     } catch(error) {
-    if (pageone && !res.items) noresult();
+    if (pageone) noresult();
   }
 }
 
