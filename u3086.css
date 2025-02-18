@@ -263,10 +263,6 @@ html, body {
   text-overflow: ellipsis;
 }
 
-.tab-result:has(.sitelinks) {
-  padding-bottom: 0px;
-}
-
 .tab-result .sitelinks {
   display: flex;
   padding-top: 10px;
@@ -279,11 +275,12 @@ html, body {
 }
 
 .sitelinks .link {
-  color: black; 
-  font-size: 20px;
+  color: black;
+  font-size: 18px;
   text-decoration: none;
   padding: 16px 0;
   cursor: pointer;
+  font-family: "Google Sans", Roboto;
   border-top: 1px solid #E0E4E9;
 }
 
