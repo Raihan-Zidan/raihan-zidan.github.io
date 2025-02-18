@@ -18,7 +18,7 @@ var sitelinks = [
     ]
   },
   {
-    site: "https://www.ecosia.org/?c=en",
+    site: "https://www.ecosia.org/",
     links: [
       ["How Ecosia Works", "https://info.ecosia.org/what", "Search ads generate income for Ecosia. Ecosia uses this income to plant trees..."],
       ["Privacy", "https://info.ecosia.org/privacy", "Ecosia is a “privacy friendly” search engine. We take user..."],
