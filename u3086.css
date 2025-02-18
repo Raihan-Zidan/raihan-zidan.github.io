@@ -284,7 +284,7 @@ html, body {
   text-decoration: none;
   padding: 16px 0;
   cursor: pointer;
-  font-family: "Google Sans", Roboto;
+  font-family: 'Google Sans', Roboto;
   border-top: 1px solid #E0E4E9;
 }
 
@@ -300,6 +300,7 @@ html, body {
   .sitelinks .wrlink {
     width: 48%;
     margin: 5px;
+    font-family: 'Google Sans', Roboto;
   }
   .sitelinks .wrlink:nth-child(3),
   .sitelinks .wrlink:nth-child(4) {
