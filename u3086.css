@@ -300,6 +300,8 @@ html, body {
   .sitelinks .wrlink {
     width: 48%;
     margin: 5px;
+  }
+  .sitelinks .wrlinks a {
     font-family: 'Google Sans', Roboto;
   }
   .sitelinks .wrlink:nth-child(3),
