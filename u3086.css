@@ -1041,6 +1041,7 @@ div.shwrp .more {
   }
   .tab-result .title, .sitelinks .link {
     display: inline-block;
+    color: var(--title-color);
   }
   .tab-wrapper {
     padding: 8px 16px 12px 16px;
