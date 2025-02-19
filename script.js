@@ -428,19 +428,19 @@ function cekGambarAda(url, callback) {
   img.src = url;
 }
 
-function toDataURL(url, callback) {
-  var xhr = new XMLHttpRequest();
-  xhr.onload = function() {
-    var reader = new FileReader();
-    reader.onloadend = function() {
-      callback(reader.result);
-    }
-    reader.readAsDataURL(xhr.response);
-  };
-  xhr.open('GET', url);
-  xhr.responseType = 'blob';
-  xhr.send();
+function toDataURL(url) {
+  return fetch(url)
+    .then(response => response.blob()) // Mengambil respons sebagai Blob
+    .then(blob => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    });
 }
+
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -669,7 +669,7 @@ function webresult(res) {
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
-      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=https://${originurl.hostname}&size=64"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
+      document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="${await toDataUR(https://datasearch.raihan-zidan2709.workers.dev/favicon?url=https://${originurl.hostname})}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
