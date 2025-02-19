@@ -1089,7 +1089,7 @@ div.shwrp .more {
     max-width: 600px;
     border-style: none;
   }
-  .related-search:after {
+  .related:after {
     background-color: transparent;
   }
   .search-list .related {
