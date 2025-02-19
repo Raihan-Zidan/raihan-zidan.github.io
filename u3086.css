@@ -1092,12 +1092,15 @@ div.shwrp .more {
   .related:after {
     background-color: transparent;
   }
+  .search-list {
+    gap: 8px 12px;
+  }
   .search-list .related {
     width: calc(50% - 10px);
     border-radius: 8px;
     padding: 10px;
-    margin: 6px 6px 0 0;
-    border: 1px solid #EDEDED;
+    border: none;
+    background: #f7f8f9;
   }
   .search-menu {
     margin: 8px 0;
