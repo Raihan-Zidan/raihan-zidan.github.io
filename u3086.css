@@ -1093,14 +1093,14 @@ div.shwrp .more {
     background-color: transparent;
   }
   .search-list {
-    gap: 8px 12px;
+    gap: 10px 12px;
   }
   .search-list .related {
     width: calc(50% - 10px);
     border-radius: 8px;
     padding: 10px;
     border: none;
-    background: #f7f8f9;
+    background: #ececec;
   }
   .search-menu {
     margin: 8px 0;
