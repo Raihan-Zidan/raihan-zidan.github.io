@@ -1086,6 +1086,9 @@ div.shwrp .more {
     max-width: 600px;
     border-style: none;
   }
+  .related-search:after {
+    background-color: transparent;
+  }
   .search-list .related {
     width: calc(50% - 10px);
     border-radius: 8px;
