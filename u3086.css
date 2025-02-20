@@ -221,13 +221,12 @@ html, body {
   height: 28px;
   background: #eef5ff;
   border-radius: 50%;
-  overflow: hidden;
+  padding: 4px;
   position: relative;
 }
 
 .tab-result .favicon img {
-  mix-blend-mode: multiply;
-  object-fit: fill;
+  mix-blend-mode: multiply
 }
 
 .tab-result .favicon img {
