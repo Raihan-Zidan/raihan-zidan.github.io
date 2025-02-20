@@ -229,7 +229,7 @@ html, body {
 }
 
 .tab-result .favicon img {
-
+  mix-blend-mode: multiply;
   
   object-fit: cover;
 }
