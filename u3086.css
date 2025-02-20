@@ -225,6 +225,7 @@ html, body {
   background: #eef5ff;
   border-radius: 50%;
   pointer-events: none;
+  padding: 4px;
 }
 
 .tab-result .favicon img {
