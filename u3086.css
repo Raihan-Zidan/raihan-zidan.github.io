@@ -217,15 +217,12 @@ html, body {
 }
 
 .tab-result .favicon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 28px;
   height: 28px;
   background: #eef5ff;
   border-radius: 50%;
-  pointer-events: none;
   padding: 0px;
+  position: relative;
 }
 
 .tab-result .favicon img {
