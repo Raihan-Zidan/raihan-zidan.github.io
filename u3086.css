@@ -228,9 +228,9 @@ html, body {
 }
 
 .tab-result .favicon img {
-  width: 18px;
-  height: 18px;
+
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .tab-result .favicon {
