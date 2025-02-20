@@ -227,7 +227,7 @@ html, body {
 
 .tab-result .favicon img {
   mix-blend-mode: multiply;
-  border-radius: 50%;
+  border-radius: 35%;
 }
 
 .tab-result .favicon img {
