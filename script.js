@@ -749,7 +749,7 @@ function XuadHc(cmt, res) {
     }
   } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0) {
       document.querySelector(".show-wrapper").remove();
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu kami perlu membatasi hasil pencarian yang muncul.</div></div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu, kami perlu membatasi hasil pencarian yang muncul :p</div></div></div>`;
   } else {
       document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
   }
