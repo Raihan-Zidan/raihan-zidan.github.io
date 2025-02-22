@@ -88,7 +88,9 @@ if (tbm === "vid") {
   document.querySelectorAll(".search-item")[2].classList.add("selected");
 } else if (tbm === "isch") {
   document.querySelectorAll(".search-item")[1].classList.add("selected");
-  window.location.href = `https://google.com/search?q=${q}&tbm=isch`;
+  var script = document.createElement("script");
+  script.src = "/imgtest.js";
+  document.body.appendChild(script);
 } else if (tbm === "nws") {
   document.querySelectorAll(".search-item")[3].classList.add("selected");
 } else {
