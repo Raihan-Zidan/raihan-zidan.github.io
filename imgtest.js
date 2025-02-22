@@ -67,7 +67,7 @@
 
         for (let i = 1; i < res.images.length; i++) {
             let imgElement = document.createElement("img");
-            imgElement.src = res.images[i].url;
+            imgElement.src = res.images[i].thumbnail;
             positionItems();
             imgElement.loading = "lazy";
 
