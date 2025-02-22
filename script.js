@@ -94,7 +94,7 @@ if (tbm === "vid") {
   defstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
   vidstyle = document.createElement("link");
   vidstyle.rel = "stylesheet";
-  vidstyle.href = "/e8495.css";
+  vidstyle.href = "/i2025.css";
   insertAfter(defstyle, vidstyle);
   
   document.body.appendChild(script);
