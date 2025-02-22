@@ -304,17 +304,17 @@ function submit() {
   var spr = (sf == 1) ? "&safe=active" : "";
   var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
   if (tbm === "vid") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&tbm=vid`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&hl=id&tbm=nws`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&hl=id&tbm=nws`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}${basa}`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}${basa}`)
       .then(response => response.json()).then(response => {
         webresult(response);
     })
@@ -655,14 +655,14 @@ function webresult(res) {
       XuadHc("stop");
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
-      fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&tbm=vid&{maxResults=6`)
+      fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid&{maxResults=6`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&hl=id&gl=id&tbm=nws&sort=date`)
+      fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&hl=id&gl=id&tbm=nws&sort=date`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
