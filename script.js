@@ -304,7 +304,7 @@ function submit() {
   var spr = (sf == 1) ? "&safe=active" : "";
   var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
   if (tbm === "vid") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid&maxResults=100`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
@@ -655,7 +655,7 @@ function webresult(res) {
       XuadHc("stop");
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
-      fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid&{maxResults=6`)
+      fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid&maxResults=6`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
