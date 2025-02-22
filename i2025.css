@@ -1,0 +1,52 @@
+.result-wrapper {
+  padding: 0 4px 20px;
+}
+
+.main-result {
+  position: relative;
+  min-width: 100%;
+}
+
+.img-tb {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.img-th {
+  padding: 6px 4px;
+}
+
+.img-thumb {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #e9e9ec;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.img-thumb img {
+  width: 100%;
+}
+
+.img-tb .info {
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  color: #1f1f1f;
+  font-weight: 500;
+}
+
+a.info {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-decoration: none;
+}
+
+.info p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
