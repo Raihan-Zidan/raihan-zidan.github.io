@@ -39,8 +39,8 @@
 }
 
 a.info {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 6px;
+  padding-bottom: 2px;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -51,4 +51,19 @@ a.info {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.skeload {
+    background: linear-gradient(90deg, #cecece, #bbb, #ccc);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
 }
