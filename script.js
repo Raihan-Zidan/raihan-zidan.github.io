@@ -314,7 +314,7 @@ function submit() {
         nwsr(response);
     })
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}${basa}&start=${startIndex}`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}${basa}&page=${startIndex}`)
       .then(response => response.json()).then(response => {
         webresult(response);
     })
