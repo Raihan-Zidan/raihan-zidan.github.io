@@ -69,6 +69,7 @@
             let imgElement = document.createElement("img");
             imgElement.src = res.images[i].url;
             imgElement.loading = "lazy";
+            imgElement.parentElement.style.height = `${imgElement.height}px`;
             imgElement.onload = positionItems;
             imgElement.onerror = function () {
                 let parent = imgElement.closest(".img-tb");
