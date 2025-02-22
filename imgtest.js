@@ -69,8 +69,11 @@
             let imgElement = document.createElement("img");
             imgElement.src = res.images[i].url;
             imgElement.loading = "lazy";
-            imgElement.parentElement.style.height = `${imgElement.height}px`;
-            imgElement.onload = positionItems;
+
+            imgElement.onload = function () {
+              imgElement.parentElement.style.height = `${imgElement.height}px`;
+              positionItems;
+            }
             imgElement.onerror = function () {
                 let parent = imgElement.closest(".img-tb");
                 if (parent) parent.remove();
