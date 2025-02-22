@@ -10,6 +10,7 @@
 .img-tb {
   position: relative;
   transition: all 0.3s ease;
+  min-width: 180px;
 }
 
 .img-th {
@@ -33,7 +34,7 @@
 
 .img-tb .info {
   font-size: 12px;
-  font-family: Roboto, sans-serif;
+  font-family: 'Google Sans', Roboto, sans-serif;
   color: #1f1f1f;
   font-weight: 500;
 }
