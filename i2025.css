@@ -36,6 +36,9 @@
   font-size: 12px;
   font-family: 'Google Sans', Roboto, sans-serif;
   color: #1f1f1f;
+}
+
+.info .title {
   font-weight: 500;
 }
 
@@ -52,19 +55,4 @@ a.info {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.skeload {
-    background: linear-gradient(90deg, #cecece, #bbb, #ccc);
-    background-size: 200px 100%;
-    animation: skeleton-loading 1.5s infinite linear;
-}
-
-@keyframes skeleton-loading {
-    0% {
-        background-position: -200px 0;
-    }
-    100% {
-        background-position: 200px 0;
-    }
 }
