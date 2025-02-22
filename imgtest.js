@@ -38,9 +38,7 @@
             columnHeights[colIndex] += itemHeight;
         });
 
-        container.style.height = `${Math.max(...columnHeights) + 40}px`;
-        shwrapper.style.position = "absolute";
-        shwrapper.style.bottom = `${Math.max(...columnHeights)}px`;
+        container.style.height = `${Math.max(...columnHeights)}px`;
     }
 
     window.addEventListener("resize", positionItems);
@@ -74,7 +72,7 @@
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              imgElement.closest(".img-tb").style.visibility.remove();
+              imgElement.closest(".img-tb").style.removeProperty("visibility");
               positionItems;
             }
             imgElement.onerror = function () {
