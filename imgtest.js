@@ -68,11 +68,12 @@
         for (let i = 1; i < res.images.length; i++) {
             let imgElement = document.createElement("img");
             imgElement.src = res.images[i].url;
+            positionItems();
             imgElement.loading = "lazy";
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              positionItems;
+              positionItems();
             }
             imgElement.onerror = function () {
                 let parent = imgElement.closest(".img-tb");
