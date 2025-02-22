@@ -13,7 +13,7 @@
 }
 
 .img-th {
-  padding: 6px 4px;
+  padding: 4px;
 }
 
 .img-thumb {
@@ -39,7 +39,7 @@
 }
 
 a.info {
-  padding-top: 6px;
+  padding-top: 4px;
   padding-bottom: 2px;
   display: flex;
   flex-direction: column;
