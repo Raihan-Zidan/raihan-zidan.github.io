@@ -87,8 +87,8 @@
                     <div class="img-dt">
                         <div class="img-thumb" height="250px"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
-                            <p>${res.images[i].title}</p>
-                            <p>${res.images[i].siteName}</p>
+                            <p class="title">${res.images[i].title}</p>
+                            <p class="i-desc">${res.images[i].siteName}</p>
                         </a>
                     </div>
                 </div>`;
