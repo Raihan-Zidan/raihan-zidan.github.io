@@ -74,7 +74,7 @@
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              imgElement.closest(".img-tb").style.display.remove();
+              imgElement.closest(".img-tb").style.display = "";
               positionItems;
             }
             imgElement.onerror = function () {
