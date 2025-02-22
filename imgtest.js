@@ -54,6 +54,7 @@
                 start += 10;
                 lastFetchHeight = document.body.scrollHeight; // Simpan posisi scroll terakhir
                 isLoading = false;
+                shwrapper.innerHTML = '';
             })
             .catch(error => {
                 isLoading = false;
@@ -71,8 +72,6 @@
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              imgElement.closest(".img-thumb").classList.remove("skeload");
-              shwrapper.innerHTML = '';
               positionItems;
             }
             imgElement.onerror = function () {
@@ -86,7 +85,7 @@
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb skeload" height="150px"></div>
+                        <div class="img-thumb" height="250px"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p>${res.images[i].title}</p>
                             <p>${res.images[i].siteName}</p>
@@ -110,7 +109,7 @@
 
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasScrolledPastLastFetch) {
             shwrapper.innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
-            setTimeout(fetchData, 10000);
+            setTimeout(fetchData, 3000);
         }
     });
 
