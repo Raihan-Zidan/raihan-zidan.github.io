@@ -91,7 +91,12 @@ if (tbm === "vid") {
   var script = document.createElement("script");
   script.src = "/imgtest.js";
   document.querySelector(".main-result").innerHTML = `<div class="show-wrapper"><div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div></div>`;
-    
+  defstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
+  vidstyle = document.createElement("link");
+  vidstyle.rel = "stylesheet";
+  vidstyle.href = "/e8495.css";
+  insertAfter(defstyle, vidstyle);
+  
   document.body.appendChild(script);
 } else if (tbm === "nws") {
   document.querySelectorAll(".search-item")[3].classList.add("selected");
