@@ -54,7 +54,6 @@
                 start += 10;
                 lastFetchHeight = document.body.scrollHeight; // Simpan posisi scroll terakhir
                 isLoading = false;
-                shwrapper.innerHTML = '';
             })
             .catch(error => {
                 isLoading = false;
@@ -73,6 +72,7 @@
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
               imgElement.closest(".img-tb").style.removeProperty("visibility");
+              shwrapper.innerHTML = '';
               positionItems;
             }
             imgElement.onerror = function () {
