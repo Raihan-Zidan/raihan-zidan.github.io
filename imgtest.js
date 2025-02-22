@@ -73,7 +73,7 @@
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              positionItems();S
+              positionItems();
             }
             imgElement.onerror = function () {
                 let parent = imgElement.closest(".img-tb");
