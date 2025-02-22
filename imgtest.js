@@ -71,7 +71,7 @@
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              imgElement.closest(".img-tb").style.removeProperty("visibility");
+              imgElement.closest(".img-thumb").classList.remove("skeload");
               shwrapper.innerHTML = '';
               positionItems;
             }
@@ -83,11 +83,10 @@
 
             let imgContainer = document.createElement("div");
             imgContainer.classList.add("img-tb");
-            imgContainer.style.visibility = "hidden";
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb"></div>
+                        <div class="img-thumb skeload" height="150px"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p>${res.images[i].title}</p>
                             <p>${res.images[i].siteName}</p>
