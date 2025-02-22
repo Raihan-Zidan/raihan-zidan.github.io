@@ -299,12 +299,10 @@ quotes = [
   "Well done is better than well said. <em>-Benjamin Franklin</em>",
 ];
 
-searchApi = apikey[Math.floor(Math.random() * apikey.length)];
-var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
-
 function submit() {
   var val = q;
   var spr = (sf == 1) ? "&safe=active" : "";
+  var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
   if (tbm === "vid") {
     fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&tbm=vid`)
       .then(response => response.json()).then(response => {
