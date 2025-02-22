@@ -38,7 +38,7 @@
             columnHeights[colIndex] += itemHeight;
         });
 
-        container.style.height = `${Math.max(...columnHeights + 40)}px`;
+        container.style.height = `${Math.max(...columnHeights) + 40}px`;
         shwrapper.style.position = "absolute";
         shwrapper.style.bottom = `${Math.max(...columnHeights)}px`;
     }
