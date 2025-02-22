@@ -6,7 +6,7 @@
     let start = 0;
     const maxStart = 30;
     let isLoading = false;
-    let lastFetchHeight = 0; // Ketinggian terakhir saat fetch
+    let lastFetchHeight = 0;
 
     function positionItems() {
         const items = Array.from(container.querySelectorAll(".img-tb"));
@@ -51,7 +51,7 @@
             .then(response => {
                 renderResults(response);
                 start += 10;
-                lastFetchHeight = document.body.scrollHeight; // Simpan posisi scroll terakhir
+                lastFetchHeight = document.body.scrollHeight;
                 isLoading = false;
                 shwrapper.innerHTML = '';
             })
@@ -108,7 +108,7 @@
         const hasScrolledPastLastFetch = window.scrollY > lastFetchHeight - scrollThreshold;
 
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasScrolledPastLastFetch) {
-            shwrapper.innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
+            shwrapper.innerHTML += `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
             setTimeout(fetchData, 3000);
         }
     });
