@@ -47,7 +47,7 @@
         if (isLoading || start > maxStart) return;
         isLoading = true;
 
-        fetch(`https://imagesearch.raihan-zidan2709.workers.dev/?q=#{q}&start=${start}`)
+        fetch(`https://imagesearch.raihan-zidan2709.workers.dev/?q=${q}&start=${start}`)
             .then(response => response.json())
             .then(response => {
                 renderResults(response);
