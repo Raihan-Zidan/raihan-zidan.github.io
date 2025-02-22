@@ -271,34 +271,6 @@ function post_data(url) {
   a.click();
 }
 
-apikey = [
-  "AIzaSyCJ3RgcZOxOm_V1hq-UXCJwPsWquHggQrg",
-  "AIzaSyDuBTV5q0NAgfSY-2X9h5-ggbrX-a3EJBU",
-  "AIzaSyB7eZUGjFCrSPEEI9OlDmtRW5fRTQIKIus",
-  "AIzaSyC1etlk90G0YK1pNmblThRrIpYXWVCe8no",
-  "AIzaSyAeibL6090vetveJ2IxkZ0h8JpmCUAEFAU",
-  "AIzaSyBOETA8ym9-I5zMAq7IoEhQ1p4PajPvzHk",
-  "AIzaSyBeCeoUn9efByemCErnTfNOW85H6WhUU8Q",
-  "AIzaSyDJAlDofWRoODKtvr4gtDkHYNAHPZzSVX0",
-  "AIzaSyDYZQDK3--oAlN9P80kFbr5Ae81Xv4r4Ew",
-  "AIzaSyDBficXMaK97bS7ys4mAGvz5tLwwBSKbbg",
-  "AIzaSyBK7tP0QHWR0x4YUd71sN298A4raMfLqKY",
-  "AIzaSyD4KHQg1v9wFVlaKEVVVlZpiq8Y8L4UouI",
-  "AIzaSyBj7aEZNIwRQG2cjuHZyPfW1UNywqsMcNo",
-  "AIzaSyCmS3naxRClDgCH_ugTbn6dSqtArX0xj2o",
-  "AIzaSyBtnDuoWCx30xG2gmUgRdB_pqGUzdr7s-A",
-  "AIzaSyD69KZdQRASdg0QxpOA74adD4HeFRgHwx8",
-  "AIzaSyDKPUq-VyTWsEA6PTozWnMEwNes3fu3CSY",
-  "AIzaSyA-ZFRhlpU4PBS10Kp5Ipp6UD4xK--M-j8",
-  "AIzaSyBni04n3gqNYKqAvtzNSWhau9LOoNzRFj4",
-  "AIzaSyAB3o1QppoePI655jiTC3ArSBfQs_SuGyw",
-  "AIzaSyAIyON_dQEybmn0HVilGHnPG2Hz0kheatk",
-  "AIzaSyBIWWb7muhPm7yo4QPq1vcqi4XWaNtIJOY",
-  "AIzaSyBm9AN4slsELMKW8fL401ZNC6ahIzWHjuc",
-  "AIzaSyA8uJOYnA1ohf_7qIKJ15Evpyldq3CVl9M",
-  "AIzaSyDgDhEyznphPnYHWQzIqiVJfkgwrxo2-2A"
-];
-
 quotes = [
   "Genius is one percent inspiration and ninety-nine percent perspiration. <em>-Thomas Edison</em>",
   "You can observe a lot just by watching. <em>-Yogi Berra</em>",
@@ -334,28 +306,23 @@ function submit() {
   var val = q;
   var spr = (sf == 1) ? "&safe=active" : "";
   if (tbm === "vid") {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${val}&type=video&key=AIzaSyAqc7T67GDJ208Y8CvR8YaPrNZlzKa2XbE`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&tbm=vid`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${val}&hl=id&gl=id&ql=berita&sort=date`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&hl=id&tbm=nws`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
-    fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}${spr}&start=${startIndex}&cx=435bdb05f0b5e47bb&q=${val}${basa}`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}${basa}`)
       .then(response => response.json()).then(response => {
         webresult(response);
     })
     .catch(error => {
       window.location.replace(window.location.href); 
     });
-    if (!val.match(/html|css|javascript|how|to|cara|membuat/) && Math.floor(Math.random() * 3) == 1 && startIndex == 1) {
-
-    }
-    var ytkey = "AIzaSyAhJLUOCXoh49S0NChafl63X-uwNmdRu9o";
-
 
   }
 }
@@ -690,14 +657,14 @@ function webresult(res) {
       XuadHc("stop");
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${q}&type=video&key=AIzaSyDl_e_6hP6mKPXmzXbahlduZG3ErglkHSY`)
+      fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&tbm=vid&{maxResults=6`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=${searchApi}&cx=f7113f6d71c8f48c8&q=${q}&sort=date`)
+      fetch(`https://datasearch.raihan-zidan2709.workers.dev/?q=${q}&hl=id&gl=id&tbm=nws&sort=date`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
