@@ -74,7 +74,7 @@
 
             imgElement.onload = function () {
               imgElement.parentElement.style.height = `${imgElement.height}px`;
-              imgElement.closest(".img-tb").style.display = "";
+              imgElement.closest(".img-tb").style.visibility.remove();
               positionItems;
             }
             imgElement.onerror = function () {
@@ -85,7 +85,7 @@
 
             let imgContainer = document.createElement("div");
             imgContainer.classList.add("img-tb");
-            imgContainer.style.display = "none";
+            imgContainer.style.visibility = "hidden";
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
