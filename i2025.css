@@ -24,6 +24,7 @@
   background-color: #e9e9ec;
   cursor: pointer;
   pointer-events: all;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .img-thumb img {
