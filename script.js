@@ -319,7 +319,7 @@ function submit() {
         webresult(response);
     })
     .catch(error => {
-      window.location.replace(window.location.href); 
+      
     });
 
   }
@@ -405,11 +405,6 @@ function toDataURL(url, callback) {
   xhr.open('GET', url);
   xhr.responseType = 'blob';
   xhr.send();
-}
-
-
-function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function instant(e) {
@@ -563,23 +558,6 @@ function videoresult(res) {
   } catch(error) {
     document.querySelector(".result-wrapper").classList.add("CBpUsa");
     noresult();
-  }
-}
-
-function nwsresultOld(res) {
-  if (res.items.length > 3) {
-    setTimeout(() => {
-    var tabres = document.querySelectorAll(".tab-result");
-    var nwsres = document.createElement("div");
-    nwsres.classList.add("news-result");
-    nwsres.innerHTML += `<div class="title">${langtext("news")}</div><div class="news-list"></div>`;
-    insertAfter(tabres[randomIntFromInterval(2, 3)], nwsres);
-    for (var i = 0; i < res.items.length && i < 5; i++) {
-      var thumbnailimg = (res.items[i].pagemap.cse_thumbnail) ? res.items[i].pagemap.cse_thumbnail[0].src : "";
-      publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
-      document.querySelector(".news-result .news-list").innerHTML += `<div class="news-tab"><a href="${res.items[i].link}"><img src='${thumbnailimg}' class='thumbnail'><div class="title">${res.items[i].title}</div><div class="flexwrap"><img class="favicon" src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64"><div class="link">${publisher}</div></div></a></div>`;
-    }
-    },1000);
   }
 }
 
