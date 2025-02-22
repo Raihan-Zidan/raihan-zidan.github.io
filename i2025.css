@@ -44,7 +44,7 @@
 }
 
 a.info {
-  padding-top: 3x;
+  padding-top: 3px;
   padding-bottom: 4px;
   display: flex;
   flex-direction: column;
