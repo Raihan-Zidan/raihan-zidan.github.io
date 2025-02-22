@@ -1,4 +1,3 @@
-
     const container = document.querySelector(".main-result");
     const shwrapper = document.querySelector(".show-wrapper");
     const minWidth = 150;
