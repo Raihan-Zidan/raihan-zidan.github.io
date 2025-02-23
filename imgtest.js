@@ -180,11 +180,12 @@ if (isMobile()) {
     </div>
   </div>`;
 
-  const preview = document.querySelector(".preview");
-  if (!preview) {
-    console.error("Preview element not found!");
-    return;
-  }
+const preview = document.querySelector(".preview");
+if (!preview) {
+} else {
+  preview.style.display = "none";
+}
+
   preview.style.display = "none";
 
   const imgs = document.querySelectorAll(".thumbnail img");
