@@ -26,6 +26,7 @@
   background-color: #e9e9ec;
   cursor: pointer;
   pointer-events: all;
+  transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
