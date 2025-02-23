@@ -251,7 +251,7 @@ document.body.addEventListener("click", (event) => {
     setTimeout(() => {
       document.body.removeChild(clone);
       showPreview(img);
-    }, 100);
+    }, 200);
   }, 200);
 });
 
