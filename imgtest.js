@@ -113,10 +113,11 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
         imgElement.src = fullSrc;
         imgElement.style.filter = "blur(0)";
     };
-    setTimeout({
-        imgElement.src = fullSrc;
-        imgElement.style.filter = "blur(0)";
-     }, 3000);
+    setTimeout(() => {
+      imgElement.src = fullSrc;
+      imgElement.style.filter = "blur(0)";
+    }, 3000);
+
 }
 
     window.addEventListener("scroll", function () {
