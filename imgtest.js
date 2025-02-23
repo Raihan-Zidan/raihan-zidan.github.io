@@ -69,12 +69,7 @@
             loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
             positionItems();
             imgElement.loading = "lazy";
-            getImageSize(imgElement.src).then((imgsize) => {
-              if (imgElement.parentElement) {
-                imgElement.parentElement.style.width = imgsize[0];
-                imgElement.parentElement.style.height = imgsize[1];
-              }
-            });
+            
             imgElement.onload = function () {
               if (imgElement.parentElement) {
                 imgElement.parentElement.style.height = `${imgElement.height}px`;
@@ -89,10 +84,11 @@
 
             let imgContainer = document.createElement("div");
             imgContainer.classList.add("img-tb");
+            getImageSize(imgElement.src).then((imgsize) => {
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" height="250px"></div>
+                        <div class="img-thumb" style="width: ${imgsize[0]}; height: width: ${imgsize[1]};"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
@@ -102,7 +98,7 @@
                         </a>
                     </div>
                 </div>`;
-            
+            });
             imgContainer.querySelector(".img-thumb").appendChild(imgElement);
             container.insertBefore(imgContainer, shwrapper);
         }
