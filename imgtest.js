@@ -87,12 +87,10 @@ function renderResults(res) {
             if (parent) parent.remove();
             positionItems();
         };
-         getImageSize(res.images[i].thumbnail).then((imgsize) => {
-    
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height: ${imgsize[1]}px;"></div>
+                        <div class="img-thumb" style=""></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
@@ -105,7 +103,6 @@ function renderResults(res) {
             
             // Tambahkan elemen img ke dalam div thumbnail
             imgContainer.querySelector(".img-thumb").appendChild(imgElement);
-         });
         fragment.appendChild(imgContainer);
     }
 
