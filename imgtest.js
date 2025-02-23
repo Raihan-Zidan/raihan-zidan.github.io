@@ -194,7 +194,7 @@ if (isMobile()) {
 document.body.addEventListener("click", (event) => {
   console.log("Clicked element:", event.target);
   
-  const img = event.target.closest(".img-thumb");
+  const img = event.target.closest(".img-thumb img");
   if (!img) {
     console.log("No matching image found");
     return;
