@@ -114,9 +114,8 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
         imgElement.style.filter = "blur(0)";
     };
     setTimeout(() => {
-      imgElement.src = fullSrc;
       imgElement.style.filter = "blur(0)";
-    }, 3000);
+    }, 5000);
 
 }
 
