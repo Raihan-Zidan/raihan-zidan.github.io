@@ -148,72 +148,75 @@ function isMobile() {
 }
 
 if (isMobile()) {
-  document.body.innerHTML += `
-  <div class="preview">
-    <div class="p-header">
-      <div class="left">
-        <div class="p-fav">
-          <img src="">
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="preview">
+      <div class="p-header">
+        <div class="left">
+          <div class="p-fav">
+            <img src="">
+          </div>
+          <div class="title"></div>
         </div>
-        <div class="title"></div>
+        <div class="right">
+          <div class="p-fav close-preview">
+            <svg viewBox="0 0 24 24" focusable="false" height="24" width="24">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            </svg>
+          </div>
+        </div>
       </div>
-      <div class="right">
-        <div class="p-fav">
-          <svg viewBox="0 0 24 24" focusable="false" height="24" width="24">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-          </svg>
+      <div class="thumbnail">
+        <img src="" alt="Preview">
+      </div>
+      <div class="jtext-p">
+        <div class="left">
+          <div class="title"></div>
+          <div class="d"></div>
+        </div>
+        <div class="right">
+          <button><a href="">Kunjungi</a></button>
         </div>
       </div>
     </div>
-    <div class="thumbnail">
-      <img src="" alt="Preview">
-    </div>
-    <div class="jtext-p">
-      <div class="left">
-        <div class="title"></div>
-        <div class="d"></div>
-      </div>
-      <div class="right">
-        <button><a href="">Kunjungi</a></button>
-      </div>
-    </div>
-  </div>`;
+  `);
 
-const preview = document.querySelector(".preview");
-if (!preview) {
-} else {
-  preview.style.display = "none";
-}
-
+  const preview = document.querySelector(".preview");
   preview.style.display = "none";
 
-  const imgs = document.querySelectorAll(".thumbnail img");
-  imgs.forEach((img) => {
-    img.addEventListener("click", () => {
-      const parent = img.closest(".img-tb");
-      preview.style.display = "block";
+  // Close preview when clicking the "X"
+  document.querySelector(".close-preview").addEventListener("click", () => {
+    preview.style.display = "none";
+  });
 
-      if (parent) {
-        const titleElement = parent.querySelector(".info .title");
-        const descElement = parent.querySelector(".i-desc span");
-        const infoLinkElement = parent.querySelector(".info");
-        const descImgElement = parent.querySelector(".i-desc img");
+  // Open preview when clicking an image
+  document.body.addEventListener("click", (event) => {
+    const img = event.target.closest(".img-tb img");
+    if (!img) return;
 
-        if (titleElement) {
-          preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
-        }
-        if (descElement) {
-          preview.querySelector(".jtext-p .left .d").innerText = descElement.innerText;
-        }
-        if (infoLinkElement) {
-          preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
-        }
-        if (descImgElement) {
-          preview.querySelector(".p-fav img").src = descImgElement.src;
-        }
-        preview.querySelector(".thumbnail img").src = img.src;
+    const parent = img.closest(".img-tb");
+    preview.style.display = "block";
+
+    if (parent) {
+      const titleElement = parent.querySelector(".info .title");
+      const descElement = parent.querySelector(".i-desc span");
+      const infoLinkElement = parent.querySelector(".info");
+      const descImgElement = parent.querySelector(".i-desc img");
+
+      if (titleElement) {
+        preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
       }
-    });
+      if (descElement) {
+        preview.querySelector(".jtext-p .left .d").innerText = descElement.innerText;
+      }
+      if (infoLinkElement) {
+        preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
+      }
+      if (descImgElement) {
+        preview.querySelector(".p-fav img").src = descImgElement.src;
+      }
+      preview.querySelector(".thumbnail img").src = img.src;
+    }
   });
 }
+
