@@ -51,7 +51,7 @@ function renderResults(res) {
   let fragment = document.createDocumentFragment();
   for (let i = 1; i < res.images.length; i++) {
     let imgElement = document.createElement("img");
-    imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+    imgElement.src = res.images[i].thumbnail;
     imgElement.loading = "lazy";
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
