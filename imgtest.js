@@ -110,11 +110,12 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     const fullImage = new Image();
     fullImage.src = fullSrc;
     fullImage.onload = function () {
-        imgElement.src = fullSrc;
-        imgElement.style.filter = "blur(0)";
+      imgElement.src = fullSrc;
+      imgElement.style.filter = "blur(0)";
     };
     setTimeout(() => {
       imgElement.style.filter = "blur(0)";
+      imgElement.src = fullSrc;
     }, 5000);
 
 }
