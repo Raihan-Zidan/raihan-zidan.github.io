@@ -192,6 +192,7 @@ if (isMobile()) {
 
   // Event delegation untuk menangani klik gambar
 document.body.addEventListener("click", (event) => {
+  
   const img = event.target.closest(".img-thumb img");
   if (!img) {
     console.log("No matching image found");
@@ -206,15 +207,14 @@ document.body.addEventListener("click", (event) => {
 
   // Set posisi awal clone (sesuai posisi asli gambar)
   clone.style.position = "fixed";
-  clone.style.top = ${rect.top}px;
-  clone.style.left = ${rect.left}px;
-  clone.style.width = ${rect.width}px;
-  clone.style.height = ${rect.height}px;
-  clone.style.zIndex = "10000"; // Pastikan berada di atas elemen lain
+  clone.style.top = `${rect.top}px`;
+  clone.style.left = `${rect.left}px`;
+  clone.style.width = `${rect.width}px`;
+  clone.style.height = `${rect.height}px`;
+  clone.style.zIndex = "9999";
   clone.style.borderRadius = "10px";
-  clone.style.transition = "all 0.3s ease-in-out"; // Animasi sedang
+  clone.style.transition = "all 0.4s ease-in-out";
   clone.style.objectFit = "cover";
-  clone.style.pointerEvents = "none"; // Hindari interaksi dengan elemen absolute lain
 
   // Ambil elemen preview
   const preview = document.querySelector(".preview");
@@ -224,52 +224,36 @@ document.body.addEventListener("click", (event) => {
     return;
   }
 
-  const previewRect = preview.getBoundingClientRect();
+  const previewRect = previewImg.getBoundingClientRect();
 
   // Menentukan ukuran dengan max-height 260px
   const aspectRatio = rect.width / rect.height;
   const newHeight = 260; // Max height tetap 260px
-  const newWidth = Math.min(newHeight * aspectRatio, previewRect.width); // Sesuaikan width dengan preview
+  const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
   const centerX = (window.innerWidth - newWidth) / 2;
-  const centerY = previewRect.top - 55; // Kurangi 55px agar tidak terlalu ke atas
+  const centerY = previewRect.top - 55; // Posisi atas mengikuti preview
 
   // Efek zoom-in sebelum berpindah
   setTimeout(() => {
-    clone.style.transform = "scale(1.05)"; // Ukuran zoom lebih kecil agar sesuai
-  }, 30);
+    clone.style.transform = "scale(1.1)";
+  }, 50);
 
-  // Geser ke tengah atas dengan ukuran yang benar dengan animasi lebih sedang
-  setTimeout(() => {
-    clone.style.top = ${centerY}px;
-    clone.style.left = ${centerX}px;
-    clone.style.width = ${newWidth}px;
-    clone.style.height = ${newHeight}px;
-  }, 250); // Memperlambat perpindahan agar tidak terlalu cepat
-
-  // Efek zoom-in sebelum berpindah
-  setTimeout(() => {
-    clone.style.transform = "scale(1.05)"; // Ukuran zoom lebih kecil agar sesuai
-  }, 30);
-
-  // Geser ke tengah atas dengan ukuran yang benar dengan animasi lebih sedang
+  // Geser ke tengah atas dengan ukuran yang benar
   setTimeout(() => {
     clone.style.top = `${centerY}px`;
     clone.style.left = `${centerX}px`;
     clone.style.width = `${newWidth}px`;
     clone.style.height = `${newHeight}px`;
-  }, 250); // Memperlambat perpindahan agar tidak terlalu cepat
 
-  // Segera tampilkan elemen preview setelah animasi mulai
+    // Setelah animasi selesai, ganti dengan preview asli
     setTimeout(() => {
-      setTimeout(() => {
-        document.body.removeChild(clone);
-        showPreview(img);
-      }, 400);
-    }, 300);
+      document.body.removeChild(clone);
+      showPreview(img);
+    }, 400);
+  }, 200);
 });
-
 
 
 // Fungsi menampilkan preview
