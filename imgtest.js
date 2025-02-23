@@ -84,7 +84,6 @@
 
             let imgContainer = document.createElement("div");
             imgContainer.classList.add("img-tb");
-            imgContainer.style.height = "250px";
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
