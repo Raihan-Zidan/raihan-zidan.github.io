@@ -150,9 +150,9 @@ a.info {
 
 
 .jtext-p {
-  padding: 8px 16px;
+  padding: 16px 16px 8px;
   display: flex;
-  justify-content: space-betweeen;
+  justify-content: space-between;
 }
 
 .jtext-p .right {
