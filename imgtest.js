@@ -2,7 +2,7 @@
     const shwrapper = document.querySelector(".show-wrapper");
     const minWidth = 150;
     const maxColumns = 6;
-    const gap = 0;
+    const gap = 2;
     let start = 0;
     const maxStart = 30;
     let isLoading = false;
