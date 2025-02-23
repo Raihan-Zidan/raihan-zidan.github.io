@@ -212,11 +212,11 @@ document.querySelectorAll(".thumbnail img").forEach((img) => {
 
     // Ambil elemen preview
     const preview = document.querySelector(".preview");
-    const previewImg = preview ? preview.querySelector(".thumbnail img") : null;
+    const previewImg = preview.querySelector(".thumbnail img");
 
     if (!preview || !previewImg) return;
 
-    const previewRect = preview.getBoundingClientRect();
+    const previewRect = previewImg.getBoundingClientRect();
 
     // Menentukan ukuran yang sesuai dengan max-height 260px
     const aspectRatio = rect.width / rect.height;
@@ -224,7 +224,7 @@ document.querySelectorAll(".thumbnail img").forEach((img) => {
     const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
 
     // Hitung posisi tengah halaman untuk memastikan ke tengah atas
-    const centerX = (window.innerWidth - newWidth) / 2;
+    const centerX = window.innerWidth / 2 - newWidth / 2;
     const centerY = previewRect.top; // Posisi atas mengikuti preview
 
     // Efek zoom-in sebelum berpindah
@@ -247,8 +247,6 @@ document.querySelectorAll(".thumbnail img").forEach((img) => {
     }, 300);
   });
 });
-
-
     
 // Fungsi menampilkan preview
 function showPreview(img) {
