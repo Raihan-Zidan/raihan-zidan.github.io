@@ -60,35 +60,40 @@
             });
     }
 
-    function renderResults(res) {
-        let fragment = document.createDocumentFragment();
+function renderResults(res) {
+    let fragment = document.createDocumentFragment();
 
-        for (let i = 1; i < res.images.length; i++) {
-            let imgElement = document.createElement("img");
-            imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-            loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
-            positionItems();
-            imgElement.loading = "lazy";
-            
-            imgElement.onload = function () {
-              if (imgElement.parentElement) {
+    for (let i = 1; i < res.images.length; i++) {
+        let imgElement = document.createElement("img");
+        imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+        imgElement.loading = "lazy";
+
+        // Buat container untuk gambar
+        let imgContainer = document.createElement("div");
+        imgContainer.classList.add("img-tb");
+
+        // Load gambar asli
+        loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
+
+        imgElement.onload = function () {
+            if (imgElement.parentElement) {
                 imgElement.parentElement.style.height = `${imgElement.height}px`;
                 positionItems();
-              }
             }
-            imgElement.onerror = function () {
-                let parent = imgElement.closest(".img-tb");
-                if (parent) parent.remove();
-                positionItems();
-            };
+        };
 
-            let imgContainer = document.createElement("div");
-            imgContainer.classList.add("img-tb");
-            getImageSize(imgElement.src).then((imgsize) => {
+        imgElement.onerror = function () {
+            let parent = imgElement.closest(".img-tb");
+            if (parent) parent.remove();
+            positionItems();
+        };
+
+        // Ambil ukuran gambar yang asli setelah dimuat
+        getImageSize(res.images[i].image).then((imgsize) => {
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="width: ${imgsize[0]}; height: width: ${imgsize[1]};"></div>
+                        <div class="img-thumb" style="width: ${imgsize[0]}px; height: ${imgsize[1]}px;"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
@@ -98,15 +103,20 @@
                         </a>
                     </div>
                 </div>`;
-            });
+            
+            // Tambahkan elemen img ke dalam div thumbnail
             imgContainer.querySelector(".img-thumb").appendChild(imgElement);
-            container.insertBefore(imgContainer, shwrapper);
-        }
+        });
 
-        container.appendChild(fragment);
-        isLoading = false;
-        positionItems();
+        fragment.appendChild(imgContainer);
     }
+
+    // Masukkan semua elemen ke dalam container setelah loop selesai
+    container.insertBefore(fragment, shwrapper);
+    isLoading = false;
+    positionItems();
+}
+
 
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
