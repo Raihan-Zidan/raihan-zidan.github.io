@@ -201,7 +201,7 @@ html, body {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   padding: 0 0 11px;
 }
 
@@ -222,18 +222,13 @@ html, body {
   height: 28px;
   background: #f4f6f7;
   border-radius: 50%;
-  padding: 4px;
+  padding: 2px;
   position: relative;
 }
 
 .tab-result .favicon img {
   mix-blend-mode: multiply;
-  border-radius: 35%;
-}
-
-.tab-result .favicon img {
-  width: 100%;
-  height: 100%;
+  border-radius: 50%;
 }
 
 .tab-result .favicon {
@@ -341,11 +336,11 @@ html, body {
 .tab-link {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
-  padding: 16px 16px 8px;
+  padding: 16px 16px 6px;
 }
 
 .btm-snpt {
-  padding: 0 15px 15px;
+  padding: 2px 16px 16px;
 }
 
 .result-stats {
