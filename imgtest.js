@@ -103,12 +103,13 @@
     }
 
 function blockedImages(image) {
-    image.src.includes("https://cdn0-production-images-kly.akamaized.net/") {
-        let parent = img.closest(".img-tb");
+    if (image.src.includes("https://cdn0-production-images-kly.akamaized.net/")) {
+        let parent = image.closest(".img-tb");
         if (parent) parent.remove();
     }
     positionItems();
 }
+
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
