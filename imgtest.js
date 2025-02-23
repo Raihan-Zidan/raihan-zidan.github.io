@@ -69,7 +69,12 @@
             loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
             positionItems();
             imgElement.loading = "lazy";
-
+            getImageSize(imgElement.src).then((imgsize) => {
+              if (imgElement.parentElement) {
+                imgElement.parentElement.style.width = imgsize[0];
+                imgElement.parentElement.style.height = imgsize[1];
+              }
+            });
             imgElement.onload = function () {
               if (imgElement.parentElement) {
                 imgElement.parentElement.style.height = `${imgElement.height}px`;
@@ -112,7 +117,7 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
     imgElement.style.filter = "blur(2px)";
     imgElement.style.transition = "filter .5s ease-in-out";
-    
+
     const fullImage = new Image();
     fullImage.src = fullSrc;
     fullImage.onload = function () {
@@ -122,6 +127,19 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     setTimeout(() => {
       imgElement.style.filter = "blur(0)";
     }, 5000);
+}
+
+function getImageSize(imageUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = function () {
+      resolve([this.width, this.height]); // Mengembalikan array [width, height]
+    };
+    img.onerror = function () {
+      resolve([null, null]); // Jika gagal dimuat
+    };
+    img.src = imageUrl;
+  });
 }
 
     window.addEventListener("scroll", function () {
