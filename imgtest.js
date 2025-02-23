@@ -233,7 +233,7 @@ document.body.addEventListener("click", (event) => {
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
   const centerX = (window.innerWidth - newWidth) / 2;
-  const centerY = previewRect.top - 10000; // Posisi atas mengikuti preview
+  const centerY = previewRect.top + 55; // Posisi atas mengikuti preview
 
   // Efek zoom-in sebelum berpindah
   setTimeout(() => {
