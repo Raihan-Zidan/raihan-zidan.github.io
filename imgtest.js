@@ -104,8 +104,8 @@
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
-    imgElement.style.filter = "blur(5px)";
-    imgElement.style.transition = "filter 0.5s ease-in-out";
+    imgElement.style.filter = "blur(2px)";
+    imgElement.style.transition = "filter .8s ease-in-out";
     
     const fullImage = new Image();
     fullImage.src = fullSrc;
