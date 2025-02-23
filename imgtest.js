@@ -144,7 +144,7 @@ function isMobile() {
 }
 
 if (isMobile()) {
-  document.body.insertAdjacentHTML("beforeend", `
+  document.querySelector(".cbKRN").insertAdjacentHTML("beforeend", `
     <div class="preview">
       <div class="p-header">
         <div class="left">
