@@ -249,14 +249,11 @@ document.body.addEventListener("click", (event) => {
   }, 250); // Memperlambat perpindahan agar tidak terlalu cepat
 
   // Segera tampilkan elemen preview setelah animasi mulai
-  setTimeout(() => {
-    showPreview(img);
-  }, 200);
-
-  // Setelah animasi selesai, hapus clone
-  setTimeout(() => {
-    document.body.removeChild(clone);
-  }, 500);
+      setTimeout(() => {
+        document.body.removeChild(clone);
+        showPreview(img);
+      }, 400);
+    }, 300);
 });
 
 
