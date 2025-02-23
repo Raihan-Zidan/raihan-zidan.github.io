@@ -53,10 +53,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  gap: 4px;
 }
 
 .i-desc img {
-  width: 20px;
+  width: 16px;
   border-radius: 50%;
 }
 
