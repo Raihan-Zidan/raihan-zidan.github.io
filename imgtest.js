@@ -87,10 +87,12 @@ function renderResults(res) {
             if (parent) parent.remove();
             positionItems();
         };
+         getImageSize(res.images[i].thumbnail).then((imgsize) => {
+    
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="width: ${imgsize[0]}px; height: ${imgsize[1]}px;"></div>
+                        <div class="img-thumb" style="height: ${imgsize[1]}px;"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
@@ -103,7 +105,7 @@ function renderResults(res) {
             
             // Tambahkan elemen img ke dalam div thumbnail
             imgContainer.querySelector(".img-thumb").appendChild(imgElement);
-
+         });
         fragment.appendChild(imgContainer);
     }
 
@@ -116,9 +118,6 @@ function renderResults(res) {
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
-     getImageSize(thumbnailSrc).then((imgsize) => {
-         imgElement.parentElement.style.height = `${imgsize[1]}px`;
-     });
     imgElement.style.filter = "blur(2px)";
     imgElement.style.transition = "filter .5s ease-in-out";
 
