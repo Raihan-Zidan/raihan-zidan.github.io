@@ -88,7 +88,7 @@
                         <div class="img-thumb" height="250px"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
-                            <p class="i-desc">${res.images[i].siteName}</p>
+                            <p class="i-desc"><img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.items[i].pageUrl}"><span>${res.images[i].siteName}</span></p>
                         </a>
                     </div>
                 </div>`;
