@@ -45,8 +45,6 @@
   font-family: 'Google Sans', Roboto, sans-serif;
 }
 
-
-
 .i-desc {
   align-items: center;
   display: flex;
@@ -67,10 +65,10 @@
 
 a.info {
   padding-top: 4px;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
   text-decoration: none;
 }
 
