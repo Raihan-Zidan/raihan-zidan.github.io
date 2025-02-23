@@ -263,7 +263,7 @@ function showPreview(img) {
   if (!preview) return;
 
   preview.style.display = "block";
-  document.body.style.overflow = "hidden";
+  document.documentElement.style.overflow = "hidden";
 
   const parent = img.closest(".img-tb");
 
@@ -286,7 +286,7 @@ function showPreview(img) {
     if (descImgElement) {
       preview.querySelector(".p-fav img").src = descImgElement.src;
     }
-    preview.querySelector(".img-thumb img").src = img.src;
+    preview.querySelector(".thumbnail img").src = img.src;
   }
 }
 
