@@ -213,7 +213,7 @@ document.body.addEventListener("click", (event) => {
   clone.style.height = `${rect.height}px`;
   clone.style.zIndex = "9999";
   clone.style.borderRadius = "10px";
-  clone.style.transition = "all 0.4s ease-in-out";
+  clone.style.transition = "all 0.3s ease-in-out";
   clone.style.objectFit = "cover";
 
   // Ambil elemen preview
@@ -233,11 +233,11 @@ document.body.addEventListener("click", (event) => {
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
   const centerX = (window.innerWidth - newWidth) / 2;
-  const centerY = previewRect.top - 55; // Posisi atas mengikuti preview
+  const centerY = previewRect.top - 100; // Posisi atas mengikuti preview
 
   // Efek zoom-in sebelum berpindah
   setTimeout(() => {
-    clone.style.transform = "scale(1.1)";
+    clone.style.transform = "scale(1.05)";
   }, 50);
 
   // Geser ke tengah atas dengan ukuran yang benar
@@ -251,7 +251,7 @@ document.body.addEventListener("click", (event) => {
     setTimeout(() => {
       document.body.removeChild(clone);
       showPreview(img);
-    }, 400);
+    }, 100);
   }, 200);
 });
 
