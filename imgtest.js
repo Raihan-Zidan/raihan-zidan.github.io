@@ -180,10 +180,6 @@ if (isMobile()) {
   const preview = document.querySelector(".preview");
   preview.style.display = "none";
 
-  function showPreview() {
-    preview.style.display = "block";
-    document.documentElement.style.overflow = "hidden";
-  }
 
   // Fungsi untuk menyembunyikan preview
   function hidePreview() {
@@ -195,35 +191,76 @@ if (isMobile()) {
   document.querySelector(".close-preview").addEventListener("click", hidePreview);
 
   // Event delegation untuk menangani klik gambar
-  document.body.addEventListener("click", (event) => {
-    const img = event.target.closest(".img-tb img");
-    if (!img) return;
+document.body.addEventListener("click", (event) => {
+  const img = event.target.closest(".img-tb img");
+  if (!img) return;
 
-    const parent = img.closest(".img-tb");
-    showPreview();
+  // Dapatkan posisi asli gambar
+  const rect = img.getBoundingClientRect();
+  const clone = img.cloneNode(true);
 
-    if (parent) {
-      const titleElement = parent.querySelector(".info .title");
-      const descElement = parent.querySelector(".i-desc span");
-      const infoLinkElement = parent.querySelector(".info");
-      const descImgElement = parent.querySelector(".i-desc img");
+  // Tambahkan clone ke body
+  clone.style.position = "fixed";
+  clone.style.top = `${rect.top}px`;
+  clone.style.left = `${rect.left}px`;
+  clone.style.width = `${rect.width}px`;
+  clone.style.height = `${rect.height}px`;
+  clone.style.zIndex = "9999";
+  clone.style.transition = "transform 0.5s ease-in-out, top 0.5s ease-in-out, left 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out";
+  clone.style.objectFit = "cover";
+  document.body.appendChild(clone);
 
-      if (titleElement) {
-        preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
-      }
-      if (descElement) {
-        preview.querySelector(".jtext-p .left .d").innerText = "Gambar mungkin saja memiliki hak cipta.";
-        preview.querySelector(".p-header .title").innerText = descElement.innerText;
-      }
-      if (infoLinkElement) {
-        preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
-      }
-      if (descImgElement) {
-        preview.querySelector(".p-fav img").src = descImgElement.src;
-      }
-      preview.querySelector(".thumbnail img").src = img.src;
+  // Hitung posisi tengah layar
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  const targetWidth = viewportWidth * 0.8; // Ukuran preview (80% dari layar)
+  const targetHeight = targetWidth * (rect.height / rect.width); // Pertahankan rasio gambar
+  const targetLeft = (viewportWidth - targetWidth) / 2;
+  const targetTop = (viewportHeight - targetHeight) / 2;
+
+  // Animasi zoom-in ke tengah layar
+  setTimeout(() => {
+    clone.style.top = `${targetTop}px`;
+    clone.style.left = `${targetLeft}px`;
+    clone.style.width = `${targetWidth}px`;
+    clone.style.height = `${targetHeight}px`;
+  }, 10);
+
+  // Setelah animasi selesai, tampilkan preview pop-up
+  setTimeout(() => {
+    document.body.removeChild(clone); // Hapus clone setelah animasi
+    showPreview(img); // Tampilkan preview pop-up
+  }, 500);
+});
+
+// Fungsi menampilkan preview
+function showPreview(img) {
+  preview.style.display = "block";
+  document.documentElement.style.overflow = "hidden";
+
+  const parent = img.closest(".img-tb");
+
+  if (parent) {
+    const titleElement = parent.querySelector(".info .title");
+    const descElement = parent.querySelector(".i-desc span");
+    const infoLinkElement = parent.querySelector(".info");
+    const descImgElement = parent.querySelector(".i-desc img");
+
+    if (titleElement) {
+      preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
     }
-  });
+    if (descElement) {
+      preview.querySelector(".jtext-p .left .d").innerText = descElement.innerText;
+    }
+    if (infoLinkElement) {
+      preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
+    }
+    if (descImgElement) {
+      preview.querySelector(".p-fav img").src = descImgElement.src;
+    }
+    preview.querySelector(".thumbnail img").src = img.src;
+  }
 }
+
 
 
