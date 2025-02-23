@@ -66,7 +66,8 @@
 
         for (let i = 1; i < res.images.length; i++) {
             let imgElement = document.createElement("img");
-            imgElement.src = res.images[i].thumbnail;
+
+            loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
             positionItems();
             imgElement.loading = "lazy";
 
@@ -100,6 +101,19 @@
         container.appendChild(fragment);
         positionItems();
     }
+
+function loadImage(imgElement, thumbnailSrc, fullSrc) {
+    imgElement.src = thumbnailSrc;
+    imgElement.style.filter = "blur(5px)";
+    imgElement.style.transition = "filter 0.5s ease-in-out";
+    
+    const fullImage = new Image();
+    fullImage.src = fullSrc;
+    fullImage.onload = function () {
+        imgElement.src = fullSrc;
+        imgElement.style.filter = "blur(0)";
+    };
+}
 
     window.addEventListener("scroll", function () {
         if (isLoading) return;
