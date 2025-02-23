@@ -233,7 +233,7 @@ document.body.addEventListener("click", (event) => {
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
   const centerX = (window.innerWidth - newWidth) / 2;
-  const centerY = previewRect.top - 200; // Posisi atas mengikuti preview
+  const centerY = previewRect.top - 10000; // Posisi atas mengikuti preview
 
   // Efek zoom-in sebelum berpindah
   setTimeout(() => {
@@ -251,7 +251,7 @@ document.body.addEventListener("click", (event) => {
     setTimeout(() => {
       document.body.removeChild(clone);
       showPreview(img);
-    }, 200);
+    }, 150);
   }, 200);
 });
 
