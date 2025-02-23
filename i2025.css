@@ -68,7 +68,7 @@ a.info {
   padding-bottom: 4px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   text-decoration: none;
 }
 
