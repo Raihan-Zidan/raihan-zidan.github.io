@@ -191,61 +191,63 @@ if (isMobile()) {
   document.querySelector(".close-preview").addEventListener("click", hidePreview);
 
   // Event delegation untuk menangani klik gambar
-document.body.addEventListener("click", (event) => {
-  const img = event.target.closest(".img-tb img");
-  if (!img) return;
+document.querySelectorAll(".thumbnail img").forEach((img) => {
+  img.addEventListener("click", (event) => {
+    event.preventDefault();
+    
+    const rect = img.getBoundingClientRect();
+    const clone = img.cloneNode(true);
+    document.body.appendChild(clone);
 
-  const rect = img.getBoundingClientRect();
-  const clone = img.cloneNode(true);
-  document.body.appendChild(clone);
+    // Set posisi awal clone (sesuai posisi asli gambar)
+    clone.style.position = "fixed";
+    clone.style.top = `${rect.top}px`;
+    clone.style.left = `${rect.left}px`;
+    clone.style.width = `${rect.width}px`;
+    clone.style.height = `${rect.height}px`;
+    clone.style.zIndex = "9999";
+    clone.style.borderRadius = "10px";
+    clone.style.transition = "all 0.4s ease-in-out";
+    clone.style.objectFit = "cover";
 
-  // Set posisi awal clone
-  clone.style.position = "fixed";
-  clone.style.top = `${rect.top}px`;
-  clone.style.left = `${rect.left}px`;
-  clone.style.width = `${rect.width}px`;
-  clone.style.height = `${rect.height}px`;
-  clone.style.zIndex = "9999";
-  clone.style.borderRadius = "10px";
-  clone.style.transition = "all 0.4s ease-in-out";
-  clone.style.objectFit = "cover";
+    // Ambil elemen preview
+    const preview = document.querySelector(".preview");
+    const previewImg = preview ? preview.querySelector(".thumbnail img") : null;
 
-  // Ambil elemen preview
-  const preview = document.querySelector(".preview");
-  if (!preview) return;
+    if (!preview || !previewImg) return;
 
-  const previewImg = preview.querySelector(".thumbnail img");
-  const previewRect = previewImg.getBoundingClientRect();
+    const previewRect = preview.getBoundingClientRect();
 
-  // Hitung width agar proporsional dengan max-height 260px
-  const aspectRatio = rect.width / rect.height;
-  const newHeight = 260;
-  const newWidth = newHeight * aspectRatio; // Width proporsional
+    // Menentukan ukuran yang sesuai dengan max-height 260px
+    const aspectRatio = rect.width / rect.height;
+    const newHeight = 260; // Max height tetap 260px
+    const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
 
+    // Hitung posisi tengah halaman untuk memastikan ke tengah atas
+    const centerX = (window.innerWidth - newWidth) / 2;
+    const centerY = previewRect.top; // Posisi atas mengikuti preview
 
-  const centerX = previewRect.left + previewRect.width / 2;
-  const newLeft = centerX - newWidth / 2;
-  const newTop = previewRect.top;
-
-  // Efek Zoom-in sebelum pindah ke preview
-  setTimeout(() => {
-    clone.style.transform = "scale(1.1)";
-  }, 50);
-
-  // Geser ke tengah atas sesuai preview
-  setTimeout(() => {
-    clone.style.top = `${newTop}px`;
-    clone.style.left = `${newLeft}px`;
-    clone.style.width = `${newWidth}px`;
-    clone.style.height = `${newHeight}px`;
-
-    // Setelah animasi selesai, ganti dengan preview asli
+    // Efek zoom-in sebelum berpindah
     setTimeout(() => {
-      document.body.removeChild(clone);
-      showPreview(img);
-    }, 400);
-  }, 300);
+      clone.style.transform = "scale(1.1)";
+    }, 50);
+
+    // Geser ke tengah atas dengan ukuran yang benar
+    setTimeout(() => {
+      clone.style.top = `${centerY}px`;
+      clone.style.left = `${centerX}px`;
+      clone.style.width = `${newWidth}px`;
+      clone.style.height = `${newHeight}px`;
+
+      // Setelah animasi selesai, ganti dengan preview asli
+      setTimeout(() => {
+        document.body.removeChild(clone);
+        showPreview(img);
+      }, 400);
+    }, 300);
+  });
 });
+
 
     
 // Fungsi menampilkan preview
