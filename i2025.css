@@ -108,6 +108,10 @@ a.info {
   align-items: center;
 }
 
+.p-header .right {
+  
+}
+
 .title {
   font-size: 14px;
   font-weight: 500;
@@ -149,6 +153,10 @@ a.info {
   padding: 8px 16px;
   display: flex;
   justify-content: space-betweeen;
+}
+
+.jtext-p .right {
+  margin-left: auto;
 }
 
 .jtext-p .title {
