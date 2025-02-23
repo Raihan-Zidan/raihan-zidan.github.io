@@ -184,18 +184,28 @@ if (isMobile()) {
   const preview = document.querySelector(".preview");
   preview.style.display = "none";
 
-  // Close preview when clicking the "X"
-  document.querySelector(".close-preview").addEventListener("click", () => {
-    preview.style.display = "none";
-  });
+  // Fungsi untuk menampilkan preview
+  function showPreview() {
+    preview.style.display = "block";
+    document.body.style.overflow = "hidden"; // Mencegah scroll
+  }
 
-  // Open preview when clicking an image
+  // Fungsi untuk menyembunyikan preview
+  function hidePreview() {
+    preview.style.display = "none";
+    document.body.style.overflow = "auto"; // Mengembalikan scroll
+  }
+
+  // Event listener untuk tombol close (X)
+  document.querySelector(".close-preview").addEventListener("click", hidePreview);
+
+  // Event delegation untuk menangani klik gambar
   document.body.addEventListener("click", (event) => {
     const img = event.target.closest(".img-tb img");
     if (!img) return;
 
     const parent = img.closest(".img-tb");
-    preview.style.display = "block";
+    showPreview();
 
     if (parent) {
       const titleElement = parent.querySelector(".info .title");
@@ -207,7 +217,8 @@ if (isMobile()) {
         preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
       }
       if (descElement) {
-        preview.querySelector(".jtext-p .left .d").innerText = descElement.innerText;
+        preview.querySelector(".jtext-p .left .d").innerText = "Gambar mungkin saja memiliki hak cipta.";
+        preview.querySelector(".p-header .title").innerText = descElement.innerText;
       }
       if (infoLinkElement) {
         preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
@@ -219,4 +230,5 @@ if (isMobile()) {
     }
   });
 }
+
 
