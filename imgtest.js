@@ -63,10 +63,16 @@ function renderResults(res) {
         imgElement.parentElement.style.height = `${imgElement.height}px`;
         positionItems();
       }
+    };
+    imgElement.onerror = function() {
+      let parent = imgElement.closest(".img-tb");
+      if (parent) parent.remove();
+      positionItems();
+    };
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height:${imgElement.height}px">
+                        <div class="img-thumb" style="height">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
@@ -79,13 +85,6 @@ function renderResults(res) {
                 </div>`;
       
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
-    };
-    imgElement.onerror = function() {
-      let parent = imgElement.closest(".img-tb");
-      if (parent) parent.remove();
-      positionItems();
-    };
-   
 
         // Tambahkan elemen img ke dalam div thumbnail
     fragment.appendChild(imgContainer);
