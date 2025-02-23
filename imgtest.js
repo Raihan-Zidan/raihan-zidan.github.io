@@ -1,182 +1,139 @@
-    const container = document.querySelector(".main-result");
-    const shwrapper = document.querySelector(".show-wrapper");
-    const minWidth = 150;
-    const maxColumns = 6;
-    const gap = 1;
-    let start = 0;
-    const maxStart = 30;
-    let isLoading = false;
-    let lastFetchHeight = 0;
+const container = document.querySelector(".main-result");
+const shwrapper = document.querySelector(".show-wrapper");
+const minWidth = 150;
+const maxColumns = 6;
+const gap = 1;
+let start = 0;
+const maxStart = 30;
+let isLoading = false;
+let lastFetchHeight = 0;
 
-    function positionItems() {
-        const items = Array.from(container.querySelectorAll(".img-tb"));
-        if (items.length === 0) return;
+function positionItems() {
+  const items = Array.from(container.querySelectorAll(".img-tb"));
+  if (items.length === 0) return;
+  const containerWidth = container.clientWidth;
+  let cols = Math.floor(containerWidth / (minWidth + gap));
+  cols = Math.max(1, Math.min(maxColumns, cols));
+  let itemWidth = Math.floor((containerWidth - (cols - 1) * gap) / cols);
+  let columnHeights = new Array(cols).fill(0);
+  items.forEach((item) => {
+    let imgThumb = item.querySelector(".img-thumb");
+    item.style.width = `${itemWidth}px`;
+    imgThumb.style.width = `${itemWidth - 8}px`;
+    let colIndex = columnHeights.indexOf(Math.min(...columnHeights));
+    let topPos = columnHeights[colIndex];
+    let leftPos = colIndex * (itemWidth + gap);
+    item.style.position = "absolute";
+    item.style.left = `${leftPos}px`;
+    item.style.top = `${topPos}px`;
+    let itemHeight = item.getBoundingClientRect().height + gap;
+    columnHeights[colIndex] += itemHeight;
+  });
+  container.style.height = `${Math.max(...columnHeights)}px`;
+}
+window.addEventListener("resize", positionItems);
 
-        const containerWidth = container.clientWidth;
-        let cols = Math.floor(containerWidth / (minWidth + gap));
-        cols = Math.max(1, Math.min(maxColumns, cols));
-
-        let itemWidth = Math.floor((containerWidth - (cols - 1) * gap) / cols);
-        let columnHeights = new Array(cols).fill(0);
-
-        items.forEach((item) => {
-            let imgThumb = item.querySelector(".img-thumb");
-
-            item.style.width = `${itemWidth}px`;
-            imgThumb.style.width = `${itemWidth - 8}px`;
-
-            let colIndex = columnHeights.indexOf(Math.min(...columnHeights));
-            let topPos = columnHeights[colIndex];
-            let leftPos = colIndex * (itemWidth + gap);
-
-            item.style.position = "absolute";
-            item.style.left = `${leftPos}px`;
-            item.style.top = `${topPos}px`;
-
-            let itemHeight = item.getBoundingClientRect().height + gap;
-            columnHeights[colIndex] += itemHeight;
-        });
-
-        container.style.height = `${Math.max(...columnHeights)}px`;
-    }
-
-    window.addEventListener("resize", positionItems);
-
-    function fetchData() {
-        if (isLoading || start > maxStart) return;
-        isLoading = true;
-
-        fetch(`https://imagesearch.raihan-zidan2709.workers.dev/?q=${q}&start=${start}`)
-            .then(response => response.json())
-            .then(response => {
-                renderResults(response);
-                start += 10;
-                lastFetchHeight = document.body.scrollHeight;
-                shwrapper.innerHTML = '';
-            })
-            .catch(error => {
-                isLoading = false;
-                shwrapper.innerHTML = '';
-            });
-    }
-
-async function renderResults(res) {
-    let fragment = document.createDocumentFragment();
-
-    for (let i = 1; i < res.images.length; i++) {
-        let imgElement = document.createElement("img");
-        imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-        imgElement.loading = "lazy";
-
-        let imgContainer = document.createElement("div");
-        imgContainer.classList.add("img-tb");
-
-        let imgThumb = document.createElement("div");
-        imgThumb.classList.add("img-thumb");
-
-        // Mendapatkan ukuran gambar asli terlebih dahulu
-        let [width, height] = await getImageSize(res.images[i].thumbnail);
-        if (width && height) {
-            let aspectRatio = height / width;
-            let expectedHeight = Math.floor(minWidth * aspectRatio);
-            imgContainer.style.height = `${expectedHeight}px`;
-            imgThumb.style.height = `${expectedHeight}px`;
-        } else {
-            imgContainer.style.height = `200px`; // fallback jika gagal mendapatkan ukuran
-            imgThumb.style.height = `200px`;
-        }
-
-        loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
-
-        imgElement.onload = function () {
-            if (imgElement.parentElement) {
-                imgElement.parentElement.style.height = `${imgElement.height}px`;
-                positionItems();
-            }
-        };
-
-        imgElement.onerror = function () {
-            let parent = imgElement.closest(".img-tb");
-            if (parent) parent.remove();
-            positionItems();
-        };
-
-        imgThumb.appendChild(imgElement);
-        imgContainer.innerHTML = `
-            <div class="img-th">
-                <div class="img-dt">
-                    ${imgThumb.outerHTML}
-                    <a class="info" href="${res.images[i].pageUrl}">
-                        <p class="title">${res.images[i].title}</p>
-                        <p class="i-desc">
-                            <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
-                            <span>${res.images[i].siteName}</span>
-                        </p>
-                    </a>
-                </div>
-            </div>
-        `;
-
-        fragment.appendChild(imgContainer);
-    }
-
-    container.insertBefore(fragment, shwrapper);
+function fetchData() {
+  if (isLoading || start > maxStart) return;
+  isLoading = true;
+  fetch(`https://imagesearch.raihan-zidan2709.workers.dev/?q=${q}&start=${start}`).then(response => response.json()).then(response => {
+    renderResults(response);
+    start += 10;
+    lastFetchHeight = document.body.scrollHeight;
+    shwrapper.innerHTML = '';
+  }).catch(error => {
     isLoading = false;
-    positionItems();
+    shwrapper.innerHTML = '';
+  });
 }
 
-
+function renderResults(res) {
+  let fragment = document.createDocumentFragment();
+  for (let i = 1; i < res.images.length; i++) {
+    let imgElement = document.createElement("img");
+    imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+    imgElement.loading = "lazy";
+    // Buat container untuk gambar
+    let imgContainer = document.createElement("div");
+    imgContainer.classList.add("img-tb");
+    // Load gambar asli
+    loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
+    imgElement.onload = function() {
+      if (imgElement.parentElement) {
+        imgElement.parentElement.style.height = `${imgElement.height}px`;
+        positionItems();
+      }
+    };
+    imgElement.onerror = function() {
+      let parent = imgElement.closest(".img-tb");
+      if (parent) parent.remove();
+      positionItems();
+    };
+    imgContainer.innerHTML = `
+                <div class="img-th">
+                    <div class="img-dt">
+                        <div class="img-thumb" style=""></div>
+                        <a class="info" href="${res.images[i].pageUrl}">
+                            <p class="title">${res.images[i].title}</p>
+                            <p class="i-desc">
+                              <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
+                              <span>${res.images[i].siteName}</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>`;
+        // Tambahkan elemen img ke dalam div thumbnail
+    imgContainer.querySelector(".img-thumb").appendChild(imgElement);
+    fragment.appendChild(imgContainer);
+  }
+  container.insertBefore(fragment, shwrapper);
+  isLoading = false;
+  positionItems();
+}
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
-    imgElement.src = thumbnailSrc;
-    imgElement.style.filter = "blur(2px)";
-    imgElement.style.transition = "filter .5s ease-in-out";
-
-    const fullImage = new Image();
-    fullImage.src = fullSrc;
-    fullImage.onload = function () {
-      imgElement.src = fullSrc;
-      imgElement.style.filter = "blur(0)";
-    };
-    setTimeout(() => {
-      imgElement.style.filter = "blur(0)";
-    }, 5000);
+  imgElement.src = thumbnailSrc;
+  imgElement.style.filter = "blur(2px)";
+  imgElement.style.transition = "filter .5s ease-in-out";
+  const fullImage = new Image();
+  fullImage.src = fullSrc;
+  fullImage.onload = function() {
+    imgElement.src = fullSrc;
+    imgElement.style.filter = "blur(0)";
+  };
+  setTimeout(() => {
+    imgElement.style.filter = "blur(0)";
+  }, 5000);
 }
 
 function getImageSize(imageUrl) {
   return new Promise((resolve) => {
     const img = new Image();
-    img.onload = function () {
+    img.onload = function() {
       resolve([this.width, this.height]); // Mengembalikan array [width, height]
     };
-    img.onerror = function () {
+    img.onerror = function() {
       resolve([null, null]); // Jika gagal dimuat
     };
     img.src = imageUrl;
   });
 }
-
-    window.addEventListener("scroll", function () {
-        if (isLoading) return;
-
-        const scrollThreshold = 200; // Batas minimal scroll sebelum fetch baru
-        const hasScrolledPastLastFetch = window.scrollY > lastFetchHeight - scrollThreshold;
-
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasScrolledPastLastFetch) {
-            shwrapper.innerHTML += `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
-            setTimeout(fetchData, 1000);
-        }
-    });
-
-    fetchData();
-
+window.addEventListener("scroll", function() {
+  if (isLoading) return;
+  const scrollThreshold = 200; // Batas minimal scroll sebelum fetch baru
+  const hasScrolledPastLastFetch = window.scrollY > lastFetchHeight - scrollThreshold;
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasScrolledPastLastFetch) {
+    shwrapper.innerHTML += `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
+    setTimeout(fetchData, 1000);
+  }
+});
+fetchData();
 
 function isMobile() {
-  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
-
-if (isMobile()) {
-  document.querySelector(".cbKRN").insertAdjacentHTML("beforeend", `
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+    if (isMobile()) {
+      document.querySelector(".cbKRN").insertAdjacentHTML("beforeend", `
     <div class="preview">
       <div class="p-header">
         <div class="left">
@@ -208,120 +165,93 @@ if (isMobile()) {
       </div>
     </div>
   `);
-
-  const preview = document.querySelector(".preview");
-  preview.style.display = "none";
-
-
-  // Fungsi untuk menyembunyikan preview
-  function hidePreview() {
-    preview.style.display = "none";
-    document.documentElement.style.overflow = "auto";
-  }
-
-  // Event listener untuk tombol close (X)
-  document.querySelector(".close-preview").addEventListener("click", hidePreview);
-
-  // Event delegation untuk menangani klik gambar
-document.body.addEventListener("click", (event) => {
-  
-  const img = event.target.closest(".img-thumb img");
-  if (!img) {
-    console.log("No matching image found");
-    return;
-  }
-
-  event.preventDefault();
-
-  const rect = img.getBoundingClientRect();
-  const clone = img.cloneNode(true);
-  document.body.appendChild(clone);
-
-  // Set posisi awal clone (sesuai posisi asli gambar)
-  clone.style.position = "fixed";
-  clone.style.top = `${rect.top}px`;
-  clone.style.left = `${rect.left}px`;
-  clone.style.width = `${rect.width}px`;
-  clone.style.height = `${rect.height}px`;
-  clone.style.zIndex = "9999";
-  clone.style.borderRadius = "10px";
-  clone.style.transition = "all 0.3s ease-in-out";
-  clone.style.objectFit = "cover";
-
-  // Ambil elemen preview
-  const preview = document.querySelector(".preview");
-  const previewImg = preview ? preview.querySelector(".thumbnail img") : null;
-
-  if (!preview || !previewImg) {
-    return;
-  }
-
-  const previewRect = previewImg.getBoundingClientRect();
-
-  // Menentukan ukuran dengan max-height 260px
-  const aspectRatio = rect.width / rect.height;
-  const newHeight = 260; // Max height tetap 260px
-  const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
-
-  // Hitung posisi tengah halaman untuk memastikan ke tengah atas
-  const centerX = (window.innerWidth - newWidth) / 2;
-  const centerY = previewRect.top + 55; // Posisi atas mengikuti preview
-
-  // Efek zoom-in sebelum berpindah
-  setTimeout(() => {
-    clone.style.transform = "scale(1.05)";
-  }, 50);
-
-  // Geser ke tengah atas dengan ukuran yang benar
-  setTimeout(() => {
-    clone.style.top = `${centerY}px`;
-    clone.style.left = `${centerX}px`;
-    clone.style.width = `${newWidth}px`;
-    clone.style.height = `${newHeight}px`;
-
-    // Setelah animasi selesai, ganti dengan preview asli
-    setTimeout(() => {
-      document.body.removeChild(clone);
-      showPreview(img);
-    }, 150);
-  }, 200);
-});
-
-
-// Fungsi menampilkan preview
-function showPreview(img) {
-  const preview = document.querySelector(".preview");
-  if (!preview) return;
-
-  preview.style.display = "block";
-  document.documentElement.style.overflow = "hidden";
-
-  const parent = img.closest(".img-tb");
-
-  if (parent) {
-    const titleElement = parent.querySelector(".info .title");
-    const descElement = parent.querySelector(".i-desc span");
-    const infoLinkElement = parent.querySelector(".info");
-    const descImgElement = parent.querySelector(".i-desc img");
-
-    if (titleElement) {
-      preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
+      const preview = document.querySelector(".preview");
+      preview.style.display = "none";
+      // Fungsi untuk menyembunyikan preview
+      function hidePreview() {
+        preview.style.display = "none";
+        document.documentElement.style.overflow = "auto";
+      }
+      // Event listener untuk tombol close (X)
+      document.querySelector(".close-preview").addEventListener("click", hidePreview);
+      // Event delegation untuk menangani klik gambar
+      document.body.addEventListener("click", (event) => {
+        const img = event.target.closest(".img-thumb img");
+        if (!img) {
+          console.log("No matching image found");
+          return;
+        }
+        event.preventDefault();
+        const rect = img.getBoundingClientRect();
+        const clone = img.cloneNode(true);
+        document.body.appendChild(clone);
+        // Set posisi awal clone (sesuai posisi asli gambar)
+        clone.style.position = "fixed";
+        clone.style.top = `${rect.top}px`;
+        clone.style.left = `${rect.left}px`;
+        clone.style.width = `${rect.width}px`;
+        clone.style.height = `${rect.height}px`;
+        clone.style.zIndex = "9999";
+        clone.style.borderRadius = "10px";
+        clone.style.transition = "all 0.3s ease-in-out";
+        clone.style.objectFit = "cover";
+        // Ambil elemen preview
+        const preview = document.querySelector(".preview");
+        const previewImg = preview ? preview.querySelector(".thumbnail img") : null;
+        if (!preview || !previewImg) {
+          return;
+        }
+        const previewRect = previewImg.getBoundingClientRect();
+        // Menentukan ukuran dengan max-height 260px
+        const aspectRatio = rect.width / rect.height;
+        const newHeight = 260; // Max height tetap 260px
+        const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
+        // Hitung posisi tengah halaman untuk memastikan ke tengah atas
+        const centerX = (window.innerWidth - newWidth) / 2;
+        const centerY = previewRect.top + 55; // Posisi atas mengikuti preview
+        // Efek zoom-in sebelum berpindah
+        setTimeout(() => {
+          clone.style.transform = "scale(1.05)";
+        }, 50);
+        // Geser ke tengah atas dengan ukuran yang benar
+        setTimeout(() => {
+          clone.style.top = `${centerY}px`;
+          clone.style.left = `${centerX}px`;
+          clone.style.width = `${newWidth}px`;
+          clone.style.height = `${newHeight}px`;
+          // Setelah animasi selesai, ganti dengan preview asli
+          setTimeout(() => {
+            document.body.removeChild(clone);
+            showPreview(img);
+          }, 150);
+        }, 200);
+      });
+      // Fungsi menampilkan preview
+      function showPreview(img) {
+        const preview = document.querySelector(".preview");
+        if (!preview) return;
+        preview.style.display = "block";
+        document.documentElement.style.overflow = "hidden";
+        const parent = img.closest(".img-tb");
+        if (parent) {
+          const titleElement = parent.querySelector(".info .title");
+          const descElement = parent.querySelector(".i-desc span");
+          const infoLinkElement = parent.querySelector(".info");
+          const descImgElement = parent.querySelector(".i-desc img");
+          if (titleElement) {
+            preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
+          }
+          if (descElement) {
+            preview.querySelector(".jtext-p .left .d").innerText = "Gambar mungkin saja memiliki hak cipta.";
+            preview.querySelector(".p-header .title").innerText = descElement.innerText;
+          }
+          if (infoLinkElement) {
+            preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
+          }
+          if (descImgElement) {
+            preview.querySelector(".p-fav img").src = descImgElement.src;
+          }
+          preview.querySelector(".thumbnail img").src = img.src;
+        }
+      }
     }
-    if (descElement) {
-      preview.querySelector(".jtext-p .left .d").innerText = "Gambar mungkin saja memiliki hak cipta.";
-      preview.querySelector(".p-header .title").innerText = descElement.innerText;
-    }
-    if (infoLinkElement) {
-      preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
-    }
-    if (descImgElement) {
-      preview.querySelector(".p-fav img").src = descImgElement.src;
-    }
-    preview.querySelector(".thumbnail img").src = img.src;
-  }
-}
-
-
-}
-
-
