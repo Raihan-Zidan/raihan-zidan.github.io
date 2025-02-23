@@ -87,9 +87,6 @@ function renderResults(res) {
             if (parent) parent.remove();
             positionItems();
         };
-
-        // Ambil ukuran gambar yang asli setelah dimuat
-        getImageSize(res.images[i].image).then((imgsize) => {
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
@@ -106,12 +103,10 @@ function renderResults(res) {
             
             // Tambahkan elemen img ke dalam div thumbnail
             imgContainer.querySelector(".img-thumb").appendChild(imgElement);
-        });
 
         fragment.appendChild(imgContainer);
     }
 
-    // Masukkan semua elemen ke dalam container setelah loop selesai
     container.insertBefore(fragment, shwrapper);
     isLoading = false;
     positionItems();
@@ -121,6 +116,9 @@ function renderResults(res) {
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
+     getImageSize(thumbnailSrc).then((imgsize) => {
+         imgElement.parentElement.style.height = `${imgsize[1]}px`;
+     });
     imgElement.style.filter = "blur(2px)";
     imgElement.style.transition = "filter .5s ease-in-out";
 
