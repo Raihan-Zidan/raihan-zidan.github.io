@@ -60,7 +60,7 @@
             });
     }
 
-function renderResults(res) {
+async function renderResults(res) {
     let fragment = document.createDocumentFragment();
 
     for (let i = 1; i < res.images.length; i++) {
@@ -68,11 +68,24 @@ function renderResults(res) {
         imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
         imgElement.loading = "lazy";
 
-        // Buat container untuk gambar
         let imgContainer = document.createElement("div");
         imgContainer.classList.add("img-tb");
 
-        // Load gambar asli
+        let imgThumb = document.createElement("div");
+        imgThumb.classList.add("img-thumb");
+
+        // Mendapatkan ukuran gambar asli terlebih dahulu
+        let [width, height] = await getImageSize(res.images[i].thumbnail);
+        if (width && height) {
+            let aspectRatio = height / width;
+            let expectedHeight = Math.floor(minWidth * aspectRatio);
+            imgContainer.style.height = `${expectedHeight}px`;
+            imgThumb.style.height = `${expectedHeight}px`;
+        } else {
+            imgContainer.style.height = `200px`; // fallback jika gagal mendapatkan ukuran
+            imgThumb.style.height = `200px`;
+        }
+
         loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
 
         imgElement.onload = function () {
@@ -87,22 +100,23 @@ function renderResults(res) {
             if (parent) parent.remove();
             positionItems();
         };
-            imgContainer.innerHTML = `
-                <div class="img-th">
-                    <div class="img-dt">
-                        <div class="img-thumb" style=""></div>
-                        <a class="info" href="${res.images[i].pageUrl}">
-                            <p class="title">${res.images[i].title}</p>
-                            <p class="i-desc">
-                              <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
-                              <span>${res.images[i].siteName}</span>
-                            </p>
-                        </a>
-                    </div>
-                </div>`;
-            
-            // Tambahkan elemen img ke dalam div thumbnail
-            imgContainer.querySelector(".img-thumb").appendChild(imgElement);
+
+        imgThumb.appendChild(imgElement);
+        imgContainer.innerHTML = `
+            <div class="img-th">
+                <div class="img-dt">
+                    ${imgThumb.outerHTML}
+                    <a class="info" href="${res.images[i].pageUrl}">
+                        <p class="title">${res.images[i].title}</p>
+                        <p class="i-desc">
+                            <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
+                            <span>${res.images[i].siteName}</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        `;
+
         fragment.appendChild(imgContainer);
     }
 
