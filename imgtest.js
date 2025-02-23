@@ -226,7 +226,7 @@ document.body.addEventListener("click", (event) => {
   const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
-  const centerX = const centerX = (window.innerWidth - newWidth) / 2;
+  const centerX = (window.innerWidth - newWidth) / 2;
   const centerY = previewRect.top; // Posisi atas mengikuti preview
 
   // Efek zoom-in sebelum berpindah
