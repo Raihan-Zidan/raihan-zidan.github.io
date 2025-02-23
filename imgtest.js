@@ -192,16 +192,14 @@ if (isMobile()) {
 
   // Event delegation untuk menangani klik gambar
 document.body.addEventListener("click", (event) => {
-  const img = event.target.closest(".thumbnail img");
+  const img = event.target.closest(".img-tb img");
   if (!img) return;
 
-  event.preventDefault();
-  
   const rect = img.getBoundingClientRect();
   const clone = img.cloneNode(true);
   document.body.appendChild(clone);
 
-  // Set posisi awal clone (sesuai posisi asli gambar)
+  // Set posisi awal clone
   clone.style.position = "fixed";
   clone.style.top = `${rect.top}px`;
   clone.style.left = `${rect.left}px`;
@@ -214,30 +212,30 @@ document.body.addEventListener("click", (event) => {
 
   // Ambil elemen preview
   const preview = document.querySelector(".preview");
+  if (!preview) return;
+
   const previewImg = preview.querySelector(".thumbnail img");
-
-  if (!preview || !previewImg) return;
-
   const previewRect = previewImg.getBoundingClientRect();
 
-  // Menentukan ukuran dengan max-height 260px
+  // Hitung width agar proporsional dengan max-height 260px
   const aspectRatio = rect.width / rect.height;
-  const newHeight = 260; // Max height tetap 260px
-  const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
+  const newHeight = 260;
+  const newWidth = newHeight * aspectRatio; // Width proporsional
 
-  // Hitung posisi tengah halaman untuk memastikan ke tengah atas
-  const centerX = window.innerWidth / 2 - newWidth / 2;
-  const centerY = previewRect.top; // Posisi atas mengikuti preview
 
-  // Efek zoom-in sebelum berpindah
+  const centerX = previewRect.left + previewRect.width / 2;
+  const newLeft = centerX - newWidth / 2;
+  const newTop = previewRect.top;
+
+  // Efek Zoom-in sebelum pindah ke preview
   setTimeout(() => {
     clone.style.transform = "scale(1.1)";
   }, 50);
 
-  // Geser ke tengah atas dengan ukuran yang benar
+  // Geser ke tengah atas sesuai preview
   setTimeout(() => {
-    clone.style.top = `${centerY}px`;
-    clone.style.left = `${centerX}px`;
+    clone.style.top = `${newTop}px`;
+    clone.style.left = `${newLeft}px`;
     clone.style.width = `${newWidth}px`;
     clone.style.height = `${newHeight}px`;
 
@@ -248,6 +246,7 @@ document.body.addEventListener("click", (event) => {
     }, 400);
   }, 300);
 });
+
     
 // Fungsi menampilkan preview
 function showPreview(img) {
