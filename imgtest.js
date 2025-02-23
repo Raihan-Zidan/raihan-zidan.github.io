@@ -102,14 +102,6 @@
         positionItems();
     }
 
-function blockedImages(image) {
-    if (image.src.includes("https://cdn0-production-images-kly.akamaized.net/")) {
-        let parent = image.closest(".img-tb");
-        if (parent) parent.remove();
-    }
-    positionItems();
-}
-
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
@@ -127,7 +119,6 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     }, 2000);
     setTimeout(() => {
       imgElement.style.filter = "blur(0)";
-      blockedImages(imgElement);
     }, 5000);
 
 }
