@@ -192,7 +192,6 @@ if (isMobile()) {
 
   // Event delegation untuk menangani klik gambar
 document.body.addEventListener("click", (event) => {
-  console.log("Clicked element:", event.target);
   
   const img = event.target.closest(".img-thumb img");
   if (!img) {
