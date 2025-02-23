@@ -232,7 +232,8 @@ html, body {
 }
 
 .tab-result .favicon {
-  
+  width: 100%;
+    height: 100%;
 }
 
 .tab-result a {
@@ -340,7 +341,7 @@ html, body {
 }
 
 .btm-snpt {
-  padding: 2px 16px 16px;
+  padding: 2px 16px 12px;
 }
 
 .result-stats {
