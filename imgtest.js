@@ -242,7 +242,7 @@ document.body.addEventListener("click", (event) => {
 
   // Geser ke tengah atas dengan ukuran yang benar
   setTimeout(() => {
-    clone.style.top = `${centerY}px`;
+    clone.style.top = `${centerY - 55}px`;
     clone.style.left = `${centerX}px`;
     clone.style.width = `${newWidth}px`;
     clone.style.height = `${newHeight}px`;
