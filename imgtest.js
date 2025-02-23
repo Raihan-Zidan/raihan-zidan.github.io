@@ -72,7 +72,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="">
+                        <div class="img-thumb" style="height:${imgElement.getBoundingClientRect().height}px">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
