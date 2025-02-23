@@ -184,16 +184,15 @@ if (isMobile()) {
   const preview = document.querySelector(".preview");
   preview.style.display = "none";
 
-  // Fungsi untuk menampilkan preview
   function showPreview() {
     preview.style.display = "block";
-    document.body.style.overflow = "hidden"; // Mencegah scroll
+    container.style.overflow = "hidden";
   }
 
   // Fungsi untuk menyembunyikan preview
   function hidePreview() {
     preview.style.display = "none";
-    document.body.style.overflow = "auto"; // Mengembalikan scroll
+    container.style.overflow = "auto";
   }
 
   // Event listener untuk tombol close (X)
