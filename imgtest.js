@@ -261,6 +261,6 @@ function showPreview(img) {
     preview.querySelector(".thumbnail img").src = img.src;
   }
 }
-
+}
 
 
