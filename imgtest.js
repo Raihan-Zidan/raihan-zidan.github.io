@@ -66,7 +66,7 @@
 
         for (let i = 1; i < res.images.length; i++) {
             let imgElement = document.createElement("img");
-
+            imgElement.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
             loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
             positionItems();
             imgElement.loading = "lazy";
@@ -102,6 +102,14 @@
         positionItems();
     }
 
+function blockedImages(image) {
+    image.src.includes("https://cdn0-production-images-kly.akamaized.net/")) {
+        let parent = img.closest(".img-tb");
+        if (parent) parent.remove();
+    }
+    positionItems();
+}
+
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = thumbnailSrc;
     imgElement.style.filter = "blur(2px)";
@@ -118,7 +126,7 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     }, 2000);
     setTimeout(() => {
       imgElement.style.filter = "blur(0)";
-      
+      blockedImages(imgElement);
     }, 5000);
 
 }
