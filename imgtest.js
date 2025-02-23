@@ -192,7 +192,6 @@ if (isMobile()) {
 
   // Event delegation untuk menangani klik gambar
 document.body.addEventListener("click", (event) => {
-  
   const img = event.target.closest(".img-thumb img");
   if (!img) {
     console.log("No matching image found");
@@ -213,7 +212,7 @@ document.body.addEventListener("click", (event) => {
   clone.style.height = `${rect.height}px`;
   clone.style.zIndex = "9999";
   clone.style.borderRadius = "10px";
-  clone.style.transition = "all 0.4s ease-in-out";
+  clone.style.transition = "all 0.2s ease-in-out"; // Mempercepat efek zoom
   clone.style.objectFit = "cover";
 
   // Ambil elemen preview
@@ -224,25 +223,25 @@ document.body.addEventListener("click", (event) => {
     return;
   }
 
-  const previewRect = previewImg.getBoundingClientRect();
+  const previewRect = preview.getBoundingClientRect();
 
   // Menentukan ukuran dengan max-height 260px
   const aspectRatio = rect.width / rect.height;
   const newHeight = 260; // Max height tetap 260px
-  const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
+  const newWidth = Math.min(newHeight * aspectRatio, previewRect.width); // Sesuaikan width dengan preview
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
   const centerX = (window.innerWidth - newWidth) / 2;
-  const centerY = previewRect.top; // Posisi atas mengikuti preview
+  const centerY = previewRect.top - 55; // Kurangi 55px agar tidak terlalu ke atas
 
   // Efek zoom-in sebelum berpindah
   setTimeout(() => {
-    clone.style.transform = "scale(1.1)";
-  }, 50);
+    clone.style.transform = "scale(1.05)"; // Ukuran zoom lebih kecil agar sesuai
+  }, 30);
 
   // Geser ke tengah atas dengan ukuran yang benar
   setTimeout(() => {
-    clone.style.top = `${centerY - 55}px`;
+    clone.style.top = `${centerY}px`;
     clone.style.left = `${centerX}px`;
     clone.style.width = `${newWidth}px`;
     clone.style.height = `${newHeight}px`;
@@ -251,8 +250,8 @@ document.body.addEventListener("click", (event) => {
     setTimeout(() => {
       document.body.removeChild(clone);
       showPreview(img);
-    }, 400);
-  }, 200);
+    }, 300);
+  }, 150);
 });
 
 
