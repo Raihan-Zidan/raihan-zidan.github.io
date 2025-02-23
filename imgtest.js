@@ -210,10 +210,11 @@ document.body.addEventListener("click", (event) => {
   clone.style.left = `${rect.left}px`;
   clone.style.width = `${rect.width}px`;
   clone.style.height = `${rect.height}px`;
-  clone.style.zIndex = "9999";
+  clone.style.zIndex = "10000"; // Pastikan berada di atas elemen lain
   clone.style.borderRadius = "10px";
-  clone.style.transition = "all 0.2s ease-in-out"; // Mempercepat efek zoom
+  clone.style.transition = "all 0.3s ease-in-out"; // Animasi sedang
   clone.style.objectFit = "cover";
+  clone.style.pointerEvents = "none"; // Hindari interaksi dengan elemen absolute lain
 
   // Ambil elemen preview
   const preview = document.querySelector(".preview");
@@ -239,20 +240,25 @@ document.body.addEventListener("click", (event) => {
     clone.style.transform = "scale(1.05)"; // Ukuran zoom lebih kecil agar sesuai
   }, 30);
 
-  // Geser ke tengah atas dengan ukuran yang benar
+  // Geser ke tengah atas dengan ukuran yang benar dengan animasi lebih sedang
   setTimeout(() => {
     clone.style.top = `${centerY}px`;
     clone.style.left = `${centerX}px`;
     clone.style.width = `${newWidth}px`;
     clone.style.height = `${newHeight}px`;
+  }, 250); // Memperlambat perpindahan agar tidak terlalu cepat
 
-    // Setelah animasi selesai, ganti dengan preview asli
-    setTimeout(() => {
-      document.body.removeChild(clone);
-      showPreview(img);
-    }, 300);
-  }, 150);
+  // Segera tampilkan elemen preview setelah animasi mulai
+  setTimeout(() => {
+    showPreview(img);
+  }, 200);
+
+  // Setelah animasi selesai, hapus clone
+  setTimeout(() => {
+    document.body.removeChild(clone);
+  }, 500);
 });
+
 
 
 // Fungsi menampilkan preview
