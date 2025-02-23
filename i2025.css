@@ -34,9 +34,30 @@
 }
 
 .img-tb .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.info p, span {
+  color: #1f1f1f;
   font-size: 12px;
   font-family: 'Google Sans', Roboto, sans-serif;
-  color: #1f1f1f;
+}
+
+
+
+.i-desc {
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.i-desc img {
+  width: 20px;
+  border-radius: 50%;
 }
 
 .info .title {
