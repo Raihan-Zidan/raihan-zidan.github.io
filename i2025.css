@@ -155,6 +155,10 @@ a.info {
   justify-content: space-between;
 }
 
+.jtext-p .left {
+  padding-right: 8px;
+}
+
 .jtext-p .right {
   margin-left: auto;
 }
