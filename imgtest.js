@@ -57,7 +57,6 @@ function renderResults(res) {
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
     // Load gambar asli
-    imgContainer.style.height = "200px";
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgElement.onload = function() {
       if (imgElement.parentElement) {
@@ -73,7 +72,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style=""></div>
+                        <div class="img-thumb" style="height: 150px;"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
