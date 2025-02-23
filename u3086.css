@@ -743,9 +743,8 @@ div.shwrp .more {
 
 .news-result {
   width: 100%;
-  border: 1px solid #EDEDED;
   padding: 13px;
-  margin: 4px 0;
+  margin-bottom: 8px;
   background: white;
 }
 
