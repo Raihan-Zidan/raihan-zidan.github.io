@@ -2,7 +2,7 @@
     const shwrapper = document.querySelector(".show-wrapper");
     const minWidth = 150;
     const maxColumns = 6;
-    const gap = 2;
+    const gap = 1;
     let start = 0;
     const maxStart = 30;
     let isLoading = false;
@@ -84,6 +84,7 @@
 
             let imgContainer = document.createElement("div");
             imgContainer.classList.add("img-tb");
+            imgContainer.style.height = "250px";
             imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
