@@ -71,8 +71,10 @@
             imgElement.loading = "lazy";
 
             imgElement.onload = function () {
-              imgElement.parentElement.style.height = `${imgElement.height}px`;
-              positionItems();
+              if (imgElement.parentElement) {
+                imgElement.parentElement.style.height = `${imgElement.height}px`;
+                positionItems();
+              }
             }
             imgElement.onerror = function () {
                 let parent = imgElement.closest(".img-tb");
