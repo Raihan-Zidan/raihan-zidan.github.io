@@ -103,7 +103,7 @@
     }
 
 function blockedImages(image) {
-    image.src.includes("https://cdn0-production-images-kly.akamaized.net/")) {
+    image.src.includes("https://cdn0-production-images-kly.akamaized.net/") {
         let parent = img.closest(".img-tb");
         if (parent) parent.remove();
     }
