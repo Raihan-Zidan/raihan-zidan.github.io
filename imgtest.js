@@ -52,7 +52,6 @@
                 renderResults(response);
                 start += 10;
                 lastFetchHeight = document.body.scrollHeight;
-                isLoading = false;
                 shwrapper.innerHTML = '';
             })
             .catch(error => {
@@ -99,6 +98,7 @@
         }
 
         container.appendChild(fragment);
+        isLoading = false;
         positionItems();
     }
 
@@ -131,7 +131,7 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
 
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasScrolledPastLastFetch) {
             shwrapper.innerHTML += `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
-            setTimeout(fetchData, 3000);
+            setTimeout(fetchData, 1000);
         }
     });
 
