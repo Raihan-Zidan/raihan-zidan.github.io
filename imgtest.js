@@ -186,13 +186,13 @@ if (isMobile()) {
 
   function showPreview() {
     preview.style.display = "block";
-    html.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
   }
 
   // Fungsi untuk menyembunyikan preview
   function hidePreview() {
     preview.style.display = "none";
-    html.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
   }
 
   // Event listener untuk tombol close (X)
