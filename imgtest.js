@@ -72,8 +72,8 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height: px;">
-                          <img src="${res.images[i].thumbnail}">
+                        <div class="img-thumb" style="height: ${getRandomValue()}px;">
+                          
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
