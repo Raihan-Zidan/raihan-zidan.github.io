@@ -57,6 +57,7 @@ function renderResults(res) {
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
     // Load gambar asli
+    imgContainer.style.height = "200px";
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgElement.onload = function() {
       if (imgElement.parentElement) {
