@@ -206,10 +206,10 @@ document.body.addEventListener("click", (event) => {
 
   // Set posisi awal clone (sesuai posisi asli gambar)
   clone.style.position = "fixed";
-  clone.style.top = `${rect.top}px`;
-  clone.style.left = `${rect.left}px`;
-  clone.style.width = `${rect.width}px`;
-  clone.style.height = `${rect.height}px`;
+  clone.style.top = ${rect.top}px;
+  clone.style.left = ${rect.left}px;
+  clone.style.width = ${rect.width}px;
+  clone.style.height = ${rect.height}px;
   clone.style.zIndex = "10000"; // Pastikan berada di atas elemen lain
   clone.style.borderRadius = "10px";
   clone.style.transition = "all 0.3s ease-in-out"; // Animasi sedang
@@ -234,6 +234,19 @@ document.body.addEventListener("click", (event) => {
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
   const centerX = (window.innerWidth - newWidth) / 2;
   const centerY = previewRect.top - 55; // Kurangi 55px agar tidak terlalu ke atas
+
+  // Efek zoom-in sebelum berpindah
+  setTimeout(() => {
+    clone.style.transform = "scale(1.05)"; // Ukuran zoom lebih kecil agar sesuai
+  }, 30);
+
+  // Geser ke tengah atas dengan ukuran yang benar dengan animasi lebih sedang
+  setTimeout(() => {
+    clone.style.top = ${centerY}px;
+    clone.style.left = ${centerX}px;
+    clone.style.width = ${newWidth}px;
+    clone.style.height = ${newHeight}px;
+  }, 250); // Memperlambat perpindahan agar tidak terlalu cepat
 
   // Efek zoom-in sebelum berpindah
   setTimeout(() => {
