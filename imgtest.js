@@ -195,48 +195,59 @@ document.body.addEventListener("click", (event) => {
   const img = event.target.closest(".img-tb img");
   if (!img) return;
 
-  // Dapatkan posisi asli gambar
   const rect = img.getBoundingClientRect();
   const clone = img.cloneNode(true);
+  document.body.appendChild(clone);
 
-  // Tambahkan clone ke body
+  // Set posisi awal clone
   clone.style.position = "fixed";
   clone.style.top = `${rect.top}px`;
   clone.style.left = `${rect.left}px`;
   clone.style.width = `${rect.width}px`;
   clone.style.height = `${rect.height}px`;
   clone.style.zIndex = "9999";
-  clone.style.transition = "transform 0.5s ease-in-out, top 0.5s ease-in-out, left 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out";
-  clone.style.objectFit = "cover";
-  document.body.appendChild(clone);
+  clone.style.borderRadius = "10px";
+  clone.style.transition = "all 0.4s ease-in-out";
 
-  // Hitung posisi tengah layar
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-  const targetWidth = viewportWidth * 0.8; // Ukuran preview (80% dari layar)
-  const targetHeight = targetWidth * (rect.height / rect.width); // Pertahankan rasio gambar
-  const targetLeft = (viewportWidth - targetWidth) / 2;
-  const targetTop = (viewportHeight - targetHeight) / 2;
+  // Ambil elemen preview
+  const preview = document.querySelector(".preview");
+  if (!preview) return;
 
-  // Animasi zoom-in ke tengah layar
+  const previewImg = preview.querySelector(".thumbnail img");
+  const previewRect = previewImg.getBoundingClientRect();
+
+  // Hitung width agar proporsional dengan max-height 260px
+  const aspectRatio = rect.width / rect.height;
+  const newHeight = 260; // Max height
+  const newWidth = newHeight * aspectRatio; // Hitung width proporsional
+
+  // Efek Zoom-in sebelum pindah ke preview
   setTimeout(() => {
-    clone.style.top = `${targetTop}px`;
-    clone.style.left = `${targetLeft}px`;
-    clone.style.width = `${targetWidth}px`;
-    clone.style.height = `${targetHeight}px`;
-  }, 10);
+    clone.style.transform = "scale(1.2)";
+  }, 50);
 
-  // Setelah animasi selesai, tampilkan preview pop-up
+  // Geser ke preview dengan ukuran proporsional
   setTimeout(() => {
-    document.body.removeChild(clone); // Hapus clone setelah animasi
-    showPreview(img); // Tampilkan preview pop-up
-  }, 500);
+    clone.style.top = `${previewRect.top}px`;
+    clone.style.left = `${previewRect.left + (previewRect.width - newWidth) / 2}px`; // Tengah sesuai preview
+    clone.style.width = `${newWidth}px`;
+    clone.style.height = `${newHeight}px`;
+
+    // Setelah animasi selesai, ganti dengan preview asli
+    setTimeout(() => {
+      document.body.removeChild(clone);
+      showPreview(img);
+    }, 400);
+  }, 300);
 });
 
 // Fungsi menampilkan preview
 function showPreview(img) {
+  const preview = document.querySelector(".preview");
+  if (!preview) return;
+
   preview.style.display = "block";
-  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 
   const parent = img.closest(".img-tb");
 
@@ -250,7 +261,8 @@ function showPreview(img) {
       preview.querySelector(".jtext-p .left .title").innerText = titleElement.innerText;
     }
     if (descElement) {
-      preview.querySelector(".jtext-p .left .d").innerText = descElement.innerText;
+      preview.querySelector(".jtext-p .left .d").innerText = "Gambar mungkin saja memiliki hak cipta.";
+      preview.querySelector(".header .title").innerText = descElement.innerText;
     }
     if (infoLinkElement) {
       preview.querySelector(".jtext-p .right a").href = infoLinkElement.href;
@@ -261,6 +273,7 @@ function showPreview(img) {
     preview.querySelector(".thumbnail img").src = img.src;
   }
 }
+
 }
 
 
