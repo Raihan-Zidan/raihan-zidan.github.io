@@ -200,8 +200,6 @@ document.body.addEventListener("click", (event) => {
     return;
   }
 
-  alert("clicked"); // Jika ini muncul, berarti gambar berhasil terdeteksi.
-
   event.preventDefault();
 
   const rect = img.getBoundingClientRect();
@@ -224,7 +222,6 @@ document.body.addEventListener("click", (event) => {
   const previewImg = preview ? preview.querySelector(".thumbnail img") : null;
 
   if (!preview || !previewImg) {
-    console.log("Preview elements not found");
     return;
   }
 
@@ -256,7 +253,7 @@ document.body.addEventListener("click", (event) => {
       document.body.removeChild(clone);
       showPreview(img);
     }, 400);
-  }, 300);
+  }, 200);
 });
 
 
@@ -289,7 +286,7 @@ function showPreview(img) {
     if (descImgElement) {
       preview.querySelector(".p-fav img").src = descImgElement.src;
     }
-    preview.querySelector(".thumbnail img").src = img.src;
+    preview.querySelector(".img-thumb img").src = img.src;
   }
 }
 
