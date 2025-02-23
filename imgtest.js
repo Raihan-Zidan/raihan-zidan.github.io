@@ -254,7 +254,7 @@ document.body.addEventListener("click", (event) => {
         showPreview(img);
       }, 400);
     }, 300);
-});
+}
 
 
 
