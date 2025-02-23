@@ -72,7 +72,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height: 150px;"></div>
+                        <div class="img-thumb" style="height: ${getRandomValue()}px;"></div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
@@ -89,6 +89,11 @@ function renderResults(res) {
   container.insertBefore(fragment, shwrapper);
   isLoading = false;
   positionItems();
+}
+
+function getRandomValue() {
+  const values = [130, 150, 180, 200, 230];
+  return values[Math.floor(Math.random() * values.length)];
 }
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
@@ -123,7 +128,7 @@ window.addEventListener("scroll", function() {
   const scrollThreshold = 200; // Batas minimal scroll sebelum fetch baru
   const hasScrolledPastLastFetch = window.scrollY > lastFetchHeight - scrollThreshold;
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasScrolledPastLastFetch) {
-    shwrapper.innerHTML += `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
+    shwrapper.innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
     setTimeout(fetchData, 1000);
   }
 });
