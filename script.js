@@ -377,11 +377,11 @@ function jwbn() {
 
 function instantanswer() {
   if (searchInput.value.toLowerCase().match(/jam|waktu|time|clock/) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
-    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result pddf"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}, ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result pddf eb8xCva"><div class="big-title">${clock()}</div><div class="snippet-info">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}, ${d.toString().match(/([A-Z]+[\+-][0-9]+.*)/)[1]}</div></div>`;
   } else if (searchInput.value.toLowerCase().match(/tanggal|date/) && searchInput.value.length < 15 && searchInput.value.split(" ").length - 4) {
-    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result pddf"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result pddf eb8xCva"><div class="big-title">${d.toLocaleDateString(locallang, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'})}</div></div>`;
   } else if (searchInput.value.toLowerCase() == "quotes") {
-    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab pddf"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
+    document.querySelector(".main-result .result").innerHTML += `<div class="tab-result quotes-tab pddf eb8xCva"><div class="top"><div class="big-title">Quotes</div>&nbsp;<small>Beta</small></div><div class="bodytext">${quotes[Math.floor(Math.random() * quotes.length)]}</div><div class="refresh" onclick="refreshQuotes()"></div></div>`;
   } else if (searchInput.value.toLowerCase().match(/kalkulator|calculator/) && searchInput.value.split(" ").length - 2 || searchInput.value.match(/calculator\s+online|kalkulator\s+online/) && searchInput.value.split(" ").length - 3) {
     document.querySelector(".main-result .result").innerHTML += `<div class="calculator"><input type="text" inputmode="none" class="display" /><div class="buttons"><button class="operator" data-value="AC">AC</button><button class="operator" data-value="DEL">DEL</button><button class="operator" data-value="%">%</button><button class="operator" data-value=" ÷ ">÷</button><button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="operator" data-value=" × ">×</button><button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="operator" data-value=" - ">-</button><button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="operator" data-value=" + ">+</button><button data-value="0">0</button><button data-value="00">00</button><button data-value=".">.</button><button class="operator" data-value="=" th="true">=</button></div></div>`;
     setTimeout(()=>{let calculatorBox=document.querySelector(".calculator"),display=calculatorBox.querySelector(".display"),buttons=calculatorBox.querySelectorAll("button"),specialChars=["%","*","/","-","+","="],output="",calculate=btnValue=>{if(display.focus(),"="===btnValue&&""!==output)output=eval(output.replace("%","/100").replace(/×/g,"*").replace(/÷/g,"/"));else if("AC"===btnValue)output="";else if("DEL"===btnValue)output=output.toString().slice(0,-1);else{if(""===output&&specialChars.includes(btnValue))return;output+=btnValue}display.value=output,display.blur()};buttons.forEach(e=>{e.addEventListener("click",e=>calculate(e.target.dataset.value))})},500);
@@ -510,7 +510,7 @@ function nwsr(res) {
       var publishtime = (res.items[i].pagemap.metatags[0]['article:published_time']) ? dateconversion(res.items[i].pagemap.metatags[0]['article:published_time']) : "Published";
       newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
       thumbimg = (res.items[i].pagemap.cse_thumbnail) ? `<img class="thumb" src="${res.items[i].pagemap.cse_thumbnail[0].src}">` : "";
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.items[i].link}">${thumbimg}<div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.items[i].title.slice(0, 70)}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst eb8xCva"><div class="snwt"><a href="${res.items[i].link}">${thumbimg}<div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.items[i].title.slice(0, 70)}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
     }
     if (startIndex == 1) { shwfter(); }
   } catch(error) {
@@ -552,7 +552,7 @@ function hnvd(res) {
   if (tabres[0] && q.split(" ").length < 3) {
     insertAfter(tabres[0], hnvde);
   } else if (tabres[0]) {
-    document.querySelector(".main-result .result").insertAdjacentHTML("afterbegin", `<div class="tab-result Dxcgd">${hnvde.innerHTML}</div>`);
+    document.querySelector(".main-result .result").insertAdjacentHTML("afterbegin", `<div class="tab-result Dxcgd eb8xCva">${hnvde.innerHTML}</div>`);
   }
  }
 }
@@ -604,14 +604,14 @@ function webresult(res) {
       document.querySelector(".main-result").insertAdjacentHTML('afterbegin', `<div class="WsXZp"><div class="result-stats">${rsltsta}</div></div>`);
     }
     if (res.items && res.spelling && pageone) {
-      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a><span>?</span></div></div>`;
+      document.querySelector(".main-result .result").innerHTML += `<div class="corrected-word tab-result eb8xCva"><div class="snippet">${langtext("correct")} <a class="spelling" href="/search?q=${encodeURIComponent(res.spelling.correctedQuery).replace(/\%20/g,'+')}${searchlang}">${res.spelling.correctedQuery}</a><span>?</span></div></div>`;
     }
     if (res.items.length > 9 && pageone) {
       instantanswer();
     }
     if (res.promotions && pageone) {
       for (var i = 0; i < res.promotions.length; i++) {
-        document.querySelector(".main-result .result").innerHTML += `<div class="tab-result"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="link">${res.promotions[i].displayLink}</div><div class="ads">${langtext("adlabel")}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div></div>`;
+        document.querySelector(".main-result .result").innerHTML += `<div class="tab-result eb8xCva" sf-test"eb8xCva"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="link">${res.promotions[i].displayLink}</div><div class="ads">${langtext("adlabel")}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div></div>`;
       }
     }
     for (var i = 0; i < res.items.length; i++) {
@@ -622,7 +622,7 @@ function webresult(res) {
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
-           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
+           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -675,7 +675,7 @@ function noresult() {
   for (var i = 0; i < 3; i++) {
     nosugtext += `<li>${langtext("noresultsug", i)}</li>`;
   }
-  document.querySelector(".main-result").innerHTML += `<div class="tab-result Nrltf"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
+  document.querySelector(".main-result").innerHTML += `<div class="tab-result Nrltf eb8xCva"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
 }
 
 function shwfter() {
@@ -701,7 +701,7 @@ function XuadHc(cmt, res) {
     }
   } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0) {
       document.querySelector(".show-wrapper").remove();
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu, kami perlu membatasi hasil pencarian yang muncul :p</div></div></div>`;
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result eb8xCva" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu, kami perlu membatasi hasil pencarian yang muncul :p</div></div></div>`;
   } else {
       document.querySelector(".show-wrapper").innerHTML = `<div class="mXsk8"></div><button class="more">${langtext("more")}</button>`;
   }
