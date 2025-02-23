@@ -39,7 +39,7 @@
   justify-content: start;
 }
 
-.info p, span {
+.info p, .info span {
   color: #1f1f1f;
   font-size: 12px;
   font-family: 'Google Sans', Roboto, sans-serif;
