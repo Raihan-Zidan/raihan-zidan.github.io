@@ -231,7 +231,7 @@ html, body {
   border-radius: 50%;
 }
 
-.tab-result .favicon {
+.tab-result .favicon img {
   width: 100%;
     height: 100%;
 }
