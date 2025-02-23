@@ -199,6 +199,7 @@ document.body.addEventListener("click", (event) => {
   
   const rect = img.getBoundingClientRect();
   const clone = img.cloneNode(true);
+    alert("clicked");
   document.body.appendChild(clone);
 
   // Set posisi awal clone (sesuai posisi asli gambar)
@@ -226,7 +227,7 @@ document.body.addEventListener("click", (event) => {
   const newWidth = newHeight * aspectRatio; // Width menyesuaikan aspect ratio
 
   // Hitung posisi tengah halaman untuk memastikan ke tengah atas
-  const centerX = (window.innerWidth - newWidth) / 2;
+  const centerX = window.innerWidth / 2 - newWidth / 2;
   const centerY = previewRect.top; // Posisi atas mengikuti preview
 
   // Efek zoom-in sebelum berpindah
