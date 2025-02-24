@@ -262,6 +262,7 @@ function isMobile() {
             preview.querySelector(".p-fav img").src = descImgElement.src;
           }
           preview.querySelector(".thumbnail img").src = img.src;
+          preview.querySelector(".thumbnail img").alt = img.alt;
         }
       }
     }
