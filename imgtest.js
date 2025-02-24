@@ -79,7 +79,6 @@ function renderResults(res) {
     imgElement.onload = function() {
       if (imgElement.parentElement) {
         positionItems();
-        imgElement.closest(".img-thumb").style.height = `${imgElement.clientHeight}px`;
       }
     };
     imgElement.onerror = function() {
