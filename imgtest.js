@@ -61,9 +61,10 @@ function renderResults(res) {
     imgContainer.setAttribute("tab-index", `tab-${i}`);
 
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
+    const thumbheight = 0;
     imgElement.onload = function() {
       if (imgElement.parentElement) {
-        imgElement.parentElement.style.height = `${imgElement.height}px`;
+        thumbheight = imgElement.naturalHeight;
         positionItems();
       }
     };
@@ -75,7 +76,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt" id name>
-                        <div class="img-thumb">
+                        <div class="img-thumb" style="height:${thumbheight}px;">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
@@ -86,14 +87,7 @@ function renderResults(res) {
                         </a>
                     </div>
                 </div>`;
-    const tempThumbnail = new Image();
-    tempThumbnail.src = res.images[i].thumbnail;
 
-    tempThumbnail.onload = function () {
-        imgContainer.querySelector(".img-thumb").style.height = `${tempThumbnail.naturalHeight}px`;
-        console.log(tempThumbnail.naturalHeight);
-      
-    };
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
     fragment.appendChild(imgContainer);
 
