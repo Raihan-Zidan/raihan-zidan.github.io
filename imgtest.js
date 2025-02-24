@@ -63,6 +63,7 @@ function renderResults(res) {
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgElement.onload = function() {
       if (imgElement.parentElement) {
+        console.log(imgElement.heigh);
         imgElement.parentElement.style.height = `${imgElement.height}px`;
         positionItems();
       }
