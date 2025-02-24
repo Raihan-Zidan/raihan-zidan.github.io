@@ -38,10 +38,10 @@ var sitelinks = [
   {
     site: "https://www.minecraft.net/en-us",
     links: [
-      ["Login", "https://www.minecraft.net/en-us/login", "Sign in to your account with your Minecraft login information and..."],
-      ["Games", "https://www.minecraft.net/en-us/about-minecraft", "Minecraft is a sandbox video game developed by Mojang Studios. The game allows..."],
+      ["Download Minecraft", "https://www.minecraft.net/en-us/download", "The Minecraft Launcher is your hub for accessing all of your favorite Minecraft …"],
+      ["Community", "https://www.minecraft.net/en-us/community", "Join the Creative Corner on the official Minecraft Discord to share your work, …"],
       ["Minecraft Legends", "https://www.minecraft.net/en-us/about-legends", "Minecraft Legends is an action strategy game developed by Mojang Studios and Blackbird Interactive."],
-      ["Download", "https://www.minecraft.net/en-us/download", "Download Minecraft for Windows, Mac and Linux. Get server..."]
+      ["Shop", "https://shop.minecraft.net/", "Shop exclusive merchandise from Minecraft with official..."]
     ]
   },
   {
