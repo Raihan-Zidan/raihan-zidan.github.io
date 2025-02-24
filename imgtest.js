@@ -90,7 +90,7 @@ function renderResults(res) {
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
     fragment.appendChild(imgContainer);
 
-                                               }
+  }
   container.insertBefore(fragment, shwrapper);
   isLoading = false;
   positionItems();
@@ -114,7 +114,7 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
   setTimeout(() => {
     imgElement.style.filter = "blur(0)";
     imgElement.removeAttribute("style");
-      let parent = imgElement.closest(".img-tb");
+      let parent = imgElement.closest(".img-thumb");
       if (parent) parent.style.height = auto;
   }, 5000);
 }
