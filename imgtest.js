@@ -89,7 +89,6 @@ function renderResults(res) {
 
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
     fragment.appendChild(imgContainer);
-    imgContainer.querySelector(".img-thumb").style.height = `${imgElement.clientHeight}px`;
 
   }
   container.insertBefore(fragment, shwrapper);
@@ -113,6 +112,7 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = fullSrc;
     imgElement.style.filter = "blur(0)";
 
+    imgElement.closest(".img-thumb").style.height = `${imgElement.clientHeight}px`;
   };
   setTimeout(() => {
     imgElement.style.filter = "blur(0)";
