@@ -443,7 +443,7 @@ function instant(e) {
       if (res.infobox) {
       for (var i = 0; i < res.infobox.length && i < 3; i++) {
         if (res.infobox[i].value.trim()) {
-          document.querySelector(".instant-answer .infobox").innerHTML += `<span>${res.infobox[i].label}: ${res.infobox[i].value}</span>`;
+          document.querySelector(".instant-answer .infobox").innerHTML += `<span id="text_info"><b>${res.infobox[i].label}:</b> ${res.infobox[i].value}</span>`;
         }
       }}
     }
