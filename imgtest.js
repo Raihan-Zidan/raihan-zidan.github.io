@@ -58,7 +58,7 @@ function renderResults(res) {
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
-    imgContainer.setAttribute("tab-index", `tab-${i}`);
+    imgContainer.setAttribute("tabindex", `tab-${i}`);
 
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     let thumbheight = 0;
@@ -66,14 +66,22 @@ function renderResults(res) {
       if (imgElement.parentElement) {
         thumbheight = imgElement.naturalHeight;
         positionItems();
-            imgContainer.innerHTML = `
+      }
+    };
+    imgElement.onerror = function() {
+      let parent = imgElement.closest(".img-tb");
+      if (parent) parent.remove();
+      positionItems();
+    };
+    
+    imgContainer.innerHTML = `
                 <div class="img-th">
-                    <div class="img-dt" id name>
+                    <div class="img-dt">
                         <div class="img-thumb" style="height:${thumbheight}px;">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
-                            <p class="i-desc" id="desk_teks">
+                            <p class="i-desc">
                               <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
                               <span>${res.images[i].siteName}</span>
                             </p>
@@ -86,15 +94,6 @@ function renderResults(res) {
 
                                                }
   container.insertBefore(fragment, shwrapper);
-      }
-    };
-    imgElement.onerror = function() {
-      let parent = imgElement.closest(".img-tb");
-      if (parent) parent.remove();
-      positionItems();
-    };
-    
-
   isLoading = false;
   positionItems();
 }
