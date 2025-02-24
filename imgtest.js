@@ -110,13 +110,13 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
   fullImage.onload = function() {
     imgElement.src = fullSrc;
     imgElement.style.filter = "blur(0)";
+          let parent = imgElement.closest(".img-thumb");
+      if (parent) parent.style.removeProperty("height");
+    positionItems();
   };
   setTimeout(() => {
     imgElement.style.filter = "blur(0)";
     imgElement.removeAttribute("style");
-      let parent = imgElement.closest(".img-thumb");
-      if (parent) parent.style.removeProperty("height");
-
   }, 5000);
 }
 
