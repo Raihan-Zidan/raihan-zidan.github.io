@@ -115,7 +115,8 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.style.filter = "blur(0)";
     imgElement.removeAttribute("style");
       let parent = imgElement.closest(".img-thumb");
-      if (parent) parent.style.height = auto;
+      if (parent) parent.style.removeProperty("height");
+
   }, 5000);
 }
 
