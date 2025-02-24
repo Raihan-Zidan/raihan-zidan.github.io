@@ -63,7 +63,6 @@ function renderResults(res) {
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgElement.onload = function() {
       if (imgElement.parentElement) {
-        console.log(imgElement.heigh);
         imgElement.parentElement.style.height = `${imgElement.height}px`;
         positionItems();
       }
@@ -87,17 +86,15 @@ function renderResults(res) {
                         </a>
                     </div>
                 </div>`;
-  const tempThumbnail = new Image();
-  tempThumbnail.src = res.images[i].thumbnail;
+    const tempThumbnail = new Image();
+    tempThumbnail.src = res.images[i].thumbnail;
 
-  tempThumbnail.onload = function () {
-    if (imgContainer) {
-      imgContainer.querySelector(".img-thumb").style.height = `${tempThumbnail.height}px`;
-    }
-  };
+    tempThumbnail.onload = function () {
+        imgContainer.querySelector(".img-thumb").style.height = `${tempThumbnail.naturalHeight}px`;
+        console.log(tempThumbnail.naturalHeight);
+      
+    };
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
-
-        // Tambahkan elemen img ke dalam div thumbnail
     fragment.appendChild(imgContainer);
 
                                                }
@@ -199,7 +196,6 @@ function isMobile() {
       document.body.addEventListener("click", (event) => {
         const img = event.target.closest(".img-thumb img");
         if (!img) {
-          console.log("No matching image found");
           return;
         }
         event.preventDefault();
