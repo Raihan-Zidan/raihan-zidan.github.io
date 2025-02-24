@@ -86,7 +86,14 @@ function renderResults(res) {
                         </a>
                     </div>
                 </div>`;
-      
+  const tempThumbnail = new Image();
+  tempThumbnail.src = res.images[i].thumbnail;
+
+  tempThumbnail.onload = function () {
+    if (imgContainer) {
+      imgContainer.querySelector(".img-thumb").style.height = `${tempThumbnail.height}px`;
+    }
+  };
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
 
         // Tambahkan elemen img ke dalam div thumbnail
