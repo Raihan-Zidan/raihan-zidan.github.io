@@ -74,12 +74,12 @@ function renderResults(res) {
     };
     imgContainer.innerHTML = `
                 <div class="img-th">
-                    <div class="img-dt">
+                    <div class="img-dt" id name>
                         <div class="img-thumb">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
-                            <p class="title">${res.images[i].title}</p>
-                            <p class="i-desc">
+                            <p class="title" name="t">${res.images[i].title}</p>
+                            <p class="i-desc" id="desk_teks">
                               <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
                               <span>${res.images[i].siteName}</span>
                             </p>
