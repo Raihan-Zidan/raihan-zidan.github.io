@@ -61,7 +61,7 @@ function renderResults(res) {
     imgContainer.setAttribute("tab-index", `tab-${i}`);
 
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
-    const thumbheight = 0;
+    let thumbheight = 0;
     imgElement.onload = function() {
       if (imgElement.parentElement) {
         thumbheight = imgElement.naturalHeight;
