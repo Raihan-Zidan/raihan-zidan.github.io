@@ -75,7 +75,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height:${getRandomValue()}px">
+                        <div class="img-thumb" style="">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
@@ -103,9 +103,7 @@ function getRandomValue() {
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
   imgElement.src = thumbnailSrc;
-          let parent = imgElement.closest(".img-thumb");
-      if (parent) parent.style.height = imgElement.height;
-    positionItems();
+
   imgElement.style.filter = "blur(2px)";
   imgElement.style.transition = "filter .5s ease-in-out";
   const fullImage = new Image();
