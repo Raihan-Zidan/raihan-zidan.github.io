@@ -59,19 +59,6 @@ function renderResults(res) {
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
     imgContainer.setAttribute("tabindex", `tab-${i}`);
-
-    loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
-    imgElement.onload = function() {
-      if (imgElement.parentElement) {
-        positionItems();
-      }
-    };
-    imgElement.onerror = function() {
-      let parent = imgElement.closest(".img-tb");
-      if (parent) parent.remove();
-      positionItems();
-    };
-    
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
@@ -86,8 +73,21 @@ function renderResults(res) {
                         </a>
                     </div>
                 </div>`;
-
+    
+    loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
+    imgElement.onload = function() {
+      if (imgElement.parentElement) {
+        positionItems();
+        imgElement.closest(".img-thumb").style.height = `${imgElement.clientHeight}px`;
+      }
+    };
+    imgElement.onerror = function() {
+      let parent = imgElement.closest(".img-tb");
+      if (parent) parent.remove();
+      positionItems();
+    };
+    
     fragment.appendChild(imgContainer);
 
   }
@@ -112,7 +112,6 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.src = fullSrc;
     imgElement.style.filter = "blur(0)";
 
-    imgElement.closest(".img-thumb").style.height = `${imgElement.clientHeight}px`;
   };
   setTimeout(() => {
     imgElement.style.filter = "blur(0)";
