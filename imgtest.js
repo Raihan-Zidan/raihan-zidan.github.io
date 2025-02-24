@@ -66,14 +66,7 @@ function renderResults(res) {
       if (imgElement.parentElement) {
         thumbheight = imgElement.naturalHeight;
         positionItems();
-      }
-    };
-    imgElement.onerror = function() {
-      let parent = imgElement.closest(".img-tb");
-      if (parent) parent.remove();
-      positionItems();
-    };
-    imgContainer.innerHTML = `
+            imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt" id name>
                         <div class="img-thumb" style="height:${thumbheight}px;">
@@ -93,6 +86,15 @@ function renderResults(res) {
 
                                                }
   container.insertBefore(fragment, shwrapper);
+      }
+    };
+    imgElement.onerror = function() {
+      let parent = imgElement.closest(".img-tb");
+      if (parent) parent.remove();
+      positionItems();
+    };
+    
+
   isLoading = false;
   positionItems();
 }
