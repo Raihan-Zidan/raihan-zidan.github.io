@@ -61,10 +61,8 @@ function renderResults(res) {
     imgContainer.setAttribute("tabindex", `tab-${i}`);
 
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
-    let thumbheight = 0;
     imgElement.onload = function() {
       if (imgElement.parentElement) {
-        thumbheight = imgElement.naturalHeight;
         positionItems();
       }
     };
@@ -77,7 +75,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height:${thumbheight}px;">
+                        <div class="img-thumb" style="">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
