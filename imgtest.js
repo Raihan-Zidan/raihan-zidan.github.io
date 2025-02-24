@@ -75,7 +75,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="">
+                        <div class="img-thumb" style="height:${getRandomValue()}px">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
@@ -97,7 +97,7 @@ function renderResults(res) {
 }
 
 function getRandomValue() {
-  const values = [100, 160, 200, 260];
+  const values = [100, 140, 160, 200];
   return values[Math.floor(Math.random() * values.length)];
 }
 
