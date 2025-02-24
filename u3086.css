@@ -1485,3 +1485,7 @@ body.dark .info-label, body.dark .flexwrap .link, body.dark .nwst .publishtime {
 .tab-result.Nrltf {
   padding: 16px
 }
+
+#main-bx {
+  font-size: medium;
+}
