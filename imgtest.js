@@ -54,10 +54,12 @@ function renderResults(res) {
     imgElement.src = res.images[i].thumbnail;
     imgElement.loading = "lazy";
     imgElement.alt = res.images[i].title;
+    imgElement.setAttribute("img-index") = i;
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
-    // Load gambar asli
+    imgContainer.setAttribute("tab-index") = `tab-${i}`;
+
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgElement.onload = function() {
       if (imgElement.parentElement) {
@@ -78,7 +80,7 @@ function renderResults(res) {
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
                             <p class="i-desc">
-                              <img data-src="" imgindex="${i}" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
+                              <img data-src="" src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=${res.images[i].pageUrl}">
                               <span>${res.images[i].siteName}</span>
                             </p>
                         </a>
@@ -113,6 +115,7 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
   };
   setTimeout(() => {
     imgElement.style.filter = "blur(0)";
+    imgElement.removeAttribute("style");
   }, 5000);
 }
 
