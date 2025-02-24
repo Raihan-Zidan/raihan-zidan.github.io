@@ -36,7 +36,7 @@ window.addEventListener("resize", positionItems);
 function fetchData() {
   if (isLoading || start > maxStart) return;
   isLoading = true;
-  fetch(`https://imagesearch.raihan-zidan2709.workers.dev/?q=${q}&start=${start}`).then(response => response.json()).then(response => {
+  fetch(`https://imagesearch.raihan-zidan2709.workers.dev/images?q=${q}&start=${start}`).then(response => response.json()).then(response => {
     renderResults(response);
     start += 10;
     lastFetchHeight = document.body.scrollHeight;
