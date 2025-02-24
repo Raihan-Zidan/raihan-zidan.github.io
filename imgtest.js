@@ -53,6 +53,7 @@ function renderResults(res) {
     let imgElement = document.createElement("img");
     imgElement.src = res.images[i].thumbnail;
     imgElement.loading = "lazy";
+    imgElement.alt = res.images[i].title;
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
