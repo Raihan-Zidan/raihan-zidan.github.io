@@ -21,11 +21,10 @@
 .img-thumb {
   overflow: hidden;
   position: relative;
-  width: 100%;
   border-radius: 16px;
   background-color: #e9e9ec;
   cursor: pointer;
-  pointer-events: all;
+  display: flex;
   transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
