@@ -54,11 +54,11 @@ function renderResults(res) {
     imgElement.src = res.images[i].thumbnail;
     imgElement.loading = "lazy";
     imgElement.alt = res.images[i].title;
-    imgElement.setAttribute("img-index") = i;
+    imgElement.setAttribute("img-index", i);
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
-    imgContainer.setAttribute("tab-index") = `tab-${i}`;
+    imgContainer.setAttribute("tab-index", `tab-${i}`);
 
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgElement.onload = function() {
@@ -75,7 +75,7 @@ function renderResults(res) {
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
-                        <div class="img-thumb" style="height">
+                        <div class="img-thumb">
                         </div>
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title">${res.images[i].title}</p>
