@@ -223,6 +223,8 @@ html, body {
   border-radius: 50%;
   padding: 4px;
   position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .tab-result .favicon img {
