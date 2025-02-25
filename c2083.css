@@ -93,7 +93,7 @@ body {
   list-style: none;
 }
 
-.container ul.link li > a {
+.container ul li > a {
   display: flex;
   flex-direction: column;
   justify-content: center;
