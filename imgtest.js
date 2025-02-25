@@ -41,6 +41,7 @@ function fetchData() {
     start += 10;
     lastFetchHeight = document.body.scrollHeight;
     shwrapper.innerHTML = '';
+    shwrapper.style.position = 'absolute';
   }).catch(error => {
     isLoading = false;
     shwrapper.innerHTML = '';
