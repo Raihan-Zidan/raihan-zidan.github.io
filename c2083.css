@@ -109,8 +109,11 @@ body {
   filter: brightness(90%);
 }
 
-.container ul.link li span {
+.container ul.link li a {
   font-size: 12px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  color: #000;
 }
 
 .container ul.link li .icon {
