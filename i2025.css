@@ -78,7 +78,10 @@ a.info {
   text-overflow: ellipsis;
 }
 
-
+.show-wrapper {
+  position: absolute;
+  bottom: 0;
+}
 
 
 
