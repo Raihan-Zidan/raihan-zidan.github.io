@@ -225,6 +225,7 @@ html, body {
   position: relative;
   display: flex;
   justify-content: center;
+  background: green;
 }
 
 .tab-result .favicon img {
