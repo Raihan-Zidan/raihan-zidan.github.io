@@ -225,12 +225,12 @@ html, body {
   position: relative;
   display: flex;
   justify-content: center;
-  background: green;
+  align-items: center;
 }
 
 .tab-result .favicon img {
   mix-blend-mode: multiply;
-  border-radius: 30%;
+  border: 1px solid green;
 }
 
 .tab-result .favicon img {
