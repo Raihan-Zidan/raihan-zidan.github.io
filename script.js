@@ -545,6 +545,25 @@ function fetchThumbnailFromAPI(articleUrl, callback) {
     });
 }
 
+function fetchThumbnailFromAPI(articleUrl, callback) {
+  const apiUrl = `http://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.thumbnail) {
+        callback(data.thumbnail);
+      } else {
+        callback(null);
+      }
+    })
+    .catch(error => {
+      console.error("Error fetching thumbnail:", error);
+      callback(null);
+    });
+}
+
+
 
 
 function hnvd(res) {
