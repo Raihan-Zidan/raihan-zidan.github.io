@@ -527,8 +527,9 @@ function nwsr(res) {
   }
 }
 
+
 function fetchThumbnailFromAPI(articleUrl, callback) {
-  const apiUrl = `http://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
+  const apiUrl = `https://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -545,24 +546,23 @@ function fetchThumbnailFromAPI(articleUrl, callback) {
     });
 }
 
-function fetchThumbnailFromAPI(articleUrl, callback) {
-  const apiUrl = `http://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
-
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      if (data.thumbnail) {
-        callback(data.thumbnail);
-      } else {
-        callback(null);
-      }
-    })
-    .catch(error => {
-      console.error("Error fetching thumbnail:", error);
-      callback(null);
-    });
+function renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet) {
+  document.querySelector(".main-result").innerHTML += `
+    <div class="tab-result nwst eb8xCva">
+      <div class="snwt">
+        <a href="${newsItem.url}">
+          ${thumbimg}
+          <div class="top">
+            <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${newsItem.url}&size=64" class="favicon">
+            <div class="link">${publisher}</div>
+          </div>
+          <div class="title">${newsItem.title}</div>
+          ${newssnippet}
+          <div class="publishtime">${publishtime}</div>
+        </a>
+      </div>
+    </div>`;
 }
-
 
 
 
