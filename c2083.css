@@ -29,6 +29,7 @@ body {
 
 .container form {
   position: relative;
+  width: 80%;
 }
 
 .container form .search-box {
@@ -44,6 +45,7 @@ body {
 
 .container form input {
   width: 100%;
+  padding: 12px 0;
   outline: none;
   border: none;
   background: transparent;
