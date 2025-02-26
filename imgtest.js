@@ -196,10 +196,11 @@ function isMobile() {
         event.preventDefault();
         const rect = img.getBoundingClientRect();
         const clone = img.cloneNode(true);
-        close.style.background = "#ededed";
         document.body.appendChild(clone);
         // Set posisi awal clone (sesuai posisi asli gambar)
         clone.style.position = "fixed";
+        
+        close.style.background = "#ededed";
         clone.style.top = `${rect.top}px`;
         clone.style.left = `${rect.left}px`;
         clone.style.width = `${rect.width}px`;
