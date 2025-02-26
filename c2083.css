@@ -21,7 +21,7 @@ body {
 }
 
 .container .search-box, form {
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@ body {
 
 .container form {
   position: relative;
-  width: 80%;
+  width: 90%;
 }
 
 .container form .search-box {
@@ -49,17 +49,16 @@ body {
   outline: none;
   border: none;
   background: transparent;
-  padding-left: 18px;
   font-size: 15px;
 }
 
 .container form button[type="submit"] {
   min-width: 45px;
-  height: 40px;
+  height: 45px;
   border: none;
   cursor: pointer;
   background-image: url("https://raihan-zidan.github.io/images/search.png");
-  background-size: 20px;
+  background-size: 16px;
   background-repeat: no-repeat;
   background-position: center;
   
@@ -93,7 +92,13 @@ body {
   list-style: none;
 }
 
-.container ul li > a {
+a {
+  color: black;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.container ul.link li > a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -147,17 +152,6 @@ body {
   position: relative;
 }
 
-.search-suggest {
-  position: absolute;
-  background: #fff;
-  border: 1px solid #e3e3e3;
-  border-radius: 0px 0px 22px 22px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-  top: 100%;
-  display: none;
-  transition: all .2s;
-}
-
 .search-suggest.active {
   display: block;
 }
@@ -204,3 +198,82 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 22px 22px 0 0;
 }
 
+
+
+
+
+  .search-suggest {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    box-sizing: 999;
+  background: #fff;
+  display: none;
+  transition: all .2s;
+  }
+  input#sugg-inp {
+    border-bottom: 1px solid #ededed;
+    padding-left: 45px;
+  }
+
+  button.tmh {
+    background-image: url("https://s.yimg.com/pv/static/img/sa-edit-202403050534.svg")
+  }
+
+.btn-box {
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-color: transparent;
+}
+
+#clr_29 {
+  background-image: url("https://raihan-zidan.github.io/images/close.png");
+  top: 0;
+  right: 0;
+}
+
+.inp-wr {
+  position: relative;
+}
+
+.search-suggest ul li {
+  position: relative;
+  padding: 8px 15px 8px 45px;
+}
+
+.search-suggest ul li a {
+
+  padding-right: 40px
+}
+
+button#s_pjang {
+  background-image: url("https://s.yimg.com/pv/static/img/search-cancel-202403050526.svg");
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+button#sear_sta_38 {
+      background-image: url("https://raihan-zidan.github.io/images/search.png");
+    left: 0;
+  background-size: 16px;
+
+}
+
+@media screen and (min-width: 780px) {
+.search-suggest {
+  position: absolute;
+  border: 1px solid #e3e3e3;
+  border-radius: 0px 0px 22px 22px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  top: 100%;
+display: none;
+  height: auto;
+}
+}
