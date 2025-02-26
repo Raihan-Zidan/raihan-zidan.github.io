@@ -541,7 +541,7 @@ function updateThumbnail(articleUrl, thumbnailHtml) {
 }
 
 function fetchThumbnailFromAPI(articleUrl, callback) {
-  const apiUrl = `http://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
+  const apiUrl = `https://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
 
   fetch(apiUrl)
     .then(response => response.json())
