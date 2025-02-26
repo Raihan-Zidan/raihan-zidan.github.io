@@ -318,7 +318,7 @@ function submit() {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://imagesearch.raihan-zidan2709.workers.dev/news?q=${q}`)
+    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}${basa}&tbm=nws`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
