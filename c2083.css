@@ -45,11 +45,14 @@ body {
 
 .container form input {
   width: 100%;
-  padding: 12px 0;
   outline: none;
   border: none;
+}
+
+.search-box input {
   background: transparent;
   font-size: 15px;
+  height: 45px;
 }
 
 .container form button[type="submit"] {
@@ -119,7 +122,7 @@ a {
 }
 
 .container ul.link li a {
-  font-size: 12px;
+  font-size: 12px !important;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   color: #000;
@@ -214,6 +217,7 @@ input[type="search"]::-webkit-search-results-decoration {
   input#sugg-inp {
     border-bottom: 1px solid #ededed;
     padding-left: 45px;
+    padding: 12px 0;
   }
 
   button.tmh {
@@ -244,7 +248,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .search-suggest ul li {
   position: relative;
-  padding: 8px 15px 8px 45px;
+  padding: 12px 40px 12px 45px;
 }
 
 .search-suggest ul li a {
