@@ -514,7 +514,7 @@ async function nwsr(res) {
       let newssnippet = windowWidth > 780 ? `<div class="snippet">${item.snippet}</div>` : "";
 
       // Ambil thumbnail dari API jika tidak tersedia
-      let thumbnail = item.thumbnail || await fetchThumbnailFromAPI(item.url);
+      let thumbnail = await fetchThumbnailFromAPI(item.url);
       if (!thumbnail) continue; // Jika masih tidak ada, skip berita ini
 
       let thumbimg = `<img class="thumb" src="${thumbnail}">`;
