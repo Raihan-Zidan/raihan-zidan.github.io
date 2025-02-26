@@ -506,17 +506,46 @@ function dateconversion(val) {
 function nwsr(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
-      publisher = (res.items[i].source) ? res.items[i].source : res.items[i].url;
-      var publishtime = (res.items[i].posttime) ? res.items[i].posttime : "Published";
-      newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
-      thumbimg = (res.items[i].thumbnail) ? `<img class="thumb" src="${res.items[i].thumbnail}">` : "";
-      document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst eb8xCva"><div class="snwt"><a href="${res.items[i].url}">${thumbimg}<div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].url}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.items[i].title}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
+      let newsItem = res.items[i];
+
+      let publisher = newsItem.source ? newsItem.source : newsItem.url;
+      let publishtime = newsItem.posttime ? newsItem.posttime : "Published";
+      let newssnippet = (windowWidth > 780) ? `<div class="snippet">${newsItem.snippet}</div>` : "";
+
+      let thumbimg = "";
+      if (newsItem.thumbnail) {
+        fetchThumbnailFromAPI(newsItem.url, (thumbnail) => {
+          thumbimg = thumbnail ? `<img class="thumb" src="${thumbnail}">` : "";
+          renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
+        });
+      }
     }
+
     if (startIndex == 1) { shwfter(); }
-  } catch(error) {
+  } catch (error) {
     if (!res.items) noresult();
   }
 }
+
+function fetchThumbnailFromAPI(articleUrl, callback) {
+  const apiUrl = `http://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.thumbnail) {
+        callback(data.thumbnail);
+      } else {
+        callback(null);
+      }
+    })
+    .catch(error => {
+      console.error("Error fetching thumbnail:", error);
+      callback(null);
+    });
+}
+
+
 
 function hnvd(res) {
   if (res.items.length > 4) {
