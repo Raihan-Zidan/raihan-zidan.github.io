@@ -6,8 +6,9 @@
   font-family: Roboto, 'Poppins', sans-serif;
 }
 
-body {
+html, body {
   background: #f5f8fa;
+  overflow: hidden;
 }
 
 .container {
@@ -45,27 +46,37 @@ body {
 
 .container form input {
   width: 100%;
+  height: 45px;
   outline: none;
   border: none;
-}
-
-.search-box input {
   background: transparent;
   font-size: 15px;
-  height: 45px;
 }
 
 .container form button[type="submit"] {
-  min-width: 45px;
+  background-image: url("https://raihan-zidan.github.io/images/search.png");
+}
+
+.btn-box {
+  width: 45px;
   height: 45px;
   border: none;
   cursor: pointer;
   background-image: url("https://raihan-zidan.github.io/images/search.png");
-  background-size: 16px;
+  background-size: 20px;
   background-repeat: no-repeat;
   background-position: center;
   
   background-color: transparent;
+}
+
+.btn-box.tmh {
+  background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMCcgaGVpZ2h0PScyMCcgZmlsbD0nbm9uZSc+PHBhdGggZD0nTTE0IDQuMjVhLjc1Ljc1IDAgMCAxIC4xMDIgMS40OTNMMTQgNS43NUg1Ljc1VjE0YS43NS43NSAwIDAgMS0xLjQ5My4xMDJMNC4yNSAxNFY1QS43NS43NSAwIDAgMSA1IDQuMjVoOXpNNi40NDYgNS4zOTdsLjA4NC4wNzMgOSA5YS43NDkuNzQ5IDAgMCAxLS45NzYgMS4xMzNsLS4wODQtLjA3My05LTlhLjc0OS43NDkgMCAwIDEgLjk3Ni0xLjEzM3pNNS4yNSA0LjI1djFoLTF2LTFoMXonIGZpbGw9JyNCMEI5QzEnLz48L3N2Zz4=');
+}
+
+.btn-box.l {
+  positon: absolute;
+  left: 0;
 }
 
 @media (min-width: 768px) {
@@ -101,11 +112,12 @@ a {
   transition: all .2s;
 }
 
+.search-suggest a {
+  
+}
+
 .container ul.link li > a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   gap: 4px 0;
   -webkit-tap-highlight-color: transparent;
   color: black;
@@ -113,7 +125,7 @@ a {
   transition: all .2s;
 }
 
-.container ul li b {
+a b {
   font-weight: 500;
 }
 
@@ -122,7 +134,7 @@ a {
 }
 
 .container ul.link li a {
-  font-size: 12px !important;
+  font-size: 12px;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   color: #000;
@@ -161,9 +173,14 @@ a {
 
 .search-suggest ul li {
   cursor: pointer;
-  padding: 8px 15px 8px 18px;
+
   transition: all .1s ease-in;
   overflow: hidden;
+}
+
+.search-suggest ul li a {
+  padding: 8px 45px;
+  width: 100%;
 }
 
 .search-suggest ul li {
@@ -201,95 +218,30 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 22px 22px 0 0;
 }
 
-
-
-
-
-  .search-suggest {
-    position: fixed;
-    height: 100%;
-    top: 0;
-    box-sizing: 999;
-  background: #fff;
-  display: none;
-  transition: all .2s;
-  }
-  input#sugg-inp {
-    border-bottom: 1px solid #ededed;
-    padding-left: 45px;
-    padding: 12px 0;
-  }
-
-  button.tmh {
-    background-image: url("https://s.yimg.com/pv/static/img/sa-edit-202403050534.svg")
-  }
-
-.btn-box {
-  width: 45px;
-  height: 45px;
-  border: none;
-  cursor: pointer;
-  background-size: 16px;
-  background-repeat: no-repeat;
-  background-position: center;
+.search-suggest {
   position: absolute;
-  background-color: transparent;
+  border: 1px solid #e3e3e3;
+  border-radius: 0px 0px 22px 22px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  top: 100%;
+display: none;
+  height: auto;
+  max-height: 300px;
+  background: #fff;
+  overflow: auto;
 }
 
-#clr_29 {
-  background-image: url("https://raihan-zidan.github.io/images/close.png");
-  top: 0;
-  right: 0;
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
 }
 
-.inp-wr {
-  position: relative;
+::-webkit-scrollbar-track {
+    border-radius: 0px;
 }
 
-.search-suggest ul li {
-  position: relative;
-  padding: 12px 40px 12px 45px;
-}
+::-webkit-scrollbar-thumb {
+    background: #EDEDED;
+    border-radius: 10px;
 
-.search-suggest ul li a {
-
-  padding-right: 40px
-}
-
-button#s_pjang {
-  background-image: url("https://s.yimg.com/pv/static/img/search-cancel-202403050526.svg");
-  left: 0;
-  top: 0;
-  bottom: 0;
-}
-
-button#sear_sta_38 {
-  background-image: url("https://raihan-zidan.github.io/images/search.png");
-  left: 0;
-}
-
-@media screen and (max-width: 480px) {
-  .container form input,
-  .container ul.link li a {
-    font-size: 16px;
-  }
-  .container form button[type="submit"],
-  .btn-box {
-    background-size: 20px;
-  }
-}
-
-@media screen and (min-width: 980px) {
-  .search-suggest {
-    position: absolute;
-    border: 1px solid #e3e3e3;
-    border-radius: 0px 0px 22px 22px;
-    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-    top: 100%;
-    display: none;
-    height: auto;
-  }
-  .container form {
-    width: 100%;
-  }
 }
