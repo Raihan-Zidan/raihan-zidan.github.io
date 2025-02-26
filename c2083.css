@@ -223,7 +223,7 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 45px;
   border: none;
   cursor: pointer;
-  background-size: 20px;
+  background-size: 16px;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -258,16 +258,18 @@ button#s_pjang {
 }
 
 button#sear_sta_38 {
-      background-image: url("https://raihan-zidan.github.io/images/search.png");
-    left: 0;
-  background-size: 16px;
-
+  background-image: url("https://raihan-zidan.github.io/images/search.png");
+  left: 0;
 }
 
 @media screen and (max-width: 480px) {
   .container form input,
   .container ul.link li a {
     font-size: 16px;
+  }
+  .container form button[type="submit"],
+  .btn-box {
+    background-size: 20px;
   }
 }
 
