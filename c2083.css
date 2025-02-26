@@ -29,7 +29,6 @@ body {
 
 .container form {
   position: relative;
-  width: 90%;
 }
 
 .container form .search-box {
@@ -45,7 +44,6 @@ body {
 
 .container form input {
   width: 100%;
-  height: 45px;
   outline: none;
   border: none;
   background: transparent;
@@ -266,14 +264,24 @@ button#sear_sta_38 {
 
 }
 
-@media screen and (min-width: 780px) {
-.search-suggest {
-  position: absolute;
-  border: 1px solid #e3e3e3;
-  border-radius: 0px 0px 22px 22px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-  top: 100%;
-display: none;
-  height: auto;
+@media screen and (max-width: 480px) {
+  .container form input,
+  .container ul.link li a {
+    font-size: 16px;
+  }
 }
+
+@media screen and (min-width: 980px) {
+  .search-suggest {
+    position: absolute;
+    border: 1px solid #e3e3e3;
+    border-radius: 0px 0px 22px 22px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    top: 100%;
+    display: none;
+    height: auto;
+  }
+  .container form {
+    width: 100%;
+  }
 }
