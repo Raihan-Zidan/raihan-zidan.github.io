@@ -503,62 +503,71 @@ function dateconversion(val) {
   }
 }
 
-async function nwsr(res) {
+function nwsr(res) {
   try {
-    let resultHTML = "";
-
     for (var i = 0; i < res.items.length; i++) {
-      let item = res.items[i];
-      let publisher = item.source ? item.source : item.url;
-      let publishtime = item.posttime ? item.posttime : "Published";
-      let newssnippet = windowWidth > 780 ? `<div class="snippet">${item.snippet}</div>` : "";
+      let newsItem = res.items[i];
 
-      // Ambil thumbnail dari API jika tidak tersedia
-      let thumbnail = await fetchThumbnailFromAPI(item.url);
-      if (!thumbnail) continue; // Jika masih tidak ada, skip berita ini
+      let publisher = newsItem.source ? newsItem.source : newsItem.url;
+      let publishtime = newsItem.posttime ? newsItem.posttime : "Published";
+      let newssnippet = (windowWidth > 780) ? `<div class="snippet">${newsItem.snippet}</div>` : "";
 
-      let thumbimg = `<img class="thumb" src="${thumbnail}">`;
-
-      resultHTML += `
-        <div class="tab-result nwst eb8xCva">
-          <div class="snwt">
-            <a href="${item.url}">
-              ${thumbimg}
-              <div class="top">
-                <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.url}&size=64" class="favicon">
-                <div class="link">${publisher}</div>
-              </div>
-              <div class="title">${item.title}</div>
-              ${newssnippet}
-              <div class="publishtime">${publishtime}</div>
-            </a>
-          </div>
-        </div>
-      `;
+      let thumbimg = "";
+      if (newsItem.thumbnail) {
+        thumbimg = `<img class="thumb" src="${newsItem.thumbnail}">`;
+        renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
+      } else {
+        // 🔥 Fetch thumbnail jika tidak tersedia
+        fetchThumbnailFromAPI(newsItem.url, (thumbnail) => {
+          thumbimg = thumbnail ? `<img class="thumb" src="${thumbnail}">` : "";
+          renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
+        });
+      }
     }
-
-    document.querySelector(".main-result").innerHTML += resultHTML;
 
     if (startIndex == 1) { shwfter(); }
   } catch (error) {
-    console.error("Error in nwsr:", error);
     if (!res.items) noresult();
   }
 }
 
-// 🔹 Fungsi untuk mengambil thumbnail dari API tambahan
-async function fetchThumbnailFromAPI(articleUrl) {
-  try {
-    let response = await fetch(`https://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`);
-    if (!response.ok) throw new Error("Failed to fetch thumbnail");
 
-    let data = await response.json();
-    return data.thumbnail || null;
-  } catch (error) {
-    console.error("Error fetching thumbnail:", error);
-    return null;
-  }
+function renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet) {
+  document.querySelector(".main-result").innerHTML += `
+    <div class="tab-result nwst eb8xCva">
+      <div class="snwt">
+        <a href="${newsItem.url}">
+          ${thumbimg}
+          <div class="top">
+            <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${newsItem.url}&size=64" class="favicon">
+            <div class="link">${publisher}</div>
+          </div>
+          <div class="title">${newsItem.title}</div>
+          ${newssnippet}
+          <div class="publishtime">${publishtime}</div>
+        </a>
+      </div>
+    </div>`;
 }
+
+function fetchThumbnailFromAPI(articleUrl, callback) {
+  const apiUrl = `http://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.thumbnail) {
+        callback(data.thumbnail);
+      } else {
+        callback(null);
+      }
+    })
+    .catch(error => {
+      console.error("Error fetching thumbnail:", error);
+      callback(null);
+    });
+}
+
 
 
 function hnvd(res) {
