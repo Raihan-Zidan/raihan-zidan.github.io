@@ -512,7 +512,7 @@ function nwsr(res) {
       let publishtime = newsItem.posttime ? newsItem.posttime : "Published";
       let newssnippet = (windowWidth > 780) ? `<div class="snippet">${newsItem.snippet}</div>` : "";
 
-      let thumbimg = `<img class="thumb" src="default-placeholder.jpg">`; // Placeholder sementara
+      let thumbimg = `<img class="thumb" src="${newsItem.thumbnail}">`; // Placeholder sementara
 
       // Fetch Thumbnail dari API
       fetchThumbnailFromAPI(newsItem.url, (thumbnail) => {
@@ -551,7 +551,6 @@ function renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet) {
 }
 
 
-// Fungsi untuk memperbarui thumbnail setelah di-fetch dari API
 function updateThumbnail(articleUrl, thumbnailHtml) {
   let articleElement = document.querySelector(`.tab-result a[href='${articleUrl}'] .thumb`);
   if (articleElement && thumbnailHtml) {
