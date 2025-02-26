@@ -512,17 +512,18 @@ function nwsr(res) {
       let publishtime = newsItem.posttime ? newsItem.posttime : "Published";
       let newssnippet = (windowWidth > 780) ? `<div class="snippet">${newsItem.snippet}</div>` : "";
 
-      let thumbimg = "";
-      if (newsItem.thumbnail) {
-        thumbimg = `<img class="thumb" src="${newsItem.thumbnail}">`;
-        renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
-      } else {
-        // 🔥 Fetch thumbnail jika tidak tersedia
-        fetchThumbnailFromAPI(newsItem.url, (thumbnail) => {
-          thumbimg = thumbnail ? `<img class="thumb" src="${thumbnail}">` : "";
-          renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
-        });
-      }
+      let thumbimg = `<img class="thumb" src="default-placeholder.jpg">`; // Placeholder sementara
+
+      // Fetch Thumbnail dari API
+      fetchThumbnailFromAPI(newsItem.url, (thumbnail) => {
+        let updatedThumb = thumbnail ? `<img class="thumb" src="${newsItem.thumbnail}">` : "";
+        
+        // Update thumbnail di dalam HTML setelah API merespons
+        updateThumbnail(newsItem.url, updatedThumb);
+      });
+
+      // Render News dengan placeholder sementara
+      renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
     }
 
     if (startIndex == 1) { shwfter(); }
@@ -531,23 +532,12 @@ function nwsr(res) {
   }
 }
 
-
-function renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet) {
-  document.querySelector(".main-result").innerHTML += `
-    <div class="tab-result nwst eb8xCva">
-      <div class="snwt">
-        <a href="${newsItem.url}">
-          ${thumbimg}
-          <div class="top">
-            <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${newsItem.url}&size=64" class="favicon">
-            <div class="link">${publisher}</div>
-          </div>
-          <div class="title">${newsItem.title}</div>
-          ${newssnippet}
-          <div class="publishtime">${publishtime}</div>
-        </a>
-      </div>
-    </div>`;
+// Fungsi untuk memperbarui thumbnail setelah di-fetch dari API
+function updateThumbnail(articleUrl, thumbnailHtml) {
+  let articleElement = document.querySelector(`.tab-result a[href='${articleUrl}'] .thumb`);
+  if (articleElement && thumbnailHtml) {
+    articleElement.outerHTML = thumbnailHtml;
+  }
 }
 
 function fetchThumbnailFromAPI(articleUrl, callback) {
@@ -556,17 +546,15 @@ function fetchThumbnailFromAPI(articleUrl, callback) {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      if (data.thumbnail) {
-        callback(data.thumbnail);
-      } else {
-        callback(null);
-      }
+      console.log("Thumbnail API Response:", data); // Debugging
+      callback(data.thumbnail || null);
     })
     .catch(error => {
       console.error("Error fetching thumbnail:", error);
       callback(null);
     });
 }
+
 
 
 
