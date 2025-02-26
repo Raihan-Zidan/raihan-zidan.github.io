@@ -506,75 +506,17 @@ function dateconversion(val) {
 function nwsr(res) {
   try {
     for (var i = 0; i < res.items.length; i++) {
-      let newsItem = res.items[i];
-
-      let publisher = newsItem.source ? newsItem.source : newsItem.url;
-      let publishtime = newsItem.posttime ? newsItem.posttime : "Published";
-      let newssnippet = (windowWidth > 780) ? `<div class="snippet">${newsItem.snippet}</div>` : "";
-
-      let thumbimg = `<img class="thumb" src="${newsItem.thumbnail}">`; // Placeholder sementara
-
-      // Fetch Thumbnail dari API
-      fetchThumbnailFromAPI(newsItem.url, (thumbnail) => {
-        let updatedThumb = thumbnail ? `<img class="thumb" src="${newsItem.thumbnail}">` : "";
-        
-        // Update thumbnail di dalam HTML setelah API merespons
-        updateThumbnail(newsItem.url, updatedThumb);
-      });
-
-      // Render News dengan placeholder sementara
-      renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet);
+      publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
+      var publishtime = (res.items[i].pagemap.metatags[0]['article:published_time']) ? dateconversion(res.items[i].pagemap.metatags[0]['article:published_time']) : "Published";
+      newssnippet = (windowWidth > 780) ? `<div class="snippet">${res.items[i].snippet}</div>` : "";
+      thumbimg = (res.items[i].pagemap.cse_thumbnail) ? `<img class="thumb" src="${res.items[i].pagemap.cse_thumbnail[0].src}">` : "";
+      document.querySelector(".main-result").innerHTML += `<div class="tab-result nwst"><div class="snwt"><a href="${res.items[i].link}">${thumbimg}<div class="top"><img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${res.items[i].link}&size=64" class="favicon"><div class="link">${publisher}</div></div><div class="title">${res.items[i].title.slice(0, 70)}</div>${newssnippet}<div class="publishtime">${publishtime}</div></a></div></div>`;
     }
-
     if (startIndex == 1) { shwfter(); }
-  } catch (error) {
-    if (!res.items) noresult();
+  } catch(error) {
+    if (!res.items) document.querySelector(".main-result").innerHTML += `<div class="tab-result"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${langtext("noresultsug")}</div></div>`;
   }
 }
-
-function renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet) {
-  document.querySelector(".main-result").innerHTML += `
-    <div class="tab-result nwst eb8xCva">
-      <div class="snwt">
-        <a href="${newsItem.url}">
-          ${thumbimg}
-          <div class="top">
-            <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${newsItem.url}&size=64" class="favicon">
-            <div class="link">${publisher}</div>
-          </div>
-          <div class="title">${newsItem.title}</div>
-          ${newssnippet}
-          <div class="publishtime">${publishtime}</div>
-        </a>
-      </div>
-    </div>`;
-}
-
-
-function updateThumbnail(articleUrl, thumbnailHtml) {
-  let articleElement = document.querySelector(`.tab-result a[href='${articleUrl}'] .thumb`);
-  if (articleElement && thumbnailHtml) {
-    articleElement.outerHTML = thumbnailHtml;
-  }
-}
-
-function fetchThumbnailFromAPI(articleUrl, callback) {
-  const apiUrl = `https://imagesearch.raihan-zidan2709.workers.dev/thumbnail?url=${encodeURIComponent(articleUrl)}`;
-
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      console.log("Thumbnail API Response:", data); // Debugging
-      callback(data.thumbnail || null);
-    })
-    .catch(error => {
-      console.error("Error fetching thumbnail:", error);
-      callback(null);
-    });
-}
-
-
-
 
 function hnvd(res) {
   if (res.items.length > 4) {
