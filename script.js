@@ -532,6 +532,25 @@ function nwsr(res) {
   }
 }
 
+function renderNews(newsItem, thumbimg, publisher, publishtime, newssnippet) {
+  document.querySelector(".main-result").innerHTML += `
+    <div class="tab-result nwst eb8xCva">
+      <div class="snwt">
+        <a href="${newsItem.url}">
+          ${thumbimg}
+          <div class="top">
+            <img src="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${newsItem.url}&size=64" class="favicon">
+            <div class="link">${publisher}</div>
+          </div>
+          <div class="title">${newsItem.title}</div>
+          ${newssnippet}
+          <div class="publishtime">${publishtime}</div>
+        </a>
+      </div>
+    </div>`;
+}
+
+
 // Fungsi untuk memperbarui thumbnail setelah di-fetch dari API
 function updateThumbnail(articleUrl, thumbnailHtml) {
   let articleElement = document.querySelector(`.tab-result a[href='${articleUrl}'] .thumb`);
