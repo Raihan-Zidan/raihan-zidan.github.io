@@ -103,6 +103,9 @@ function getRandomValue() {
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
   imgElement.src = thumbnailSrc;
+  aspectRat = imgElement.height / imgElement.width;
+  alert(aspectRat);
+  imgElement.closest(".img-thumb").style.height = aspectRat;
 
   imgElement.style.filter = "blur(2px)";
   imgElement.style.transition = "filter .5s ease-in-out";
@@ -117,6 +120,18 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
     imgElement.style.filter = "blur(0)";
     imgElement.removeAttribute("style");
   }, 5000);
+}
+
+function setImagePlaceholder(im, imurl) {
+    let img = new Image();
+    img.src = imurl;
+
+    img.onload = function () {
+        const aspectRatio = img.height / img.width;
+        wrapper.style.paddingTop = `${aspectRatio * 100}%`; // Menentukan tinggi relatif
+        wrapper.querySelector("img").src = img.src;
+        wrapper.classList.add("loaded");
+    };
 }
 
 function getImageSize(imageUrl) {
