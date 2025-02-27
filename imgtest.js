@@ -103,9 +103,16 @@ function getRandomValue() {
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
   imgElement.src = thumbnailSrc;
-  aspectRat = imgElement.height / imgElement.width;
-  alert(aspectRat);
-  imgElement.closest(".img-thumb").style.height = aspectRat;
+  
+  let imgElemepnt = new Image(); // Buat objek gambar baru (tidak langsung ke DOM)
+imgElemepnt.src = thumbnailSrc;
+
+imgElemepnt.onload = function () {
+    let aspectRat = imgElement.height / imgElement.width;
+    alert(aspectRat); // Sekarang akan menampilkan angka yang benar
+    imgElement.closest(".img-thumb").style.height = aspectRat * 100 + "px"; // Pastikan unit persentase atau px
+};
+  
 
   imgElement.style.filter = "blur(2px)";
   imgElement.style.transition = "filter .5s ease-in-out";
