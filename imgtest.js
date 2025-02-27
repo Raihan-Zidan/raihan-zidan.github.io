@@ -104,16 +104,6 @@ function getRandomValue() {
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
   imgElement.src = thumbnailSrc;
   
-  let imgElemepnt = new Image(); // Buat objek gambar baru (tidak langsung ke DOM)
-imgElemepnt.src = thumbnailSrc;
-
-imgElemepnt.onload = function () {
-    let aspectRat = imgElemepnt.height / imgElemepnt.width;
-       let wrapper = imgElement.closest(".img-thumb");
-
-    wrapper.style.height = (wrapper.clientWidth * aspectRat) + "px"; // Sesuaikan tinggi dengan lebar parent
-};
-  
 
   imgElement.style.filter = "blur(2px)";
   imgElement.style.transition = "filter .5s ease-in-out";
