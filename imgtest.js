@@ -50,7 +50,7 @@ function fetchData() {
 
 function renderResults(res) {
   let fragment = document.createDocumentFragment();
-  for (let i = 1; i < res.images.length; i++) {
+  for (let i = 0; i < res.images.length; i++) {
     let imgElement = document.createElement("img");
     imgElement.src = res.images[i].thumbnail;
     imgElement.loading = "lazy";
