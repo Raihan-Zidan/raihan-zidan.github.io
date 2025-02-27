@@ -29,7 +29,7 @@ function positionItems() {
     let itemHeight = item.getBoundingClientRect().height + gap;
     columnHeights[colIndex] += itemHeight;
   });
-  container.style.height = `${Math.max(...columnHeights)}px`;
+  container.style.height = `${Math.max(...columnHeights) + 50}px`;
 }
 window.addEventListener("resize", positionItems);
 
