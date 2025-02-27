@@ -108,9 +108,10 @@ function loadImage(imgElement, thumbnailSrc, fullSrc) {
 imgElemepnt.src = thumbnailSrc;
 
 imgElemepnt.onload = function () {
-    let aspectRat = imgElement.height / imgElement.width;
-     // Sekarang akan menampilkan angka yang benar
-    imgElement.closest(".img-thumb").style.height = aspectRat + "px"; // Pastikan unit persentase atau px
+    let aspectRat = imgElemepnt.height / imgElemepnt.width;
+       let wrapper = imgElement.closest(".img-thumb");
+
+    wrapper.style.height = (wrapper.clientWidth * aspectRat) + "px"; // Sesuaikan tinggi dengan lebar parent
 };
   
 
