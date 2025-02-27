@@ -200,7 +200,7 @@ function isMobile() {
         // Set posisi awal clone (sesuai posisi asli gambar)
         clone.style.position = "fixed";
         
-        close.style.background = "#ededed";
+        clone.style.background = "#ededed";
         clone.style.top = `${rect.top}px`;
         clone.style.left = `${rect.left}px`;
         clone.style.width = `${rect.width}px`;
