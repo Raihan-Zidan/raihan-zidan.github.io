@@ -29,7 +29,7 @@ function positionItems() {
     let itemHeight = item.getBoundingClientRect().height + gap;
     columnHeights[colIndex] += itemHeight;
   });
-  container.style.height = `${Math.max(...columnHeights) + 100}px`;
+  container.style.height = `${Math.max(...columnHeights) + 80}px`;
 }
 window.addEventListener("resize", positionItems);
 
@@ -55,11 +55,9 @@ function renderResults(res) {
     imgElement.src = res.images[i].thumbnail;
     imgElement.loading = "lazy";
     imgElement.alt = res.images[i].title;
-    imgElement.setAttribute("img-index", i);
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
-    imgContainer.style.display = "none";
     imgContainer.setAttribute("tabindex", `tab-${i}`);
     imgContainer.innerHTML = `
                 <div class="img-th">
@@ -81,7 +79,6 @@ function renderResults(res) {
     imgElement.onload = function() {
       if (imgElement.parentElement) {
         positionItems();
-        imgElement.closest(".img-tb").style.display = "";
       }
     };
     imgElement.onerror = function() {
