@@ -59,6 +59,7 @@ function renderResults(res) {
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
+    imgContainer.style.display = "none";
     imgContainer.setAttribute("tabindex", `tab-${i}`);
     imgContainer.innerHTML = `
                 <div class="img-th">
@@ -80,6 +81,7 @@ function renderResults(res) {
     imgElement.onload = function() {
       if (imgElement.parentElement) {
         positionItems();
+        imgElement.closest(".img-tb").style.display = "";
       }
     };
     imgElement.onerror = function() {
