@@ -68,7 +68,7 @@ function renderResults(res) {
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
                             <p class="i-desc">
-                              <img data-src="" src="https://datasearch.searchdata.workers.dev/favicon?url=${originurl.pathname}">
+                              <img data-src="" src="https://datasearch.searchdata.workers.dev/favicon?url=${originurl.hostname}">
                               <span>${res.images[i].siteName}</span>
                             </p>
                         </a>
