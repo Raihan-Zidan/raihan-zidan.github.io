@@ -313,17 +313,17 @@ function submit() {
   var spr = (sf == 1) ? "&safe=active" : "";
   var basa = (idlang) ? `&gl=${hl}&lr=lang_id&hl=id` : "";
   if (tbm === "vid") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid&maxResults=100`)
+    fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&tbm=vid&maxResults=100`)
       .then(response => response.json()).then(response => {
         videoresult(response);
     })
   } else if (tbm == "nws") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}${basa}&tbm=nws`)
+    fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}${basa}&tbm=nws`)
       .then(response => response.json()).then(response => {
         nwsr(response);
     })
   } else if (tbm != "vid" && tbm != "isch" && tbm != "nws") {
-    fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}${basa}&page=${startIndex}`)
+    fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}${basa}&page=${startIndex}`)
       .then(response => response.json()).then(response => {
         webresult(response);
     })
@@ -368,7 +368,7 @@ function jwbn() {
       }
 
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", `https://datasearch.raihan-zidan2709.workers.dev/?q=${qval}`);
+      xhr.open("GET", `https://datasearch.searchdata.workers.dev/?q=${qval}`);
       xhr.responseType = "json";
       xhr.onload = instant;
       xhr.send();
@@ -622,7 +622,7 @@ function webresult(res) {
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
-           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.raihan-zidan2709.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
+           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.items[i].snippet}</div>${showLinks(res.items[i].link)}</div></div>`);
     }
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
@@ -642,14 +642,14 @@ function webresult(res) {
       XuadHc("stop");
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
-      fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&tbm=vid&maxResults=6`)
+      fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&tbm=vid&maxResults=6`)
         .then(response => response.json()).then(response => {
           hnvd(response);
       })
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://datasearch.raihan-zidan2709.workers.dev/api?q=${q}&hl=id&gl=id&tbm=nws&sort=date`)
+      fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&hl=id&gl=id&tbm=nws&sort=date`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
