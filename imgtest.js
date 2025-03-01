@@ -67,7 +67,7 @@ function renderResults(res) {
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
                             <p class="i-desc">
-                              <img data-src="" src="${await addFavicon(res.images[i].pageUrl)}">
+                              <img data-src="" src="https://datasearch.searchdata.workers.dev/favicon?url=${res.images[i].pageUrl}">
                               <span>${res.images[i].siteName}</span>
                             </p>
                         </a>
@@ -98,28 +98,6 @@ function renderResults(res) {
 function getRandomValue() {
   const values = [100, 140, 160, 200];
   return values[Math.floor(Math.random() * values.length)];
-}
-
-async function addFavicon(site) {
-  try {
-    // Panggil API untuk mengambil favicon dalam format Blob
-    const response = await fetch(`https://datasearch.searchdata.workers.dev/favicon?url=${encodeURIComponent(site)}`);
-
-    if (!response.ok) {
-      throw new Error("Favicon tidak ditemukan.");
-    }
-
-    // Konversi Blob menjadi Data URL (Base64)
-    const blob = await response.blob();
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result); // Mengembalikan Data URL
-      reader.readAsDataURL(blob);
-    });
-  } catch (error) {
-    console.error("Error fetching favicon:", error);
-    return null; // Kembalikan null jika gagal
-  }
 }
 
 function loadImage(imgElement, thumbnailSrc, fullSrc) {
