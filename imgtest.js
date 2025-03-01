@@ -59,6 +59,7 @@ function renderResults(res) {
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
     imgContainer.setAttribute("tabindex", `tab-${i}`);
+    let originurl = new URL(res.images[i].pageUrl);
     imgContainer.innerHTML = `
                 <div class="img-th">
                     <div class="img-dt">
@@ -67,7 +68,7 @@ function renderResults(res) {
                         <a class="info" href="${res.images[i].pageUrl}">
                             <p class="title" name="t">${res.images[i].title}</p>
                             <p class="i-desc">
-                              <img data-src="" src="https://datasearch.searchdata.workers.dev/favicon?url=${res.images[i].pageUrl}">
+                              <img data-src="" src="https://datasearch.searchdata.workers.dev/favicon?url=${originurl.pathname}">
                               <span>${res.images[i].siteName}</span>
                             </p>
                         </a>
