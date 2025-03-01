@@ -1,3 +1,7 @@
+:root {
+  --boxdef: 0 0 0 1px rgba(235, 237, 239, 1);
+}
+
 .tab-result.Dxcgd {
   padding: 0 0 0;
 }
@@ -218,8 +222,13 @@ top: 50%;
 
 .eb8xCva {
   border: none;
-  box-shadow: 0 0 0 1px #ebedef;
   margin-bottom: 8px;
+}
+
+@media (max-width: 480px) {
+  .eb8xCva {
+    box-shadow: var(--boxdef);
+  }
 }
 
 
