@@ -255,6 +255,7 @@ html, body {
   font-size: 14px;
   font-family: Roboto,sans-serif;
   line-height: 20px;
+  display: flex;
 }
 
 .tab-result .snippet:not(:has(.thumbnail)) {
@@ -266,7 +267,7 @@ html, body {
 }
 
 .snippet .thumbnail {
-  width: 105px;
+  min-width: 105px;
   height: 105px;
   display: flex;
   margin-left: 6px;
