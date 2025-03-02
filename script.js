@@ -659,22 +659,22 @@ function webresult(res) {
       urlparam = urlparam.endsWith(" › ") ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
 
+      var isijwb = '';
+      if (res.items[i]?.pagemap?.answer) {
+        isijwb += "halo";
+        isijwb += `<div class="snippet" style="background:#ededed;border-radius:12px;padding:6px">${res.items[i].pagemap.answer[i].text}</div>`;
+      }
+      alert(isijwb);
+      var ansText = (isijwb) ? `<div style="overflow-x:auto;padding:6px 16px;height:100px">${isijwb}</div>` : "takde hasil pon";
+      alert(ansText);
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
       var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? '' : '';
 
       var isThumb = (!ansText && !bigThumb && res.items[i].snippet.length > 150 && res.items[i]?.pagemap?.cse_thumbnail) ? `<div class="thumbnail"><img src="${res.items[i].pagemap.cse_thumbnail[0].src}"></div>` : "Tidak ada gambar ditemukan";
-           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div>${bigThumb}<div class="btm-snpt"><div class="snippet"><span>${res.items[i].snippet}</span>${isThumb}</div>${ansText}${showLinks(res.items[i].link)}</div></div></div>`);
+           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div>${bigThumb}<div class="btm-snpt"><div class="snippet"><span>${res.items[i].snippet || langtext("noSiteInfo")}</span>${isThumb}</div>${showLinks(res.items[i].link)}</div></div></div>`);
     }
-   
-    
-    snippet = document.querySelectorAll(".snippet");
-    snippet.forEach(description => {
-      if (description.innerHTML === "undefined") {
-        description.innerHTML = langtext("noSiteInfo");
-      }
-    });
     if (getData().favicon == false || fv == 0) {
       document.querySelectorAll(".favicon").forEach(elm => {
         elm.remove();
