@@ -233,6 +233,7 @@ top: 50%;
 
 .tab-result .snippet span {
   font-weight: 400;
+  word-break: break-word;
 }
 
 
