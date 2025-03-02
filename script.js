@@ -110,6 +110,14 @@ if (tbm === "vid") {
   insertAfter(defstyle, vidstyle);
 }
 
+function addS(nyanya) {
+  dstyle = document.querySelectorAll("link[rel='stylesheet']")[0];
+  astyle = document.createElement("link");
+  astyle.rel = "stylesheet";
+  astyle.href = `/${nyanya}.css`;
+  insertAfter(dstyle, astyle);
+}
+
 var language = {
   en: {
     news: "News result",
@@ -635,6 +643,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
 
   if (linkElement) {
     var url = linkElement.href.replace('https://', '');
+    addS("g2079");
 
     fetch(`https://cdn.searchdata.workers.dev/?url=${url}`)
       .then(response => response.json())
