@@ -659,14 +659,6 @@ function webresult(res) {
       urlparam = urlparam.endsWith(" › ") ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
 
-      var isijwb = '';
-      if (res.items[i]?.pagemap?.answer) {
-        isijwb += "halo";
-        isijwb += `<div class="snippet" style="background:#ededed;border-radius:12px;padding:6px">${res.items[i].pagemap.answer[i].text}</div>`;
-      }
-      alert(isijwb);
-      var ansText = (isijwb) ? `<div style="overflow-x:auto;padding:6px 16px;height:100px">${isijwb}</div>` : "takde hasil pon";
-      alert(ansText);
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
