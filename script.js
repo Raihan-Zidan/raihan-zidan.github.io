@@ -617,6 +617,9 @@ function webresult(res) {
     if (res.items.length > 9 && pageone) {
       instantanswer();
     }
+    if (res.items.length < 10) {
+      XuadHc("stop")
+    }
     if (res.promotions && pageone) {
       for (var i = 0; i < res.promotions.length; i++) {
         document.querySelector(".main-result .result").innerHTML += `<div class="tab-result eb8xCva" sf-test"eb8xCva"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="link">${res.promotions[i].displayLink}</div><div class="ads">${langtext("adlabel")}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div></div>`;
