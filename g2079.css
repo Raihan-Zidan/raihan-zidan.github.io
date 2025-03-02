@@ -3,7 +3,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 4px;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 12px;
     grid-auto-flow: column;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .imgd {
-  padding: 6px 16px;
+  padding: 0 16px;
 }
 
 .imgr img {
