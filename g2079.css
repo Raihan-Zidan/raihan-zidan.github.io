@@ -12,6 +12,10 @@
   grid-row: 1 / -1;
 }
 
+.imgr {
+  background: #ededed;
+}
+
 .img-side {
   height: 90px;
 }
