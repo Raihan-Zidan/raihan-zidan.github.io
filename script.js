@@ -644,7 +644,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
   var parentTab = imgDiv.closest(".tab-result");
   var linkElement = parentTab?.querySelector('.tab-link a');
 
-  if (linkElement) {
+  if (linkElement && imgDiv.innerHTML = '') {
     var url = linkElement.href.replace('https://', '');
     
 
@@ -662,7 +662,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
           imgDiv.remove();
         }
       })
-      .catch(error => console.error("Gagal memuat gambar:", error));
+      .catch(error => {});
   }
 });
     
