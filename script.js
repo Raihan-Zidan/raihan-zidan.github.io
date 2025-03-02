@@ -645,8 +645,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
   var linkElement = parentTab?.querySelector('.tab-link a');
 
   if (linkElement && imgDiv.innerHTML == '') {
-    var url = linkElement.href.replace('https://', '');
-    
+    var url = linkElement.href;
 
     fetch(`https://cdn.searchdata.workers.dev/?url=${url}`)
       .then(response => response.json())
