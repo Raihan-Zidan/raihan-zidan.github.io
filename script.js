@@ -645,7 +645,7 @@ function webresult(res) {
       instantanswer();
     }
     if (res.items.length < 10) {
-      XuadHc("stop")
+      XuadHc("stop", res)
     }
     if (res.promotions && pageone) {
       for (var i = 0; i < res.promotions.length; i++) {
@@ -683,8 +683,8 @@ function webresult(res) {
     
     if (res.queries.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more">${langtext("more")}</button></div>`;
-    } else if (!res.queries.nextPage && document.querySelector(".show-wrapper")) {
-      XuadHc("stop");
+    } else if (!res.queries.nextPage) {
+      XuadHc("stop", res);
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
       fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&tbm=vid&maxResults=6`)
@@ -699,7 +699,6 @@ function webresult(res) {
           nwsresult(response);
       })
     }
-
     XuadHc("stop", res);
     if (pageone) {
       shwfter();
@@ -744,10 +743,7 @@ function XuadHc(cmt, res) {
       startIndex += 10;
       setTimeout(submit, 500);
     }
-    if (cmt === "stop") {
-      document.querySelector(".show-wrapper").remove();
-    }
-  } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0) {
+  } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0 || !res.queries.nextPage) {
       document.querySelector(".show-wrapper").remove();
       document.querySelector(".main-result").innerHTML += `<div class="tab-result eb8xCva" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu, kami perlu membatasi hasil pencarian yang muncul :p</div></div></div>`;
   } else {
