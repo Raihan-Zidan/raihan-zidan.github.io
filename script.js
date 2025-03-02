@@ -617,14 +617,41 @@ function webresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
-      urlparam = (urlparam.substr(-3).indexOf(" › ") > -1) ? urlparam.slice(0, -3) : urlparam;
+
+      urlparam = urlparam.endsWith(" › ") ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
+      
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
-      var isThumb = (res.items[i].snippet.length > 150 && res.items[i].pagemap.cse_thumbnail) ? `<div class="thumbnail"><img src="${res.items[i].pagemap.cse_thumbnail[0].src}"></div>` : "Tidak ada gambar ditemukan";
-           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div><div class="btm-snpt"><div class="snippet"><span>${res.items[i].snippet}</span>${isThumb}</div>${showLinks(res.items[i].link)}</div></div></div>`);
+      var bigThumb = (res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] === 'website') ? `<div class="imgd"></div>` : '';
+      var isThumb = (res.items[i].snippet.length > 150 && res.items[i]?.pagemap?.cse_thumbnail) ? `<div class="thumbnail"><img src="${res.items[i].pagemap.cse_thumbnail[0].src}"></div>` : "Tidak ada gambar ditemukan";
+           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div>${bigThumb}<div class="btm-snpt"><div class="snippet"><span>${res.items[i].snippet}</span>${isThumb}</div>${showLinks(res.items[i].link)}</div></div></div>`);
     }
+    
+document.querySelectorAll(".imgd").forEach(imgDiv => {
+  var parentTab = imgDiv.closest(".tab-result");
+  var linkElement = parentTab?.querySelector('.tab-link a');
+
+  if (linkElement) {
+    var url = linkElement.href;
+
+    fetch(`https://cdn.searchdata.workers.dev/?url=${url}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.images?.length > 2) {
+          imgDiv.innerHTML += `
+            <div class="img-grid">
+              <div class="imgr img-main"><img src="${data.images[0]}"></div>
+              <div class="imgr img-side"><img src="${data.images[1]}"></div>
+              <div class="imgr img-side"><img src="${data.images[2]}"></div>
+            </div>`;
+        }
+      })
+      .catch(error => console.error("Gagal memuat gambar:", error));
+  }
+});
+    
     snippet = document.querySelectorAll(".snippet");
     snippet.forEach(description => {
       if (description.innerHTML === "undefined") {
