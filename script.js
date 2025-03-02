@@ -702,6 +702,7 @@ function webresult(res) {
     }
 
     } catch(error) {
+    alert("error " + error.status + error.message)
     if (pageone && !res.items) noresult();
   }
 }
