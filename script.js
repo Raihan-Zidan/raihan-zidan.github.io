@@ -660,12 +660,12 @@ function webresult(res) {
       urlparam = originurl.origin + urlparam;
 
       var isijwb = '';
-      if (res.items[i]?.pagemap?.answer?.[0]?.text) {
+      if (res.items[i]?.pagemap?.answer) {
         isijwb += "halo";
         isijwb += `<div class="snippet" style="background:#ededed;border-radius:12px;padding:6px">${res.items[i].pagemap.answer[i].text}</div>`;
       }
       alert(isijwb);
-      var ansText = (res.items[i]?.pagemap?.answer?.[0]?.text) ? `<div style="overflow-x:auto;padding:6px 16px;height:100px">${isijwb}</div>` : "";
+      var ansText = (isijwb) ? `<div style="overflow-x:auto;padding:6px 16px;height:100px">${isijwb}</div>` : "takde hasil pon";
       alert(ansText);
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
