@@ -267,8 +267,8 @@ html, body {
 }
 
 .snippet .thumbnail {
-  min-width: 105px;
-  height: 105px;
+  min-width: 100px;
+  height: 100px;
   display: flex;
   margin-left: 6px;
   border-radius: 12px;
