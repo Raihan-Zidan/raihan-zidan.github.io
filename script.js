@@ -664,6 +664,7 @@ function webresult(res) {
         isijwb += `<div class="snippet" style="background:#ededed;border-radius:12px;padding:6px">${res.items[i].pagemap.answer[i].text}</div>`;
       }
       var ansText = (res.items[i]?.pagemap?.answer?.[0]?.text) ? `<div style="overflow-x:auto;padding:6px 16px;height:100px">${isijwb}</div>` : "";
+      alert(ansText);
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
