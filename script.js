@@ -633,6 +633,9 @@ function webresult(res) {
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
       var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] === 'website') ? `<div class="imgd"></div>` : '';
+      if (bigThumb) {
+        addS("g2079");
+      }
       var isThumb = (!bigThumb && res.items[i].snippet.length > 150 && res.items[i]?.pagemap?.cse_thumbnail) ? `<div class="thumbnail"><img src="${res.items[i].pagemap.cse_thumbnail[0].src}"></div>` : "Tidak ada gambar ditemukan";
            document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/favicon?url=https://${originurl.hostname}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${res.items[i].title}</div></a></div>${bigThumb}<div class="btm-snpt"><div class="snippet"><span>${res.items[i].snippet}</span>${isThumb}</div>${showLinks(res.items[i].link)}</div></div></div>`);
     }
@@ -643,7 +646,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
 
   if (linkElement) {
     var url = linkElement.href.replace('https://', '');
-    addS("g2079");
+    
 
     fetch(`https://cdn.searchdata.workers.dev/?url=${url}`)
       .then(response => response.json())
@@ -655,6 +658,8 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
               <div class="imgr img-side"><img src="${data.images[2]}"></div>
               <div class="imgr img-side"><img src="${data.images[3]}"></div>
             </div>`;
+        } else {
+          imgDiv.remove();
         }
       })
       .catch(error => console.error("Gagal memuat gambar:", error));
