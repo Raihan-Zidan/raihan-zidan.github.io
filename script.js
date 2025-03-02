@@ -651,9 +651,9 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
         if (data.images?.length > 2) {
           imgDiv.innerHTML += `
             <div class="img-grid">
-              <div class="imgr img-main"><img src="${data.images[0]}"></div>
-              <div class="imgr img-side"><img src="${data.images[1]}"></div>
+              <div class="imgr img-main"><img src="${data.images[1]}"></div>
               <div class="imgr img-side"><img src="${data.images[2]}"></div>
+              <div class="imgr img-side"><img src="${data.images[3]}"></div>
             </div>`;
         }
       })
