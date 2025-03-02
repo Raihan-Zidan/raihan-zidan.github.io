@@ -644,7 +644,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
   var parentTab = imgDiv.closest(".tab-result");
   var linkElement = parentTab?.querySelector('.tab-link a');
 
-  if (linkElement && imgDiv.innerHTML = '') {
+  if (linkElement && imgDiv.innerHTML == '') {
     var url = linkElement.href.replace('https://', '');
     
 
