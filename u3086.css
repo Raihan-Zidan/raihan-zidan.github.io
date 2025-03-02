@@ -270,7 +270,7 @@ html, body {
   min-width: 100px;
   height: 100px;
   display: flex;
-  margin: 6px 0 0 6px;
+  margin: 6px 0 0 8px;
   border-radius: 12px;
 }
 
