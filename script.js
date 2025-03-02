@@ -662,7 +662,7 @@ function webresult(res) {
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
-      var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? getTms(res.items[i].url) : '';
+      var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? getTms(res.items[i].link) : '';
       if (bigThumb) {
         addS("g2079");
       }
