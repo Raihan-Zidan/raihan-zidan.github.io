@@ -661,7 +661,7 @@ document.querySelectorAll(".imgd").forEach(imgDiv => {
           imgDiv.remove();
         }
       })
-      .catch(error => {});
+      .catch(error => console.log("ahhh enak));
   }
 });
     
