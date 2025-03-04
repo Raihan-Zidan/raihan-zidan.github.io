@@ -659,7 +659,7 @@ function webresult(res) {
       urlparam = urlparam.endsWith(" › ") ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
 
-      var hasPri = (res.items[i]?.pagemap?.offer?.[0]?.price? != "0") ? `<div class="snippet"><span>Price: ${res.items[i]?.pagemap?.offer?.[0]?.price}</span></div>` : '';
+      var hasPri = (res.items[i]?.pagemap?.offer?.[0]?.price != "0") ? `<div class="snippet"><span>Price: ${res.items[i]?.pagemap?.offer?.[0]?.price}</span></div>` : '';
       var fdta = `tab-num="${i}" data-test="awokwok" data-ved="0" isMobile="${isMobile}" data-sx="maacaa-cihh"`;
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
