@@ -177,6 +177,11 @@ html, body {
   -webkit-line-clamp: 2;
 }
 
+.tab-result .title:active {
+  line-height: 20px;
+  background: #ededed;
+}
+
 .big-title {
   font-size: 25px;
   margin-bottom: 5px;
