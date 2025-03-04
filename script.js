@@ -517,8 +517,8 @@ function nwsr(res) {
       publisher = (res.items[i].pagemap.metatags[0]['og:site_name']) ? res.items[i].pagemap.metatags[0]['og:site_name'] : res.items[i].displayLink;
       var publishTimeSources = [
         res.items[i]?.pagemap?.metatags?.[0]?.['article:published_time'],
-        res.items[i]?.pagemap?.newsarticle?.datepublished,
-        res.items[i]?.pagemap?.newsarticle?.datemodified
+        res.items[i]?.pagemap?.newsarticle?.[0].datepublished,
+        res.items[i]?.pagemap?.newsarticle?.[0].datemodified
       ];
 
       var publishtime = publishTimeSources.find(time => time) ? dateconversion(publishTimeSources.find(time => time)) : "Published";
