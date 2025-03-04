@@ -58,7 +58,7 @@ function renderResults(res) {
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
-    imgContainer.style.transform = "scale(0)";
+    imgContainer.style.opacity = "0";
     imgContainer.setAttribute("tabindex", `tab-${i}`);
     let originurl = new URL(res.images[i].pageUrl);
     imgContainer.innerHTML = `
@@ -79,8 +79,9 @@ function renderResults(res) {
     loadImage(imgElement, res.images[i].thumbnail, res.images[i].image);
     imgContainer.querySelector(".img-thumb").appendChild(imgElement);
     imgElement.onload = function() {
+      positionItems();
       let parent = imgElement.closest(".img-tb");
-      if (parent) parent.style.transform = "scale(1)";
+      if (parent) parent.style.opacity = "100%";
       positionItems();
     };
     imgElement.onerror = function() {
