@@ -58,7 +58,7 @@ function renderResults(res) {
     // Buat container untuk gambar
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("img-tb");
-    imgContainer.style.transform "scale(0)";
+    imgContainer.style.transform = "scale(0)";
     imgContainer.setAttribute("tabindex", `tab-${i}`);
     let originurl = new URL(res.images[i].pageUrl);
     imgContainer.innerHTML = `
