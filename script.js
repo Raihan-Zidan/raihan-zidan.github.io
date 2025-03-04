@@ -504,10 +504,26 @@ function timeAgo(input) {
 }
 
 function dateconversion(val) {
-  if (val.slice(0, 4).match(d.getFullYear())) {
-    return timeAgo(val);
+  let currentYear = new Date().getFullYear();  
+  let parsedDate = new Date(val); // Coba parsing langsung
+
+  // Cek apakah hasil parsing valid
+  if (isNaN(parsedDate)) {
+    // Bersihin format yang ada timezone atau format aneh
+    let cleanedVal = val.replace(/(\d{2}:\d{2}.*)/, "").trim(); // Hapus jam & zona waktu
+    parsedDate = new Date(cleanedVal);
+
+    if (isNaN(parsedDate)) {
+      return "Invalid Date"; // Jika masih gagal, return error
+    }
+  }
+
+  let year = parsedDate.getFullYear();
+
+  if (year === currentYear) {
+    return timeAgo(parsedDate); // Pakai timeAgo kalau masih di tahun ini
   } else {
-    return new Date(val.slice(0, 10)).toLocaleString(locallang, {day: '2-digit', month: 'long', year: 'numeric'});
+    return parsedDate.toLocaleString(locallang, { day: '2-digit', month: 'long', year: 'numeric' });
   }
 }
 
