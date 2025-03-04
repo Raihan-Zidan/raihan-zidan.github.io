@@ -657,9 +657,6 @@ function escapeHTML(str) {
   return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-var snippet = "<body>, <form>, <button>: Elemen HTML";
-document.body.innerHTML += escapeHTML(snippet);
-
 function webresult(res) {
   try {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
