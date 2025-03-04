@@ -716,7 +716,7 @@ function webresult(res) {
     }
     var newsKey = ['chrome', 'youtube', 'twitter', 'google', 'microsoft', 'duckduckgo', 'sepak bola'];
     if (newsKey.includes(q.trim().toLowerCase()) && pageone) {
-      fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&hl=id&gl=id&tbm=nws&sort=date`)
+      fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&hl=id&tbm=nws`)
         .then(response => response.json()).then(response => {
           nwsresult(response);
       })
