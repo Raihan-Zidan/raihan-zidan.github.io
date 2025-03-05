@@ -233,6 +233,7 @@ display: none;
   max-height: 300px;
   background: #fff;
   overflow: auto;
+  border-top: none;
 }
 
 ::-webkit-scrollbar {
