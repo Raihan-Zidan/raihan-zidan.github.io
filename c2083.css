@@ -34,10 +34,14 @@ html, body {
 }
 
 .container form .search-box {
-  border: 1px solid #e3e3e3;
+  border: 2px solid #e3e3e3;
   border-radius: 22px;
   box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
   background: #fff;
+}
+
+.container form .search-box:focus-within {
+  border-color: #1558D6;
 }
 
 .container form .search-box, .search-suggest {
@@ -50,7 +54,7 @@ html, body {
   outline: none;
   border: none;
   background: transparent;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .container form button[type="submit"] {
@@ -180,7 +184,7 @@ a b {
 .search-suggest ul li a {
   padding: 8px 40px;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .search-suggest ul li {
@@ -220,7 +224,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .search-suggest {
   position: absolute;
-  border: 1px solid #e3e3e3;
+  border: 2px solid #1558D6;
   border-radius: 0px 0px 22px 22px;
   box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
   top: 100%;
