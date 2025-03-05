@@ -60,6 +60,7 @@ html, body {
   border-radius: 22px;
   font-size: 16px;
   outline: none;
+  border: none;
 }
 
 .tab-wrapper {
