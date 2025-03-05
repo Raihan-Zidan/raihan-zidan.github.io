@@ -45,6 +45,7 @@ function fetchData() {
   }).catch(error => {
     isLoading = false;
     shwrapper.innerHTML = '';
+    console.log(error.message);
   });
 }
 
