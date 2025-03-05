@@ -75,7 +75,6 @@ html, body {
 }
 
 .btn-box.l {
-  positon: absolute;
   left: 0;
 }
 
@@ -181,6 +180,7 @@ a b {
 .search-suggest ul li a {
   padding: 8px 40px;
   width: 100%;
+  font-size: 15px;
 }
 
 .search-suggest ul li {
