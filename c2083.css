@@ -220,6 +220,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .container form .search-box.active {
   border-radius: 22px 22px 0 0;
+  border-color: #1558D6;
 }
 
 .search-suggest {
