@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-size-adjust: none;
-  font-family: 'Inter', Roboto, Arial, sans-serif;
+  font-family: 'Geist', Roboto, Arial, sans-serif;
 }
 
 :root {
@@ -34,7 +34,7 @@ html, body {
   width: 35px;
   height: 35px;
   position: absolute;
-  cursor: pointer;
+  cursor: poGeist;
   -webkit-tap-highlight-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -112,7 +112,7 @@ html, body {
 
 .seacrh-menu .selected,
 .selected a {
-  pointer-events: none;
+  poGeist-events: none;
 }
 
 .search-item .label {
@@ -125,9 +125,9 @@ html, body {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  font-family: 'Inter', Roboto-Medium, sans-serif;
+  font-family: 'Geist', Roboto-Medium, sans-serif;
   font-weight: 500;
-  cursor: pointer;
+  cursor: poGeist;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -299,8 +299,8 @@ html, body {
   font-size: 18px;
   text-decoration: none;
   padding: 16px 0;
-  cursor: pointer;
-  font-family: 'Inter', Roboto;
+  cursor: poGeist;
+  font-family: 'Geist', Roboto;
   border-top: 1px solid #E0E4E9;
 }
 
@@ -318,7 +318,7 @@ html, body {
     margin: 5px;
   }
   .sitelinks .wrlinks a {
-    font-family: 'Inter', Roboto;
+    font-family: 'Geist', Roboto;
   }
   .sitelinks .wrlink:nth-child(3),
   .sitelinks .wrlink:nth-child(4) {
@@ -352,7 +352,7 @@ html, body {
 }
 
 .tab-link {
-  cursor: pointer;
+  cursor: poGeist;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
   padding: 16px 16px 6px;
 }
@@ -445,7 +445,7 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 6px 0;
   position: relative;
   background: white;
-  font-family: 'Inter',Roboto-Medium,sans-serif;
+  font-family: 'Geist',Roboto-Medium,sans-serif;
   font-weight: 500;
 }
 
@@ -507,7 +507,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 22px;
   color: black;
   display: flex;
-  cursor: pointer;
+  cursor: poGeist;
   user-select: none;
   justify-content: center;
   position: relative;
@@ -543,7 +543,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 div.shwrp .more {
-  cursor: pointer;
+  cursor: poGeist;
   user-select: none; 
   position: relative;
   background: #f2f3f5;
@@ -680,7 +680,7 @@ div.shwrp .more {
 
 .nwst {
   padding: 16px;
-  cursor: pointer;
+  cursor: poGeist;
   -webkit-tap-highlight-color: rgba(0,0,0,.10);
 }
 
@@ -923,7 +923,7 @@ div.shwrp .more {
   margin-bottom: 10px;
   font-size: 25px;
   color: #000e1a;
-  pointer-events: none;
+  poGeist-events: none;
   border-radius: 5px;
   padding: 0 8px;
 }
@@ -939,7 +939,7 @@ div.shwrp .more {
   border-radius: 6px;
   border: none;
   font-size: 16px;
-  cursor: pointer;
+  cursor: poGeist;
   user-select: none;
   background-color: ini;
 }
@@ -967,7 +967,7 @@ div.shwrp .more {
 
 .quotes-tab .refresh {
   position: absolute;
-  cursor: pointer;
+  cursor: poGeist;
   right: 15px;
   top: 15px;
   width: 20px;
@@ -1002,7 +1002,7 @@ div.shwrp .more {
     flex-direction: column;
   }
   .search-box .search-toggle {
-    pointer-events: none;
+    poGeist-events: none;
   }
   body:has(.title, .title-black) {
     background: #f5f8fa;
@@ -1179,7 +1179,7 @@ div.shwrp .more {
   color: #1558d6;
   border-radius: 5px;
   font-size: 15px;
-  cursor: pointer;
+  cursor: poGeist;
   background: transparent;
 }
 
@@ -1262,7 +1262,7 @@ div.shwrp .more {
   width: 50px;
   color: #adadad;
   font-size: 14px;
-  cursor: pointer;
+  cursor: poGeist;
   transition: transform 0.2s ease;
   justify-content: center;
 }
@@ -1320,14 +1320,14 @@ div.shwrp .more {
 
 .controls .exchange {
   color: #adadad;
-  cursor: pointer;
+  cursor: poGeist;
   font-size: 14px;
   transition: transform 0.2s ease;
 }
 
 .controls .exchange.off {
   opacity: 0.6;
-  pointer-events: none;
+  poGeist-events: none;
 }
 
 @media (min-width: 780px) {
