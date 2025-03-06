@@ -466,7 +466,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .search-list .related {
   display: flex;
   padding: 14px 0;
-  padding-right: 35px;
+  padding-right: 40px;
   text-decoration: none;
   position: relative;
   color: #3f3f3f;
