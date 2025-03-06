@@ -45,6 +45,7 @@ function fetchData() {
   }).catch(error => {
     isLoading = false;
     shwrapper.innerHTML = '';
+    shwrapper.style.position = 'absolute';
     noresult();
   });
 }
