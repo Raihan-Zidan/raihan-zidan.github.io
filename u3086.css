@@ -216,7 +216,7 @@ html, body {
 }
 
 .tab-result .favicon {
-  min-width: 28px;
+  max-width: 28px;
   height: 28px;
   background: #f4f6f7;
   border-radius: 50%;
