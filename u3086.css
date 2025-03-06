@@ -1,11 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@font-face {
+  font-family: 'Verio Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/font/BRVQLLXNOS.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Verio Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/font/JBDCITAYMP.woff2') format('woff2');
+}
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-size-adjust: none;
-  font-family: 'Plus Jakarta Sans', Roboto, Arial, sans-serif;
+  font-family: 'Verio Sans', Roboto, Arial, sans-serif;
 }
 
 :root {
@@ -125,7 +138,7 @@ html, body {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  font-family: 'Plus Jakarta Sans', Roboto-Medium, sans-serif;
+  font-family: 'Verio Sans', Roboto-Medium, sans-serif;
   font-weight: 500;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -301,7 +314,7 @@ html, body {
   text-decoration: none;
   padding: 16px 0;
   cursor: pointer;
-  font-family: 'Plus Jakarta Sans', Roboto;
+  font-family: 'Verio Sans', Roboto;
   border-top: 1px solid #E0E4E9;
 }
 
@@ -319,7 +332,7 @@ html, body {
     margin: 5px;
   }
   .sitelinks .wrlinks a {
-    font-family: 'Plus Jakarta Sans', Roboto;
+    font-family: 'Verio Sans', Roboto;
   }
   .sitelinks .wrlink:nth-child(3),
   .sitelinks .wrlink:nth-child(4) {
@@ -446,7 +459,7 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 6px 0;
   position: relative;
   background: white;
-  font-family: 'Plus Jakarta Sans',Roboto-Medium,sans-serif;
+  font-family: 'Verio Sans',Roboto-Medium,sans-serif;
   font-weight: 500;
 }
 
