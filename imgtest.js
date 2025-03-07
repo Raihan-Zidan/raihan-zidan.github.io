@@ -37,6 +37,7 @@ function fetchData() {
   if (isLoading || start > maxStart) return;
   isLoading = true;
   fetch(`https://images.searchdata.workers.dev/dimage?q=${q}&start=${start}`).then(response => response.json()).then(response => {
+    console.log(response);
     renderResults(response);
     start += 10;
     lastFetchHeight = document.body.scrollHeight;
@@ -47,6 +48,7 @@ function fetchData() {
     shwrapper.innerHTML = '';
     shwrapper.style.position = 'absolute';
     noresult();
+    console.log(error.message);
   });
 }
 
