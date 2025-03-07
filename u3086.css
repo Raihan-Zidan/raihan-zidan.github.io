@@ -904,6 +904,10 @@ div.shwrp .more {
   margin-right: 5px;
 }
 
+.news-tab .flexwrap .favicon img {
+  border-radius: 50%
+}
+
 .info-label {
   color: #000;
   font-size: 12px;
