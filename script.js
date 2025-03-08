@@ -523,7 +523,7 @@ function dateconversion(val, shortMonth) {
   if (year === currentYear) {
     return timeAgo(parsedDate);
   } else {
-    return `${day}, ${month} ${year}`;
+    return `${day} ${month} ${year}`;
   }
 }
 
