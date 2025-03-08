@@ -243,6 +243,11 @@ top: 50%;
   overflow-x: auto; /* Scroll jika melebihi layar */
 }
 
+.btm-snpt.scl::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
 .btm-snpt .snippet.bgg {
   background: #f5f5f5;
   border-radius: 16px;
