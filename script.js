@@ -505,25 +505,25 @@ function timeAgo(input) {
 
 function dateconversion(val, shortMonth) {
   let currentYear = new Date().getFullYear();  
-  let parsedDate = new Date(val); // Coba parsing langsung
+  let parsedDate = new Date(val);
 
-  // Cek apakah hasil parsing valid
   if (isNaN(parsedDate)) {
-    // Bersihin format yang ada timezone atau format aneh
-    let cleanedVal = val.replace(/(\d{2}:\d{2}.*)/, "").trim(); // Hapus jam & zona waktu
+    let cleanedVal = val.replace(/(\d{2}:\d{2}.*)/, "").trim();
     parsedDate = new Date(cleanedVal);
 
     if (isNaN(parsedDate)) {
-      return "Invalid Date"; // Jika masih gagal, return error
+      return "Invalid Date";
     }
   }
 
   let year = parsedDate.getFullYear();
+  let day = parsedDate.getDate();
+  let month = parsedDate.toLocaleString(locallang, { month: shortMonth ? 'short' : 'long' });
 
   if (year === currentYear) {
-    return timeAgo(parsedDate); // Pakai timeAgo kalau masih di tahun ini
+    return timeAgo(parsedDate);
   } else {
-    return parsedDate.toLocaleString(locallang, { day: '2-digit', month: (shortMonth) ? 'short' : 'long', year: 'numeric' });
+    return `${day}, ${month} ${year}`;
   }
 }
 
