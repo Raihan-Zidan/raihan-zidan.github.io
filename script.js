@@ -722,7 +722,7 @@ function webresult(res) {
       if (res.items[i]?.pagemap?.answer) {
       var bth = "";
       res.items[i].pagemap.answer.forEach((ans) => {
-        bth += `<div class="snippet bgg">${ans.text}</div>`;
+        bth += `<div class="snippet bgg">${escapeHTML(ans.text)}</div>`;
       });
 
       if (bth) {
