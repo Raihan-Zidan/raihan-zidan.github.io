@@ -722,9 +722,9 @@ function webresult(res) {
       var hasAns = "";
       if (res.items[i]?.pagemap?.answer) {
         var bth = "";
-        var sc = (res.items[i].pagemap.answer.length > 1) ? `style="max-width:250px"` : '';
+        var sc = (res.items[i].pagemap.answer.length > 1) ? `max-width:250px` : '';
         res.items[i].pagemap.answer.forEach((ans) => {
-          bth += `<div class="snippet bgg" style="display:block" ${sc}><span style="-webkit-line-clamp:4;" class="rawr">${escapeHTML(ans.text)}</span><span style="font-size:12px;color:#474747;">${ans.upvotecount} ${(idlang) ? "Suara" : "Votes"}</span></div>`;
+          bth += `<div class="snippet bgg" style="display:block;${sc}"><span style="-webkit-line-clamp:4;" class="rawr">${escapeHTML(ans.text)}</span><span style="font-size:12px;color:#474747;font-weight:500;">${ans.upvotecount} ${(idlang) ? "Suara" : "Votes"}</span></div>`;
         });
         if (bth) {
           hasAns = `<div class="btm-snpt scl">${bth}</div>`;
