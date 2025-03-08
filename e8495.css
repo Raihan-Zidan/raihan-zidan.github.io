@@ -236,6 +236,18 @@ top: 50%;
   word-break: break-word;
 }
 
+.btm-snpt.scl {
+  padding-top: 0;
+  scroll-x: auto;
+  display: flex;
+}
+
+.btm-snpt .snippet.bgg {
+  background: #ededed;
+  border-radius: 16px;
+  padding: 6px;
+}
+
 
 
 
