@@ -503,7 +503,7 @@ function timeAgo(input) {
   }
 }
 
-function dateconversion(val) {
+function dateconversion(val, shortMonth) {
   let currentYear = new Date().getFullYear();  
   let parsedDate = new Date(val); // Coba parsing langsung
 
@@ -523,7 +523,7 @@ function dateconversion(val) {
   if (year === currentYear) {
     return timeAgo(parsedDate); // Pakai timeAgo kalau masih di tahun ini
   } else {
-    return parsedDate.toLocaleString(locallang, { day: '2-digit', month: 'long', year: 'numeric' });
+    return parsedDate.toLocaleString(locallang, { day: '2-digit', month: (shortMonth) ? 'short' : 'long', year: 'numeric' });
   }
 }
 
@@ -718,7 +718,7 @@ function webresult(res) {
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
       var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? '' : '';
-      var snippet = (res.items[i]?.pagemap?.question?.[0]?.text) ? `${timeAgo(res.items[i]?.pagemap?.question?.[0]?.datecreated)} - ${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.text)})` : escapeHTML(res.items[i].snippet);
+      var snippet = (res.items[i]?.pagemap?.question?.[0]?.text) ? `${dateconversion(res.items[i]?.pagemap?.question?.[0]?.datecreated, true)} - ${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.text)})` : escapeHTML(res.items[i].snippet);
       var hasAns = "";
       if (res.items[i]?.pagemap?.answer) {
         var bth = "";
