@@ -718,21 +718,21 @@ function webresult(res) {
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
       var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? '' : '';
+      var snippet = (res.items[i]?.pagemap?.question?.[0]?.text) ? `${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.datecreated)} - ${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.text)}) : escapeHTML(res.items[i].snippet);
       var hasAns = "";
       if (res.items[i]?.pagemap?.answer) {
-      var bth = "";
-      var sc = (res.items[i].pagemap.answer.length > 1) ? `style="max-width:250px"` : '';
-      res.items[i].pagemap.answer.forEach((ans) => {
-        bth += `<div class="snippet bgg" ${sc}><span style="overflow:hidden">${escapeHTML(ans.text)}</span></div>`;
-      });
-
-      if (bth) {
-        hasAns = `<div class="btm-snpt scl">${bth}</div>`;
+        var bth = "";
+        var sc = (res.items[i].pagemap.answer.length > 1) ? `style="max-width:250px"` : '';
+        res.items[i].pagemap.answer.forEach((ans) => {
+          bth += `<div class="snippet bgg" ${sc}><span style="overflow:hidden">${escapeHTML(ans.text)}</span></div>`;
+        });
+        if (bth) {
+          hasAns = `<div class="btm-snpt scl">${bth}</div>`;
+        }
       }
-    }
       
       var isThumb = (!bigThumb && res.items[i]?.snippet?.length > 150 && res.items[i]?.pagemap?.cse_thumbnail) ? `<div class="thumbnail"><img src="${res.items[i].pagemap.cse_thumbnail[0].src}"></div>` : "";
-           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/img/${encodeURL(originurl.hostname)}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${escapeHTML(res.items[i].title)}</div></a></div>${bigThumb}<div class="btm-snpt"><div class="snippet"><span>${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.datecreated + " - " + res.items[i]?.pagemap?.question?.[0]?.text) || escapeHTML(res.items[i].snippet) || langtext("noSiteInfo")}</span></div>${hasPri}${showLinks(res.items[i].link)}</div>${hasAns}</div></div>`);
+           document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva" ${fdta}><div class="CeWka NbkAw"><div class="tab-link"  data-number="${i}"><a href="${res.items[i].link}"><div class="top"><div class="favicon"><img src="https://datasearch.searchdata.workers.dev/img/${encodeURL(originurl.hostname)}"></div><div class="link-rw"><div class="link">${siteName}</div><div class="link k">https://${res.items[i].displayLink}</div></div></div><div class="title">${escapeHTML(res.items[i].title)}</div></a></div>${bigThumb}<div class="btm-snpt"><div class="snippet"><span>${snippet || langtext("noSiteInfo")}</span></div>${hasPri}${showLinks(res.items[i].link)}</div>${hasAns}</div></div>`);
     }
     if (getData().favicon == false || fv == 0) {
       document.querySelectorAll(".favicon").forEach(elm => {
