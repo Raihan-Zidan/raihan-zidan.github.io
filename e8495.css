@@ -255,12 +255,8 @@ top: 50%;
   padding: 12px;
   width: 100%;
   flex-shrink: 0;
-  display: -webkit-box;
   -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  line-heigth: 1.2;
+  max-height: calc(5 * 20 + 12px);
 }
 
 
