@@ -769,6 +769,7 @@ function webresult(res) {
     }
 
     } catch(error) {
+    alert(error.message);
     if (pageone && !res.items) noresult();
   }
 }
