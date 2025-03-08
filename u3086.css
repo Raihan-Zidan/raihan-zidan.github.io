@@ -260,17 +260,13 @@ html, body {
 .tab-result .snippet {
   color: #474747;
   font-size: 14px;
-  font-family: Roboto,sans-serif;
+  font-family: 'Verio Sans', Roboto, sans-serif;
   line-height: 20px;
   display: flex;
 }
 
-.tab-result .snippet:not(:has(.thumbnail)) {
-  display: -webkit-box;
+.tab-result .snippet {
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .snippet .thumbnail {
