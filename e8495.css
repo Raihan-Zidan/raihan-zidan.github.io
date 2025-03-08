@@ -260,6 +260,7 @@ top: 50%;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
+  line-heigth: 1.2;
 }
 
 
