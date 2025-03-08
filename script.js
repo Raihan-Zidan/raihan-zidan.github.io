@@ -720,7 +720,8 @@ function webresult(res) {
       var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? '' : '';
       var hasAns = "";
       if (res.items[i]?.pagemap?.answer) {
-        var bth = `<div class="snippet bgg">${res.items[i]?.pagemap?.answer?.[i]?.text}</div>`;
+        var bth = '';
+        bth += `<div class="snippet bgg">${res.items[i]?.pagemap?.answer?.[i]?.text}</div>`;
         hasAns = `<div class="btm-snpt scl">${bth}</div>`
       }
       
