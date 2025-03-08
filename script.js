@@ -740,9 +740,9 @@ function webresult(res) {
       });
     }
     
-    if (res.queries.nextPage && pageone) {
+    if (res.queries?.nextPage && pageone) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more">${langtext("more")}</button></div>`;
-    } else if (!res.queries.nextPage) {
+    } else if (!res.queries?.nextPage) {
       XuadHc("stop", res);
     }
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
@@ -803,7 +803,7 @@ function XuadHc(cmt, res) {
       startIndex += 10;
       setTimeout(submit, 500);
     }
-  } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0 || !res.queries.nextPage) {
+  } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0 || !res.queries?.nextPage) {
       document.querySelector(".show-wrapper").remove();
       document.querySelector(".main-result").innerHTML += `<div class="tab-result eb8xCva" style="padding-top: 16px;" data-text="wkwkwk" test-focus="affh-iyh"><div test-focus="macca-cih" class="btm-snpt"><div class="snippet" style="font-size:16px;">Maaf. Untuk sementara waktu, kami perlu membatasi hasil pencarian yang muncul :p</div></div></div>`;
   } else {
