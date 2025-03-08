@@ -723,7 +723,7 @@ function webresult(res) {
       var bth = "";
       var sc = (res.items[i].pagemap.answer.length > 1) ? `style="max-width:250px"` : '';
       res.items[i].pagemap.answer.forEach((ans) => {
-        bth += `<div class="snippet bgg" ${sc}>${escapeHTML(ans.text)}</div>`;
+        bth += `<div class="snippet bgg" ${sc}><span style="overflow:hidden">${escapeHTML(ans.text)}</span></div>`;
       });
 
       if (bth) {
