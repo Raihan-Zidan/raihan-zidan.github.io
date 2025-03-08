@@ -241,7 +241,8 @@ top: 50%;
   display: flex;
   gap: 10px; /* Jarak antar elemen */
   overflow-x: auto; /* Scroll jika melebihi layar */
-  margin-top: -4px;
+  margin-top: -5px;
+  height: auto;
 }
 
 .btm-snpt.scl::-webkit-scrollbar {
@@ -257,6 +258,7 @@ top: 50%;
   flex-shrink: 0;
   -webkit-line-clamp: 3;
   word-break: break-word;
+  height: auto;
 }
 
 
