@@ -236,16 +236,17 @@ top: 50%;
   word-break: break-word;
 }
 
-.btm-snpt.scl {
-  padding-top: 0;
-  scroll-x: auto;
+.btm-snpt {
   display: flex;
+  gap: 6px; /* Jarak antar elemen */
+  overflow-x: auto; /* Scroll jika melebihi layar */
 }
 
 .btm-snpt .snippet.bgg {
   background: #ededed;
   border-radius: 16px;
-  padding: 6px;
+  padding: 8px;
+  flex: 1 1 auto;
 }
 
 
