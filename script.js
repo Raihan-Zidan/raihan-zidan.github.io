@@ -718,7 +718,7 @@ function webresult(res) {
       displayUrl = res.items[i].displayLink;
       var siteName = res.items[i]?.pagemap?.metatags?.[0]?.['og:site_name'] ?? displayUrl;
       var bigThumb = (isMobile && res.items[i]?.pagemap?.metatags?.[0]?.['og:type'] == "website") ? '' : '';
-      var snippet = (res.items[i]?.pagemap?.question?.[0]?.text) ? `${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.datecreated)} - ${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.text)})` : escapeHTML(res.items[i].snippet);
+      var snippet = (res.items[i]?.pagemap?.question?.[0]?.text) ? `${dateconversion(res.items[i]?.pagemap?.question?.[0]?.datecreated)} - ${escapeHTML(res.items[i]?.pagemap?.question?.[0]?.text)})` : escapeHTML(res.items[i].snippet);
       var hasAns = "";
       if (res.items[i]?.pagemap?.answer) {
         var bth = "";
