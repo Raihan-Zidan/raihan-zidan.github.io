@@ -36,7 +36,7 @@ html, body {
   position: relative;
 }
 
-#inpbtun {
+inpbtun {
   width: 35px;
   height: 35px;
   position: absolute;
