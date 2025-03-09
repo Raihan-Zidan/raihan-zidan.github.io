@@ -18,6 +18,7 @@
 :root {
   --title-color: #1558D6;
   --snippet-color: #494949;
+  --Whwrna-color: #ffffff;
 }
 
 html, body {
@@ -36,7 +37,7 @@ html, body {
   position: relative;
 }
 
-/inpbtun {
+.inpbtun {
   width: 35px;
   height: 35px;
   position: absolute;
