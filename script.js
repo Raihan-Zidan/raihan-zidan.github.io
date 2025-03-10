@@ -26,6 +26,22 @@ function getData() {
   return {};
 }
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('scrollPos', window.scrollY);
+});
+
+window.addEventListener('load', () => {
+  const scrollPos = sessionStorage.getItem('scrollPos');
+  if (scrollPos !== null) {
+    window.scrollTo(0, parseInt(scrollPos, 10));
+    alert(scrollPos);
+  }
+});
+
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
