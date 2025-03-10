@@ -361,13 +361,7 @@ function submit() {
     .catch(error => {
       
     });
-    if (startIndex === 1) {
-      fetch(`https://datasearch.searchdata.workers.dev/suggest?q=${q}`)
-        .then(response => response.json()).then(response => {
-          relatedsearch(response);
-      })}
-
-
+    if (startIndex === 1) {}
   }
 }
 
@@ -489,7 +483,7 @@ function instant(e) {
 
 function relatedsearch(res) {
   var rltn = "";
-  for (var i = 1; i < res.suggestions.length && i < 8; i++) {
+  for (var i = 1; i < res.suggestions.length && i < 6; i++) {
     rltn += `<a href="/search?q=${res.suggestions[i]}" class="related">${capitalize(res.suggestions[i])}</a>`;
   }
   var rltb = document.createElement("div");
@@ -793,6 +787,10 @@ function webresult(res) {
     if (pageone) {
       shwfter();
       jwbn();
+      fetch(`https://datasearch.searchdata.workers.dev/suggest?q=${q}`)
+        .then(response => response.json()).then(response => {
+          relatedsearch(response);
+      })
     }
 
     } catch(error) {
