@@ -358,14 +358,15 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
+    .catch(error => {
+      
+    });
     if (startIndex === 1) {
       fetch(`https://datasearch.searchdata.workers.dev/suggest?q=${q}`)
         .then(response => response.json()).then(response => {
           relatedsearch(response);
       })}
-    .catch(error => {
-      
-    });
+
 
   }
 }
