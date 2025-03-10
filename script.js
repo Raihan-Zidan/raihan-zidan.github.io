@@ -358,6 +358,11 @@ function submit() {
       .then(response => response.json()).then(response => {
         webresult(response);
     })
+    if (startIndex === 1) {
+      fetch(`https://datasearch.searchdata.workers.dev/suggest?q=${q}`)
+        .then(response => response.json()).then(response => {
+          relatedsearch(response);
+      })}
     .catch(error => {
       
     });
@@ -786,10 +791,6 @@ function webresult(res) {
     XuadHc("stop", res);
     if (pageone) {
       shwfter();
-      fetch(`https://api.swisscows.com/suggest?query=${q}`)
-        .then(response => response.json()).then(response => {
-          relatedsearch(response);
-      })
       jwbn();
     }
 
