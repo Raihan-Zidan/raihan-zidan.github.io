@@ -483,7 +483,7 @@ function instant(e) {
 
 function relatedsearch(res) {
   var rltn = "";
-  for (var i = 1; i < res.suggestions.length && i < 6; i++) {
+  for (var i = 1; i < res.suggestions.length && i < 7; i++) {
     rltn += `<a href="/search?q=${res.suggestions[i]}" class="related">${capitalize(res.suggestions[i])}</a>`;
   }
   var rltb = document.createElement("div");
@@ -492,6 +492,7 @@ function relatedsearch(res) {
   rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
   if (rltn != "" && res.suggestions.length > 4) {
     document.querySelector(".main-result .result").appendChild(rltb);
+    scrollRestore();
   }
 }
 
@@ -792,7 +793,7 @@ function webresult(res) {
           relatedsearch(response);
       })
     }
-
+    scrollRestore();
     } catch(error) {
     alert(error.message);
     if (pageone && !res.items) noresult();
@@ -809,7 +810,7 @@ function noresult() {
 
 function shwfter() {
   document.querySelector(".QZjVU").insertAdjacentHTML('beforeend', `<section class="footer"><ul class="list"><li><a href="/settings">Settings</a></li><li><a href="/">Privacy</a></li><li><a href="/search?q=translate">Translate</a></li></ul><div class="copyright">©Copyright 2023</div></section>`);
-  scrollRestore();
+  
 }
 
 function share() {
