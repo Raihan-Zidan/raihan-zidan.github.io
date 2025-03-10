@@ -156,7 +156,7 @@ var language = {
     tab: ["All","Images","Videos","News","Maps"],
   },
   id: {
-    news: "Hasil berita",
+    news: "Hasil berita <pre>Beta</pre>",
     more: "Hasil penelusuran lainnya",
     vidTitle: "Video",
     related: "Orang lain juga menelusuri",
@@ -489,14 +489,14 @@ function instant(e) {
 
 function relatedsearch(res) {
   var rltn = "";
-  for (var i = 1; i < res.length && i < 5; i++) {
-    rltn += `<a href="/search?q=${res[i]}" class="related">${capitalize(res[i])}</a>`;
+  for (var i = 1; i < res.suggestions.length && i < 8; i++) {
+    rltn += `<a href="/search?q=${res.suggestions[i]}" class="related">${capitalize(res.suggestions[i])}</a>`;
   }
   var rltb = document.createElement("div");
   rltb.classList.add("related-search");
   rltb.classList.add("VtuHV")
   rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
-  if (rltn != "" && res.length > 3) {
+  if (rltn != "" && res.length > 4) {
     document.querySelector(".main-result .result").appendChild(rltb);
   }
 }
