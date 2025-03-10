@@ -496,7 +496,7 @@ function relatedsearch(res) {
   rltb.classList.add("related-search");
   rltb.classList.add("VtuHV")
   rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
-  if (rltn != "" && res.length > 4) {
+  if (rltn != "" && res.suggestions.length > 4) {
     document.querySelector(".main-result .result").appendChild(rltb);
   }
 }
@@ -775,7 +775,7 @@ function webresult(res) {
     } else if (!res.queries?.nextPage) {
       XuadHc("stop", res);
     }
-    scrollRestore();
+    
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
       fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&tbm=vid&maxResults=6`)
         .then(response => response.json()).then(response => {
@@ -811,6 +811,7 @@ function noresult() {
 
 function shwfter() {
   document.querySelector(".QZjVU").insertAdjacentHTML('beforeend', `<section class="footer"><ul class="list"><li><a href="/settings">Settings</a></li><li><a href="/">Privacy</a></li><li><a href="/search?q=translate">Translate</a></li></ul><div class="copyright">©Copyright 2023</div></section>`);
+  scrollRestore();
 }
 
 function share() {
