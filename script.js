@@ -34,13 +34,13 @@ window.addEventListener('beforeunload', () => {
   sessionStorage.setItem('scrollPos', window.scrollY);
 });
 
-window.addEventListener('load', () => {
+function scrollRestore() {
   const scrollPos = sessionStorage.getItem('scrollPos');
   if (scrollPos !== null) {
     window.scrollTo(0, parseInt(scrollPos, 10));
-    alert(scrollPos);
+    
   }
-});
+}
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -769,6 +769,7 @@ function webresult(res) {
     } else if (!res.queries?.nextPage) {
       XuadHc("stop", res);
     }
+    scrollRestore();
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
       fetch(`https://datasearch.searchdata.workers.dev/api?q=${q}&tbm=vid&maxResults=6`)
         .then(response => response.json()).then(response => {
