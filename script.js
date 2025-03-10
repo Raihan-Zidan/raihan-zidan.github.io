@@ -31,14 +31,13 @@ if ('scrollRestoration' in history) {
 }
 
 window.addEventListener('beforeunload', () => {
-  sessionStorage.setItem('scrollPos', window.scrollY);
+  sessionStorage.setItem(`scrollPos:${location.href}`, window.scrollY);
 });
 
 function scrollRestore() {
-  const scrollPos = sessionStorage.getItem('scrollPos');
+  const scrollPos = sessionStorage.getItem(`scrollPos:${location.href}`);
   if (scrollPos !== null) {
     window.scrollTo(0, parseInt(scrollPos, 10));
-    
   }
 }
 
