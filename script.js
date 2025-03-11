@@ -536,7 +536,7 @@ function timeAgo(input) {
   }
 }
 
-function dateconversion(val, shortMonth) {
+function dateconversion(val, shortMonth, skip) {
   let currentYear = new Date().getFullYear();  
   let parsedDate = new Date(val);
 
@@ -553,7 +553,7 @@ function dateconversion(val, shortMonth) {
   let day = parsedDate.getDate();
   let month = parsedDate.toLocaleString(locallang, { month: shortMonth ? 'short' : 'long' });
 
-  if (year === currentYear) {
+  if (year === currentYear && !skip) {
     return timeAgo(parsedDate);
   } else {
     return `${day} ${month} ${year}`;
@@ -734,7 +734,7 @@ function webresult(res) {
     }
       res.items.forEach((item) => {
         if (item?.pagemap?.event?.[0]?.summary) {
-          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva" style="padding:16px;display:flex"><div><div style="color:black" class="title black">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size: 16px">${timeAgo(item?.pagemap?.event?.[0]?.dtstart)} (${dateconversion(item?.pagemap?.event?.[0]?.dtstart)})</div><div><div class="thumbnail"><img style="width:40px" alt="${item?.pagemap?.event?.[0]?.summary}" title="Thumbnail" src="${item?.pagemap?.metatags?.[0]['og:image']}"></div></div>`);
+          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva" style="padding:16px;display:flex"><div><div style="color:black" class="title black">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size: 16px">${dateconversion(item?.pagemap?.event?.[0]?.dtstart, false, true)} (${dateconversion(item?.pagemap?.event?.[0]?.dtstart)})</div><div><div class="thumbnail"><img style="width:40px" alt="${item?.pagemap?.event?.[0]?.summary}" title="Thumbnail" src="${item?.pagemap?.metatags?.[0]['og:image']}"></div></div>`);
         }
       });
     for (var i = 0; i < res.items.length; i++) {
