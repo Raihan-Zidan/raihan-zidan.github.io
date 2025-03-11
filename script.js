@@ -707,10 +707,6 @@ function escapeHTML(str) {
     ':': 'QqR', '/': 'SsT', '.': 'UuV', '-': 'WwX', '_': 'YyZ'
 };
 
-const reverseMap = Object.fromEntries(
-    Object.entries(charMap).map(([k, v]) => [v, k])
-);
-
 function encodeURL(url) {
     return url.split('').map(char => charMap[char] || char).join('');
 }
@@ -738,7 +734,7 @@ function webresult(res) {
     }
       res.items.forEach((item) => {
         if (item?.pagemap?.event?.[0]?.summary) {
-          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva" style="padding:16px;display:flex"><div><div style="color:black" class="title black">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size: 16px">${item?.pagemap?.event?.[0]?.dtstart}</div><div><div class="thumbnail"><img src="${item?.pagemap?.metatags?.[0]['og:image']}"></div></div>`);
+          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva" style="padding:16px;display:flex"><div><div style="color:black" class="title black">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size: 16px">${dateconversion(item?.pagemap?.event?.[0]?.dtstart)}</div><div><div class="thumbnail"><img width="40px" src="${item?.pagemap?.metatags?.[0]['og:image']}"></div></div>`);
         }
       });
     for (var i = 0; i < res.items.length; i++) {
