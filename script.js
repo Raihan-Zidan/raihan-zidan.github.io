@@ -485,7 +485,7 @@ function relatedsearch(res) {
   var inputText = res.query.trim().toLowerCase(); // Hapus spasi sebelum dibandingkan
   var count = 0;
 
-  for (var i = 0; i < res.suggestions.length && count < 7; i++) {
+  for (var i = 0; i < res.suggestions.length && count < 6; i++) {
     var suggestion = res.suggestions[i].trim(); // Hapus spasi di suggestion juga
     if (suggestion.toLowerCase() !== inputText) { 
       rltn += `<a href="/search?q=${suggestion}" class="related">${capitalize(suggestion)}</a>`;
