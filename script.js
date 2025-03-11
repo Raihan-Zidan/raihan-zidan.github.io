@@ -736,14 +736,15 @@ function webresult(res) {
         document.querySelector(".main-result .result").innerHTML += `<div class="tab-result eb8xCva" sf-test"eb8xCva"><div class="tab-link"  data-number="${i}"><a href="${res.promotions[i].link}"><div class="top"><div class="link">${res.promotions[i].displayLink}</div><div class="ads">${langtext("adlabel")}</div></div><div class="title">${res.promotions[i].title}</div></a></div><div class="btm-snpt"><div class="snippet">${res.promotions[i].bodyLines[0].title}</div></div></div>`;
       }
     }
-    for (var i = 0; i < res.items.length; i++) {
-      var originurl = new URL(res.items[i].link);
-      var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
       res.items.forEach((item) => {
         if (item?.pagemap?.event?.[0]?.summary) {
           document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva"><div style="font-size:18px;color:black">${item?.pagemap?.event?.[0]?.summary}</div></div>`);
         }
       });
+    for (var i = 0; i < res.items.length; i++) {
+      var originurl = new URL(res.items[i].link);
+      var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
+
       
       urlparam = urlparam.endsWith(" › ") ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
