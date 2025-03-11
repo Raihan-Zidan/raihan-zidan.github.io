@@ -739,7 +739,10 @@ function webresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
-
+      if (res.items[i]?.pagemap?.event?.[0].summary) {
+        document.querySelector(".main-result .result").insertAdjacentHTML('beforeend', `<div class="VtuHV Kj7VF tab-result eb8xCva"><div class="title" style="color:black">${res.items[i]?.pagemap?.event?.[0].summary}</div></div>`);
+      }
+      
       urlparam = urlparam.endsWith(" › ") ? urlparam.slice(0, -3) : urlparam;
       urlparam = originurl.origin + urlparam;
 
