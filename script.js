@@ -738,7 +738,7 @@ function webresult(res) {
     }
       res.items.forEach((item) => {
         if (item?.pagemap?.event?.[0]?.summary) {
-          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva"><div style="font-size:18px;color:black">${item?.pagemap?.event?.[0]?.summary}</div></div>`);
+          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva"><div style="color:black" class="title black">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size: 16px;padding: 6px 16px;">${item?.pagemap?.event?.[0]?.dtstart}</div></div>`);
         }
       });
     for (var i = 0; i < res.items.length; i++) {
