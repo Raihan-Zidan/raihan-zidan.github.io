@@ -482,14 +482,24 @@ function instant(e) {
 
 function relatedsearch(res) {
   var rltn = "";
-  for (var i = 0; i < res.suggestions.length && i < 7; i++) {
-    rltn += `<a href="/search?q=${res.suggestions[i]}" class="related">${capitalize(res.suggestions[i])}</a>`;
+  var inputText = res.query.trim().toLowerCase(); // Hapus spasi sebelum dibandingkan
+  var count = 0;
+
+  for (var i = 0; i < res.suggestions.length && count < 7; i++) {
+    var suggestion = res.suggestions[i].trim(); // Hapus spasi di suggestion juga
+    if (suggestion.toLowerCase() !== inputText) { 
+      rltn += `<a href="/search?q=${suggestion}" class="related">${capitalize(suggestion)}</a>`;
+      count++;
+    }
   }
+
+  if (rltn === "") return;
+
   var rltb = document.createElement("div");
-  rltb.classList.add("related-search");
-  rltb.classList.add("VtuHV")
+  rltb.classList.add("related-search", "VtuHV");
   rltb.innerHTML = `<div class="YjKdl"><div class="title">${langtext("related")}</div></div><div class="search-list">${rltn}</div>`;
-  if (rltn != "" && res.suggestions.length > 4) {
+
+  if (count > 4) {
     document.querySelector(".main-result .result").appendChild(rltb);
     scrollRestore();
   }
