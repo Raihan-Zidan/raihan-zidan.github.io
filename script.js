@@ -734,7 +734,7 @@ function webresult(res) {
     }
       res.items.forEach((item) => {
         if (item?.pagemap?.event?.[0]?.summary) {
-          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva" style="padding:16px;display:flex;justify-content:space-between"><div><div style="color:black" class="title">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size:14px">${dateconversion(item?.pagemap?.event?.[0]?.dtstart, false, true)} (${dateconversion(item?.pagemap?.event?.[0]?.dtstart)})</div></div><div class="thumbnail" style="width:80px;height:80px;object-fit:cover"><img style="width:100%; height:100%" alt="${item?.pagemap?.event?.[0]?.summary}" src="${item?.pagemap?.metatags?.[0]['og:image']}"></div></div>`);
+          document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva" style="padding:16px;display:flex;justify-content:space-between"><div><div style="color:black" class="title">${item?.pagemap?.event?.[0]?.summary}</div><div style="font-size:14px">Tanggal Tayang: ${dateconversion(item?.pagemap?.event?.[0]?.dtstart, false, true)} (${dateconversion(item?.pagemap?.event?.[0]?.dtstart)})</div></div><div class="thumbnail" style="width:80px;height:80px;object-fit:cover"><img style="width:100%; height:100%" alt="${item?.pagemap?.event?.[0]?.summary}" src="${item?.pagemap?.metatags?.[0]['og:image']}"></div></div>`);
         }
       });
     for (var i = 0; i < res.items.length; i++) {
