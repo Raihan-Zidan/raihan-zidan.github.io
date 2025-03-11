@@ -739,7 +739,7 @@ function webresult(res) {
     for (var i = 0; i < res.items.length; i++) {
       var originurl = new URL(res.items[i].link);
       var urlparam = (originurl.pathname.length > 1) ? originurl.pathname.replaceAll("/", " › ") : "";
-      if (res.items.forEach((item) => {
+      res.items.forEach((item) => {
         if (item?.pagemap?.event?.[0]?.summary) {
           document.querySelector(".main-result .result").insertAdjacentHTML('afterbegin', `<div class="VtuHV Kj7VF tab-result eb8xCva"><div style="font-size:18px;color:black">${item?.pagemap?.event?.[0]?.summary}</div></div>`);
         }
