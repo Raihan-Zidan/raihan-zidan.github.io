@@ -482,7 +482,7 @@ function instant(e) {
 
 function relatedsearch(res) {
   var rltn = "";
-  for (var i = 2; i < res.suggestions.length && i < 7; i++) {
+  for (var i = 0; i < res.suggestions.length && i < 7; i++) {
     rltn += `<a href="/search?q=${res.suggestions[i]}" class="related">${capitalize(res.suggestions[i])}</a>`;
   }
   var rltb = document.createElement("div");
