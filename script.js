@@ -860,7 +860,7 @@ function XuadHc(cmt, res, time) {
 document.addEventListener('click', function(event) {
   var target = event.target;
   if (target.matches('.show-wrapper .more')) {
-    XuadHc(null, null, 3000);
+    XuadHc(null, null, 10000);
   }
 });
 
