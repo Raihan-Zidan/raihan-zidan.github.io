@@ -820,7 +820,7 @@ function noresult() {
 }
 
 window.addEventListener("scroll", function () {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight && startIndex < 13) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight && startIndex === 1 && !startIndex > 10) {
       submit();
       shwfter()
     }
