@@ -851,7 +851,7 @@ function XuadHc(cmt, res, time) {
     if (startIndex < maxIndex && navigator.onLine) {
       startIndex += 10;
       setTimeout(submit, time ? time : 500);
-      if (startIndex === 1) {
+      if (startIndex === 11) {
         shwfter();
       }
     }
