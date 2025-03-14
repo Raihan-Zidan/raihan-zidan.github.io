@@ -797,7 +797,7 @@ function webresult(res) {
     }
     XuadHc("stop", res);
     if (pageone) {
-      shwfter();
+      
       jwbn();
       fetch(`https://datasearch.searchdata.workers.dev/suggest?q=${q}`)
         .then(response => response.json()).then(response => {
@@ -818,6 +818,13 @@ function noresult() {
   }
   document.querySelector(".main-result").innerHTML += `<div class="tab-result Nrltf eb8xCva"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
 }
+
+window.addEventListener("scroll", function () {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight && startIndex < 13) {
+      submit();
+      shwfter()
+    }
+});
 
 function shwfter() {
   document.querySelector(".QZjVU").insertAdjacentHTML('beforeend', `<section class="footer"><ul class="list"><li><a href="/settings">Settings</a></li><li><a href="/">Privacy</a></li><li><a href="/search?q=translate">Translate</a></li></ul><div class="copyright">©Copyright 2023</div></section>`);
