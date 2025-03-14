@@ -799,7 +799,7 @@ function webresult(res) {
     }
     XuadHc("stop", res);
     if (pageone) {
-      
+      shwfter();
       jwbn();
       fetch(`https://datasearch.searchdata.workers.dev/suggest?q=${q}`)
         .then(response => response.json()).then(response => {
@@ -821,14 +821,6 @@ function noresult() {
   document.querySelector(".main-result").innerHTML += `<div class="tab-result Nrltf eb8xCva"><div class="title-black">${langtext("noresult")}</div><div class="suggestion">${langtext("suggtext")}</div><div>${nosugtext}</div></div>`;
 }
 
-window.addEventListener("scroll", function () {
-    let nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
-    
-    if (nearBottom && startIndex === 1) {
-        XuadHc(null, null, 1800);
-        
-    }
-});
 
 function shwfter() {
   document.querySelector(".QZjVU").insertAdjacentHTML('beforeend', `<section class="footer"><ul class="list"><li><a href="/settings">Settings</a></li><li><a href="/">Privacy</a></li><li><a href="/search?q=translate">Translate</a></li></ul><div class="copyright">©Copyright 2023</div></section>`);
@@ -851,9 +843,8 @@ function XuadHc(cmt, res, time) {
     if (startIndex < maxIndex && navigator.onLine) {
       startIndex += 10;
       setTimeout(submit, time ? time : 500);
-      if (startIndex === 11) {
-        shwfter();
-      }
+
+      
     }
   } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0 || !res.queries?.nextPage) {
       document.querySelector(".show-wrapper")?.remove();
