@@ -821,8 +821,7 @@ function noresult() {
 
 window.addEventListener("scroll", function () {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight && startIndex === 1) {
-      submit();
-      shwfter()
+      XuadHc();
     }
 });
 
