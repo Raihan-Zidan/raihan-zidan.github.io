@@ -820,9 +820,11 @@ function noresult() {
 }
 
 window.addEventListener("scroll", function () {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight && startIndex === 1) {
-      XuadHc(null, null, 1000);
-      shwfter()
+    let nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
+    
+    if (nearBottom && startIndex === 1) {
+        XuadHc(null, null, 1500);
+        shwfter();
     }
 });
 
