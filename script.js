@@ -840,13 +840,13 @@ function share() {
   }
 }
 
-function XuadHc(cmt, res) {
+function XuadHc(cmt, res, time) {
   var maxIndex = 30;
   if (cmt != "stop" && startIndex < maxIndex) {
   document.querySelector(".show-wrapper").innerHTML = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/></svg></div>`;
     if (startIndex < maxIndex && navigator.onLine) {
       startIndex += 10;
-      setTimeout(submit, 500);
+      setTimeout(submit, time ? time : 500);
     }
   } else if (startIndex > maxIndex || res.searchInformation.totalResults == 0 || !res.queries?.nextPage) {
       document.querySelector(".show-wrapper")?.remove();
@@ -860,7 +860,7 @@ function XuadHc(cmt, res) {
 document.addEventListener('click', function(event) {
   var target = event.target;
   if (target.matches('.show-wrapper .more')) {
-    XuadHc();
+    XuadHc(null, null, 3000);
   }
 });
 
