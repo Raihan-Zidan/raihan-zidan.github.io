@@ -826,7 +826,7 @@ window.addEventListener("scroll", function () {
     
     if (nearBottom && startIndex === 1) {
         XuadHc(null, null, 1800);
-        shwfter();
+        
     }
 });
 
