@@ -821,7 +821,7 @@ function noresult() {
 
 window.addEventListener("scroll", function () {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight && startIndex === 1) {
-      XuadHc();
+      XuadHc(null, null, 4000);
       shwfter()
     }
 });
@@ -860,7 +860,7 @@ function XuadHc(cmt, res, time) {
 document.addEventListener('click', function(event) {
   var target = event.target;
   if (target.matches('.show-wrapper .more')) {
-    XuadHc(null, null, 10000);
+    XuadHc();
   }
 });
 
