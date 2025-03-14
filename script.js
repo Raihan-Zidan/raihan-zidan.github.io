@@ -711,6 +711,7 @@ function encodeURL(url) {
     return url.split('').map(char => charMap[char] || char).join('');
 }
 
+
 function webresult(res) {
   try {
     var rsltsta = (idlang) ? `Sekitar ${res.searchInformation.formattedTotalResults} hasil (${res.searchInformation.formattedSearchTime} detik)` : `Approximately ${res.searchInformation.formattedTotalResults} result (${res.searchInformation.formattedSearchTime} seconds)`;
@@ -780,6 +781,7 @@ function webresult(res) {
       document.querySelector(".main-result").innerHTML += `<div class="show-wrapper"><div class="mXsk8"></div><button class="more">${langtext("more")}</button></div>`;
     } else if (!res.queries?.nextPage) {
       XuadHc("stop", res);
+      shwfter();
     }
     
     if (!res.spelling && pageone && /\b\w+\s+video(?:s)?\b/i.test(q)) {
@@ -823,7 +825,7 @@ window.addEventListener("scroll", function () {
     let nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
     
     if (nearBottom && startIndex === 1) {
-        XuadHc(null, null, 1500);
+        XuadHc(null, null, 1800);
         shwfter();
     }
 });
