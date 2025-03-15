@@ -511,16 +511,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .show-wrapper .more {
   width: 100%;
   padding: 12px 0;
-  border: 1px solid #ccc;
   border-radius: 22px;
-  color: black;
   display: flex;
   cursor: pointer;
   user-select: none;
   justify-content: center;
-  position: relative;
-  background: white;
-  text-decoration: none;
+  background: #f2f3f5;
   -webkit-tap-highlight-color: transparent;
 }
 
