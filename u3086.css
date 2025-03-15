@@ -518,7 +518,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   border: none;
   justify-content: center;
-  background: #f2f3f5;
+  background: #fff;
   -webkit-tap-highlight-color: transparent;
 }
 
