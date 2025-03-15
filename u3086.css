@@ -512,12 +512,11 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
   padding: 12px 0;
   border-radius: 22px;
-  display: flex;
+  box-shadow: 0 0 0 1px rgba(235, 237, 239, 1);
   cursor: pointer;
   user-select: none;
   position: relative;
   border: none;
-  justify-content: center;
   background: #fff;
   -webkit-tap-highlight-color: transparent;
 }
@@ -555,7 +554,6 @@ div.shwrp .more {
   background: #f2f3f5;
   text-decoration: none;
   align-items: center;
-  box-shadow: 0 0 0 1px rgba(235, 237, 239, 1);
   justify-content: space-between;
   -webkit-tap-highlight-color: transparent;
 }
