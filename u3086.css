@@ -450,7 +450,6 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
   border: 1px solid #EDEDED;
   padding: 16px 16px 0;
-  margin: 6px 0;
   position: relative;
   background: white;
   font-family: 'Verio Sans',Roboto-Medium,sans-serif;
