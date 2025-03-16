@@ -510,7 +510,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .show-wrapper .more {
   width: 100%;
-  padding: 12px 0;
+  height: 44px;
   border-radius: 22px;
   box-shadow: 0 0 0 1px rgba(235, 237, 239, 1);
   cursor: pointer;
